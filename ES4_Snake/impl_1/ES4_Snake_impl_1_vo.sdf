@@ -1,0 +1,31 @@
+(DELAYFILE
+  (SDFVERSION "3.0")
+  (DESIGN "HELLOWORLD")
+  (DATE "Tue Nov 29 15:53:11 2022")
+  (VENDOR "Lattice")
+  (PROGRAM "backanno")
+  (VERSION "Radiant Software (64-bit) 3.2.1.217.3")
+  (DIVIDER /)
+  (VOLTAGE 1.26:1.20:1.14)
+  (PROCESS "default")
+  (TEMPERATURE -40:25:85)
+  (TIMESCALE 1ps)
+  (CELL
+    (CELLTYPE "a")
+    (INSTANCE a_I)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH PADDO a (1914:2001:2088)(1914:2001:2088))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "HELLOWORLD")
+    (INSTANCE )
+    (DELAY
+      (ABSOLUTE
+        (INTERCONNECT SLICE_0/F0 a_I/PADDO (3661:3826:3992)(3661:3826:3992))
+      )
+    )
+  )
+)
