@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity top is
+entity display is
 	port(
 		pll_in_clock : in std_logic; -- pin 20, shorted to the 12 MHz pin on the UPduino
 		pll_outcore_o : out std_logic; -- for testing purposes (pin 2)
@@ -12,9 +12,9 @@ entity top is
 		
 		rgb : out unsigned(5 downto 0) -- pin 28, 38, 42, 36, 43, and 34
 	);
-end top;
+end display;
 
-architecture synth of top is
+architecture synth of display is
 	component my_pll is
 		port(
 			ref_clk_i: in std_logic; -- input clock, set to pin 20 that is shorted to the 12 MHz pin on the UPduino

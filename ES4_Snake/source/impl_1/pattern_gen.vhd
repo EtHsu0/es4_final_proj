@@ -4,13 +4,10 @@ use IEEE.numeric_std.all;
 use IEEE.math_real.all;
 
 entity pattern_gen is
+    -- generic (
+        
+    -- );
 	port(
-		valid : in std_logic; -- when valid is 0, all RGB output must be low
-		
-		y_pos : in unsigned(9 downto 0); -- current y position (row) of the pixel that the VGA is drawing
-		x_pos : in unsigned(9 downto 0); -- current x position (column) of the pixel that the VGA is drawing
-		
-		
 		-- specific snake game variables
 		
 		-- rand_apple(8) = '1' if there is an apple, '0' if there is no apple
@@ -18,12 +15,20 @@ entity pattern_gen is
 		-- rand_apple(3 downto 0) gives the row_num {row 0, 1, 2, ..., 8, 9} in binary
 		rand_apple : in unsigned(8 downto 0);
 		
+        -- 0 - 99 bits, if they are 1, that mean that cell has snake.
+		snake: in unsigned(99 downto 0);
+        snake_head: in unsigned (7 downto 0);
+
+        -- VGA variables
+		valid : in std_logic; -- when valid is 0, all RGB output must be low
+		
+		y_pos : in unsigned(9 downto 0); -- current y position (row) of the pixel that the VGA is drawing
+		x_pos : in unsigned(9 downto 0); -- current x position (column) of the pixel that the VGA is drawing
 		
 		
-		
+
 		
 		rgb : out unsigned(5 downto 0)
-		
 
 	);
 end pattern_gen;
@@ -40,7 +45,7 @@ begin
 			-- Snake grid 
 			-- each cell is 44 pixels by 44 pixels
 			-- it goes from (x_pos, y_pos) of (100 px, 20 px) to (540 px, 460 px)
-			if ((((x_pos - 10d"100" )mod 10d"44" = 10d"0") or ((y_pos - 10d"20" )mod 10d"44" = 10d"0")) and x_pos > 10d"99" and x_pos < 10d"541" and y_pos > 10d"19" and y_pos < 10d"461") then
+			if ((((x_pos - 10d"100" )mod 10d"44" = 10d"0") or ((y_pos - 10d"20" ) mod 10d"44" = 10d"0")) and x_pos > 10d"99" and x_pos < 10d"541" and y_pos > 10d"19" and y_pos < 10d"461") then
 				rgb <= "001100";
 			else
 				rgb <= 6d"0";
