@@ -42,7 +42,7 @@ begin
     end process;
 
     NESclk <= count(7);
-
+w
     NEScount <= count(19 downto 8);
 
     latch <= '1' when NEScount = "11111111" else '0';
