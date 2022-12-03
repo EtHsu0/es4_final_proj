@@ -1,0 +1,111 @@
+(DELAYFILE
+  (SDFVERSION "3.0")
+  (DESIGN "top")
+  (DATE "Sat Dec  3 14:22:21 2022")
+  (VENDOR "Lattice")
+  (PROGRAM "backanno")
+  (VERSION "Radiant Software (64-bit) 3.0.0.24.1")
+  (DIVIDER /)
+  (VOLTAGE 1.26:1.20:1.14)
+  (PROCESS "default")
+  (TEMPERATURE -40:25:85)
+  (TIMESCALE 1ps)
+  (CELL
+    (CELLTYPE "pll_outcore_o")
+    (INSTANCE pll_outcore_o_I)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH PADDO pll_outcore_o (1914:2001:2088)(1914:2001:2088))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "HSYNC")
+    (INSTANCE HSYNC_I)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH PADDO HSYNC (1914:2001:2088)(1914:2001:2088))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "VSYNC")
+    (INSTANCE VSYNC_I)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH PADDO VSYNC (1914:2001:2088)(1914:2001:2088))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "rgb_5_")
+    (INSTANCE rgb\[5\]_I)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH PADDO rgb5 (1914:2001:2088)(1914:2001:2088))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "rgb_4_")
+    (INSTANCE rgb\[4\]_I)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH PADDO rgb4 (1914:2001:2088)(1914:2001:2088))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "rgb_3_")
+    (INSTANCE rgb\[3\]_I)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH PADDO rgb3 (1914:2001:2088)(1914:2001:2088))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "rgb_2_")
+    (INSTANCE rgb\[2\]_I)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH PADDO rgb2 (1914:2001:2088)(1914:2001:2088))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "rgb_1_")
+    (INSTANCE rgb\[1\]_I)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH PADDO rgb1 (1914:2001:2088)(1914:2001:2088))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "rgb_0_")
+    (INSTANCE rgb\[0\]_I)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH PADDO rgb0 (1914:2001:2088)(1914:2001:2088))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "top")
+    (INSTANCE )
+    (DELAY
+      (ABSOLUTE
+        (INTERCONNECT SLICE_0/F0 pll_outcore_o_I/PADDO (4895:4935:4975)(4895:4935:4975))
+        (INTERCONNECT SLICE_0/F0 HSYNC_I/PADDO (4895:4935:4975)(4895:4935:4975))
+        (INTERCONNECT SLICE_0/F0 VSYNC_I/PADDO (6335:6348:6362)(6335:6348:6362))
+        (INTERCONNECT SLICE_0/F0 rgb\[5\]_I/PADDO (4895:4935:4975)(4895:4935:4975))
+        (INTERCONNECT SLICE_0/F0 rgb\[4\]_I/PADDO (6335:6348:6362)(6335:6348:6362))
+        (INTERCONNECT SLICE_0/F0 rgb\[3\]_I/PADDO (4895:4935:4975)(4895:4935:4975))
+        (INTERCONNECT SLICE_0/F0 rgb\[2\]_I/PADDO (3694:3861:4028)(3694:3861:4028))
+        (INTERCONNECT SLICE_0/F0 rgb\[1\]_I/PADDO (6335:6348:6362)(6335:6348:6362))
+        (INTERCONNECT SLICE_0/F0 rgb\[0\]_I/PADDO (6335:6348:6362)(6335:6348:6362))
+      )
+    )
+  )
+)

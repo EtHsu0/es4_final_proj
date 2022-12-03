@@ -4,6 +4,8 @@ use IEEE.numeric_std.all;
 
 entity display is
 	port(
+		
+		
 		pll_in_clock : in std_logic; -- pin 20, shorted to the 12 MHz pin on the UPduino
 		pll_outcore_o : out std_logic; -- for testing purposes (pin 2)
 		

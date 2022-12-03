@@ -7,11 +7,11 @@ use STD.textio.all;
 entity NES is
     port(
         CLK: in std_logic; -- Added by Ethan to take clock input
-        data : in std_logic
+        data : in std_logic;
 
-        latch : out std_logic; -- Ethan Q: What is this used for?
+        latch: out std_logic; -- Ethan Q: What is this used for?
         continCLK : out std_logic; -- Ethan Q: What is this used for?
-        digital : out unsigned(7 downto 0);
+        digital : out unsigned(7 downto 0)
         --  test: out std_logic;
     );
 end NES;

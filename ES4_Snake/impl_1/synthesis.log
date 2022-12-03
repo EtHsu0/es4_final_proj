@@ -1,3 +1,15 @@
+synthesis:  version Radiant Software (64-bit) 3.0.0.24.1
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2021 Lattice Semiconductor Corporation,  All rights reserved.
+Sat Dec  3 14:22:09 2022
+
+
+Command Line:  C:\Program Files\lscc\radiant\3.0\ispfpga\bin\nt64\synthesis.exe -f es4finalproj_impl_1_lattice.synproj -gui -msgset C:/Users/ehsu05/Downloads/es4_final_proj-main/ES4_Snake/promote.xml 
+
 Synthesis options:
 The -a option is iCE40UP.
 The -t option is SG48.
@@ -26,7 +38,7 @@ The -p option is iCE40UP5K.
 
 INFO - synthesis: User-Selected Strategy Settings
 Optimization goal = Area
-Top-level module name = display.
+Top-level module name = top.
 Target frequency = 200.000000 MHz.
 Maximum fanout = 1000.
 Timing path count = 3
@@ -58,24 +70,24 @@ The -syn option is FALSE.
 -vh2008
 
 -path C:/Program Files/lscc/radiant/3.0/ispfpga/ice40tp/data (searchpath added)
--path C:/Users/ehsu05/Desktop/es4finalproj (searchpath added)
--path C:/Users/ehsu05/Desktop/es4finalproj/impl_1 (searchpath added)
+-path C:/Users/ehsu05/Downloads/es4_final_proj-main/ES4_Snake (searchpath added)
+-path C:/Users/ehsu05/Downloads/es4_final_proj-main/ES4_Snake/impl_1 (searchpath added)
 Mixed language design
 Verilog design file = C:/Program Files/lscc/radiant/3.0/ip/pmi/pmi_iCE40UP.v
 VHDL library = pmi
 VHDL design file = C:/Program Files/lscc/radiant/3.0/ip/pmi/pmi_iCE40UP.vhd
 VHDL library = work
-VHDL design file = C:/Users/ehsu05/Desktop/es4finalproj/source/impl_1/display.vhd
+VHDL design file = C:/Users/ehsu05/Downloads/es4_final_proj-main/ES4_Snake/source/impl_1/display.vhd
 VHDL library = work
-VHDL design file = C:/Users/ehsu05/Desktop/es4finalproj/source/impl_1/nes.vhd
+VHDL design file = C:/Users/ehsu05/Downloads/es4_final_proj-main/ES4_Snake/source/impl_1/nes.vhd
 VHDL library = work
-VHDL design file = C:/Users/ehsu05/Desktop/es4finalproj/source/impl_1/pattern_gen.vhd
+VHDL design file = C:/Users/ehsu05/Downloads/es4_final_proj-main/ES4_Snake/source/impl_1/pattern_gen.vhd
 VHDL library = work
-VHDL design file = C:/Users/ehsu05/Desktop/es4finalproj/source/impl_1/randomPos.vhd
+VHDL design file = C:/Users/ehsu05/Downloads/es4_final_proj-main/ES4_Snake/source/impl_1/randomPos.vhd
 VHDL library = work
-VHDL design file = C:/Users/ehsu05/Desktop/es4finalproj/source/impl_1/topModule.vhd
+VHDL design file = C:/Users/ehsu05/Downloads/es4_final_proj-main/ES4_Snake/source/impl_1/topModule.vhd
 VHDL library = work
-VHDL design file = C:/Users/ehsu05/Desktop/es4finalproj/source/impl_1/vga.vhd
+VHDL design file = C:/Users/ehsu05/Downloads/es4_final_proj-main/ES4_Snake/source/impl_1/vga.vhd
 The -r option is OFF. [ Remove LOC Properties is OFF. ]
 Compile design.
 Compile Design Begin
@@ -117,13 +129,120 @@ Analyzing VHDL file c:/program files/lscc/radiant/3.0/ip/pmi/pmi_ice40up.vhd. VH
 Analyzing VHDL file c:/program files/lscc/radiant/3.0/ip/pmi/pmi_ice40up.vhd
 
 INFO - synthesis: c:/program files/lscc/radiant/3.0/ip/pmi/pmi_ice40up.vhd(4): analyzing package components. VHDL-1014
-Analyzing VHDL file c:/users/ehsu05/desktop/es4finalproj/source/impl_1/display.vhd. VHDL-1481
-Analyzing VHDL file c:/users/ehsu05/desktop/es4finalproj/source/impl_1/display.vhd
+Analyzing VHDL file c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/display.vhd. VHDL-1481
+Analyzing VHDL file c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/display.vhd
 
-INFO - synthesis: c:/users/ehsu05/desktop/es4finalproj/source/impl_1/display.vhd(5): analyzing entity display. VHDL-1012
-INFO - synthesis: c:/users/ehsu05/desktop/es4finalproj/source/impl_1/display.vhd(17): analyzing architecture synth. VHDL-1010
-Analyzing VHDL file c:/users/ehsu05/desktop/es4finalproj/source/impl_1/nes.vhd. VHDL-1481
-Analyzing VHDL file c:/users/ehsu05/desktop/es4finalproj/source/impl_1/nes.vhd
+INFO - synthesis: c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/display.vhd(5): analyzing entity display. VHDL-1012
+INFO - synthesis: c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/display.vhd(17): analyzing architecture synth. VHDL-1010
+Analyzing VHDL file c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/nes.vhd. VHDL-1481
+Analyzing VHDL file c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/nes.vhd
 
-INFO - synthesis: c:/users/ehsu05/desktop/es4finalproj/source/impl_1/nes.vhd(7): analyzing entity nes. VHDL-1012
-ERROR - synthesis: c:/users/ehsu05/desktop/es4finalproj/source/impl_1/nes.vhd(12): latch is not declared. VHDL-1241
+INFO - synthesis: c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/nes.vhd(7): analyzing entity nes. VHDL-1012
+INFO - synthesis: c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/nes.vhd(20): analyzing architecture synth. VHDL-1010
+Analyzing VHDL file c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/pattern_gen.vhd. VHDL-1481
+Analyzing VHDL file c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/pattern_gen.vhd
+
+INFO - synthesis: c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/pattern_gen.vhd(6): analyzing entity pattern_gen. VHDL-1012
+INFO - synthesis: c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/pattern_gen.vhd(40): analyzing architecture synth. VHDL-1010
+Analyzing VHDL file c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/randompos.vhd. VHDL-1481
+Analyzing VHDL file c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/randompos.vhd
+
+INFO - synthesis: c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/randompos.vhd(8): analyzing entity randompos. VHDL-1012
+INFO - synthesis: c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/randompos.vhd(18): analyzing architecture synth. VHDL-1010
+INFO - synthesis: c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/randompos.vhd(29): input pin size_res has no actual or default value. VHDL-9000
+INFO - synthesis: C:/Program Files/lscc/radiant/3.0/ispfpga/vhdl_packages/vh2008/ieee/numeric_std_2008.vhd(1155): size_res is declared here. VHDL-1259
+WARNING - synthesis: c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/randompos.vhd(30): possible infinite loop process does not have a wait statement. VHDL-1196
+Analyzing VHDL file c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/topmodule.vhd. VHDL-1481
+Analyzing VHDL file c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/topmodule.vhd
+
+INFO - synthesis: c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/topmodule.vhd(5): analyzing entity top. VHDL-1012
+INFO - synthesis: c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/topmodule.vhd(19): analyzing architecture synth. VHDL-1010
+Analyzing VHDL file c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/vga.vhd. VHDL-1481
+Analyzing VHDL file c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/vga.vhd
+
+INFO - synthesis: c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/vga.vhd(5): analyzing entity vga. VHDL-1012
+INFO - synthesis: c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/vga.vhd(19): analyzing architecture synth. VHDL-1010
+INFO - synthesis: The default VHDL library search path is now "C:/Users/ehsu05/Downloads/es4_final_proj-main/ES4_Snake/impl_1". VHDL-1504
+Top module language type = VHDL.
+unit top is not yet analyzed. VHDL-1485
+Top module name (VHDL, mixed language): top
+                                                         
+
+
+### Number of Logic Cells: 5280
+
+
+### Number of RAM Blocks: 30
+
+
+### Number of DSP Blocks: 8
+
+
+### Number of PLLs: 1
+
+
+### Number of IO Pins: 56
+
+
+##########################################################
+
+
+                                                         
+
+
+WARNING - synthesis: c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/topmodule.vhd(57): Removing unused instance HSOSC_instance. VDB-5034
+WARNING - synthesis: I/O Port pll_in_clock 's net has no driver and is unused.
+WARNING - synthesis: I/O Port pll_outcore_o 's net has no driver and is unused.
+WARNING - synthesis: I/O Port HSYNC 's net has no driver and is unused.
+WARNING - synthesis: I/O Port VSYNC 's net has no driver and is unused.
+WARNING - synthesis: I/O Port rgb[5] 's net has no driver and is unused.
+WARNING - synthesis: I/O Port rgb[4] 's net has no driver and is unused.
+WARNING - synthesis: I/O Port rgb[3] 's net has no driver and is unused.
+WARNING - synthesis: I/O Port rgb[2] 's net has no driver and is unused.
+WARNING - synthesis: I/O Port rgb[1] 's net has no driver and is unused.
+WARNING - synthesis: I/O Port rgb[0] 's net has no driver and is unused.
+######## Missing driver on net pll_outcore_o. Patching with GND.
+######## Missing driver on net HSYNC. Patching with GND.
+######## Missing driver on net VSYNC. Patching with GND.
+######## Missing driver on net rgb[5]. Patching with GND.
+######## Missing driver on net rgb[4]. Patching with GND.
+######## Missing driver on net rgb[3]. Patching with GND.
+######## Missing driver on net rgb[2]. Patching with GND.
+######## Missing driver on net rgb[1]. Patching with GND.
+######## Missing driver on net rgb[0]. Patching with GND.
+
+
+
+WARNING - synthesis: I/O Port pll_in_clock 's net has no driver and is unused.
+
+################### Begin Area Report (top)######################
+Number of register bits => 0 of 5280 (0 % )
+OB => 9
+################### End Area Report ##################
+Number of odd-length carry chains : 0
+Number of even-length carry chains : 0
+
+################### Begin Clock Report ######################
+Clock Nets
+Number of Clocks: 0
+Clock Enable Nets
+Number of Clock Enables: 0
+Highest fanout non-clock nets
+Top 10 highest fanout non-clock nets:
+  Net : rgb[0], loads : 0
+  Net : rgb[1], loads : 0
+  Net : rgb[2], loads : 0
+  Net : rgb[3], loads : 0
+  Net : rgb[4], loads : 0
+  Net : rgb[5], loads : 0
+  Net : VSYNC, loads : 0
+  Net : HSYNC, loads : 0
+  Net : pll_outcore_o, loads : 0
+################### End Clock Report ##################
+
+Peak Memory Usage: 114 MB
+
+--------------------------------------------------------------
+Total CPU Time: 2 secs 
+Total REAL Time: 2 secs 
+--------------------------------------------------------------

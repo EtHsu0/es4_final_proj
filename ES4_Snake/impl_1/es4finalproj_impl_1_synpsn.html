@@ -1,6 +1,6 @@
 <HTML>
 <HEAD>
-<TITLE>Lattice TCL Log</TITLE>
+<TITLE></TITLE>
 <link href="file:///C:/Program Files/lscc/radiant/3.0/data/theme/css/light/report.css" rel="stylesheet" type="text/css" media="screen"/>
 <link href="file:///C:/Program Files/lscc/radiant/3.0/data/theme/css/print/report.css" rel="stylesheet" type="text/css" media="print"/>
 <style type="text/css">
@@ -40,33 +40,24 @@ if (a)
 <BODY>
 
 <DIV id="content" onclick="hideTocList()"><PRE>
-<A name="pn221203135311"></A><B><U><big>pn221203135311</big></U></B>
-#Start recording tcl command: 12/3/2022 13:49:41
-#Project Location: C:/Users/ehsu05/Desktop/es4finalproj; Project name: es4finalproj
-prj_create -name "es4finalproj" -impl "impl_1" -dev iCE40UP5K-SG48I -performance "High-Performance_1.2V" -synthesis "lse"
-prj_save 
-prj_add_source "C:/Users/ehsu05/Desktop/es4finalproj/source/impl_1/display.vhd"
-prj_add_source "C:/Users/ehsu05/Desktop/es4finalproj/source/impl_1/nes.vhd"
-prj_add_source "C:/Users/ehsu05/Desktop/es4finalproj/source/impl_1/pattern_gen.vhd"
-prj_add_source "C:/Users/ehsu05/Desktop/es4finalproj/source/impl_1/randomPos.vhd"
-prj_add_source "C:/Users/ehsu05/Desktop/es4finalproj/source/impl_1/topModule.vhd"
-prj_add_source "C:/Users/ehsu05/Desktop/es4finalproj/source/impl_1/vga.vhd"
-prj_set_strategy_value -strategy Strategy1 lse_vhdl2008=True
-prj_run Synthesis -impl impl_1
-prj_run Map -impl impl_1
-prj_run PAR -impl impl_1
-prj_run Export -impl impl_1
-#Stop recording: 12/3/2022 13:53:11
-
+POSTSYN: Post Synthesis Process Radiant Software (64-bit) 3.0.0.24.1
+Command Line: postsyn -a iCE40UP -p iCE40UP5K -t SG48 -sp High-Performance_1.2V -oc Industrial -top -w -o es4finalproj_impl_1_syn.udb -gui -msgset C:/Users/ehsu05/Downloads/es4_final_proj-main/ES4_Snake/promote.xml es4finalproj_impl_1.vm 
+   Architecture:     iCE40UP
+   Device:           iCE40UP5K
+   Package:          SG48
+   Performance:      High-Performance_1.2V
+Reading input file 'es4finalproj_impl_1.vm' ...
+Removing unused logic ...
+INFO - Instance i13 is optimized away.
+Starting design annotation....
+Writing output file 'es4finalproj_impl_1_syn.udb'.
+POSTSYN finished successfully.
+Total CPU Time: 0 secs 
+Total REAL Time: 0 secs 
+Peak Memory Usage: 27 MB
 
 
 </PRE></DIV>
-
-<DIV id="toc" class="radiant"><span onmousemove="showTocList()">Contents</span>
-<UL id="toc_list">
-<LI><A href=#pn221203135311>pn221203135311</A></LI>
-</UL>
-</DIV>
 
 <button id="back_to_top" class="radiant" onclick="scrollToTop()">&lt;</button>
 <script type="text/javascript">

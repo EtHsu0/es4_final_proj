@@ -16,14 +16,19 @@ entity randomPos is
 end randomPos;
 
 architecture synth of randomPos is
-signal seed1: positive := 1;
-signal seed2: positive := 2;
-signal gen: real;
-signal int: unsigned(7 downto 0);
-begin
-    process is begin
-        uniform(seed1, seed2, gen);
-        int := unsigned(floor(gen * bound));
 
-        end process;
+begin
+    process(CLK) is
+		variable seed1: positive;
+		variable seed2: positive;
+		variable gen: real;
+		variable int: integer;
+	begin
+		if rising_edge(clk) then
+			if rising_edge(enable) then -- NEEDWORKS: Ethan: I want a logic where we only generate one apple whenever we have a new enable signal.
+			    uniform(seed1, seed2, gen);
+				int := integer(floor(gen * 99.0));
+		end if;
+	end process;
+	out_coord <= to_unsigned(int);
 end;

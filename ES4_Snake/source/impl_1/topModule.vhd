@@ -5,8 +5,16 @@ use IEEE.numeric_std.all;
 entity top is 
     port(
         -- NES controllers input
+		data: in std_logic;
+		
         -- VGA display output
-        
+		pll_in_clock : in std_logic; -- pin 20, shorted to the 12 MHz pin on the UPduino
+		pll_outcore_o : out std_logic; -- for testing purposes (pin 2)
+		
+		HSYNC : out std_logic; -- pin 23
+		VSYNC : out std_logic; -- pin 25
+		
+		rgb : out unsigned(5 downto 0) -- pin 28, 38, 42, 36, 43, and 34
     );
 end top;
 
@@ -23,11 +31,11 @@ end component;
 component NES is
     port (
         CLK: in std_logic; -- Added by Ethan to take clock input
-        data : in std_logic
+        data : in std_logic;
 
         latch : out std_logic;
         continCLK : out std_logic;
-        digital : out unsigned(7 downto 0);
+        digital : out unsigned(7 downto 0)
     );
 end component;
 
@@ -46,11 +54,20 @@ end component;
     -- For example after start, we have ongoing, game over, etc.
 
 signal CLK: std_logic;
+signal latch: out std_logic;
+signal continCLK: out std_logic;
+signal digital: out unsigned(7 downto 0);
 
 begin
     HSOSC_instance : HSOSC port map
                             (CLKHFPU => '1', CLKHFEN => '1', CLKHF => CLK);
     
+	NES_instance: NES port map (CLK, data, latch, continCLK, digital);
+	
+	display_instance: display port map ();
+	
+	
+	
 
 --     a <= '1';
 end;

@@ -1,0 +1,170 @@
+
+// Verilog netlist produced by program backanno, Version Radiant Software (64-bit) 3.0.0.24.1
+
+// backanno -o es4finalproj_impl_1_vo.vo -sp High-Performance_1.2V -w -neg -gui es4finalproj_impl_1.udb 
+// Netlist created on Sat Dec  3 14:22:19 2022
+// Netlist written on Sat Dec  3 14:22:21 2022
+// Design is for device iCE40UP5K
+// Design is for package SG48
+// Design is for performance grade High-Performance_1.2V
+
+`timescale 1 ns / 1 ps
+
+module top ( pll_outcore_o, HSYNC, VSYNC, rgb, pll_in_clock );
+  input  pll_in_clock;
+  output pll_outcore_o, HSYNC, VSYNC;
+  output [5:0] rgb;
+  wire   GND_net;
+
+  SLICE_0 SLICE_0( .F0(GND_net));
+  pll_outcore_o pll_outcore_o_I( .PADDO(GND_net), 
+    .pll_outcore_o(pll_outcore_o));
+  HSYNC HSYNC_I( .PADDO(GND_net), .HSYNC(HSYNC));
+  VSYNC VSYNC_I( .PADDO(GND_net), .VSYNC(VSYNC));
+  rgb_5_ \rgb[5]_I ( .PADDO(GND_net), .rgb5(rgb[5]));
+  rgb_4_ \rgb[4]_I ( .PADDO(GND_net), .rgb4(rgb[4]));
+  rgb_3_ \rgb[3]_I ( .PADDO(GND_net), .rgb3(rgb[3]));
+  rgb_2_ \rgb[2]_I ( .PADDO(GND_net), .rgb2(rgb[2]));
+  rgb_1_ \rgb[1]_I ( .PADDO(GND_net), .rgb1(rgb[1]));
+  rgb_0_ \rgb[0]_I ( .PADDO(GND_net), .rgb0(rgb[0]));
+endmodule
+
+module SLICE_0 ( output F0 );
+  wire   GNDI;
+
+  lut4 i5( .A(GNDI), .B(GNDI), .C(GNDI), .D(GNDI), .Z(F0));
+  gnd DRIVEGND( .PWR0(GNDI));
+
+  specify
+  endspecify
+
+endmodule
+
+module lut4 ( input A, B, C, D, output Z );
+
+  LUT4 #("0x0000") INST10( .A(A), .B(B), .C(C), .D(D), .Z(Z));
+endmodule
+
+module gnd ( output PWR0 );
+
+  VLO INST1( .Z(PWR0));
+endmodule
+
+module pll_outcore_o ( input PADDO, output pll_outcore_o );
+  wire   VCCI;
+
+  BB_B_B \pll_outcore_o_pad.bb_inst ( .T_N(VCCI), .I(PADDO), .O(), 
+    .B(pll_outcore_o));
+  vcc DRIVEVCC( .PWR1(VCCI));
+
+  specify
+    (PADDO => pll_outcore_o) = (0:0:0,0:0:0);
+  endspecify
+
+endmodule
+
+module BB_B_B ( input T_N, I, output O, inout B );
+
+  BB_B INST10( .T_N(T_N), .I(I), .O(O), .B(B));
+endmodule
+
+module vcc ( output PWR1 );
+
+  VHI INST1( .Z(PWR1));
+endmodule
+
+module HSYNC ( input PADDO, output HSYNC );
+  wire   VCCI;
+
+  BB_B_B \HSYNC_pad.bb_inst ( .T_N(VCCI), .I(PADDO), .O(), .B(HSYNC));
+  vcc DRIVEVCC( .PWR1(VCCI));
+
+  specify
+    (PADDO => HSYNC) = (0:0:0,0:0:0);
+  endspecify
+
+endmodule
+
+module VSYNC ( input PADDO, output VSYNC );
+  wire   VCCI;
+
+  BB_B_B \VSYNC_pad.bb_inst ( .T_N(VCCI), .I(PADDO), .O(), .B(VSYNC));
+  vcc DRIVEVCC( .PWR1(VCCI));
+
+  specify
+    (PADDO => VSYNC) = (0:0:0,0:0:0);
+  endspecify
+
+endmodule
+
+module rgb_5_ ( input PADDO, output rgb5 );
+  wire   VCCI;
+
+  BB_B_B \rgb_pad[5].bb_inst ( .T_N(VCCI), .I(PADDO), .O(), .B(rgb5));
+  vcc DRIVEVCC( .PWR1(VCCI));
+
+  specify
+    (PADDO => rgb5) = (0:0:0,0:0:0);
+  endspecify
+
+endmodule
+
+module rgb_4_ ( input PADDO, output rgb4 );
+  wire   VCCI;
+
+  BB_B_B \rgb_pad[4].bb_inst ( .T_N(VCCI), .I(PADDO), .O(), .B(rgb4));
+  vcc DRIVEVCC( .PWR1(VCCI));
+
+  specify
+    (PADDO => rgb4) = (0:0:0,0:0:0);
+  endspecify
+
+endmodule
+
+module rgb_3_ ( input PADDO, output rgb3 );
+  wire   VCCI;
+
+  BB_B_B \rgb_pad[3].bb_inst ( .T_N(VCCI), .I(PADDO), .O(), .B(rgb3));
+  vcc DRIVEVCC( .PWR1(VCCI));
+
+  specify
+    (PADDO => rgb3) = (0:0:0,0:0:0);
+  endspecify
+
+endmodule
+
+module rgb_2_ ( input PADDO, output rgb2 );
+  wire   VCCI;
+
+  BB_B_B \rgb_pad[2].bb_inst ( .T_N(VCCI), .I(PADDO), .O(), .B(rgb2));
+  vcc DRIVEVCC( .PWR1(VCCI));
+
+  specify
+    (PADDO => rgb2) = (0:0:0,0:0:0);
+  endspecify
+
+endmodule
+
+module rgb_1_ ( input PADDO, output rgb1 );
+  wire   VCCI;
+
+  BB_B_B \rgb_pad[1].bb_inst ( .T_N(VCCI), .I(PADDO), .O(), .B(rgb1));
+  vcc DRIVEVCC( .PWR1(VCCI));
+
+  specify
+    (PADDO => rgb1) = (0:0:0,0:0:0);
+  endspecify
+
+endmodule
+
+module rgb_0_ ( input PADDO, output rgb0 );
+  wire   VCCI;
+
+  BB_B_B \rgb_pad[0].bb_inst ( .T_N(VCCI), .I(PADDO), .O(), .B(rgb0));
+  vcc DRIVEVCC( .PWR1(VCCI));
+
+  specify
+    (PADDO => rgb0) = (0:0:0,0:0:0);
+  endspecify
+
+endmodule
