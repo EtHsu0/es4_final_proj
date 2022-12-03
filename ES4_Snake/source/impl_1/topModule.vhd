@@ -6,7 +6,7 @@ entity top is
     port(
         -- NES controllers input
         -- VGA display output
-        -- Gabe sucks
+        
     );
 end top;
 
