@@ -9,7 +9,7 @@ port(
         latch : out std_logic;
         continCLK : out std_logic;
         digital : out unsigned(7 downto 0);
-		 test: out std_logic;
+        --  test: out std_logic;
         data : in std_logic
 );
 end NES;

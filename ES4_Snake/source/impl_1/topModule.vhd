@@ -15,6 +15,8 @@ architecture synth of top is
 -- Components for Snake
 -- Components for menu selection?
 -- Components for setting options
+-- Components for random apples generation 
+        -- (Maybe component will be called in another component)
         -- Return different combinations of settings.
         -- Bitpacking information into 
 -- State we have? Initial state (Menu selection)
