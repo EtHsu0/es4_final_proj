@@ -5,25 +5,24 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 use IEEE.std_logic_arith.all;
 
-entity randomApple is
+entity randomPos is
         port (
                 enable: in std_logic;
                 clk: in std_logic;
-                x_coord: out std_logic_vector;
-                y_coord: out std_logic_vector;
+                coord: in unsigned(7 downto 0);
+                bound: in unsigned(10 downto 0);
         );
-end randomApple;
+end randomPos;
 
 architecture synth of top is
 signal seed1: positive := 1;
 signal seed2: positive := 2;
-signal x_gen: real;
-signal y_gen: real;
-
+signal gen: real;
+signal int: integer;
 begin
-        process is begin
-                uniform(seed1, seed2, x_gen);
-                uniform(seed1, seed2, y_gen);
-                
+    process is begin
+        uniform(seed1, seed2, gen);
+        int := integer(floor(gen * bound));
+        
         end process;
 end;

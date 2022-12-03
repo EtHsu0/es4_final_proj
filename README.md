@@ -28,7 +28,7 @@ Display:
     - Concat board and menu together and handle paddings, to produce an output
         for VGA module.
 
-Menu:
+Menu: (Optional)
     - Before the game start, provide list and instructions.
     - The output of this menu will need to satisfy the followings
         - Enough information for Display module to populate the display.

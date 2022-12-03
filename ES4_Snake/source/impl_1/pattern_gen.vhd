@@ -19,6 +19,10 @@ entity pattern_gen is
 		snake: in unsigned(99 downto 0);
         snake_head: in unsigned (7 downto 0);
 
+        scores: in unsigned(7 downto 0);
+
+        game_over: in std_logic;
+
         -- VGA variables
 		valid : in std_logic; -- when valid is 0, all RGB output must be low
 		
