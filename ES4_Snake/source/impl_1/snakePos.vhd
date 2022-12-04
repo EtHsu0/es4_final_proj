@@ -28,9 +28,13 @@ signal snake_dir: std_logic_vector(2 downto 0);
 signal snake_head: std_logic_vector(7 downto 0);
 signal snake_tail: std_logic_vector(7 downto 0);
 
-signal pos_dir_left: unsigned(8 downto 0);
-signal pos_dir_right: unsigned(8 downto 0);
-signal snake_pos_dir: std_logic_vector(199 downto 0) := 199d"0";
+TYPE DirType is (UP, DOWN, LEFT, RIGHT);
+TYPE DirArray is ARRAY (0 to 99) of DirType;
+
+signal pos_dir_left: unsigned(8 downto 0) := 0;
+signal pos_dir_right: unsigned(8 downto 0) := 3;
+-- From left to right, direction from head to tails
+signal snake_array: DirArray := (0 => RIGHT, 1 => RIGHT, 2 => RIGHT), (others => 0);
 begin
     process(snakeCLK) is
     begin
@@ -45,9 +49,9 @@ begin
 
         end if;
     end process;
-	-- Update the snake head position, use that information to check collision with apple
-		-- If collieded with apple, set a state and generate anoother apple.
-	-- snakePos -> Get updated snake position based on the new head position
-	-- Check collision with body / wall based on the new snake position
+
+    process is begin
+
+    end process;
 	
 end;
