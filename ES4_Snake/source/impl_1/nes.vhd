@@ -1,7 +1,6 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-use STD.textio.all;
 
 
 entity NES is
@@ -31,7 +30,7 @@ signal output : unsigned(7 downto 0);
 begin
     process (CLK) begin
         if rising_edge (CLK) then
-            count <= count + '1';
+            count <= count + 1;
         end if;
     end process;
 
