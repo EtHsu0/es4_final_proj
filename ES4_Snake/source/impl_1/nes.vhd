@@ -9,9 +9,9 @@ entity NES is
         CLK: in std_logic; -- Added by Ethan to take clock input
         data : in std_logic;
 
-        latch: out std_logic; -- Ethan Q: What is this used for?
-        continCLK : out std_logic; -- Ethan Q: What is this used for?
-        digital : out unsigned(7 downto 0)
+        latch: out std_logic; -- Ethan Q: What is this used for? Sensing NES input, restarts the local NES clk cycle
+        continCLK : out std_logic; -- Ethan Q: What is this used for? Signal to send NES clk to the NES controller
+        digital : out unsigned(7 downto 0) -- Gabriel Q: Output preference? How would you like the output encoded?
         --  test: out std_logic;
     );
 end NES;
@@ -37,7 +37,7 @@ begin
 
     process (NESCLK) begin
         if rising_edge (NESclk) and (NEScount < "000010000") then
-                output <= output(6 downto 0) & data; -- Ethan Q: How are you comparing 7 bits with 1 bit?
+                output <= output(6 downto 0) & data; -- Ethan Q: How are you comparing 7 bits with 1 bit? This is a shift register
         end if;
     end process;
 
@@ -49,6 +49,7 @@ begin
 
     continCLK <= NESCLK when NEScount < "00001000" else '0';
 
-    digital <= output when NEScount = "00000111"; -- Ethan: Else? what would the digital value be when NEScount != 7?
+    digital <= output when NEScount = "00000111"; -- Ethan: Else? what would the digital value be when NEScount != 7? 
+	--Only update digital when NEScount = 7, could add a else digital if you want
 
 end;
