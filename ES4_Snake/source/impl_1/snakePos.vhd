@@ -7,7 +7,7 @@ use IEEE.numeric_std.all;
 
 entity snakePos is
     port (
-        clk: in std_logic;
+        snakeCLK: in std_logic;
 
         -- Whether to continue the game
         enable: in std_logic;
@@ -18,29 +18,20 @@ entity snakePos is
         -- 10 = left
         -- 11 = right
         snake_head_coord: out std_logic_vector(7 downto 0);
-        snake_pos: out std_logic_vector(99 downto 0);
+        snake_pos: out std_logic_vector(99 downto 0)
     );
 end snakePos;
 
 architecture synth of snakePos is
 
-signal counter: unsigned(29 downto 0) := 29d"0";
-signal snakeCLK: std_logic
-
 signal snake_dir: std_logic_vector(2 downto 0);
 signal snake_head: std_logic_vector(7 downto 0);
 signal snake_tail: std_logic_vector(7 downto 0);
-signal snake_pos_grid: std_logic_vector(99 downto 0);
+
+signal pos_dir_left: unsigned(8 downto 0);
+signal pos_dir_right: unsigned(8 downto 0);
+signal snake_pos_dir: std_logic_vector(199 downto 0) := 199d"0";
 begin
-    process (clk) is
-    begin
-        if rising_edge(clk) then
-            counter <= counter + '1';
-        end if;
-    end process;
-
-    snakeClk <= counter(29);
-
     process(snakeCLK) is
     begin
         if rising_edge(snakeCLK) then

@@ -54,9 +54,9 @@ end component;
     -- For example after start, we have ongoing, game over, etc.
 
 signal CLK: std_logic;
-signal latch: out std_logic;
-signal continCLK: out std_logic;
-signal digital: out unsigned(7 downto 0);
+signal latch: std_logic;
+signal continCLK: std_logic;
+signal digital: unsigned(7 downto 0);
 
 begin
     HSOSC_instance : HSOSC port map
@@ -64,7 +64,7 @@ begin
     
 	NES_instance: NES port map (CLK, data, latch, continCLK, digital);
 	
-	display_instance: display port map ();
+	-- display_instance: display port map ();
 	
 	
 	
