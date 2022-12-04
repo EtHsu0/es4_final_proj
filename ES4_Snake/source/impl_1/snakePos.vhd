@@ -8,11 +8,9 @@ use IEEE.numeric_std.all;
 entity snakePos is
     port (
         snakeCLK: in std_logic;
-
-        -- Whether to continue the game
-        enable: in std_logic;
+        reset: in std_logic;
         -- Direction should be 0-3 (Up, Down, Left, Right)
-        dir: in std_logic_vector(2 downto 0);
+        dir: in DirTYpe;
         -- 00 = up
         -- 01 = down
         -- 10 = left

@@ -8,7 +8,7 @@ use IEEE.numeric_std.all;
 entity board is
         port (
             clk: in std_logic;
-            data: in std_logic_vector(7 downto 0);
+            digital: in std_logic_vector(7 downto 0);
             -- Return the cell ID (0-99)
             apple_id: out unsigned(7 downto 0);
             -- Return whether snake is in each cell (0-99)
@@ -17,22 +17,36 @@ entity board is
 end board;
 
 architecture synth of board is
-component randomPos is
-    port (
-        enable: in std_logic;
-        clk: in std_logic;
-        coord: in unsigned(7 downto 0);
-        bound: in unsigned(10 downto 0);
-        out_coord: out unsigned(7 downto 0)
-    );
-end component;
+    component randomPos is
+        port (
+            enable: in std_logic;
+            clk: in std_logic;
+            coord: in unsigned(7 downto 0);
+            bound: in unsigned(10 downto 0);
+            out_coord: out unsigned(7 downto 0)
+        );
+    end component;
 
-signal apple: unsigned (7 downto 9) := ;
-signal snakePosition: unsigned(99 downto 0) := (40 => '1', 41 => '1', 42 => '1'),
-                                                (others => '0);
-
-begin
     
+    component snakePos is
+        port (
+            snakeCLK: in std_logic;
+            reset: in std_logic;
+            -- Direction should be (Up, Down, Left, Right)
+            dir: in DirTYpe;
+            snake_head_coord: out std_logic_vector(7 downto 0);
+            snake_pos: out std_logic_vector(99 downto 0)
+        );
+    end component; 
+    signal apple: unsigned (7 downto 0) := 8d"";
+    signal snakePosition: unsigned(99 downto 0) := (40 => '1', 41 => '1', 42 => '1'),
+                                                (others => '0);
+    signal counter: unsigned (29 downto 0) := 30d"0";
+
+    TYPE DirType is (UP, DOWN, LEFT, RIGHT);
+    signal direction: DirType := RIGHT;
+begin
+
     -- Update the snake head position, use that information to check collision with apple
         -- If collieded with apple, set a state and generate anoother apple.
     -- snakePos -> Get updated snake position based on the new head position

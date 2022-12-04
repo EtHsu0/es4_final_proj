@@ -18,7 +18,6 @@ entity top is
         rgb : out unsigned(5 downto 0) -- pin 28, 38, 42, 36, 43, and 34
 
         pll_outcore_o : out std_logic; -- for testing purposes (pin 2)
-
     );
 end top;
 
@@ -43,6 +42,8 @@ architecture synth of top is
         );
     end component;
 
+
+    
 -- Components for Snake
 -- Components for menu selection?
 -- Components for setting options
