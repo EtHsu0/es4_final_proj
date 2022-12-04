@@ -1,24 +1,156 @@
 
-// Verilog netlist produced by program backanno, Version Radiant Software (64-bit) 3.0.0.24.1
+// Verilog netlist produced by program backanno, Version Radiant Software (64-bit) 3.2.1.217.3
 
 // backanno -o es4finalproj_impl_1_vo.vo -sp High-Performance_1.2V -w -neg -gui es4finalproj_impl_1.udb 
-// Netlist created on Sat Dec  3 14:22:19 2022
-// Netlist written on Sat Dec  3 14:22:21 2022
+// Netlist created on Sun Dec  4 17:50:44 2022
+// Netlist written on Sun Dec  4 17:50:49 2022
 // Design is for device iCE40UP5K
 // Design is for package SG48
 // Design is for performance grade High-Performance_1.2V
 
 `timescale 1 ns / 1 ps
 
-module top ( pll_outcore_o, HSYNC, VSYNC, rgb, pll_in_clock );
-  input  pll_in_clock;
-  output pll_outcore_o, HSYNC, VSYNC;
+module top ( continCLK, latch, HSYNC, VSYNC, rgb, pll_outcore_o, data, 
+             pll_in_clock );
+  input  data, pll_in_clock;
+  output continCLK, latch, HSYNC, VSYNC;
   output [5:0] rgb;
-  wire   GND_net;
+  output pll_outcore_o;
+  wire   \NES_instance.n85[16] , \NES_instance.n85[15] , \NES_instance.n536 , 
+         \NES_instance.NEScount[8] , \NES_instance.n212 , 
+         \NES_instance.NEScount[7] , CLK, \NES_instance.n214 , 
+         \NES_instance.n85[6] , \NES_instance.n85[5] , \NES_instance.n521 , 
+         \NES_instance.n14 , \NES_instance.n202 , \NES_instance.n15 , 
+         \NES_instance.n204 , \NES_instance.n85[4] , \NES_instance.n85[3] , 
+         \NES_instance.n518 , \NES_instance.n16_adj_37 , \NES_instance.n200 , 
+         \NES_instance.n17_adj_36 , \NES_instance.n85[14] , 
+         \NES_instance.n85[13] , \NES_instance.n533 , 
+         \NES_instance.NEScount[6] , \NES_instance.n210 , 
+         \NES_instance.NEScount[5] , \NES_instance.n85[12] , 
+         \NES_instance.n85[11] , \NES_instance.n530 , 
+         \NES_instance.NEScount[4] , \NES_instance.n208 , 
+         \NES_instance.NEScount[3] , \NES_instance.n85[2] , 
+         \NES_instance.n85[1] , \NES_instance.n515 , \NES_instance.n18 , 
+         \NES_instance.n198 , \NES_instance.n19 , \NES_instance.n85[0] , 
+         \NES_instance.n512 , \NES_instance.n20 , VCC_net, 
+         \NES_instance.n85[10] , \NES_instance.n85[9] , \NES_instance.n527 , 
+         \NES_instance.NEScount[2] , \NES_instance.n206 , 
+         \NES_instance.NEScount[1] , \NES_instance.n85[8] , 
+         \NES_instance.n85[7] , \NES_instance.n524 , 
+         \NES_instance.NEScount[0] , \NES_instance.NESclk , 
+         \NES_instance.n85[19] , \NES_instance.n542 , \NES_instance.n216 , 
+         \NES_instance.NEScount[11] , \NES_instance.n85[18] , 
+         \NES_instance.n85[17] , \NES_instance.n539 , 
+         \NES_instance.NEScount[10] , \NES_instance.NEScount[9] , 
+         \NES_instance.n287 , \NES_instance.n16 , \NES_instance.n17 , latch_c, 
+         \NES_instance.n336 , \NES_instance.n340 , GND_net, continCLK_c;
 
-  SLICE_0 SLICE_0( .F0(GND_net));
-  pll_outcore_o pll_outcore_o_I( .PADDO(GND_net), 
-    .pll_outcore_o(pll_outcore_o));
+  NES_instance_SLICE_0 \NES_instance.SLICE_0 ( .DI1(\NES_instance.n85[16] ), 
+    .DI0(\NES_instance.n85[15] ), .D1(\NES_instance.n536 ), 
+    .C1(\NES_instance.NEScount[8] ), .D0(\NES_instance.n212 ), 
+    .C0(\NES_instance.NEScount[7] ), .CLK(CLK), .CIN0(\NES_instance.n212 ), 
+    .CIN1(\NES_instance.n536 ), .Q0(\NES_instance.NEScount[7] ), 
+    .Q1(\NES_instance.NEScount[8] ), .F0(\NES_instance.n85[15] ), 
+    .F1(\NES_instance.n85[16] ), .COUT1(\NES_instance.n214 ), 
+    .COUT0(\NES_instance.n536 ));
+  NES_instance_SLICE_1 \NES_instance.SLICE_1 ( .DI1(\NES_instance.n85[6] ), 
+    .DI0(\NES_instance.n85[5] ), .D1(\NES_instance.n521 ), 
+    .C1(\NES_instance.n14 ), .D0(\NES_instance.n202 ), .C0(\NES_instance.n15 ), 
+    .CLK(CLK), .CIN0(\NES_instance.n202 ), .CIN1(\NES_instance.n521 ), 
+    .Q0(\NES_instance.n15 ), .Q1(\NES_instance.n14 ), 
+    .F0(\NES_instance.n85[5] ), .F1(\NES_instance.n85[6] ), 
+    .COUT1(\NES_instance.n204 ), .COUT0(\NES_instance.n521 ));
+  NES_instance_SLICE_2 \NES_instance.SLICE_2 ( .DI1(\NES_instance.n85[4] ), 
+    .DI0(\NES_instance.n85[3] ), .D1(\NES_instance.n518 ), 
+    .C1(\NES_instance.n16_adj_37 ), .D0(\NES_instance.n200 ), 
+    .C0(\NES_instance.n17_adj_36 ), .CLK(CLK), .CIN0(\NES_instance.n200 ), 
+    .CIN1(\NES_instance.n518 ), .Q0(\NES_instance.n17_adj_36 ), 
+    .Q1(\NES_instance.n16_adj_37 ), .F0(\NES_instance.n85[3] ), 
+    .F1(\NES_instance.n85[4] ), .COUT1(\NES_instance.n202 ), 
+    .COUT0(\NES_instance.n518 ));
+  NES_instance_SLICE_3 \NES_instance.SLICE_3 ( .DI1(\NES_instance.n85[14] ), 
+    .DI0(\NES_instance.n85[13] ), .D1(\NES_instance.n533 ), 
+    .C1(\NES_instance.NEScount[6] ), .D0(\NES_instance.n210 ), 
+    .C0(\NES_instance.NEScount[5] ), .CLK(CLK), .CIN0(\NES_instance.n210 ), 
+    .CIN1(\NES_instance.n533 ), .Q0(\NES_instance.NEScount[5] ), 
+    .Q1(\NES_instance.NEScount[6] ), .F0(\NES_instance.n85[13] ), 
+    .F1(\NES_instance.n85[14] ), .COUT1(\NES_instance.n212 ), 
+    .COUT0(\NES_instance.n533 ));
+  NES_instance_SLICE_4 \NES_instance.SLICE_4 ( .DI1(\NES_instance.n85[12] ), 
+    .DI0(\NES_instance.n85[11] ), .D1(\NES_instance.n530 ), 
+    .C1(\NES_instance.NEScount[4] ), .D0(\NES_instance.n208 ), 
+    .C0(\NES_instance.NEScount[3] ), .CLK(CLK), .CIN0(\NES_instance.n208 ), 
+    .CIN1(\NES_instance.n530 ), .Q0(\NES_instance.NEScount[3] ), 
+    .Q1(\NES_instance.NEScount[4] ), .F0(\NES_instance.n85[11] ), 
+    .F1(\NES_instance.n85[12] ), .COUT1(\NES_instance.n210 ), 
+    .COUT0(\NES_instance.n530 ));
+  NES_instance_SLICE_5 \NES_instance.SLICE_5 ( .DI1(\NES_instance.n85[2] ), 
+    .DI0(\NES_instance.n85[1] ), .D1(\NES_instance.n515 ), 
+    .C1(\NES_instance.n18 ), .D0(\NES_instance.n198 ), .C0(\NES_instance.n19 ), 
+    .CLK(CLK), .CIN0(\NES_instance.n198 ), .CIN1(\NES_instance.n515 ), 
+    .Q0(\NES_instance.n19 ), .Q1(\NES_instance.n18 ), 
+    .F0(\NES_instance.n85[1] ), .F1(\NES_instance.n85[2] ), 
+    .COUT1(\NES_instance.n200 ), .COUT0(\NES_instance.n515 ));
+  NES_instance_SLICE_6 \NES_instance.SLICE_6 ( .DI1(\NES_instance.n85[0] ), 
+    .D1(\NES_instance.n512 ), .C1(\NES_instance.n20 ), .B1(VCC_net), .CLK(CLK), 
+    .CIN1(\NES_instance.n512 ), .Q1(\NES_instance.n20 ), 
+    .F1(\NES_instance.n85[0] ), .COUT1(\NES_instance.n198 ), 
+    .COUT0(\NES_instance.n512 ));
+  NES_instance_SLICE_7 \NES_instance.SLICE_7 ( .DI1(\NES_instance.n85[10] ), 
+    .DI0(\NES_instance.n85[9] ), .D1(\NES_instance.n527 ), 
+    .C1(\NES_instance.NEScount[2] ), .D0(\NES_instance.n206 ), 
+    .C0(\NES_instance.NEScount[1] ), .CLK(CLK), .CIN0(\NES_instance.n206 ), 
+    .CIN1(\NES_instance.n527 ), .Q0(\NES_instance.NEScount[1] ), 
+    .Q1(\NES_instance.NEScount[2] ), .F0(\NES_instance.n85[9] ), 
+    .F1(\NES_instance.n85[10] ), .COUT1(\NES_instance.n208 ), 
+    .COUT0(\NES_instance.n527 ));
+  NES_instance_SLICE_8 \NES_instance.SLICE_8 ( .DI1(\NES_instance.n85[8] ), 
+    .DI0(\NES_instance.n85[7] ), .D1(\NES_instance.n524 ), 
+    .C1(\NES_instance.NEScount[0] ), .D0(\NES_instance.n204 ), 
+    .C0(\NES_instance.NESclk ), .CLK(CLK), .CIN0(\NES_instance.n204 ), 
+    .CIN1(\NES_instance.n524 ), .Q0(\NES_instance.NESclk ), 
+    .Q1(\NES_instance.NEScount[0] ), .F0(\NES_instance.n85[7] ), 
+    .F1(\NES_instance.n85[8] ), .COUT1(\NES_instance.n206 ), 
+    .COUT0(\NES_instance.n524 ));
+  NES_instance_SLICE_9 \NES_instance.SLICE_9 ( .DI0(\NES_instance.n85[19] ), 
+    .D1(\NES_instance.n542 ), .D0(\NES_instance.n216 ), 
+    .C0(\NES_instance.NEScount[11] ), .CLK(CLK), .CIN0(\NES_instance.n216 ), 
+    .CIN1(\NES_instance.n542 ), .Q0(\NES_instance.NEScount[11] ), 
+    .F0(\NES_instance.n85[19] ), .COUT0(\NES_instance.n542 ));
+  NES_instance_SLICE_10 \NES_instance.SLICE_10 ( .DI1(\NES_instance.n85[18] ), 
+    .DI0(\NES_instance.n85[17] ), .D1(\NES_instance.n539 ), 
+    .C1(\NES_instance.NEScount[10] ), .D0(\NES_instance.n214 ), 
+    .C0(\NES_instance.NEScount[9] ), .CLK(CLK), .CIN0(\NES_instance.n214 ), 
+    .CIN1(\NES_instance.n539 ), .Q0(\NES_instance.NEScount[9] ), 
+    .Q1(\NES_instance.NEScount[10] ), .F0(\NES_instance.n85[17] ), 
+    .F1(\NES_instance.n85[18] ), .COUT1(\NES_instance.n216 ), 
+    .COUT0(\NES_instance.n539 ));
+  NES_instance_SLICE_11 \NES_instance.SLICE_11 ( 
+    .D1(\NES_instance.NEScount[1] ), .C1(\NES_instance.n287 ), 
+    .B1(\NES_instance.NEScount[4] ), .A1(\NES_instance.NEScount[3] ), 
+    .D0(\NES_instance.NEScount[9] ), .C0(\NES_instance.NEScount[8] ), 
+    .B0(\NES_instance.NEScount[11] ), .F0(\NES_instance.n287 ), 
+    .F1(\NES_instance.n16 ));
+  NES_instance_SLICE_13 \NES_instance.SLICE_13 ( 
+    .D1(\NES_instance.NEScount[0] ), .C1(\NES_instance.n17 ), 
+    .B1(\NES_instance.NEScount[2] ), .A1(\NES_instance.n16 ), 
+    .D0(\NES_instance.NEScount[5] ), .C0(\NES_instance.NEScount[6] ), 
+    .B0(\NES_instance.NEScount[7] ), .A0(\NES_instance.NEScount[10] ), 
+    .F0(\NES_instance.n17 ), .F1(latch_c));
+  NES_instance_SLICE_15 \NES_instance.SLICE_15 ( 
+    .D1(\NES_instance.NEScount[4] ), .C1(\NES_instance.n336 ), 
+    .B1(\NES_instance.NEScount[7] ), .A1(\NES_instance.NEScount[6] ), 
+    .D0(\NES_instance.NEScount[3] ), .C0(\NES_instance.NEScount[5] ), 
+    .F0(\NES_instance.n336 ), .F1(\NES_instance.n340 ));
+  SLICE_17 SLICE_17( .F0(GND_net));
+  NES_instance_SLICE_18 \NES_instance.SLICE_18 ( .D0(\NES_instance.NESclk ), 
+    .C0(\NES_instance.n340 ), .B0(\NES_instance.NEScount[10] ), 
+    .A0(\NES_instance.n287 ), .F0(continCLK_c));
+  SLICE_19 SLICE_19( .F0(VCC_net));
+  HSOSC_instance HSOSC_instance( .CLKHFPU(VCC_net), .CLKHFEN(VCC_net), 
+    .CLKHF(CLK));
+  continCLK continCLK_I( .PADDO(continCLK_c), .continCLK(continCLK));
+  latch latch_I( .PADDO(latch_c), .latch(latch));
   HSYNC HSYNC_I( .PADDO(GND_net), .HSYNC(HSYNC));
   VSYNC VSYNC_I( .PADDO(GND_net), .VSYNC(VSYNC));
   rgb_5_ \rgb[5]_I ( .PADDO(GND_net), .rgb5(rgb[5]));
@@ -27,22 +159,48 @@ module top ( pll_outcore_o, HSYNC, VSYNC, rgb, pll_in_clock );
   rgb_2_ \rgb[2]_I ( .PADDO(GND_net), .rgb2(rgb[2]));
   rgb_1_ \rgb[1]_I ( .PADDO(GND_net), .rgb1(rgb[1]));
   rgb_0_ \rgb[0]_I ( .PADDO(GND_net), .rgb0(rgb[0]));
+  pll_outcore_o pll_outcore_o_I( .PADDO(GND_net), 
+    .pll_outcore_o(pll_outcore_o));
 endmodule
 
-module SLICE_0 ( output F0 );
-  wire   GNDI;
+module NES_instance_SLICE_0 ( input DI1, DI0, D1, C1, D0, C0, CLK, CIN0, CIN1, 
+    output Q0, Q1, F0, F1, COUT1, COUT0 );
+  wire   GNDI, VCCI, DI1_dly, CLK_dly, DI0_dly;
 
-  lut4 i5( .A(GNDI), .B(GNDI), .C(GNDI), .D(GNDI), .Z(F0));
+  fa2 \NES_instance/count_21_23_add_4_17 ( .A0(GNDI), .B0(GNDI), .C0(C0), 
+    .D0(D0), .A1(GNDI), .B1(GNDI), .C1(C1), .D1(D1), .CI0(CIN0), .CI1(CIN1), 
+    .S0(F0), .S1(F1), .CO0(COUT0), .CO1(COUT1));
   gnd DRIVEGND( .PWR0(GNDI));
+  ffsre2 \NES_instance/count_21_23__i16 ( .D0(DI0_dly), .SP(VCCI), 
+    .CK(CLK_dly), .LSR(GNDI), .Q(Q0));
+  vcc DRIVEVCC( .PWR1(VCCI));
+  ffsre2 \NES_instance/count_21_23__i17 ( .D0(DI1_dly), .SP(VCCI), 
+    .CK(CLK_dly), .LSR(GNDI), .Q(Q1));
 
   specify
+    (D1 => F1) = (0:0:0,0:0:0);
+    (C1 => F1) = (0:0:0,0:0:0);
+    (C1 => COUT1) = (0:0:0,0:0:0);
+    (D0 => F0) = (0:0:0,0:0:0);
+    (C0 => F0) = (0:0:0,0:0:0);
+    (C0 => COUT0) = (0:0:0,0:0:0);
+    (CLK => Q0) = (0:0:0,0:0:0);
+    (CLK => Q1) = (0:0:0,0:0:0);
+    (CIN0 => COUT0) = (0:0:0,0:0:0);
+    (CIN1 => COUT1) = (0:0:0,0:0:0);
+    $setuphold (posedge CLK, DI1, 0:0:0, 0:0:0,,,, CLK_dly, DI1_dly);
+    $setuphold (posedge CLK, DI0, 0:0:0, 0:0:0,,,, CLK_dly, DI0_dly);
   endspecify
 
 endmodule
 
-module lut4 ( input A, B, C, D, output Z );
+module fa2 ( input A0, B0, C0, D0, A1, B1, C1, D1, CI0, CI1, output S0, S1, 
+    CO0, CO1 );
 
-  LUT4 #("0x0000") INST10( .A(A), .B(B), .C(C), .D(D), .Z(Z));
+  FA2 inst1( .A0(A0), .B0(B0), .C0(C0), .D0(D0), .CI0(CI0), .A1(A1), .B1(B1), 
+    .C1(C1), .D1(D1), .CI1(CI1), .CO0(CO0), .CO1(CO1), .S0(S0), .S1(S1));
+  defparam inst1.INIT0 = "0xc33c";
+  defparam inst1.INIT1 = "0xc33c";
 endmodule
 
 module gnd ( output PWR0 );
@@ -50,15 +208,483 @@ module gnd ( output PWR0 );
   VLO INST1( .Z(PWR0));
 endmodule
 
-module pll_outcore_o ( input PADDO, output pll_outcore_o );
-  wire   VCCI;
+module ffsre2 ( input D0, SP, CK, LSR, output Q );
 
-  BB_B_B \pll_outcore_o_pad.bb_inst ( .T_N(VCCI), .I(PADDO), .O(), 
-    .B(pll_outcore_o));
+  FD1P3XZ INST01( .D(D0), .SP(SP), .CK(CK), .SR(LSR), .Q(Q));
+  defparam INST01.REGSET = "RESET";
+  defparam INST01.SRMODE = "CE_OVER_LSR";
+endmodule
+
+module vcc ( output PWR1 );
+
+  VHI INST1( .Z(PWR1));
+endmodule
+
+module NES_instance_SLICE_1 ( input DI1, DI0, D1, C1, D0, C0, CLK, CIN0, CIN1, 
+    output Q0, Q1, F0, F1, COUT1, COUT0 );
+  wire   GNDI, VCCI, DI1_dly, CLK_dly, DI0_dly;
+
+  fa2 \NES_instance/count_21_23_add_4_7 ( .A0(GNDI), .B0(GNDI), .C0(C0), 
+    .D0(D0), .A1(GNDI), .B1(GNDI), .C1(C1), .D1(D1), .CI0(CIN0), .CI1(CIN1), 
+    .S0(F0), .S1(F1), .CO0(COUT0), .CO1(COUT1));
+  gnd DRIVEGND( .PWR0(GNDI));
+  ffsre2 \NES_instance/count_21_23__i6 ( .D0(DI0_dly), .SP(VCCI), .CK(CLK_dly), 
+    .LSR(GNDI), .Q(Q0));
+  vcc DRIVEVCC( .PWR1(VCCI));
+  ffsre2 \NES_instance/count_21_23__i7 ( .D0(DI1_dly), .SP(VCCI), .CK(CLK_dly), 
+    .LSR(GNDI), .Q(Q1));
+
+  specify
+    (D1 => F1) = (0:0:0,0:0:0);
+    (C1 => F1) = (0:0:0,0:0:0);
+    (C1 => COUT1) = (0:0:0,0:0:0);
+    (D0 => F0) = (0:0:0,0:0:0);
+    (C0 => F0) = (0:0:0,0:0:0);
+    (C0 => COUT0) = (0:0:0,0:0:0);
+    (CLK => Q0) = (0:0:0,0:0:0);
+    (CLK => Q1) = (0:0:0,0:0:0);
+    (CIN0 => COUT0) = (0:0:0,0:0:0);
+    (CIN1 => COUT1) = (0:0:0,0:0:0);
+    $setuphold (posedge CLK, DI1, 0:0:0, 0:0:0,,,, CLK_dly, DI1_dly);
+    $setuphold (posedge CLK, DI0, 0:0:0, 0:0:0,,,, CLK_dly, DI0_dly);
+  endspecify
+
+endmodule
+
+module NES_instance_SLICE_2 ( input DI1, DI0, D1, C1, D0, C0, CLK, CIN0, CIN1, 
+    output Q0, Q1, F0, F1, COUT1, COUT0 );
+  wire   GNDI, VCCI, DI1_dly, CLK_dly, DI0_dly;
+
+  fa2 \NES_instance/count_21_23_add_4_5 ( .A0(GNDI), .B0(GNDI), .C0(C0), 
+    .D0(D0), .A1(GNDI), .B1(GNDI), .C1(C1), .D1(D1), .CI0(CIN0), .CI1(CIN1), 
+    .S0(F0), .S1(F1), .CO0(COUT0), .CO1(COUT1));
+  gnd DRIVEGND( .PWR0(GNDI));
+  ffsre2 \NES_instance/count_21_23__i4 ( .D0(DI0_dly), .SP(VCCI), .CK(CLK_dly), 
+    .LSR(GNDI), .Q(Q0));
+  vcc DRIVEVCC( .PWR1(VCCI));
+  ffsre2 \NES_instance/count_21_23__i5 ( .D0(DI1_dly), .SP(VCCI), .CK(CLK_dly), 
+    .LSR(GNDI), .Q(Q1));
+
+  specify
+    (D1 => F1) = (0:0:0,0:0:0);
+    (C1 => F1) = (0:0:0,0:0:0);
+    (C1 => COUT1) = (0:0:0,0:0:0);
+    (D0 => F0) = (0:0:0,0:0:0);
+    (C0 => F0) = (0:0:0,0:0:0);
+    (C0 => COUT0) = (0:0:0,0:0:0);
+    (CLK => Q0) = (0:0:0,0:0:0);
+    (CLK => Q1) = (0:0:0,0:0:0);
+    (CIN0 => COUT0) = (0:0:0,0:0:0);
+    (CIN1 => COUT1) = (0:0:0,0:0:0);
+    $setuphold (posedge CLK, DI1, 0:0:0, 0:0:0,,,, CLK_dly, DI1_dly);
+    $setuphold (posedge CLK, DI0, 0:0:0, 0:0:0,,,, CLK_dly, DI0_dly);
+  endspecify
+
+endmodule
+
+module NES_instance_SLICE_3 ( input DI1, DI0, D1, C1, D0, C0, CLK, CIN0, CIN1, 
+    output Q0, Q1, F0, F1, COUT1, COUT0 );
+  wire   GNDI, VCCI, DI1_dly, CLK_dly, DI0_dly;
+
+  fa2 \NES_instance/count_21_23_add_4_15 ( .A0(GNDI), .B0(GNDI), .C0(C0), 
+    .D0(D0), .A1(GNDI), .B1(GNDI), .C1(C1), .D1(D1), .CI0(CIN0), .CI1(CIN1), 
+    .S0(F0), .S1(F1), .CO0(COUT0), .CO1(COUT1));
+  gnd DRIVEGND( .PWR0(GNDI));
+  ffsre2 \NES_instance/count_21_23__i14 ( .D0(DI0_dly), .SP(VCCI), 
+    .CK(CLK_dly), .LSR(GNDI), .Q(Q0));
+  vcc DRIVEVCC( .PWR1(VCCI));
+  ffsre2 \NES_instance/count_21_23__i15 ( .D0(DI1_dly), .SP(VCCI), 
+    .CK(CLK_dly), .LSR(GNDI), .Q(Q1));
+
+  specify
+    (D1 => F1) = (0:0:0,0:0:0);
+    (C1 => F1) = (0:0:0,0:0:0);
+    (C1 => COUT1) = (0:0:0,0:0:0);
+    (D0 => F0) = (0:0:0,0:0:0);
+    (C0 => F0) = (0:0:0,0:0:0);
+    (C0 => COUT0) = (0:0:0,0:0:0);
+    (CLK => Q0) = (0:0:0,0:0:0);
+    (CLK => Q1) = (0:0:0,0:0:0);
+    (CIN0 => COUT0) = (0:0:0,0:0:0);
+    (CIN1 => COUT1) = (0:0:0,0:0:0);
+    $setuphold (posedge CLK, DI1, 0:0:0, 0:0:0,,,, CLK_dly, DI1_dly);
+    $setuphold (posedge CLK, DI0, 0:0:0, 0:0:0,,,, CLK_dly, DI0_dly);
+  endspecify
+
+endmodule
+
+module NES_instance_SLICE_4 ( input DI1, DI0, D1, C1, D0, C0, CLK, CIN0, CIN1, 
+    output Q0, Q1, F0, F1, COUT1, COUT0 );
+  wire   GNDI, VCCI, DI1_dly, CLK_dly, DI0_dly;
+
+  fa2 \NES_instance/count_21_23_add_4_13 ( .A0(GNDI), .B0(GNDI), .C0(C0), 
+    .D0(D0), .A1(GNDI), .B1(GNDI), .C1(C1), .D1(D1), .CI0(CIN0), .CI1(CIN1), 
+    .S0(F0), .S1(F1), .CO0(COUT0), .CO1(COUT1));
+  gnd DRIVEGND( .PWR0(GNDI));
+  ffsre2 \NES_instance/count_21_23__i12 ( .D0(DI0_dly), .SP(VCCI), 
+    .CK(CLK_dly), .LSR(GNDI), .Q(Q0));
+  vcc DRIVEVCC( .PWR1(VCCI));
+  ffsre2 \NES_instance/count_21_23__i13 ( .D0(DI1_dly), .SP(VCCI), 
+    .CK(CLK_dly), .LSR(GNDI), .Q(Q1));
+
+  specify
+    (D1 => F1) = (0:0:0,0:0:0);
+    (C1 => F1) = (0:0:0,0:0:0);
+    (C1 => COUT1) = (0:0:0,0:0:0);
+    (D0 => F0) = (0:0:0,0:0:0);
+    (C0 => F0) = (0:0:0,0:0:0);
+    (C0 => COUT0) = (0:0:0,0:0:0);
+    (CLK => Q0) = (0:0:0,0:0:0);
+    (CLK => Q1) = (0:0:0,0:0:0);
+    (CIN0 => COUT0) = (0:0:0,0:0:0);
+    (CIN1 => COUT1) = (0:0:0,0:0:0);
+    $setuphold (posedge CLK, DI1, 0:0:0, 0:0:0,,,, CLK_dly, DI1_dly);
+    $setuphold (posedge CLK, DI0, 0:0:0, 0:0:0,,,, CLK_dly, DI0_dly);
+  endspecify
+
+endmodule
+
+module NES_instance_SLICE_5 ( input DI1, DI0, D1, C1, D0, C0, CLK, CIN0, CIN1, 
+    output Q0, Q1, F0, F1, COUT1, COUT0 );
+  wire   GNDI, VCCI, DI1_dly, CLK_dly, DI0_dly;
+
+  fa2 \NES_instance/count_21_23_add_4_3 ( .A0(GNDI), .B0(GNDI), .C0(C0), 
+    .D0(D0), .A1(GNDI), .B1(GNDI), .C1(C1), .D1(D1), .CI0(CIN0), .CI1(CIN1), 
+    .S0(F0), .S1(F1), .CO0(COUT0), .CO1(COUT1));
+  gnd DRIVEGND( .PWR0(GNDI));
+  ffsre2 \NES_instance/count_21_23__i2 ( .D0(DI0_dly), .SP(VCCI), .CK(CLK_dly), 
+    .LSR(GNDI), .Q(Q0));
+  vcc DRIVEVCC( .PWR1(VCCI));
+  ffsre2 \NES_instance/count_21_23__i3 ( .D0(DI1_dly), .SP(VCCI), .CK(CLK_dly), 
+    .LSR(GNDI), .Q(Q1));
+
+  specify
+    (D1 => F1) = (0:0:0,0:0:0);
+    (C1 => F1) = (0:0:0,0:0:0);
+    (C1 => COUT1) = (0:0:0,0:0:0);
+    (D0 => F0) = (0:0:0,0:0:0);
+    (C0 => F0) = (0:0:0,0:0:0);
+    (C0 => COUT0) = (0:0:0,0:0:0);
+    (CLK => Q0) = (0:0:0,0:0:0);
+    (CLK => Q1) = (0:0:0,0:0:0);
+    (CIN0 => COUT0) = (0:0:0,0:0:0);
+    (CIN1 => COUT1) = (0:0:0,0:0:0);
+    $setuphold (posedge CLK, DI1, 0:0:0, 0:0:0,,,, CLK_dly, DI1_dly);
+    $setuphold (posedge CLK, DI0, 0:0:0, 0:0:0,,,, CLK_dly, DI0_dly);
+  endspecify
+
+endmodule
+
+module NES_instance_SLICE_6 ( input DI1, D1, C1, B1, CLK, CIN1, output Q1, F1, 
+    COUT1, COUT0 );
+  wire   GNDI, VCCI, DI1_dly, CLK_dly;
+
+  fa2 \NES_instance/count_21_23_add_4_1 ( .A0(GNDI), .B0(GNDI), .C0(GNDI), 
+    .D0(VCCI), .A1(GNDI), .B1(B1), .C1(C1), .D1(D1), .CI0(VCCI), .CI1(CIN1), 
+    .S0(), .S1(F1), .CO0(COUT0), .CO1(COUT1));
+  gnd DRIVEGND( .PWR0(GNDI));
+  vcc DRIVEVCC( .PWR1(VCCI));
+  ffsre2 \NES_instance/count_21_23__i1 ( .D0(DI1_dly), .SP(VCCI), .CK(CLK_dly), 
+    .LSR(GNDI), .Q(Q1));
+
+  specify
+    (D1 => F1) = (0:0:0,0:0:0);
+    (C1 => F1) = (0:0:0,0:0:0);
+    (C1 => COUT1) = (0:0:0,0:0:0);
+    (B1 => F1) = (0:0:0,0:0:0);
+    (B1 => COUT1) = (0:0:0,0:0:0);
+    (CLK => Q1) = (0:0:0,0:0:0);
+    (CIN1 => COUT1) = (0:0:0,0:0:0);
+    $setuphold (posedge CLK, DI1, 0:0:0, 0:0:0,,,, CLK_dly, DI1_dly);
+  endspecify
+
+endmodule
+
+module NES_instance_SLICE_7 ( input DI1, DI0, D1, C1, D0, C0, CLK, CIN0, CIN1, 
+    output Q0, Q1, F0, F1, COUT1, COUT0 );
+  wire   GNDI, VCCI, DI1_dly, CLK_dly, DI0_dly;
+
+  fa2 \NES_instance/count_21_23_add_4_11 ( .A0(GNDI), .B0(GNDI), .C0(C0), 
+    .D0(D0), .A1(GNDI), .B1(GNDI), .C1(C1), .D1(D1), .CI0(CIN0), .CI1(CIN1), 
+    .S0(F0), .S1(F1), .CO0(COUT0), .CO1(COUT1));
+  gnd DRIVEGND( .PWR0(GNDI));
+  ffsre2 \NES_instance/count_21_23__i10 ( .D0(DI0_dly), .SP(VCCI), 
+    .CK(CLK_dly), .LSR(GNDI), .Q(Q0));
+  vcc DRIVEVCC( .PWR1(VCCI));
+  ffsre2 \NES_instance/count_21_23__i11 ( .D0(DI1_dly), .SP(VCCI), 
+    .CK(CLK_dly), .LSR(GNDI), .Q(Q1));
+
+  specify
+    (D1 => F1) = (0:0:0,0:0:0);
+    (C1 => F1) = (0:0:0,0:0:0);
+    (C1 => COUT1) = (0:0:0,0:0:0);
+    (D0 => F0) = (0:0:0,0:0:0);
+    (C0 => F0) = (0:0:0,0:0:0);
+    (C0 => COUT0) = (0:0:0,0:0:0);
+    (CLK => Q0) = (0:0:0,0:0:0);
+    (CLK => Q1) = (0:0:0,0:0:0);
+    (CIN0 => COUT0) = (0:0:0,0:0:0);
+    (CIN1 => COUT1) = (0:0:0,0:0:0);
+    $setuphold (posedge CLK, DI1, 0:0:0, 0:0:0,,,, CLK_dly, DI1_dly);
+    $setuphold (posedge CLK, DI0, 0:0:0, 0:0:0,,,, CLK_dly, DI0_dly);
+  endspecify
+
+endmodule
+
+module NES_instance_SLICE_8 ( input DI1, DI0, D1, C1, D0, C0, CLK, CIN0, CIN1, 
+    output Q0, Q1, F0, F1, COUT1, COUT0 );
+  wire   GNDI, VCCI, DI1_dly, CLK_dly, DI0_dly;
+
+  fa2 \NES_instance/count_21_23_add_4_9 ( .A0(GNDI), .B0(GNDI), .C0(C0), 
+    .D0(D0), .A1(GNDI), .B1(GNDI), .C1(C1), .D1(D1), .CI0(CIN0), .CI1(CIN1), 
+    .S0(F0), .S1(F1), .CO0(COUT0), .CO1(COUT1));
+  gnd DRIVEGND( .PWR0(GNDI));
+  ffsre2 \NES_instance/count_21_23__i8 ( .D0(DI0_dly), .SP(VCCI), .CK(CLK_dly), 
+    .LSR(GNDI), .Q(Q0));
+  vcc DRIVEVCC( .PWR1(VCCI));
+  ffsre2 \NES_instance/count_21_23__i9 ( .D0(DI1_dly), .SP(VCCI), .CK(CLK_dly), 
+    .LSR(GNDI), .Q(Q1));
+
+  specify
+    (D1 => F1) = (0:0:0,0:0:0);
+    (C1 => F1) = (0:0:0,0:0:0);
+    (C1 => COUT1) = (0:0:0,0:0:0);
+    (D0 => F0) = (0:0:0,0:0:0);
+    (C0 => F0) = (0:0:0,0:0:0);
+    (C0 => COUT0) = (0:0:0,0:0:0);
+    (CLK => Q0) = (0:0:0,0:0:0);
+    (CLK => Q1) = (0:0:0,0:0:0);
+    (CIN0 => COUT0) = (0:0:0,0:0:0);
+    (CIN1 => COUT1) = (0:0:0,0:0:0);
+    $setuphold (posedge CLK, DI1, 0:0:0, 0:0:0,,,, CLK_dly, DI1_dly);
+    $setuphold (posedge CLK, DI0, 0:0:0, 0:0:0,,,, CLK_dly, DI0_dly);
+  endspecify
+
+endmodule
+
+module NES_instance_SLICE_9 ( input DI0, D1, D0, C0, CLK, CIN0, CIN1, output 
+    Q0, F0, COUT0 );
+  wire   GNDI, VCCI, DI0_dly, CLK_dly;
+
+  fa2 \NES_instance/count_21_23_add_4_21 ( .A0(GNDI), .B0(GNDI), .C0(C0), 
+    .D0(D0), .A1(GNDI), .B1(GNDI), .C1(GNDI), .D1(D1), .CI0(CIN0), .CI1(CIN1), 
+    .S0(F0), .S1(), .CO0(COUT0), .CO1());
+  gnd DRIVEGND( .PWR0(GNDI));
+  ffsre2 \NES_instance/count_21_23__i20 ( .D0(DI0_dly), .SP(VCCI), 
+    .CK(CLK_dly), .LSR(GNDI), .Q(Q0));
   vcc DRIVEVCC( .PWR1(VCCI));
 
   specify
-    (PADDO => pll_outcore_o) = (0:0:0,0:0:0);
+    (D0 => F0) = (0:0:0,0:0:0);
+    (C0 => F0) = (0:0:0,0:0:0);
+    (C0 => COUT0) = (0:0:0,0:0:0);
+    (CLK => Q0) = (0:0:0,0:0:0);
+    (CIN0 => COUT0) = (0:0:0,0:0:0);
+    $setuphold (posedge CLK, DI0, 0:0:0, 0:0:0,,,, CLK_dly, DI0_dly);
+  endspecify
+
+endmodule
+
+module NES_instance_SLICE_10 ( input DI1, DI0, D1, C1, D0, C0, CLK, CIN0, CIN1, 
+    output Q0, Q1, F0, F1, COUT1, COUT0 );
+  wire   GNDI, VCCI, DI1_dly, CLK_dly, DI0_dly;
+
+  fa2 \NES_instance/count_21_23_add_4_19 ( .A0(GNDI), .B0(GNDI), .C0(C0), 
+    .D0(D0), .A1(GNDI), .B1(GNDI), .C1(C1), .D1(D1), .CI0(CIN0), .CI1(CIN1), 
+    .S0(F0), .S1(F1), .CO0(COUT0), .CO1(COUT1));
+  gnd DRIVEGND( .PWR0(GNDI));
+  ffsre2 \NES_instance/count_21_23__i18 ( .D0(DI0_dly), .SP(VCCI), 
+    .CK(CLK_dly), .LSR(GNDI), .Q(Q0));
+  vcc DRIVEVCC( .PWR1(VCCI));
+  ffsre2 \NES_instance/count_21_23__i19 ( .D0(DI1_dly), .SP(VCCI), 
+    .CK(CLK_dly), .LSR(GNDI), .Q(Q1));
+
+  specify
+    (D1 => F1) = (0:0:0,0:0:0);
+    (C1 => F1) = (0:0:0,0:0:0);
+    (C1 => COUT1) = (0:0:0,0:0:0);
+    (D0 => F0) = (0:0:0,0:0:0);
+    (C0 => F0) = (0:0:0,0:0:0);
+    (C0 => COUT0) = (0:0:0,0:0:0);
+    (CLK => Q0) = (0:0:0,0:0:0);
+    (CLK => Q1) = (0:0:0,0:0:0);
+    (CIN0 => COUT0) = (0:0:0,0:0:0);
+    (CIN1 => COUT1) = (0:0:0,0:0:0);
+    $setuphold (posedge CLK, DI1, 0:0:0, 0:0:0,,,, CLK_dly, DI1_dly);
+    $setuphold (posedge CLK, DI0, 0:0:0, 0:0:0,,,, CLK_dly, DI0_dly);
+  endspecify
+
+endmodule
+
+module NES_instance_SLICE_11 ( input D1, C1, B1, A1, D0, C0, B0, output F0, F1 );
+  wire   GNDI;
+
+  lut4 \NES_instance/i6_4_lut ( .A(A1), .B(B1), .C(C1), .D(D1), .Z(F1));
+  lut40001 \NES_instance/i2_3_lut ( .A(GNDI), .B(B0), .C(C0), .D(D0), .Z(F0));
+  gnd DRIVEGND( .PWR0(GNDI));
+
+  specify
+    (D1 => F1) = (0:0:0,0:0:0);
+    (C1 => F1) = (0:0:0,0:0:0);
+    (B1 => F1) = (0:0:0,0:0:0);
+    (A1 => F1) = (0:0:0,0:0:0);
+    (D0 => F0) = (0:0:0,0:0:0);
+    (C0 => F0) = (0:0:0,0:0:0);
+    (B0 => F0) = (0:0:0,0:0:0);
+  endspecify
+
+endmodule
+
+module lut4 ( input A, B, C, D, output Z );
+
+  LUT4 #("0x0800") INST10( .A(A), .B(B), .C(C), .D(D), .Z(Z));
+endmodule
+
+module lut40001 ( input A, B, C, D, output Z );
+
+  LUT4 #("0xFFFC") INST10( .A(A), .B(B), .C(C), .D(D), .Z(Z));
+endmodule
+
+module NES_instance_SLICE_13 ( input D1, C1, B1, A1, D0, C0, B0, A0, output F0, 
+    F1 );
+
+  lut40002 \NES_instance/i9_4_lut ( .A(A1), .B(B1), .C(C1), .D(D1), .Z(F1));
+  lut40003 \NES_instance/i7_4_lut ( .A(A0), .B(B0), .C(C0), .D(D0), .Z(F0));
+
+  specify
+    (D1 => F1) = (0:0:0,0:0:0);
+    (C1 => F1) = (0:0:0,0:0:0);
+    (B1 => F1) = (0:0:0,0:0:0);
+    (A1 => F1) = (0:0:0,0:0:0);
+    (D0 => F0) = (0:0:0,0:0:0);
+    (C0 => F0) = (0:0:0,0:0:0);
+    (B0 => F0) = (0:0:0,0:0:0);
+    (A0 => F0) = (0:0:0,0:0:0);
+  endspecify
+
+endmodule
+
+module lut40002 ( input A, B, C, D, output Z );
+
+  LUT4 #("0x8000") INST10( .A(A), .B(B), .C(C), .D(D), .Z(Z));
+endmodule
+
+module lut40003 ( input A, B, C, D, output Z );
+
+  LUT4 #("0x4000") INST10( .A(A), .B(B), .C(C), .D(D), .Z(Z));
+endmodule
+
+module NES_instance_SLICE_15 ( input D1, C1, B1, A1, D0, C0, output F0, F1 );
+  wire   GNDI;
+
+  lut40004 \NES_instance/i264_4_lut ( .A(A1), .B(B1), .C(C1), .D(D1), .Z(F1));
+  lut40005 \NES_instance/i260_2_lut ( .A(GNDI), .B(GNDI), .C(C0), .D(D0), 
+    .Z(F0));
+  gnd DRIVEGND( .PWR0(GNDI));
+
+  specify
+    (D1 => F1) = (0:0:0,0:0:0);
+    (C1 => F1) = (0:0:0,0:0:0);
+    (B1 => F1) = (0:0:0,0:0:0);
+    (A1 => F1) = (0:0:0,0:0:0);
+    (D0 => F0) = (0:0:0,0:0:0);
+    (C0 => F0) = (0:0:0,0:0:0);
+  endspecify
+
+endmodule
+
+module lut40004 ( input A, B, C, D, output Z );
+
+  LUT4 #("0xFFFE") INST10( .A(A), .B(B), .C(C), .D(D), .Z(Z));
+endmodule
+
+module lut40005 ( input A, B, C, D, output Z );
+
+  LUT4 #("0xFFF0") INST10( .A(A), .B(B), .C(C), .D(D), .Z(Z));
+endmodule
+
+module SLICE_17 ( output F0 );
+  wire   GNDI;
+
+  lut40006 i1( .A(GNDI), .B(GNDI), .C(GNDI), .D(GNDI), .Z(F0));
+  gnd DRIVEGND( .PWR0(GNDI));
+
+  specify
+  endspecify
+
+endmodule
+
+module lut40006 ( input A, B, C, D, output Z );
+
+  LUT4 #("0x0000") INST10( .A(A), .B(B), .C(C), .D(D), .Z(Z));
+endmodule
+
+module NES_instance_SLICE_18 ( input D0, C0, B0, A0, output F0 );
+
+  lut40007 \NES_instance/i3_4_lut ( .A(A0), .B(B0), .C(C0), .D(D0), .Z(F0));
+
+  specify
+    (D0 => F0) = (0:0:0,0:0:0);
+    (C0 => F0) = (0:0:0,0:0:0);
+    (B0 => F0) = (0:0:0,0:0:0);
+    (A0 => F0) = (0:0:0,0:0:0);
+  endspecify
+
+endmodule
+
+module lut40007 ( input A, B, C, D, output Z );
+
+  LUT4 #("0x0100") INST10( .A(A), .B(B), .C(C), .D(D), .Z(Z));
+endmodule
+
+module SLICE_19 ( output F0 );
+  wire   GNDI;
+
+  lut40008 i401( .A(GNDI), .B(GNDI), .C(GNDI), .D(GNDI), .Z(F0));
+  gnd DRIVEGND( .PWR0(GNDI));
+
+  specify
+  endspecify
+
+endmodule
+
+module lut40008 ( input A, B, C, D, output Z );
+
+  LUT4 #("0xFFFF") INST10( .A(A), .B(B), .C(C), .D(D), .Z(Z));
+endmodule
+
+module HSOSC_instance ( input CLKHFPU, CLKHFEN, output CLKHF );
+  wire   GNDI;
+
+  HSOSC_CORE_B HSOSC_instance( .CLKHFPU(CLKHFPU), .CLKHFEN(CLKHFEN), 
+    .TRIM9(GNDI), .TRIM8(GNDI), .TRIM7(GNDI), .TRIM6(GNDI), .TRIM5(GNDI), 
+    .TRIM4(GNDI), .TRIM3(GNDI), .TRIM2(GNDI), .TRIM1(GNDI), .TRIM0(GNDI), 
+    .CLKHF(CLKHF));
+  gnd DRIVEGND( .PWR0(GNDI));
+
+  specify
+  endspecify
+
+endmodule
+
+module HSOSC_CORE_B ( input CLKHFPU, CLKHFEN, TRIM9, TRIM8, TRIM7, TRIM6, 
+    TRIM5, TRIM4, TRIM3, TRIM2, TRIM1, TRIM0, output CLKHF );
+
+  HSOSC_CORE INST10( .CLKHFPU(CLKHFPU), .CLKHFEN(CLKHFEN), .TRIM9(TRIM9), 
+    .TRIM8(TRIM8), .TRIM7(TRIM7), .TRIM6(TRIM6), .TRIM5(TRIM5), .TRIM4(TRIM4), 
+    .TRIM3(TRIM3), .TRIM2(TRIM2), .TRIM1(TRIM1), .TRIM0(TRIM0), .CLKHF(CLKHF));
+  defparam INST10.CLKHF_DIV = "0b00";
+  defparam INST10.FABRIC_TRIME = "DISABLE";
+endmodule
+
+module continCLK ( input PADDO, output continCLK );
+  wire   VCCI;
+
+  BB_B_B \continCLK_pad.bb_inst ( .T_N(VCCI), .I(PADDO), .O(), .B(continCLK));
+  vcc DRIVEVCC( .PWR1(VCCI));
+
+  specify
+    (PADDO => continCLK) = (0:0:0,0:0:0);
   endspecify
 
 endmodule
@@ -68,9 +694,16 @@ module BB_B_B ( input T_N, I, output O, inout B );
   BB_B INST10( .T_N(T_N), .I(I), .O(O), .B(B));
 endmodule
 
-module vcc ( output PWR1 );
+module latch ( input PADDO, output latch );
+  wire   VCCI;
 
-  VHI INST1( .Z(PWR1));
+  BB_B_B \latch_pad.bb_inst ( .T_N(VCCI), .I(PADDO), .O(), .B(latch));
+  vcc DRIVEVCC( .PWR1(VCCI));
+
+  specify
+    (PADDO => latch) = (0:0:0,0:0:0);
+  endspecify
+
 endmodule
 
 module HSYNC ( input PADDO, output HSYNC );
@@ -165,6 +798,19 @@ module rgb_0_ ( input PADDO, output rgb0 );
 
   specify
     (PADDO => rgb0) = (0:0:0,0:0:0);
+  endspecify
+
+endmodule
+
+module pll_outcore_o ( input PADDO, output pll_outcore_o );
+  wire   VCCI;
+
+  BB_B_B \pll_outcore_o_pad.bb_inst ( .T_N(VCCI), .I(PADDO), .O(), 
+    .B(pll_outcore_o));
+  vcc DRIVEVCC( .PWR1(VCCI));
+
+  specify
+    (PADDO => pll_outcore_o) = (0:0:0,0:0:0);
   endspecify
 
 endmodule

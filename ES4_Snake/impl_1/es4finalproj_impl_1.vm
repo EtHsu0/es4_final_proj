@@ -1,5 +1,5 @@
 // Verilog netlist produced by program LSE :  version Radiant Software (64-bit) 3.2.1.217.3
-// Netlist written on Sun Dec  4 17:44:36 2022
+// Netlist written on Sun Dec  4 17:50:33 2022
 // Source file index table: 
 // Object locations will have the form @<file_index>(<first_ line>[<left_column>],<last_line>[<right_column>])
 // file 0 "c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd"
@@ -64,131 +64,223 @@
 // file 59 "c:/lscc/radiant/3.2/ip/pmi/pmi_sub.v"
 
 //
-// Verilog Description of module board
+// Verilog Description of module top
 //
 
-module board (input clk, input [7:0]digital, output [7:0]apple_id, output [99:0]snake);
+module top (input data, output latch, output continCLK, input pll_in_clock, 
+            output HSYNC, output VSYNC, output [5:0]rgb, output pll_outcore_o);
     
+    (* is_clock=1, lineinfo="@6(59[12],59[15])" *) wire CLK;
     
-    wire VCC_net, GND_net;
+    wire latch_c, continCLK_c, GND_net, VCC_net;
     
-    VLO i5 (.Z(GND_net));
-    (* lineinfo="@0(13[13],13[21])" *) OB \apple_id_pad[7]  (.I(GND_net), 
-            .O(apple_id[7]));
-    (* lineinfo="@0(13[13],13[21])" *) OB \apple_id_pad[6]  (.I(GND_net), 
-            .O(apple_id[6]));
-    (* lineinfo="@0(13[13],13[21])" *) OB \apple_id_pad[5]  (.I(GND_net), 
-            .O(apple_id[5]));
-    (* lineinfo="@0(13[13],13[21])" *) OB \apple_id_pad[4]  (.I(GND_net), 
-            .O(apple_id[4]));
-    (* lineinfo="@0(13[13],13[21])" *) OB \apple_id_pad[3]  (.I(GND_net), 
-            .O(apple_id[3]));
-    (* lineinfo="@0(13[13],13[21])" *) OB \apple_id_pad[2]  (.I(GND_net), 
-            .O(apple_id[2]));
-    (* lineinfo="@0(13[13],13[21])" *) OB \apple_id_pad[1]  (.I(GND_net), 
-            .O(apple_id[1]));
-    (* lineinfo="@0(13[13],13[21])" *) OB \apple_id_pad[0]  (.I(GND_net), 
-            .O(apple_id[0]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[99]  (.I(GND_net), .O(snake[99]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[98]  (.I(GND_net), .O(snake[98]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[97]  (.I(GND_net), .O(snake[97]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[96]  (.I(GND_net), .O(snake[96]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[95]  (.I(GND_net), .O(snake[95]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[94]  (.I(GND_net), .O(snake[94]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[93]  (.I(GND_net), .O(snake[93]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[92]  (.I(GND_net), .O(snake[92]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[91]  (.I(GND_net), .O(snake[91]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[90]  (.I(GND_net), .O(snake[90]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[89]  (.I(GND_net), .O(snake[89]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[88]  (.I(GND_net), .O(snake[88]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[87]  (.I(GND_net), .O(snake[87]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[86]  (.I(GND_net), .O(snake[86]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[85]  (.I(GND_net), .O(snake[85]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[84]  (.I(GND_net), .O(snake[84]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[83]  (.I(GND_net), .O(snake[83]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[82]  (.I(GND_net), .O(snake[82]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[81]  (.I(GND_net), .O(snake[81]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[80]  (.I(GND_net), .O(snake[80]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[79]  (.I(GND_net), .O(snake[79]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[78]  (.I(GND_net), .O(snake[78]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[77]  (.I(GND_net), .O(snake[77]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[76]  (.I(GND_net), .O(snake[76]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[75]  (.I(GND_net), .O(snake[75]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[74]  (.I(GND_net), .O(snake[74]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[73]  (.I(GND_net), .O(snake[73]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[72]  (.I(GND_net), .O(snake[72]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[71]  (.I(GND_net), .O(snake[71]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[70]  (.I(GND_net), .O(snake[70]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[69]  (.I(GND_net), .O(snake[69]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[68]  (.I(GND_net), .O(snake[68]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[67]  (.I(GND_net), .O(snake[67]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[66]  (.I(GND_net), .O(snake[66]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[65]  (.I(GND_net), .O(snake[65]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[64]  (.I(GND_net), .O(snake[64]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[63]  (.I(GND_net), .O(snake[63]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[62]  (.I(GND_net), .O(snake[62]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[61]  (.I(GND_net), .O(snake[61]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[60]  (.I(GND_net), .O(snake[60]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[59]  (.I(GND_net), .O(snake[59]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[58]  (.I(GND_net), .O(snake[58]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[57]  (.I(GND_net), .O(snake[57]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[56]  (.I(GND_net), .O(snake[56]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[55]  (.I(GND_net), .O(snake[55]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[54]  (.I(GND_net), .O(snake[54]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[53]  (.I(GND_net), .O(snake[53]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[52]  (.I(GND_net), .O(snake[52]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[51]  (.I(GND_net), .O(snake[51]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[50]  (.I(GND_net), .O(snake[50]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[49]  (.I(GND_net), .O(snake[49]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[48]  (.I(GND_net), .O(snake[48]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[47]  (.I(GND_net), .O(snake[47]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[46]  (.I(GND_net), .O(snake[46]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[45]  (.I(GND_net), .O(snake[45]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[44]  (.I(GND_net), .O(snake[44]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[43]  (.I(GND_net), .O(snake[43]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[42]  (.I(GND_net), .O(snake[42]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[41]  (.I(GND_net), .O(snake[41]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[40]  (.I(GND_net), .O(snake[40]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[39]  (.I(GND_net), .O(snake[39]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[38]  (.I(GND_net), .O(snake[38]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[37]  (.I(GND_net), .O(snake[37]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[36]  (.I(GND_net), .O(snake[36]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[35]  (.I(GND_net), .O(snake[35]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[34]  (.I(GND_net), .O(snake[34]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[33]  (.I(GND_net), .O(snake[33]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[32]  (.I(GND_net), .O(snake[32]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[31]  (.I(GND_net), .O(snake[31]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[30]  (.I(GND_net), .O(snake[30]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[29]  (.I(GND_net), .O(snake[29]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[28]  (.I(GND_net), .O(snake[28]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[27]  (.I(GND_net), .O(snake[27]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[26]  (.I(GND_net), .O(snake[26]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[25]  (.I(GND_net), .O(snake[25]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[24]  (.I(GND_net), .O(snake[24]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[23]  (.I(GND_net), .O(snake[23]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[22]  (.I(GND_net), .O(snake[22]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[21]  (.I(GND_net), .O(snake[21]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[20]  (.I(GND_net), .O(snake[20]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[19]  (.I(GND_net), .O(snake[19]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[18]  (.I(GND_net), .O(snake[18]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[17]  (.I(GND_net), .O(snake[17]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[16]  (.I(GND_net), .O(snake[16]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[15]  (.I(GND_net), .O(snake[15]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[14]  (.I(GND_net), .O(snake[14]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[13]  (.I(GND_net), .O(snake[13]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[12]  (.I(GND_net), .O(snake[12]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[11]  (.I(GND_net), .O(snake[11]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[10]  (.I(GND_net), .O(snake[10]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[9]  (.I(GND_net), .O(snake[9]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[8]  (.I(GND_net), .O(snake[8]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[7]  (.I(GND_net), .O(snake[7]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[6]  (.I(GND_net), .O(snake[6]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[5]  (.I(GND_net), .O(snake[5]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[4]  (.I(GND_net), .O(snake[4]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[3]  (.I(GND_net), .O(snake[3]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[2]  (.I(GND_net), .O(snake[2]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[1]  (.I(GND_net), .O(snake[1]));
-    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[0]  (.I(GND_net), .O(snake[0]));
-    VHI i13 (.Z(VCC_net));
+    VLO i1 (.Z(GND_net));
+    (* lineinfo="@6(10[9],10[18])" *) OB continCLK_pad (.I(continCLK_c), .O(continCLK));
+    (* lineinfo="@6(9[9],9[14])" *) OB latch_pad (.I(latch_c), .O(latch));
+    (* lineinfo="@6(67[19],67[22])" *) NES NES_instance (GND_net, latch_c, 
+            continCLK_c, CLK);
+    (* syn_instantiated=1 *) HSOSC_CORE HSOSC_instance (.CLKHFPU(VCC_net), 
+            .CLKHFEN(VCC_net), .TRIM9(GND_net), .TRIM8(GND_net), .TRIM7(GND_net), 
+            .TRIM6(GND_net), .TRIM5(GND_net), .TRIM4(GND_net), .TRIM3(GND_net), 
+            .TRIM2(GND_net), .TRIM1(GND_net), .TRIM0(GND_net), .CLKHF(CLK));
+    defparam HSOSC_instance.CLKHF_DIV = "0b00";
+    defparam HSOSC_instance.FABRIC_TRIME = "DISABLE";
+    (* lineinfo="@6(15[9],15[14])" *) OB HSYNC_pad (.I(GND_net), .O(HSYNC));
+    (* lineinfo="@6(16[9],16[14])" *) OB VSYNC_pad (.I(GND_net), .O(VSYNC));
+    (* lineinfo="@6(18[9],18[12])" *) OB \rgb_pad[5]  (.I(GND_net), .O(rgb[5]));
+    (* lineinfo="@6(18[9],18[12])" *) OB \rgb_pad[4]  (.I(GND_net), .O(rgb[4]));
+    (* lineinfo="@6(18[9],18[12])" *) OB \rgb_pad[3]  (.I(GND_net), .O(rgb[3]));
+    (* lineinfo="@6(18[9],18[12])" *) OB \rgb_pad[2]  (.I(GND_net), .O(rgb[2]));
+    (* lineinfo="@6(18[9],18[12])" *) OB \rgb_pad[1]  (.I(GND_net), .O(rgb[1]));
+    (* lineinfo="@6(18[9],18[12])" *) OB \rgb_pad[0]  (.I(GND_net), .O(rgb[0]));
+    (* lineinfo="@6(20[9],20[22])" *) OB pll_outcore_o_pad (.I(GND_net), .O(pll_outcore_o));
+    VHI i401 (.Z(VCC_net));
+    
+endmodule
+
+//
+// Verilog Description of module NES
+//
+
+module NES (input GND_net, output latch_c, output continCLK_c, input CLK);
+    
+    (* is_clock=1, lineinfo="@6(59[12],59[15])" *) wire CLK;
+    
+    wire n212, n536;
+    (* lineinfo="@2(27[8],27[16])" *) wire [11:0]NEScount;
+    
+    wire n214;
+    wire [19:0]n85;
+    
+    wire n287, n16, n17, n202, n521, n15, n14, n204, n200, 
+        n518, n17_adj_36, n16_adj_37, n336, n340, NESclk, n210, 
+        n533, n208, n530, n198, n515, n19, n18, n512, VCC_net, 
+        n20, n206, n527, n524, n216, n542, n539, GND_net_c;
+    
+    FA2 count_21_23_add_4_17 (.A0(GND_net), .B0(GND_net), .C0(NEScount[7]), 
+        .D0(n212), .CI0(n212), .A1(GND_net), .B1(GND_net), .C1(NEScount[8]), 
+        .D1(n536), .CI1(n536), .CO0(n536), .CO1(n214), .S0(n85[15]), 
+        .S1(n85[16]));
+    defparam count_21_23_add_4_17.INIT0 = "0xc33c";
+    defparam count_21_23_add_4_17.INIT1 = "0xc33c";
+    (* lut_function="(!(((C+!(D))+!B)+!A))" *) LUT4 i6_4_lut (.A(NEScount[3]), 
+            .B(NEScount[4]), .C(n287), .D(NEScount[1]), .Z(n16));
+    defparam i6_4_lut.INIT = "0x0800";
+    (* lut_function="(!((((D)+!C)+!B)+!A))" *) LUT4 i7_4_lut (.A(NEScount[5]), 
+            .B(NEScount[6]), .C(NEScount[7]), .D(NEScount[10]), .Z(n17));
+    defparam i7_4_lut.INIT = "0x0080";
+    FA2 count_21_23_add_4_7 (.A0(GND_net), .B0(GND_net), .C0(n15), .D0(n202), 
+        .CI0(n202), .A1(GND_net), .B1(GND_net), .C1(n14), .D1(n521), 
+        .CI1(n521), .CO0(n521), .CO1(n204), .S0(n85[5]), .S1(n85[6]));
+    defparam count_21_23_add_4_7.INIT0 = "0xc33c";
+    defparam count_21_23_add_4_7.INIT1 = "0xc33c";
+    (* lut_function="(A (B (C (D))))" *) LUT4 i9_4_lut (.A(n17), .B(NEScount[0]), 
+            .C(n16), .D(NEScount[2]), .Z(latch_c));
+    defparam i9_4_lut.INIT = "0x8000";
+    FA2 count_21_23_add_4_5 (.A0(GND_net), .B0(GND_net), .C0(n17_adj_36), 
+        .D0(n200), .CI0(n200), .A1(GND_net), .B1(GND_net), .C1(n16_adj_37), 
+        .D1(n518), .CI1(n518), .CO0(n518), .CO1(n202), .S0(n85[3]), 
+        .S1(n85[4]));
+    defparam count_21_23_add_4_5.INIT0 = "0xc33c";
+    defparam count_21_23_add_4_5.INIT1 = "0xc33c";
+    (* lut_function="(A+(B+(C)))" *) LUT4 i2_3_lut (.A(NEScount[9]), .B(NEScount[11]), 
+            .C(NEScount[8]), .Z(n287));
+    defparam i2_3_lut.INIT = "0xfefe";
+    (* lut_function="(A+(B))" *) LUT4 i260_2_lut (.A(NEScount[5]), .B(NEScount[3]), 
+            .Z(n336));
+    defparam i260_2_lut.INIT = "0xeeee";
+    (* lut_function="(A+(B+(C+(D))))" *) LUT4 i264_4_lut (.A(NEScount[4]), 
+            .B(NEScount[7]), .C(NEScount[6]), .D(n336), .Z(n340));
+    defparam i264_4_lut.INIT = "0xfffe";
+    (* lut_function="(!(A+(B+((D)+!C))))" *) LUT4 i3_4_lut (.A(n287), .B(NEScount[10]), 
+            .C(NESclk), .D(n340), .Z(continCLK_c));
+    defparam i3_4_lut.INIT = "0x0010";
+    FA2 count_21_23_add_4_15 (.A0(GND_net), .B0(GND_net), .C0(NEScount[5]), 
+        .D0(n210), .CI0(n210), .A1(GND_net), .B1(GND_net), .C1(NEScount[6]), 
+        .D1(n533), .CI1(n533), .CO0(n533), .CO1(n212), .S0(n85[13]), 
+        .S1(n85[14]));
+    defparam count_21_23_add_4_15.INIT0 = "0xc33c";
+    defparam count_21_23_add_4_15.INIT1 = "0xc33c";
+    (* syn_use_carry_chain=1 *) FD1P3XZ count_21_23__i18 (.D(n85[17]), .SP(VCC_net), 
+            .CK(CLK), .SR(GND_net_c), .Q(NEScount[9]));
+    defparam count_21_23__i18.REGSET = "RESET";
+    defparam count_21_23__i18.SRMODE = "CE_OVER_LSR";
+    FA2 count_21_23_add_4_13 (.A0(GND_net), .B0(GND_net), .C0(NEScount[3]), 
+        .D0(n208), .CI0(n208), .A1(GND_net), .B1(GND_net), .C1(NEScount[4]), 
+        .D1(n530), .CI1(n530), .CO0(n530), .CO1(n210), .S0(n85[11]), 
+        .S1(n85[12]));
+    defparam count_21_23_add_4_13.INIT0 = "0xc33c";
+    defparam count_21_23_add_4_13.INIT1 = "0xc33c";
+    FA2 count_21_23_add_4_3 (.A0(GND_net), .B0(GND_net), .C0(n19), .D0(n198), 
+        .CI0(n198), .A1(GND_net), .B1(GND_net), .C1(n18), .D1(n515), 
+        .CI1(n515), .CO0(n515), .CO1(n200), .S0(n85[1]), .S1(n85[2]));
+    defparam count_21_23_add_4_3.INIT0 = "0xc33c";
+    defparam count_21_23_add_4_3.INIT1 = "0xc33c";
+    FA2 count_21_23_add_4_1 (.A0(GND_net), .B0(GND_net), .C0(GND_net), 
+        .A1(GND_net), .B1(VCC_net), .C1(n20), .D1(n512), .CI1(n512), 
+        .CO0(n512), .CO1(n198), .S1(n85[0]));
+    defparam count_21_23_add_4_1.INIT0 = "0xc33c";
+    defparam count_21_23_add_4_1.INIT1 = "0xc33c";
+    FA2 count_21_23_add_4_11 (.A0(GND_net), .B0(GND_net), .C0(NEScount[1]), 
+        .D0(n206), .CI0(n206), .A1(GND_net), .B1(GND_net), .C1(NEScount[2]), 
+        .D1(n527), .CI1(n527), .CO0(n527), .CO1(n208), .S0(n85[9]), 
+        .S1(n85[10]));
+    defparam count_21_23_add_4_11.INIT0 = "0xc33c";
+    defparam count_21_23_add_4_11.INIT1 = "0xc33c";
+    FA2 count_21_23_add_4_9 (.A0(GND_net), .B0(GND_net), .C0(NESclk), 
+        .D0(n204), .CI0(n204), .A1(GND_net), .B1(GND_net), .C1(NEScount[0]), 
+        .D1(n524), .CI1(n524), .CO0(n524), .CO1(n206), .S0(n85[7]), 
+        .S1(n85[8]));
+    defparam count_21_23_add_4_9.INIT0 = "0xc33c";
+    defparam count_21_23_add_4_9.INIT1 = "0xc33c";
+    FA2 count_21_23_add_4_21 (.A0(GND_net), .B0(GND_net), .C0(NEScount[11]), 
+        .D0(n216), .CI0(n216), .A1(GND_net), .B1(GND_net), .C1(GND_net), 
+        .D1(n542), .CI1(n542), .CO0(n542), .S0(n85[19]));
+    defparam count_21_23_add_4_21.INIT0 = "0xc33c";
+    defparam count_21_23_add_4_21.INIT1 = "0xc33c";
+    FA2 count_21_23_add_4_19 (.A0(GND_net), .B0(GND_net), .C0(NEScount[9]), 
+        .D0(n214), .CI0(n214), .A1(GND_net), .B1(GND_net), .C1(NEScount[10]), 
+        .D1(n539), .CI1(n539), .CO0(n539), .CO1(n216), .S0(n85[17]), 
+        .S1(n85[18]));
+    defparam count_21_23_add_4_19.INIT0 = "0xc33c";
+    defparam count_21_23_add_4_19.INIT1 = "0xc33c";
+    (* syn_use_carry_chain=1 *) FD1P3XZ count_21_23__i17 (.D(n85[16]), .SP(VCC_net), 
+            .CK(CLK), .SR(GND_net_c), .Q(NEScount[8]));
+    defparam count_21_23__i17.REGSET = "RESET";
+    defparam count_21_23__i17.SRMODE = "CE_OVER_LSR";
+    (* syn_use_carry_chain=1 *) FD1P3XZ count_21_23__i16 (.D(n85[15]), .SP(VCC_net), 
+            .CK(CLK), .SR(GND_net_c), .Q(NEScount[7]));
+    defparam count_21_23__i16.REGSET = "RESET";
+    defparam count_21_23__i16.SRMODE = "CE_OVER_LSR";
+    (* syn_use_carry_chain=1 *) FD1P3XZ count_21_23__i15 (.D(n85[14]), .SP(VCC_net), 
+            .CK(CLK), .SR(GND_net_c), .Q(NEScount[6]));
+    defparam count_21_23__i15.REGSET = "RESET";
+    defparam count_21_23__i15.SRMODE = "CE_OVER_LSR";
+    (* syn_use_carry_chain=1 *) FD1P3XZ count_21_23__i14 (.D(n85[13]), .SP(VCC_net), 
+            .CK(CLK), .SR(GND_net_c), .Q(NEScount[5]));
+    defparam count_21_23__i14.REGSET = "RESET";
+    defparam count_21_23__i14.SRMODE = "CE_OVER_LSR";
+    (* syn_use_carry_chain=1 *) FD1P3XZ count_21_23__i13 (.D(n85[12]), .SP(VCC_net), 
+            .CK(CLK), .SR(GND_net_c), .Q(NEScount[4]));
+    defparam count_21_23__i13.REGSET = "RESET";
+    defparam count_21_23__i13.SRMODE = "CE_OVER_LSR";
+    (* syn_use_carry_chain=1 *) FD1P3XZ count_21_23__i12 (.D(n85[11]), .SP(VCC_net), 
+            .CK(CLK), .SR(GND_net_c), .Q(NEScount[3]));
+    defparam count_21_23__i12.REGSET = "RESET";
+    defparam count_21_23__i12.SRMODE = "CE_OVER_LSR";
+    (* syn_use_carry_chain=1 *) FD1P3XZ count_21_23__i11 (.D(n85[10]), .SP(VCC_net), 
+            .CK(CLK), .SR(GND_net_c), .Q(NEScount[2]));
+    defparam count_21_23__i11.REGSET = "RESET";
+    defparam count_21_23__i11.SRMODE = "CE_OVER_LSR";
+    (* syn_use_carry_chain=1 *) FD1P3XZ count_21_23__i10 (.D(n85[9]), .SP(VCC_net), 
+            .CK(CLK), .SR(GND_net_c), .Q(NEScount[1]));
+    defparam count_21_23__i10.REGSET = "RESET";
+    defparam count_21_23__i10.SRMODE = "CE_OVER_LSR";
+    (* syn_use_carry_chain=1 *) FD1P3XZ count_21_23__i9 (.D(n85[8]), .SP(VCC_net), 
+            .CK(CLK), .SR(GND_net_c), .Q(NEScount[0]));
+    defparam count_21_23__i9.REGSET = "RESET";
+    defparam count_21_23__i9.SRMODE = "CE_OVER_LSR";
+    (* syn_use_carry_chain=1 *) FD1P3XZ count_21_23__i8 (.D(n85[7]), .SP(VCC_net), 
+            .CK(CLK), .SR(GND_net_c), .Q(NESclk));
+    defparam count_21_23__i8.REGSET = "RESET";
+    defparam count_21_23__i8.SRMODE = "CE_OVER_LSR";
+    (* syn_use_carry_chain=1 *) FD1P3XZ count_21_23__i7 (.D(n85[6]), .SP(VCC_net), 
+            .CK(CLK), .SR(GND_net_c), .Q(n14));
+    defparam count_21_23__i7.REGSET = "RESET";
+    defparam count_21_23__i7.SRMODE = "CE_OVER_LSR";
+    (* syn_use_carry_chain=1 *) FD1P3XZ count_21_23__i6 (.D(n85[5]), .SP(VCC_net), 
+            .CK(CLK), .SR(GND_net_c), .Q(n15));
+    defparam count_21_23__i6.REGSET = "RESET";
+    defparam count_21_23__i6.SRMODE = "CE_OVER_LSR";
+    (* syn_use_carry_chain=1 *) FD1P3XZ count_21_23__i5 (.D(n85[4]), .SP(VCC_net), 
+            .CK(CLK), .SR(GND_net_c), .Q(n16_adj_37));
+    defparam count_21_23__i5.REGSET = "RESET";
+    defparam count_21_23__i5.SRMODE = "CE_OVER_LSR";
+    (* syn_use_carry_chain=1 *) FD1P3XZ count_21_23__i4 (.D(n85[3]), .SP(VCC_net), 
+            .CK(CLK), .SR(GND_net_c), .Q(n17_adj_36));
+    defparam count_21_23__i4.REGSET = "RESET";
+    defparam count_21_23__i4.SRMODE = "CE_OVER_LSR";
+    (* syn_use_carry_chain=1 *) FD1P3XZ count_21_23__i3 (.D(n85[2]), .SP(VCC_net), 
+            .CK(CLK), .SR(GND_net_c), .Q(n18));
+    defparam count_21_23__i3.REGSET = "RESET";
+    defparam count_21_23__i3.SRMODE = "CE_OVER_LSR";
+    (* syn_use_carry_chain=1 *) FD1P3XZ count_21_23__i2 (.D(n85[1]), .SP(VCC_net), 
+            .CK(CLK), .SR(GND_net_c), .Q(n19));
+    defparam count_21_23__i2.REGSET = "RESET";
+    defparam count_21_23__i2.SRMODE = "CE_OVER_LSR";
+    (* syn_use_carry_chain=1 *) FD1P3XZ count_21_23__i1 (.D(n85[0]), .SP(VCC_net), 
+            .CK(CLK), .SR(GND_net_c), .Q(n20));
+    defparam count_21_23__i1.REGSET = "RESET";
+    defparam count_21_23__i1.SRMODE = "CE_OVER_LSR";
+    (* syn_use_carry_chain=1 *) FD1P3XZ count_21_23__i20 (.D(n85[19]), .SP(VCC_net), 
+            .CK(CLK), .SR(GND_net_c), .Q(NEScount[11]));
+    defparam count_21_23__i20.REGSET = "RESET";
+    defparam count_21_23__i20.SRMODE = "CE_OVER_LSR";
+    VLO i2 (.Z(GND_net_c));
+    (* syn_use_carry_chain=1 *) FD1P3XZ count_21_23__i19 (.D(n85[18]), .SP(VCC_net), 
+            .CK(CLK), .SR(GND_net_c), .Q(NEScount[10]));
+    defparam count_21_23__i19.REGSET = "RESET";
+    defparam count_21_23__i19.SRMODE = "CE_OVER_LSR";
+    VHI i1 (.Z(VCC_net));
     
 endmodule

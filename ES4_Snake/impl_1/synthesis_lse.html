@@ -48,7 +48,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Sun Dec  4 17:44:33 2022
+Sun Dec  4 17:50:31 2022
 
 
 Command Line:  C:\lscc\radiant\3.2\ispfpga\bin\nt64\synthesis.exe -f es4finalproj_impl_1_lattice.synproj -gui -msgset C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/promote.xml 
@@ -81,7 +81,7 @@ The -p option is iCE40UP5K.
 
 INFO - synthesis: User-Selected Strategy Settings
 Optimization goal = Area
-Top-level module name = board.
+Top-level module name = top.
 Target frequency = 200.000000 MHz.
 Maximum fanout = 1000.
 Timing path count = 3
@@ -221,7 +221,7 @@ INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/sou
 INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(19): analyzing architecture synth. VHDL-1010
 INFO - synthesis: The default VHDL library search path is now "C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/impl_1". VHDL-1504
 Top module language type = VHDL.
-Top module name (VHDL, mixed language): board
+Top module name (VHDL, mixed language): top
                                                          
 
 
@@ -246,281 +246,73 @@ Top module name (VHDL, mixed language): board
                                                          
 
 
-WARNING - synthesis: I/O Port clk 's net has no driver and is unused.
-WARNING - synthesis: I/O Port digital[7] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port digital[6] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port digital[5] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port digital[4] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port digital[3] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port digital[2] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port digital[1] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port digital[0] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port apple_id[7] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port apple_id[6] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port apple_id[5] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port apple_id[4] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port apple_id[3] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port apple_id[2] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port apple_id[1] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port apple_id[0] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[99] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[98] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[97] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[96] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[95] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[94] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[93] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[92] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[91] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[90] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[89] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[88] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[87] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[86] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[85] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[84] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[83] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[82] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[81] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[80] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[79] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[78] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[77] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[76] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[75] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[74] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[73] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[72] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[71] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[70] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[69] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[68] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[67] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[66] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[65] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[64] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[63] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[62] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[61] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[60] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[59] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[58] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[57] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[56] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[55] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[54] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[53] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[52] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[51] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[50] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[49] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[48] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[47] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[46] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[45] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[44] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[43] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[42] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[41] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[40] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[39] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[38] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[37] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[36] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[35] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[34] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[33] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[32] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[31] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[30] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[29] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[28] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[27] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[26] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[25] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[24] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[23] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[22] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[21] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[20] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[19] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[18] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[17] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[16] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[15] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[14] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[13] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[12] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[11] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[10] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[9] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[8] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[7] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[6] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[5] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[4] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[3] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[2] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[1] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port snake[0] 's net has no driver and is unused.
-######## Missing driver on net apple_id[7]. Patching with GND.
-######## Missing driver on net apple_id[6]. Patching with GND.
-######## Missing driver on net apple_id[5]. Patching with GND.
-######## Missing driver on net apple_id[4]. Patching with GND.
-######## Missing driver on net apple_id[3]. Patching with GND.
-######## Missing driver on net apple_id[2]. Patching with GND.
-######## Missing driver on net apple_id[1]. Patching with GND.
-######## Missing driver on net apple_id[0]. Patching with GND.
-######## Missing driver on net snake[99]. Patching with GND.
-######## Missing driver on net snake[98]. Patching with GND.
-######## Missing driver on net snake[97]. Patching with GND.
-######## Missing driver on net snake[96]. Patching with GND.
-######## Missing driver on net snake[95]. Patching with GND.
-######## Missing driver on net snake[94]. Patching with GND.
-######## Missing driver on net snake[93]. Patching with GND.
-######## Missing driver on net snake[92]. Patching with GND.
-######## Missing driver on net snake[91]. Patching with GND.
-######## Missing driver on net snake[90]. Patching with GND.
-######## Missing driver on net snake[89]. Patching with GND.
-######## Missing driver on net snake[88]. Patching with GND.
-######## Missing driver on net snake[87]. Patching with GND.
-######## Missing driver on net snake[86]. Patching with GND.
-######## Missing driver on net snake[85]. Patching with GND.
-######## Missing driver on net snake[84]. Patching with GND.
-######## Missing driver on net snake[83]. Patching with GND.
-######## Missing driver on net snake[82]. Patching with GND.
-######## Missing driver on net snake[81]. Patching with GND.
-######## Missing driver on net snake[80]. Patching with GND.
-######## Missing driver on net snake[79]. Patching with GND.
-######## Missing driver on net snake[78]. Patching with GND.
-######## Missing driver on net snake[77]. Patching with GND.
-######## Missing driver on net snake[76]. Patching with GND.
-######## Missing driver on net snake[75]. Patching with GND.
-######## Missing driver on net snake[74]. Patching with GND.
-######## Missing driver on net snake[73]. Patching with GND.
-######## Missing driver on net snake[72]. Patching with GND.
-######## Missing driver on net snake[71]. Patching with GND.
-######## Missing driver on net snake[70]. Patching with GND.
-######## Missing driver on net snake[69]. Patching with GND.
-######## Missing driver on net snake[68]. Patching with GND.
-######## Missing driver on net snake[67]. Patching with GND.
-######## Missing driver on net snake[66]. Patching with GND.
-######## Missing driver on net snake[65]. Patching with GND.
-######## Missing driver on net snake[64]. Patching with GND.
-######## Missing driver on net snake[63]. Patching with GND.
-######## Missing driver on net snake[62]. Patching with GND.
-######## Missing driver on net snake[61]. Patching with GND.
-######## Missing driver on net snake[60]. Patching with GND.
-######## Missing driver on net snake[59]. Patching with GND.
-######## Missing driver on net snake[58]. Patching with GND.
-######## Missing driver on net snake[57]. Patching with GND.
-######## Missing driver on net snake[56]. Patching with GND.
-######## Missing driver on net snake[55]. Patching with GND.
-######## Missing driver on net snake[54]. Patching with GND.
-######## Missing driver on net snake[53]. Patching with GND.
-######## Missing driver on net snake[52]. Patching with GND.
-######## Missing driver on net snake[51]. Patching with GND.
-######## Missing driver on net snake[50]. Patching with GND.
-######## Missing driver on net snake[49]. Patching with GND.
-######## Missing driver on net snake[48]. Patching with GND.
-######## Missing driver on net snake[47]. Patching with GND.
-######## Missing driver on net snake[46]. Patching with GND.
-######## Missing driver on net snake[45]. Patching with GND.
-######## Missing driver on net snake[44]. Patching with GND.
-######## Missing driver on net snake[43]. Patching with GND.
-######## Missing driver on net snake[42]. Patching with GND.
-######## Missing driver on net snake[41]. Patching with GND.
-######## Missing driver on net snake[40]. Patching with GND.
-######## Missing driver on net snake[39]. Patching with GND.
-######## Missing driver on net snake[38]. Patching with GND.
-######## Missing driver on net snake[37]. Patching with GND.
-######## Missing driver on net snake[36]. Patching with GND.
-######## Missing driver on net snake[35]. Patching with GND.
-######## Missing driver on net snake[34]. Patching with GND.
-######## Missing driver on net snake[33]. Patching with GND.
-######## Missing driver on net snake[32]. Patching with GND.
-######## Missing driver on net snake[31]. Patching with GND.
-######## Missing driver on net snake[30]. Patching with GND.
-######## Missing driver on net snake[29]. Patching with GND.
-######## Missing driver on net snake[28]. Patching with GND.
-######## Missing driver on net snake[27]. Patching with GND.
-######## Missing driver on net snake[26]. Patching with GND.
-######## Missing driver on net snake[25]. Patching with GND.
-######## Missing driver on net snake[24]. Patching with GND.
-######## Missing driver on net snake[23]. Patching with GND.
-######## Missing driver on net snake[22]. Patching with GND.
-######## Missing driver on net snake[21]. Patching with GND.
-######## Missing driver on net snake[20]. Patching with GND.
-######## Missing driver on net snake[19]. Patching with GND.
-######## Missing driver on net snake[18]. Patching with GND.
-######## Missing driver on net snake[17]. Patching with GND.
-######## Missing driver on net snake[16]. Patching with GND.
-######## Missing driver on net snake[15]. Patching with GND.
-######## Missing driver on net snake[14]. Patching with GND.
-######## Missing driver on net snake[13]. Patching with GND.
-######## Missing driver on net snake[12]. Patching with GND.
-######## Missing driver on net snake[11]. Patching with GND.
-######## Missing driver on net snake[10]. Patching with GND.
-######## Missing driver on net snake[9]. Patching with GND.
-######## Missing driver on net snake[8]. Patching with GND.
-######## Missing driver on net snake[7]. Patching with GND.
-######## Missing driver on net snake[6]. Patching with GND.
-######## Missing driver on net snake[5]. Patching with GND.
-######## Missing driver on net snake[4]. Patching with GND.
-######## Missing driver on net snake[3]. Patching with GND.
-######## Missing driver on net snake[2]. Patching with GND.
-######## Missing driver on net snake[1]. Patching with GND.
-######## Missing driver on net snake[0]. Patching with GND.
+WARNING - synthesis: I/O Port pll_in_clock 's net has no driver and is unused.
+WARNING - synthesis: I/O Port HSYNC 's net has no driver and is unused.
+WARNING - synthesis: I/O Port VSYNC 's net has no driver and is unused.
+WARNING - synthesis: I/O Port rgb[5] 's net has no driver and is unused.
+WARNING - synthesis: I/O Port rgb[4] 's net has no driver and is unused.
+WARNING - synthesis: I/O Port rgb[3] 's net has no driver and is unused.
+WARNING - synthesis: I/O Port rgb[2] 's net has no driver and is unused.
+WARNING - synthesis: I/O Port rgb[1] 's net has no driver and is unused.
+WARNING - synthesis: I/O Port rgb[0] 's net has no driver and is unused.
+WARNING - synthesis: I/O Port pll_outcore_o 's net has no driver and is unused.
+######## Missing driver on net HSYNC. Patching with GND.
+######## Missing driver on net VSYNC. Patching with GND.
+######## Missing driver on net rgb[5]. Patching with GND.
+######## Missing driver on net rgb[4]. Patching with GND.
+######## Missing driver on net rgb[3]. Patching with GND.
+######## Missing driver on net rgb[2]. Patching with GND.
+######## Missing driver on net rgb[1]. Patching with GND.
+######## Missing driver on net rgb[0]. Patching with GND.
+######## Missing driver on net pll_outcore_o. Patching with GND.
 
 
 
-WARNING - synthesis: I/O Port clk 's net has no driver and is unused.
-WARNING - synthesis: I/O Port digital[7] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port digital[6] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port digital[5] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port digital[4] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port digital[3] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port digital[2] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port digital[1] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port digital[0] 's net has no driver and is unused.
+WARNING - synthesis: I/O Port data 's net has no driver and is unused.
+WARNING - synthesis: I/O Port pll_in_clock 's net has no driver and is unused.
 
 
 <A name="lse_area"></A><B><U><big>Area Report</big></U></B>
 
-################### Begin Area Report (board)######################
-Number of register bits => 0 of 5280 (0 % )
-OB => 108
+################### Begin Area Report (top)######################
+Number of register bits => 20 of 5280 (0 % )
+CCU2 => 11
+FD1P3XZ => 20
+HSOSC_CORE => 1
+LUT4 => 7
+OB => 11
 ################### End Area Report ##################
 Number of odd-length carry chains : 0
-Number of even-length carry chains : 0
+Number of even-length carry chains : 1
 
 
 <A name="lse_clock"></A><B><U><big>Clock Report</big></U></B>
 
 ################### Begin Clock Report ######################
 Clock Nets
-Number of Clocks: 0
+Number of Clocks: 1
+  Net : CLK, loads : 0
 Clock Enable Nets
 Number of Clock Enables: 0
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : snake[0], loads : 0
-  Net : snake[1], loads : 0
-  Net : snake[2], loads : 0
-  Net : snake[3], loads : 0
-  Net : snake[4], loads : 0
-  Net : snake[5], loads : 0
-  Net : snake[6], loads : 0
-  Net : snake[7], loads : 0
-  Net : snake[8], loads : 0
-  Net : snake[9], loads : 0
+  Net : NES_instance/NEScount[7], loads : 3
+  Net : NES_instance/NEScount[3], loads : 3
+  Net : NES_instance/NEScount[4], loads : 3
+  Net : NES_instance/NEScount[5], loads : 3
+  Net : NES_instance/NEScount[6], loads : 3
+  Net : NES_instance/NEScount[10], loads : 3
+  Net : NES_instance/n212, loads : 2
+  Net : NES_instance/n536, loads : 2
+  Net : NES_instance/NEScount[8], loads : 2
+  Net : NES_instance/n214, loads : 2
 ################### End Clock Report ##################
 
 Peak Memory Usage: 117 MB
 
 --------------------------------------------------------------
 Total CPU Time: 2 secs 
-Total REAL Time: 3 secs 
+Total REAL Time: 2 secs 
 --------------------------------------------------------------
 
 
