@@ -6,7 +6,9 @@ entity top is
     port(
         -- NES controllers IO
         data: in std_logic;
-        
+        latch: out std_logic;
+        continCLK: out std_logic;
+
         -- VGA display IO
         pll_in_clock : in std_logic; -- pin 20, shorted to the 12 MHz pin on the UPduino
         
@@ -54,8 +56,7 @@ architecture synth of top is
     -- For example after start, we have ongoing, game over, etc.
 
     signal CLK: std_logic;
-    signal latch: std_logic;
-    signal continCLK: std_logic;
+    
     signal digital: unsigned(7 downto 0);
 
 begin
