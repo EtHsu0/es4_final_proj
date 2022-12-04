@@ -53,7 +53,7 @@ snakePos:
 ## NES Notes
 Button inputs are stored as a std_logic_vector of size 8 (7 downto 0). Button input is indicated by a zero value.
 
-Ex: "10000001" = LEFT and A pressed
+Ex: "01111110" = LEFT and A pressed
 - output(0) = RIGHT directional button
 - output(1) = LEFT directional button
 - output(2) = DOWN directional button
