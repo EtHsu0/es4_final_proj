@@ -13,7 +13,7 @@ entity pattern_gen is
 		
 		-- SPECIFIC SNAKE GAME VARIABLES
 		-- INPUT PORTS
-		
+
 		-- rand_apple(8) = '1' if there is an apple, '0' if there is no apple
 		-- rand_apple(7 downto 4) gives the column_num {col 0, 1, 2, ..., 8, 9} in binary
 		-- rand_apple(3 downto 0) gives the row_num {row 0, 1, 2, ..., 8, 9} in binary

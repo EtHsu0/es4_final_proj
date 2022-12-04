@@ -9,6 +9,10 @@ entity board is
         port (
 			clk: in std_logic;
 			data: in std_logic_vector(7 downto 0);
+            -- Return the cell ID (0-99)
+            apple: out unsigned(7 downto 0);
+            -- Return whether snake is in each cell (0-99)
+            snake: out unsigned(99 downto 0);
         );
 end board;
 
@@ -22,6 +26,9 @@ component randomPos is
 		out_coord: out unsigned(7 downto 0)
 	);
 end component;
+
+signal apple: unsigned (7 downto 9)
+signal snakePosition: unsigned(99 downto 0);
 
 begin
 	-- Update the snake head position, use that information to check collision with apple
