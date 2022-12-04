@@ -1,186 +1,194 @@
-// Verilog netlist produced by program LSE :  version Radiant Software (64-bit) 3.0.0.24.1
-// Netlist written on Sun Dec  4 14:25:00 2022
+// Verilog netlist produced by program LSE :  version Radiant Software (64-bit) 3.2.1.217.3
+// Netlist written on Sun Dec  4 17:44:36 2022
 // Source file index table: 
 // Object locations will have the form @<file_index>(<first_ line>[<left_column>],<last_line>[<right_column>])
-// file 0 "c:/program files/lscc/radiant/3.0/ip/pmi/pmi_ice40up.v"
-// file 1 "c:/program files/lscc/radiant/3.0/ip/pmi/pmi_ice40up.vhd"
-// file 2 "c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/board.vhd"
-// file 3 "c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/display.vhd"
-// file 4 "c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/nes.vhd"
-// file 5 "c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/pattern_gen.vhd"
-// file 6 "c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/randompos.vhd"
-// file 7 "c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/snakepos.vhd"
-// file 8 "c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/topmodule.vhd"
-// file 9 "c:/users/ehsu05/downloads/es4_final_proj-main/es4_snake/source/impl_1/vga.vhd"
-// file 10 "c:/program files/lscc/radiant/3.0/cae_library/simulation/verilog/ice40up/ccu2_b.v"
-// file 11 "c:/program files/lscc/radiant/3.0/cae_library/simulation/verilog/ice40up/fd1p3bz.v"
-// file 12 "c:/program files/lscc/radiant/3.0/cae_library/simulation/verilog/ice40up/fd1p3dz.v"
-// file 13 "c:/program files/lscc/radiant/3.0/cae_library/simulation/verilog/ice40up/fd1p3iz.v"
-// file 14 "c:/program files/lscc/radiant/3.0/cae_library/simulation/verilog/ice40up/fd1p3jz.v"
-// file 15 "c:/program files/lscc/radiant/3.0/cae_library/simulation/verilog/ice40up/hsosc.v"
-// file 16 "c:/program files/lscc/radiant/3.0/cae_library/simulation/verilog/ice40up/hsosc1p8v.v"
-// file 17 "c:/program files/lscc/radiant/3.0/cae_library/simulation/verilog/ice40up/ib.v"
-// file 18 "c:/program files/lscc/radiant/3.0/cae_library/simulation/verilog/ice40up/ifd1p3az.v"
-// file 19 "c:/program files/lscc/radiant/3.0/cae_library/simulation/verilog/ice40up/lsosc.v"
-// file 20 "c:/program files/lscc/radiant/3.0/cae_library/simulation/verilog/ice40up/lsosc1p8v.v"
-// file 21 "c:/program files/lscc/radiant/3.0/cae_library/simulation/verilog/ice40up/ob.v"
-// file 22 "c:/program files/lscc/radiant/3.0/cae_library/simulation/verilog/ice40up/obz_b.v"
-// file 23 "c:/program files/lscc/radiant/3.0/cae_library/simulation/verilog/ice40up/ofd1p3az.v"
-// file 24 "c:/program files/lscc/radiant/3.0/cae_library/simulation/verilog/ice40up/pdp4k.v"
-// file 25 "c:/program files/lscc/radiant/3.0/cae_library/simulation/verilog/ice40up/rgb.v"
-// file 26 "c:/program files/lscc/radiant/3.0/cae_library/simulation/verilog/ice40up/rgb1p8v.v"
-// file 27 "c:/program files/lscc/radiant/3.0/cae_library/simulation/verilog/ice40up/sp256k.v"
-// file 28 "c:/program files/lscc/radiant/3.0/cae_library/simulation/verilog/ice40up/legacy.v"
-// file 29 "c:/program files/lscc/radiant/3.0/ip/common/adder/rtl/lscc_adder.v"
-// file 30 "c:/program files/lscc/radiant/3.0/ip/common/adder_subtractor/rtl/lscc_add_sub.v"
-// file 31 "c:/program files/lscc/radiant/3.0/ip/common/complex_mult/rtl/lscc_complex_mult.v"
-// file 32 "c:/program files/lscc/radiant/3.0/ip/common/counter/rtl/lscc_cntr.v"
-// file 33 "c:/program files/lscc/radiant/3.0/ip/common/fifo/rtl/lscc_fifo.v"
-// file 34 "c:/program files/lscc/radiant/3.0/ip/common/fifo_dc/rtl/lscc_fifo_dc.v"
-// file 35 "c:/program files/lscc/radiant/3.0/ip/common/mult_accumulate/rtl/lscc_mult_accumulate.v"
-// file 36 "c:/program files/lscc/radiant/3.0/ip/common/mult_add_sub/rtl/lscc_mult_add_sub.v"
-// file 37 "c:/program files/lscc/radiant/3.0/ip/common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v"
-// file 38 "c:/program files/lscc/radiant/3.0/ip/common/multiplier/rtl/lscc_multiplier.v"
-// file 39 "c:/program files/lscc/radiant/3.0/ip/common/ram_dp/rtl/lscc_ram_dp.v"
-// file 40 "c:/program files/lscc/radiant/3.0/ip/common/ram_dq/rtl/lscc_ram_dq.v"
-// file 41 "c:/program files/lscc/radiant/3.0/ip/common/rom/rtl/lscc_rom.v"
-// file 42 "c:/program files/lscc/radiant/3.0/ip/common/subtractor/rtl/lscc_subtractor.v"
-// file 43 "c:/program files/lscc/radiant/3.0/ip/pmi/pmi_add.v"
-// file 44 "c:/program files/lscc/radiant/3.0/ip/pmi/pmi_addsub.v"
-// file 45 "c:/program files/lscc/radiant/3.0/ip/pmi/pmi_complex_mult.v"
-// file 46 "c:/program files/lscc/radiant/3.0/ip/pmi/pmi_counter.v"
-// file 47 "c:/program files/lscc/radiant/3.0/ip/pmi/pmi_dsp.v"
-// file 48 "c:/program files/lscc/radiant/3.0/ip/pmi/pmi_fifo.v"
-// file 49 "c:/program files/lscc/radiant/3.0/ip/pmi/pmi_fifo_dc.v"
-// file 50 "c:/program files/lscc/radiant/3.0/ip/pmi/pmi_mac.v"
-// file 51 "c:/program files/lscc/radiant/3.0/ip/pmi/pmi_mult.v"
-// file 52 "c:/program files/lscc/radiant/3.0/ip/pmi/pmi_multaddsub.v"
-// file 53 "c:/program files/lscc/radiant/3.0/ip/pmi/pmi_multaddsubsum.v"
-// file 54 "c:/program files/lscc/radiant/3.0/ip/pmi/pmi_ram_dp.v"
-// file 55 "c:/program files/lscc/radiant/3.0/ip/pmi/pmi_ram_dp_be.v"
-// file 56 "c:/program files/lscc/radiant/3.0/ip/pmi/pmi_ram_dq.v"
-// file 57 "c:/program files/lscc/radiant/3.0/ip/pmi/pmi_ram_dq_be.v"
-// file 58 "c:/program files/lscc/radiant/3.0/ip/pmi/pmi_rom.v"
-// file 59 "c:/program files/lscc/radiant/3.0/ip/pmi/pmi_sub.v"
+// file 0 "c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd"
+// file 1 "c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd"
+// file 2 "c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd"
+// file 3 "c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd"
+// file 4 "c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/randompos.vhd"
+// file 5 "c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd"
+// file 6 "c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd"
+// file 7 "c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd"
+// file 8 "c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v"
+// file 9 "c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.vhd"
+// file 10 "c:/lscc/radiant/3.2/cae_library/simulation/verilog/ice40up/ccu2_b.v"
+// file 11 "c:/lscc/radiant/3.2/cae_library/simulation/verilog/ice40up/fd1p3bz.v"
+// file 12 "c:/lscc/radiant/3.2/cae_library/simulation/verilog/ice40up/fd1p3dz.v"
+// file 13 "c:/lscc/radiant/3.2/cae_library/simulation/verilog/ice40up/fd1p3iz.v"
+// file 14 "c:/lscc/radiant/3.2/cae_library/simulation/verilog/ice40up/fd1p3jz.v"
+// file 15 "c:/lscc/radiant/3.2/cae_library/simulation/verilog/ice40up/hsosc.v"
+// file 16 "c:/lscc/radiant/3.2/cae_library/simulation/verilog/ice40up/hsosc1p8v.v"
+// file 17 "c:/lscc/radiant/3.2/cae_library/simulation/verilog/ice40up/ib.v"
+// file 18 "c:/lscc/radiant/3.2/cae_library/simulation/verilog/ice40up/ifd1p3az.v"
+// file 19 "c:/lscc/radiant/3.2/cae_library/simulation/verilog/ice40up/lsosc.v"
+// file 20 "c:/lscc/radiant/3.2/cae_library/simulation/verilog/ice40up/lsosc1p8v.v"
+// file 21 "c:/lscc/radiant/3.2/cae_library/simulation/verilog/ice40up/ob.v"
+// file 22 "c:/lscc/radiant/3.2/cae_library/simulation/verilog/ice40up/obz_b.v"
+// file 23 "c:/lscc/radiant/3.2/cae_library/simulation/verilog/ice40up/ofd1p3az.v"
+// file 24 "c:/lscc/radiant/3.2/cae_library/simulation/verilog/ice40up/pdp4k.v"
+// file 25 "c:/lscc/radiant/3.2/cae_library/simulation/verilog/ice40up/rgb.v"
+// file 26 "c:/lscc/radiant/3.2/cae_library/simulation/verilog/ice40up/rgb1p8v.v"
+// file 27 "c:/lscc/radiant/3.2/cae_library/simulation/verilog/ice40up/sp256k.v"
+// file 28 "c:/lscc/radiant/3.2/cae_library/simulation/verilog/ice40up/legacy.v"
+// file 29 "c:/lscc/radiant/3.2/ip/avant/fifo/rtl/lscc_fifo.v"
+// file 30 "c:/lscc/radiant/3.2/ip/avant/fifo_dc/rtl/lscc_fifo_dc.v"
+// file 31 "c:/lscc/radiant/3.2/ip/avant/ram_dp/rtl/lscc_ram_dp.v"
+// file 32 "c:/lscc/radiant/3.2/ip/avant/ram_dq/rtl/lscc_ram_dq.v"
+// file 33 "c:/lscc/radiant/3.2/ip/avant/rom/rtl/lscc_rom.v"
+// file 34 "c:/lscc/radiant/3.2/ip/common/adder/rtl/lscc_adder.v"
+// file 35 "c:/lscc/radiant/3.2/ip/common/adder_subtractor/rtl/lscc_add_sub.v"
+// file 36 "c:/lscc/radiant/3.2/ip/common/complex_mult/rtl/lscc_complex_mult.v"
+// file 37 "c:/lscc/radiant/3.2/ip/common/counter/rtl/lscc_cntr.v"
+// file 38 "c:/lscc/radiant/3.2/ip/common/mult_accumulate/rtl/lscc_mult_accumulate.v"
+// file 39 "c:/lscc/radiant/3.2/ip/common/mult_add_sub/rtl/lscc_mult_add_sub.v"
+// file 40 "c:/lscc/radiant/3.2/ip/common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v"
+// file 41 "c:/lscc/radiant/3.2/ip/common/multiplier/rtl/lscc_multiplier.v"
+// file 42 "c:/lscc/radiant/3.2/ip/common/subtractor/rtl/lscc_subtractor.v"
+// file 43 "c:/lscc/radiant/3.2/ip/pmi/pmi_add.v"
+// file 44 "c:/lscc/radiant/3.2/ip/pmi/pmi_addsub.v"
+// file 45 "c:/lscc/radiant/3.2/ip/pmi/pmi_complex_mult.v"
+// file 46 "c:/lscc/radiant/3.2/ip/pmi/pmi_counter.v"
+// file 47 "c:/lscc/radiant/3.2/ip/pmi/pmi_dsp.v"
+// file 48 "c:/lscc/radiant/3.2/ip/pmi/pmi_fifo.v"
+// file 49 "c:/lscc/radiant/3.2/ip/pmi/pmi_fifo_dc.v"
+// file 50 "c:/lscc/radiant/3.2/ip/pmi/pmi_mac.v"
+// file 51 "c:/lscc/radiant/3.2/ip/pmi/pmi_mult.v"
+// file 52 "c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsub.v"
+// file 53 "c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsubsum.v"
+// file 54 "c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp.v"
+// file 55 "c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp_be.v"
+// file 56 "c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq.v"
+// file 57 "c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq_be.v"
+// file 58 "c:/lscc/radiant/3.2/ip/pmi/pmi_rom.v"
+// file 59 "c:/lscc/radiant/3.2/ip/pmi/pmi_sub.v"
 
 //
 // Verilog Description of module board
 //
 
-module board (input clk, input [7:0]data, output [7:0]apple_id, output [99:0]snake);   /* synthesis lineinfo="@2(8[8],8[13])"*/
+module board (input clk, input [7:0]digital, output [7:0]apple_id, output [99:0]snake);
     
     
     wire VCC_net, GND_net;
     
     VLO i5 (.Z(GND_net));
-    OB \apple_id_pad[7]  (.I(GND_net), .O(apple_id[7]));   /* synthesis lineinfo="@2(13[13],13[21])"*/
-    OB \apple_id_pad[6]  (.I(GND_net), .O(apple_id[6]));   /* synthesis lineinfo="@2(13[13],13[21])"*/
-    OB \apple_id_pad[5]  (.I(GND_net), .O(apple_id[5]));   /* synthesis lineinfo="@2(13[13],13[21])"*/
-    OB \apple_id_pad[4]  (.I(GND_net), .O(apple_id[4]));   /* synthesis lineinfo="@2(13[13],13[21])"*/
-    OB \apple_id_pad[3]  (.I(GND_net), .O(apple_id[3]));   /* synthesis lineinfo="@2(13[13],13[21])"*/
-    OB \apple_id_pad[2]  (.I(GND_net), .O(apple_id[2]));   /* synthesis lineinfo="@2(13[13],13[21])"*/
-    OB \apple_id_pad[1]  (.I(GND_net), .O(apple_id[1]));   /* synthesis lineinfo="@2(13[13],13[21])"*/
-    OB \apple_id_pad[0]  (.I(GND_net), .O(apple_id[0]));   /* synthesis lineinfo="@2(13[13],13[21])"*/
-    OB \snake_pad[99]  (.I(GND_net), .O(snake[99]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[98]  (.I(GND_net), .O(snake[98]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[97]  (.I(GND_net), .O(snake[97]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[96]  (.I(GND_net), .O(snake[96]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[95]  (.I(GND_net), .O(snake[95]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[94]  (.I(GND_net), .O(snake[94]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[93]  (.I(GND_net), .O(snake[93]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[92]  (.I(GND_net), .O(snake[92]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[91]  (.I(GND_net), .O(snake[91]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[90]  (.I(GND_net), .O(snake[90]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[89]  (.I(GND_net), .O(snake[89]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[88]  (.I(GND_net), .O(snake[88]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[87]  (.I(GND_net), .O(snake[87]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[86]  (.I(GND_net), .O(snake[86]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[85]  (.I(GND_net), .O(snake[85]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[84]  (.I(GND_net), .O(snake[84]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[83]  (.I(GND_net), .O(snake[83]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[82]  (.I(GND_net), .O(snake[82]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[81]  (.I(GND_net), .O(snake[81]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[80]  (.I(GND_net), .O(snake[80]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[79]  (.I(GND_net), .O(snake[79]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[78]  (.I(GND_net), .O(snake[78]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[77]  (.I(GND_net), .O(snake[77]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[76]  (.I(GND_net), .O(snake[76]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[75]  (.I(GND_net), .O(snake[75]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[74]  (.I(GND_net), .O(snake[74]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[73]  (.I(GND_net), .O(snake[73]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[72]  (.I(GND_net), .O(snake[72]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[71]  (.I(GND_net), .O(snake[71]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[70]  (.I(GND_net), .O(snake[70]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[69]  (.I(GND_net), .O(snake[69]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[68]  (.I(GND_net), .O(snake[68]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[67]  (.I(GND_net), .O(snake[67]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[66]  (.I(GND_net), .O(snake[66]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[65]  (.I(GND_net), .O(snake[65]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[64]  (.I(GND_net), .O(snake[64]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[63]  (.I(GND_net), .O(snake[63]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[62]  (.I(GND_net), .O(snake[62]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[61]  (.I(GND_net), .O(snake[61]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[60]  (.I(GND_net), .O(snake[60]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[59]  (.I(GND_net), .O(snake[59]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[58]  (.I(GND_net), .O(snake[58]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[57]  (.I(GND_net), .O(snake[57]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[56]  (.I(GND_net), .O(snake[56]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[55]  (.I(GND_net), .O(snake[55]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[54]  (.I(GND_net), .O(snake[54]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[53]  (.I(GND_net), .O(snake[53]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[52]  (.I(GND_net), .O(snake[52]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[51]  (.I(GND_net), .O(snake[51]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[50]  (.I(GND_net), .O(snake[50]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[49]  (.I(GND_net), .O(snake[49]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[48]  (.I(GND_net), .O(snake[48]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[47]  (.I(GND_net), .O(snake[47]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[46]  (.I(GND_net), .O(snake[46]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[45]  (.I(GND_net), .O(snake[45]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[44]  (.I(GND_net), .O(snake[44]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[43]  (.I(GND_net), .O(snake[43]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[42]  (.I(GND_net), .O(snake[42]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[41]  (.I(GND_net), .O(snake[41]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[40]  (.I(GND_net), .O(snake[40]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[39]  (.I(GND_net), .O(snake[39]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[38]  (.I(GND_net), .O(snake[38]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[37]  (.I(GND_net), .O(snake[37]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[36]  (.I(GND_net), .O(snake[36]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[35]  (.I(GND_net), .O(snake[35]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[34]  (.I(GND_net), .O(snake[34]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[33]  (.I(GND_net), .O(snake[33]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[32]  (.I(GND_net), .O(snake[32]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[31]  (.I(GND_net), .O(snake[31]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[30]  (.I(GND_net), .O(snake[30]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[29]  (.I(GND_net), .O(snake[29]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[28]  (.I(GND_net), .O(snake[28]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[27]  (.I(GND_net), .O(snake[27]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[26]  (.I(GND_net), .O(snake[26]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[25]  (.I(GND_net), .O(snake[25]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[24]  (.I(GND_net), .O(snake[24]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[23]  (.I(GND_net), .O(snake[23]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[22]  (.I(GND_net), .O(snake[22]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[21]  (.I(GND_net), .O(snake[21]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[20]  (.I(GND_net), .O(snake[20]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[19]  (.I(GND_net), .O(snake[19]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[18]  (.I(GND_net), .O(snake[18]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[17]  (.I(GND_net), .O(snake[17]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[16]  (.I(GND_net), .O(snake[16]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[15]  (.I(GND_net), .O(snake[15]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[14]  (.I(GND_net), .O(snake[14]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[13]  (.I(GND_net), .O(snake[13]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[12]  (.I(GND_net), .O(snake[12]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[11]  (.I(GND_net), .O(snake[11]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[10]  (.I(GND_net), .O(snake[10]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[9]  (.I(GND_net), .O(snake[9]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[8]  (.I(GND_net), .O(snake[8]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[7]  (.I(GND_net), .O(snake[7]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[6]  (.I(GND_net), .O(snake[6]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[5]  (.I(GND_net), .O(snake[5]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[4]  (.I(GND_net), .O(snake[4]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[3]  (.I(GND_net), .O(snake[3]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[2]  (.I(GND_net), .O(snake[2]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[1]  (.I(GND_net), .O(snake[1]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
-    OB \snake_pad[0]  (.I(GND_net), .O(snake[0]));   /* synthesis lineinfo="@2(15[13],15[18])"*/
+    (* lineinfo="@0(13[13],13[21])" *) OB \apple_id_pad[7]  (.I(GND_net), 
+            .O(apple_id[7]));
+    (* lineinfo="@0(13[13],13[21])" *) OB \apple_id_pad[6]  (.I(GND_net), 
+            .O(apple_id[6]));
+    (* lineinfo="@0(13[13],13[21])" *) OB \apple_id_pad[5]  (.I(GND_net), 
+            .O(apple_id[5]));
+    (* lineinfo="@0(13[13],13[21])" *) OB \apple_id_pad[4]  (.I(GND_net), 
+            .O(apple_id[4]));
+    (* lineinfo="@0(13[13],13[21])" *) OB \apple_id_pad[3]  (.I(GND_net), 
+            .O(apple_id[3]));
+    (* lineinfo="@0(13[13],13[21])" *) OB \apple_id_pad[2]  (.I(GND_net), 
+            .O(apple_id[2]));
+    (* lineinfo="@0(13[13],13[21])" *) OB \apple_id_pad[1]  (.I(GND_net), 
+            .O(apple_id[1]));
+    (* lineinfo="@0(13[13],13[21])" *) OB \apple_id_pad[0]  (.I(GND_net), 
+            .O(apple_id[0]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[99]  (.I(GND_net), .O(snake[99]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[98]  (.I(GND_net), .O(snake[98]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[97]  (.I(GND_net), .O(snake[97]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[96]  (.I(GND_net), .O(snake[96]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[95]  (.I(GND_net), .O(snake[95]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[94]  (.I(GND_net), .O(snake[94]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[93]  (.I(GND_net), .O(snake[93]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[92]  (.I(GND_net), .O(snake[92]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[91]  (.I(GND_net), .O(snake[91]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[90]  (.I(GND_net), .O(snake[90]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[89]  (.I(GND_net), .O(snake[89]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[88]  (.I(GND_net), .O(snake[88]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[87]  (.I(GND_net), .O(snake[87]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[86]  (.I(GND_net), .O(snake[86]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[85]  (.I(GND_net), .O(snake[85]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[84]  (.I(GND_net), .O(snake[84]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[83]  (.I(GND_net), .O(snake[83]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[82]  (.I(GND_net), .O(snake[82]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[81]  (.I(GND_net), .O(snake[81]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[80]  (.I(GND_net), .O(snake[80]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[79]  (.I(GND_net), .O(snake[79]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[78]  (.I(GND_net), .O(snake[78]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[77]  (.I(GND_net), .O(snake[77]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[76]  (.I(GND_net), .O(snake[76]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[75]  (.I(GND_net), .O(snake[75]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[74]  (.I(GND_net), .O(snake[74]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[73]  (.I(GND_net), .O(snake[73]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[72]  (.I(GND_net), .O(snake[72]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[71]  (.I(GND_net), .O(snake[71]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[70]  (.I(GND_net), .O(snake[70]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[69]  (.I(GND_net), .O(snake[69]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[68]  (.I(GND_net), .O(snake[68]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[67]  (.I(GND_net), .O(snake[67]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[66]  (.I(GND_net), .O(snake[66]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[65]  (.I(GND_net), .O(snake[65]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[64]  (.I(GND_net), .O(snake[64]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[63]  (.I(GND_net), .O(snake[63]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[62]  (.I(GND_net), .O(snake[62]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[61]  (.I(GND_net), .O(snake[61]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[60]  (.I(GND_net), .O(snake[60]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[59]  (.I(GND_net), .O(snake[59]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[58]  (.I(GND_net), .O(snake[58]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[57]  (.I(GND_net), .O(snake[57]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[56]  (.I(GND_net), .O(snake[56]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[55]  (.I(GND_net), .O(snake[55]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[54]  (.I(GND_net), .O(snake[54]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[53]  (.I(GND_net), .O(snake[53]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[52]  (.I(GND_net), .O(snake[52]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[51]  (.I(GND_net), .O(snake[51]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[50]  (.I(GND_net), .O(snake[50]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[49]  (.I(GND_net), .O(snake[49]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[48]  (.I(GND_net), .O(snake[48]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[47]  (.I(GND_net), .O(snake[47]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[46]  (.I(GND_net), .O(snake[46]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[45]  (.I(GND_net), .O(snake[45]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[44]  (.I(GND_net), .O(snake[44]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[43]  (.I(GND_net), .O(snake[43]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[42]  (.I(GND_net), .O(snake[42]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[41]  (.I(GND_net), .O(snake[41]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[40]  (.I(GND_net), .O(snake[40]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[39]  (.I(GND_net), .O(snake[39]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[38]  (.I(GND_net), .O(snake[38]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[37]  (.I(GND_net), .O(snake[37]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[36]  (.I(GND_net), .O(snake[36]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[35]  (.I(GND_net), .O(snake[35]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[34]  (.I(GND_net), .O(snake[34]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[33]  (.I(GND_net), .O(snake[33]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[32]  (.I(GND_net), .O(snake[32]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[31]  (.I(GND_net), .O(snake[31]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[30]  (.I(GND_net), .O(snake[30]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[29]  (.I(GND_net), .O(snake[29]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[28]  (.I(GND_net), .O(snake[28]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[27]  (.I(GND_net), .O(snake[27]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[26]  (.I(GND_net), .O(snake[26]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[25]  (.I(GND_net), .O(snake[25]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[24]  (.I(GND_net), .O(snake[24]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[23]  (.I(GND_net), .O(snake[23]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[22]  (.I(GND_net), .O(snake[22]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[21]  (.I(GND_net), .O(snake[21]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[20]  (.I(GND_net), .O(snake[20]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[19]  (.I(GND_net), .O(snake[19]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[18]  (.I(GND_net), .O(snake[18]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[17]  (.I(GND_net), .O(snake[17]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[16]  (.I(GND_net), .O(snake[16]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[15]  (.I(GND_net), .O(snake[15]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[14]  (.I(GND_net), .O(snake[14]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[13]  (.I(GND_net), .O(snake[13]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[12]  (.I(GND_net), .O(snake[12]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[11]  (.I(GND_net), .O(snake[11]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[10]  (.I(GND_net), .O(snake[10]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[9]  (.I(GND_net), .O(snake[9]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[8]  (.I(GND_net), .O(snake[8]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[7]  (.I(GND_net), .O(snake[7]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[6]  (.I(GND_net), .O(snake[6]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[5]  (.I(GND_net), .O(snake[5]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[4]  (.I(GND_net), .O(snake[4]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[3]  (.I(GND_net), .O(snake[3]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[2]  (.I(GND_net), .O(snake[2]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[1]  (.I(GND_net), .O(snake[1]));
+    (* lineinfo="@0(15[13],15[18])" *) OB \snake_pad[0]  (.I(GND_net), .O(snake[0]));
     VHI i13 (.Z(VCC_net));
     
 endmodule

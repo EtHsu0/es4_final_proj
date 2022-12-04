@@ -33,14 +33,14 @@ architecture synth of board is
             snakeCLK: in std_logic;
             reset: in std_logic;
             -- Direction should be (Up, Down, Left, Right)
-            dir: in DirTYpe;
+            --dir: in DirTYpe; -- need to replace
+			dir: in std_logic_vector(1 downto 0);
             snake_head_coord: out std_logic_vector(7 downto 0);
             snake_pos: out std_logic_vector(99 downto 0)
         );
     end component; 
     signal apple: unsigned (7 downto 0) := 8d"";
-    signal snakePosition: unsigned(99 downto 0) := (40 => '1', 41 => '1', 42 => '1'),
-                                                (others => '0);
+    --signal snakePosition: unsigned(99 downto 0) := (40 => '1', 41 => '1', 42 => '1'),(others => '0'); -- TODO: Fix Syntax Error!
     signal counter: unsigned (29 downto 0) := 30d"0";
 
     TYPE DirType is (UP, DOWN, LEFT, RIGHT);

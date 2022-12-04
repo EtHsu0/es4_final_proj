@@ -4,14 +4,14 @@ Target Vendor:        LATTICE
 Target Device:        iCE40UP5KSG48
 Target Performance:   High-Performance_1.2V
 
-Mapper:    version Radiant Software (64-bit) 3.0.0.24.1
-Mapped on: Sun Dec  4 14:25:02 2022
+Mapper:    version Radiant Software (64-bit) 3.2.1.217.3
+Mapped on: Sun Dec  4 17:42:44 2022
 
 Design Information
 ------------------
 
-Command line:   map es4finalproj_impl_1_syn.udb -o es4finalproj_impl_1_map.udb
-     -mp es4finalproj_impl_1.mrp -hierrpt -gui
+Command line:   map -i es4finalproj_impl_1_syn.udb -o
+     es4finalproj_impl_1_map.udb -mp es4finalproj_impl_1.mrp -hierrpt -gui
 
 Design Summary
 --------------
@@ -57,9 +57,9 @@ Design Errors/Warnings
 ----------------------
 
 WARNING - map: Top module port 'clk' does not connect to anything.
-WARNING - map: Top module port 'data[7]' does not connect to anything.
-WARNING - map: Top module port 'data[6]' does not connect to anything.
-WARNING - map: Top module port 'data[5]' does not connect to anything.
+WARNING - map: Top module port 'digital[7]' does not connect to anything.
+WARNING - map: Top module port 'digital[6]' does not connect to anything.
+WARNING - map: Top module port 'digital[5]' does not connect to anything.
 
                                     Page 1
 
@@ -69,11 +69,11 @@ WARNING - map: Top module port 'data[5]' does not connect to anything.
 
 Design Errors/Warnings (cont)
 -----------------------------
-WARNING - map: Top module port 'data[4]' does not connect to anything.
-WARNING - map: Top module port 'data[3]' does not connect to anything.
-WARNING - map: Top module port 'data[2]' does not connect to anything.
-WARNING - map: Top module port 'data[1]' does not connect to anything.
-WARNING - map: Top module port 'data[0]' does not connect to anything.
+WARNING - map: Top module port 'digital[4]' does not connect to anything.
+WARNING - map: Top module port 'digital[3]' does not connect to anything.
+WARNING - map: Top module port 'digital[2]' does not connect to anything.
+WARNING - map: Top module port 'digital[1]' does not connect to anything.
+WARNING - map: Top module port 'digital[0]' does not connect to anything.
 ERROR - map: Design doesn't fit into device specified, refer to the Map report
      for more details.
 
@@ -82,7 +82,7 @@ Run Time and Memory Usage
 
    Total CPU Time: 0 secs
    Total REAL Time: 0 secs
-   Peak Memory Usage: 49 MB
+   Peak Memory Usage: 53 MB
 
 
 
@@ -137,5 +137,5 @@ Copyright (c) 1995-2001 Lucent
      Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems
      All rights reserved.
-Copyright (c) 2002-2021 Lattice Semiconductor
+Copyright (c) 2002-2022 Lattice Semiconductor
      Corporation,  All rights reserved.

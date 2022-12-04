@@ -14,7 +14,7 @@ entity display is
 
         -- Game logic
         apple: in unsigned(8 downto 0);
-        snake: in unsigned(99 downto 0);
+        snake: in unsigned(99 downto 0)
     );
 end display;
 
@@ -29,7 +29,7 @@ architecture synth of display is
     end component;
     
     component vga is 
-        port(~
+        port(
             clk : in std_logic; -- 25.1 MHz clock
             valid : out std_logic; -- valid is '0' when the VGA's RGB must be low for front/back porch and sync pulse
             

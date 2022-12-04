@@ -5,12 +5,15 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 -- use IEEE.std_logic_arith.all;
 
+
+
 entity snakePos is
     port (
         snakeCLK: in std_logic;
         reset: in std_logic;
         -- Direction should be 0-3 (Up, Down, Left, Right)
-        dir: in DirTYpe;
+        dir: in std_logic_vector(1 downto 0); 
+		-- Gabriel Note: dirtype is not defined, need to fix dirtype declaration or remove entirely
         -- 00 = up
         -- 01 = down
         -- 10 = left
@@ -26,13 +29,15 @@ signal snake_dir: std_logic_vector(2 downto 0);
 signal snake_head: std_logic_vector(7 downto 0);
 signal snake_tail: std_logic_vector(7 downto 0);
 
-TYPE DirType is (UP, DOWN, LEFT, RIGHT);
+TYPE DirType is (UP, DOWN, LEFT, RIGHT); -- Need to fix this!
 TYPE DirArray is ARRAY (0 to 99) of DirType;
 
-signal pos_dir_left: unsigned(8 downto 0) := 0;
-signal pos_dir_right: unsigned(8 downto 0) := 3;
+signal pos_dir_left: unsigned(8 downto 0) := 9b"0"; -- 0
+signal pos_dir_right: unsigned(8 downto 0) := 9b"11"; -- 3
 -- From left to right, direction from head to tails
-signal snake_array: DirArray := (0 => RIGHT, 1 => RIGHT, 2 => RIGHT), (others => 0);
+--signal snake_array: DirArray := (0 => RIGHT, 1 => RIGHT, 2 => RIGHT), (others => 0); -- Errors! Fix Type Declarations
+signal snake_array: std_logic_vector(1 downto 0); -- temp replacement
+
 begin
     process(snakeCLK) is
     begin

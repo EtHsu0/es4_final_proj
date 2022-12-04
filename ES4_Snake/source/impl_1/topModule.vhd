@@ -15,9 +15,9 @@ entity top is
         HSYNC : out std_logic; -- pin 23
         VSYNC : out std_logic; -- pin 25
         
-        rgb : out unsigned(5 downto 0) -- pin 28, 38, 42, 36, 43, and 34
+        rgb : out unsigned(5 downto 0); -- pin 28, 38, 42, 36, 43, and 34
 
-        pll_outcore_o : out std_logic; -- for testing purposes (pin 2)
+        pll_outcore_o : out std_logic -- for testing purposes (pin 2)
     );
 end top;
 
