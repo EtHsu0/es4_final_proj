@@ -50,3 +50,16 @@ snakePos:
     - Perhaps the Module will also return an output that tells us whether the
         snake has collisioned with himself / border.
 
+## NES Notes
+Button inputs are stored as a std_logic_vector of size 8 (7 downto 0). Button input is indicated by a zero value.
+
+Ex: "10000001" = LEFT and A pressed
+- output(0) = RIGHT directional button
+- output(1) = LEFT directional button
+- output(2) = DOWN directional button
+- output(3) = UP directional button
+- output(4) = START button
+- output(5) = SELECT button
+- output(6) = B button
+- output(7) = A button
+
