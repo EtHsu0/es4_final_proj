@@ -25,18 +25,18 @@ end snakePos;
 
 architecture synth of snakePos is
 
-signal snake_dir: std_logic_vector(2 downto 0);
+signal snake_dir: std_logic_vector(2 downto 0) := "11";
 signal snake_head: std_logic_vector(7 downto 0);
 signal snake_tail: std_logic_vector(7 downto 0);
 
 TYPE DirType is (UP, DOWN, LEFT, RIGHT); -- Need to fix this!
 TYPE DirArray is ARRAY (0 to 99) of DirType;
 
-signal pos_dir_left: unsigned(8 downto 0) := 9b"0"; -- 0
-signal pos_dir_right: unsigned(8 downto 0) := 9b"11"; -- 3
+signal pos_dir_left: unsigned(7 downto 0) := (8d"124"); -- 0 (HEAD)
+signal pos_dir_right: unsigned(7 downto 0) := (8d"127"); -- 3 (TAIL)
 -- From left to right, direction from head to tails
---signal snake_array: DirArray := (0 => RIGHT, 1 => RIGHT, 2 => RIGHT), (others => 0); -- Errors! Fix Type Declarations
-signal snake_array: std_logic_vector(1 downto 0); -- temp replacement
+signal snake_array: DirArray := (others => RIGHT); -- Errors! Fix Type Declarations
+-- signal snake_array: DirArray; -- temp replacement
 
 begin
     process(snakeCLK) is
@@ -46,6 +46,8 @@ begin
             if snake_dir(1) /= dir(1) then
                 snake_dir <= dir;
             end if;
+
+            snake_array(pos_dir_right)
             
             -- Remove / update tail
             
