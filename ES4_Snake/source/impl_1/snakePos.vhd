@@ -70,9 +70,10 @@ begin
             end if;
 
             -- Update snake head coordinate
-			pos_dir_left <= pos_dir_left - 1;
+			-- pos_dir_left <= pos_dir_left - 1;
             case snake_dir is
-                when LEFT => snake_array(to_integer(pos_dir_left)) <= LEFT;
+                when LEFT => snake_head <= snake_head - 1,
+                            snake_array(to_integer(pos_dir_left)) <= LEFT;
             end case;
 
             
