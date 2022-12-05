@@ -5,12 +5,13 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Sun Dec  4 21:51:15 2022
+Sun Dec  4 22:13:44 2022
 
 
 Command Line:  C:\lscc\radiant\3.2\ispfpga\bin\nt64\synthesis.exe -f es4finalproj_impl_1_lattice.synproj -gui -msgset C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/promote.xml 
 
 Synthesis options:
+The -top option is not used.
 The -a option is iCE40UP.
 The -t option is SG48.
 The -sp option is High-Performance_1.2V.
@@ -38,7 +39,6 @@ The -p option is iCE40UP5K.
 
 INFO - synthesis: User-Selected Strategy Settings
 Optimization goal = Area
-Top-level module name = board.
 Target frequency = 200.000000 MHz.
 Maximum fanout = 1000.
 Timing path count = 3
@@ -73,6 +73,7 @@ The -syn option is FALSE.
 -path C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/impl_1 (searchpath added)
 -path C:/lscc/radiant/3.2/ispfpga/ice40tp/data (searchpath added)
 Mixed language design
+WARNING - synthesis: A top-level module has not been specified for the mixed language design.
 Verilog design file = C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v
 VHDL library = pmi
 VHDL design file = C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.vhd
@@ -169,16 +170,18 @@ Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/s
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd
 
 INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(10): analyzing entity snakepos. VHDL-1012
-INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(30): analyzing architecture synth. VHDL-1010
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(102): possible infinite loop process does not have a wait statement. VHDL-1196
+INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(31): analyzing architecture synth. VHDL-1010
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(119): possible infinite loop process does not have a wait statement. VHDL-1196
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd. VHDL-1481
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd
 
 INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(8): analyzing entity board. VHDL-1012
 INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(19): analyzing architecture synth. VHDL-1010
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(60): case statement does not cover all choices. 'others' clause is needed. VHDL-1037
+WARNING - synthesis: Setting board as the top-level module. To specify the top-level module explicitly, go to View->Set Views->Hierarchy or Project->Active Implementation->Set Top-Level Unit.
 INFO - synthesis: The default VHDL library search path is now "C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/impl_1". VHDL-1504
 Top module language type = VHDL.
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(59): case statement does not cover all choices. 'others' clause is needed. VHDL-1037
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(60): case statement does not cover all choices. 'others' clause is needed. VHDL-1037
 Top module name (VHDL, mixed language): board
                                                          
 
@@ -468,9 +471,9 @@ Top 10 highest fanout non-clock nets:
   Net : snake[9], loads : 0
 ################### End Clock Report ##################
 
-Peak Memory Usage: 117 MB
+Peak Memory Usage: 125 MB
 
 --------------------------------------------------------------
-Total CPU Time: 2 secs 
-Total REAL Time: 2 secs 
+Total CPU Time: 3 secs 
+Total REAL Time: 3 secs 
 --------------------------------------------------------------

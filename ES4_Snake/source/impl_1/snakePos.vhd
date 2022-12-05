@@ -22,9 +22,9 @@ entity snakePos is
         -- 10 = left
         -- 11 = right
         snake_head_out: out std_logic_vector(7 downto 0);
-        snake_pos_out: out std_logic_vector(99 downto 0) := 100b"0"
+        snake_pos_out: out std_logic_vector(99 downto 0) := 100b"0";
         
-        snake_dead: out std_logic := '0';
+        snake_dead: out std_logic := '0'
     );
 end snakePos;
 
@@ -75,22 +75,22 @@ begin
                 if snake_head < 10 then
                     snake_dead <= '1';
                 end if;
-                snake_head - 10;
+                snake_head <= snake_head - 10;
             elsif snake_dir = DOWN then
                 if snake_head > 89 then
                     snake_dead <= '1';
                 end if;
-                    snake_head + 10;
+                snake_head <= snake_head + 10;
             elsif snake_dir = LEFT then
                 if snake_head mod 10 = 0 then
                     snake_dead <= '1';
                 end if;
-                snake_head - 1;
+                snake_head <= snake_head - 1;
             elsif snake_dir = RIGHT then
                 if snake_head mod 10 = 9 then
                     snake_dead <= '1';
                 end if;
-                snake_head + 1;
+                snake_head <= snake_head + 1;
             end if;
             
             
