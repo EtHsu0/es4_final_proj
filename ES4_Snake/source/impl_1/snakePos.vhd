@@ -22,7 +22,7 @@ entity snakePos is
         -- 10 = left
         -- 11 = right
         snake_head_out: out std_logic_vector(7 downto 0);
-        snake_pos_out: out std_logic_vector(99 downto 0);
+        snake_pos_out: out std_logic_vector(99 downto 0)
         
     );
 end snakePos;
@@ -30,8 +30,8 @@ end snakePos;
 architecture synth of snakePos is
 
 signal snake_dir: std_logic_vector(2 downto 0) := "11";
-signal snake_head: std_logic_vector(7 downto 0);
-signal snake_tail: std_logic_vector(7 downto 0);
+signal snake_head: unsigned(7 downto 0);
+signal snake_tail: unsigned(7 downto 0);
 
 TYPE DirType is (UP, DOWN, LEFT, RIGHT); -- Need to fix this!
 TYPE DirArray is ARRAY (0 to 99) of DirType;
@@ -57,9 +57,10 @@ begin
             end if;
 
             -- Update snake head coordinate
+			pos_dir_left <= pos_dir_left - 1;
             case snake_dir is
-                when LEFT => snake_head <= snake_head - 1, 
-                                snake_array(pos_dir_left - 1) <= LEFT;
+			
+                when LEFT => snake_array(to_integer(pos_dir_left)) <= LEFT;
             end case;
 
             

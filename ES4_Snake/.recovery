@@ -2,9 +2,9 @@
 <RadiantProject version="4.2" radiant="3.2.1.217.3" title="es4finalproj" device="iCE40UP5K-SG48I" performance_grade="High-Performance_1.2V" default_implementation="impl_1">
     <Options/>
     <Implementation title="impl_1" dir="impl_1" description="impl_1" synthesis="lse" default_strategy="Strategy1">
-        <Options def_top="board" top="top"/>
+        <Options def_top="board"/>
         <Source name="source/impl_1/display.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
+            <Options top_module="display"/>
         </Source>
         <Source name="source/impl_1/nes.vhd" type="VHDL" type_short="VHDL">
             <Options/>
@@ -13,7 +13,7 @@
             <Options/>
         </Source>
         <Source name="source/impl_1/randomPos.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
+            <Options top_module="randomPos"/>
         </Source>
         <Source name="source/impl_1/topModule.vhd" type="VHDL" type_short="VHDL">
             <Options top_module="top"/>
@@ -25,7 +25,7 @@
             <Options/>
         </Source>
         <Source name="source/impl_1/board.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
+            <Options top_module="board"/>
         </Source>
     </Implementation>
     <Strategy name="Strategy1" file="es4finalproj1.sty"/>
