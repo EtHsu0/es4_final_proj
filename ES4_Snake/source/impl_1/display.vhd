@@ -5,12 +5,12 @@ use IEEE.numeric_std.all;
 entity display is
     port(
         pll_in_clock : in std_logic; -- pin 20, shorted to the 12 MHz pin on the UPduino
-        pll_outcore_o : out std_logic; -- for testing purposes (pin 2)
+        pll_outcore_o : out std_logic; -- pin 21, for testing purposes
 
-        HSYNC : out std_logic; -- pin 23
-        VSYNC : out std_logic; -- pin 25
+        HSYNC : out std_logic; -- pin 46
+        VSYNC : out std_logic; -- pin 2
         
-        rgb : out unsigned(5 downto 0); -- pin 28, 38, 42, 36, 43, and 34
+        rgb : out unsigned(5 downto 0); -- pins 47, 45, 48, 3, 4, 44
 
         -- Game logic
         apple: in unsigned(8 downto 0);
