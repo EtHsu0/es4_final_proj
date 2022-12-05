@@ -39,8 +39,8 @@ signal prev_dir: std_logic_vector(1 downto 0) := "11";
 signal snake_dir: DirType;
 
 
-signal pos_dir_left: unsigned(7 downto 0) := (8d"124"); -- 0 (HEAD)
-signal pos_dir_right: unsigned(7 downto 0) := (8d"127"); -- 3 (TAIL)
+signal arr_left: unsigned(7 downto 0) := (8d"124"); -- 0 (HEAD)
+signal arr_right: unsigned(7 downto 0) := (8d"127"); -- 3 (TAIL)
 -- From left to right, direction from head to tails
 signal snake_array: DirArray := (others => RIGHT); -- Errors! Fix Type Declarations
 -- signal snake_array: DirArray; -- temp replacement
@@ -52,7 +52,7 @@ begin
     begin
         if rising_edge(snakeCLK) then
 
-                       -- Check direction is valid
+        -- Check direction is valid
             if prev_dir(1) /= dir_in(1) then
                 prev_dir <= dir_in;
             end if;
@@ -66,11 +66,11 @@ begin
 
             -- Remove / update tail if we are not growing
             if grow_snake = '0' then
-                pos_dir_right <= pos_dir_right - 1;
+                arr_right <= arr_right - 1;
             end if;
 
             -- Update snake head coordinate
-            pos_dir_left <= pos_dir_left - 1;
+            arr_left <= arr_left - 1;
             if snake_dir = UP then
                 if snake_head < 10 then
                     snake_dead <= '1';
@@ -94,20 +94,20 @@ begin
             end if;
             
             
-            snake_array(to_integer(pos_dir_left)) <= snake_dir;
+            snake_array(to_integer(arr_left)) <= snake_dir;
             
 
         end if;
     end process;
 	
 	
-
+    -- Draw the snake onto the 2d array
     process is 
     begin
         snake_coord <= snake_head;
         snake_pos_out(to_integer(snake_coord)) <= '1';
 
-        for i in to_integer(pos_dir_left) to to_integer(pos_dir_right) loop
+        for i in to_integer(arr_left) to to_integer(arr_right) loop
             case snake_array(i) is
                 when UP => snake_coord <= snake_coord - 10;
                 when DOWN => snake_coord <= snake_coord + 10;
