@@ -22,7 +22,7 @@ entity snakePos is
         -- 10 = left
         -- 11 = right
         snake_head_out: out std_logic_vector(7 downto 0);
-        snake_pos_out: out std_logic_vector(99 downto 0)
+        snake_pos_out: out std_logic_vector(99 downto 0) := (others => "0")
         
     );
 end snakePos;
@@ -30,7 +30,6 @@ end snakePos;
 architecture synth of snakePos is
 
 signal snake_head: unsigned(7 downto 0);
-signal snake_tail: unsigned(7 downto 0);
 
 TYPE DirType is (UP, DOWN, LEFT, RIGHT); -- Need to fix this!
 TYPE DirArray is ARRAY (0 to 99) of DirType;
@@ -62,30 +61,41 @@ begin
                 when "11" => snake_dir <= RIGHT;
             end case;
 
- 
-
             -- Remove / update tail if we are not growing
             if grow_snake = '0' then
                 pos_dir_right <= pos_dir_right - 1;
             end if;
 
             -- Update snake head coordinate
-
-			pos_dir_left <= pos_dir_left - 1;
+            pos_dir_left <= pos_dir_left - 1;
             case snake_dir is
                 when UP => snake_head <= snake_head - 10;
                 when DOWN => snake_head <= snake_head + 10;
                 when LEFT => snake_head <= snake_head - 1;
                 when RIGHT => snake_head <= snake_head + 1;
             end case;
+            
             snake_array(to_integer(pos_dir_left)) <= snake_dir;
             
 
         end if;
     end process;
 
-    process is begin
+    process is 
+        variable snake_coord: unsigned;
+    begin
+        snake_coord <= snake_head;
+        snake_pos_out(snake_coord) <= '1';
 
+        for i in pos_dir_left to pos_dir_right loop
+            case snake_array(i) is
+                when UP => snake_coord <= snake_coord - 10;
+                when DOWN => snake_coord <= snake_coord + 10;
+                when LEFT => snake_coord <= snake_coord - 1;
+                when RIGHT => snake_coord <= snake_coord + 1;
+            end case;
+            snake_pos_out(snake_coord) <= '1';
+        end loop;
     end process;
-	
+
 end;
