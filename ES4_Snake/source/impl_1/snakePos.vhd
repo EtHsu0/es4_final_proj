@@ -15,7 +15,7 @@ entity snakePos is
         grow_snake: in std_logic;
 
         -- Direction should be 0-3 (Up, Down, Left, Right)
-        dir: in std_logic_vector(1 downto 0); 
+        dir_in: in std_logic_vector(1 downto 0); 
 		-- Gabriel Note: dirtype is not defined, need to fix dirtype declaration or remove entirely
         -- 00 = up
         -- 01 = down
@@ -35,6 +35,7 @@ signal snake_tail: unsigned(7 downto 0);
 TYPE DirType is (UP, DOWN, LEFT, RIGHT); -- Need to fix this!
 TYPE DirArray is ARRAY (0 to 99) of DirType;
 
+signal prev_dir: std_logic_vector(1 downto 0) := "11";
 signal snake_dir: DirType;
 
 
@@ -48,18 +49,20 @@ begin
     process(snakeCLK) is
     begin
         if rising_edge(snakeCLK) then
+
+                       -- Check direction is valid
+            if prev_dir(1) /= dir(1) then
+                prev_dir <= dir;
+            end if;
             -- Convert to type
-            case dir is
+            case prev_dir is
                 when "00" => snake_dir <= UP;
                 when "01" => snake_dir <= DOWN;
                 when "10" => snake_dir <= LEFT;
                 when "11" => snake_dir <= RIGHT;
             end case;
 
-            -- Check direction is valid
-            if snake_dir(1) /= dir(1) then
-                snake_dir <= dir;
-            end if;
+ 
 
             -- Remove / update tail if we are not growing
             if grow_snake = '0' then
