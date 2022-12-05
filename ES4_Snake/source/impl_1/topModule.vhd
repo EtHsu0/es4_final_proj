@@ -67,6 +67,8 @@ begin
     
     NES_instance: NES port map (CLK, data, latch, continCLK, digital);
     
+    
+
     -- display_instance: display port map ();
     
     

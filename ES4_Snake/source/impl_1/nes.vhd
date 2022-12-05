@@ -8,8 +8,8 @@ entity NES is
         CLK: in std_logic; -- Added by Ethan to take clock input
         data : in std_logic;
 
-        latch: out std_logic; -- Ethan Q: What is this used for? Sensing NES input, restarts the local NES clk cycle
-        continCLK : out std_logic; -- Ethan Q: What is this used for? Signal to send NES clk to the NES controller
+        latch: out std_logic;
+        continCLK : out std_logic;
         digital : out unsigned(7 downto 0) -- Gabriel Q: Output preference? How would you like the output encoded?
         --  test: out std_logic;
     );

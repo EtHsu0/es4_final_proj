@@ -19,17 +19,7 @@ entity board is
 end board;
 
 architecture synth of board is
-    component randomPos is
-        port (
-            enable: in std_logic;
-            clk: in std_logic;
-            coord: in unsigned(7 downto 0);
-            bound: in unsigned(10 downto 0);
-            out_coord: out unsigned(7 downto 0)
-        );
-    end component;
 
-    
     component snakePos is
         port (
             snakeCLK: in std_logic;
@@ -76,24 +66,16 @@ architecture synth of board is
 
     signal enable: std_logic := '0';
 begin
-    if rising_edge(clk) then
-        counter <= counter + 1;
-    end if;
+    process(clk) is
+    begin
+        if rising_edge(clk) then
+            counter <= counter + 1;
+        end if;
+    end process;
 
-    snakePos_inst: snakePos port map (
-        counter(29),
-        reset,
-        dir,
-        snake_head,
-        snake,
-        snake_dead,
-    )
+    snakePos_inst: snakePos port map (counter(29),reset,dir,snake_head,snake,snake_dead);
 
-    apple_random: randomPos port map (
-        enable, 
-        clk, 
-        apple_id
-    );
+    apple_random: randomPos port map (enable, clk, apple_id);
 
     -- Check collision with apple
     process is begin
@@ -111,10 +93,4 @@ begin
             end loop;
         end if;
     end process;
-
-    -- Update the snake head position, use that information to check collision with apple
-        -- If collieded with apple, set a state and generate anoother apple.
-    -- snakePos -> Get updated snake position based on the new head position
-    -- Check collision with body / wall based on the new snake position
-    
 end;
