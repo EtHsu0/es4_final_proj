@@ -12,7 +12,7 @@ entity board is
             -- Return the cell ID (0-99)
             apple_id: out unsigned(7 downto 0);
             -- Return whether snake is in each cell (0-99)
-            snake: out unsigned(99 downto 0)
+            snake: out unsigned(99 downto 0);
         );
 end board;
 
