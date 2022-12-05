@@ -29,12 +29,14 @@ end snakePos;
 
 architecture synth of snakePos is
 
-signal snake_dir: std_logic_vector(2 downto 0) := "11";
 signal snake_head: unsigned(7 downto 0);
 signal snake_tail: unsigned(7 downto 0);
 
 TYPE DirType is (UP, DOWN, LEFT, RIGHT); -- Need to fix this!
 TYPE DirArray is ARRAY (0 to 99) of DirType;
+
+signal snake_dir: DirType;
+
 
 signal pos_dir_left: unsigned(7 downto 0) := (8d"124"); -- 0 (HEAD)
 signal pos_dir_right: unsigned(7 downto 0) := (8d"127"); -- 3 (TAIL)
@@ -46,6 +48,14 @@ begin
     process(snakeCLK) is
     begin
         if rising_edge(snakeCLK) then
+            -- Convert to type
+            case dir is
+                when "00" => snake_dir <= UP;
+                when "01" => snake_dir <= DOWN;
+                when "10" => snake_dir <= LEFT;
+                when "11" => snake_dir <= RIGHT;
+            end case;
+
             -- Check direction is valid
             if snake_dir(1) /= dir(1) then
                 snake_dir <= dir;
@@ -59,7 +69,6 @@ begin
             -- Update snake head coordinate
 			pos_dir_left <= pos_dir_left - 1;
             case snake_dir is
-			
                 when LEFT => snake_array(to_integer(pos_dir_left)) <= LEFT;
             end case;
 
