@@ -11,6 +11,9 @@ entity snakePos is
     port (
         snakeCLK: in std_logic;
         reset: in std_logic;
+
+        grow_snake: in std_logic;
+
         -- Direction should be 0-3 (Up, Down, Left, Right)
         dir: in std_logic_vector(1 downto 0); 
 		-- Gabriel Note: dirtype is not defined, need to fix dirtype declaration or remove entirely
@@ -18,8 +21,9 @@ entity snakePos is
         -- 01 = down
         -- 10 = left
         -- 11 = right
-        snake_head_coord: out std_logic_vector(7 downto 0);
-        snake_pos: out std_logic_vector(99 downto 0)
+        snake_head_out: out std_logic_vector(7 downto 0);
+        snake_pos_out: out std_logic_vector(99 downto 0);
+        
     );
 end snakePos;
 
@@ -47,9 +51,17 @@ begin
                 snake_dir <= dir;
             end if;
 
-            snake_array(pos_dir_right)
-            
-            -- Remove / update tail
+            -- Remove / update tail if we are not growing
+            if grow_snake = '0' then
+                pos_dir_right <= pos_dir_right - 1;
+            end if;
+
+            -- Update snake head coordinate
+            case snake_dir is
+                when LEFT => snake_head <= snake_head - 1, 
+                                snake_array(pos_dir_left - 1) <= LEFT;
+            end case;
+
             
 
         end if;
