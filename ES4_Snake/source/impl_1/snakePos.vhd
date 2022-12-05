@@ -22,7 +22,7 @@ entity snakePos is
         -- 10 = left
         -- 11 = right
         snake_head_out: out std_logic_vector(7 downto 0);
-        snake_pos_out: out std_logic_vector(99 downto 0) := (others => "0")
+        snake_pos_out: out std_logic_vector(99 downto 0) := 100b"0"
         
     );
 end snakePos;
@@ -43,6 +43,8 @@ signal pos_dir_right: unsigned(7 downto 0) := (8d"127"); -- 3 (TAIL)
 -- From left to right, direction from head to tails
 signal snake_array: DirArray := (others => RIGHT); -- Errors! Fix Type Declarations
 -- signal snake_array: DirArray; -- temp replacement
+
+signal snake_coord: unsigned(7 downto 0);
 
 begin
     process(snakeCLK) is
@@ -80,21 +82,22 @@ begin
 
         end if;
     end process;
+	
+	
 
     process is 
-        variable snake_coord: unsigned;
     begin
         snake_coord <= snake_head;
-        snake_pos_out(snake_coord) <= '1';
+        snake_pos_out(to_integer(snake_coord)) <= '1';
 
-        for i in pos_dir_left to pos_dir_right loop
+        for i in to_integer(pos_dir_left) to to_integer(pos_dir_right) loop
             case snake_array(i) is
                 when UP => snake_coord <= snake_coord - 10;
                 when DOWN => snake_coord <= snake_coord + 10;
                 when LEFT => snake_coord <= snake_coord - 1;
                 when RIGHT => snake_coord <= snake_coord + 1;
             end case;
-            snake_pos_out(snake_coord) <= '1';
+            snake_pos_out(to_integer(snake_coord)) <= '1';
         end loop;
     end process;
 
