@@ -51,8 +51,8 @@ begin
         if rising_edge(snakeCLK) then
 
                        -- Check direction is valid
-            if prev_dir(1) /= dir(1) then
-                prev_dir <= dir;
+            if prev_dir(1) /= dir_in(1) then
+                prev_dir <= dir_in;
             end if;
             -- Convert to type
             case prev_dir is
