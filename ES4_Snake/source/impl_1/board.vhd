@@ -67,6 +67,8 @@ architecture synth of board is
     --signal game_state: unsigned(1 downto 0);
 
     signal enable: std_logic := '0';
+
+    signal test_counter: unsigned(5 downto 0) := 6d"0";
 begin
     process(clk) is
     begin
@@ -75,14 +77,23 @@ begin
         end if;
     end process;
 
+    process(counter(29)) is
+    begin
+        if rising_edge(counter(29)) then
+            snake_pos_out(test_counter) <= '1';
+            test_counter <= test_counter + 1;
+        end if;
+
+    end process;
+
     dir <= "00" when digital_in(3) = '0' else
            "01" when digital_in(2) = '0' else
            "10" when digital_in(1) = '0' else
            "11";
 
-    snakePos_inst: snakePos port map (counter(29),reset,growSnake,dir,snake_head,snake_arr_out,snake_dead);
+    -- snakePos_inst: snakePos port map (counter(29),reset,growSnake,dir,snake_head,snake_arr_out,snake_dead);
 
-    apple_random: randomPos port map (enable, clk, apple_out);
+    -- apple_random: randomPos port map (enable, clk, apple_out);
 
     -- Check collision with apple
     --process (snake_head) is begin
