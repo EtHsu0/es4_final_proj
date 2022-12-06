@@ -8,15 +8,15 @@ use IEEE.numeric_std.all;
 entity board is
         port (
             clk: in std_logic;
-            digital: in unsigned(7 downto 0);
+            digital_in: in unsigned(7 downto 0);
 
-            snake_head: out unsigned(7 downto 0);
+            snake_head_out: out unsigned(7 downto 0);
             -- Return the cell ID (0-99)
-            apple_id: out unsigned(7 downto 0);
+            apple_out: out unsigned(7 downto 0);
             -- Return whether snake is in each cell (0-99)
-            snake: out unsigned(99 downto 0);
+            snake_arr_out: out unsigned(99 downto 0);
 
-            scores: out unsigned(7 downto 0) := 8b"0"
+            scores_out: out unsigned(7 downto 0) := 8b"0"
         );
 end board;
 
@@ -36,7 +36,7 @@ architecture synth of board is
             -- 01 = down
             -- 10 = left
             -- 11 = right
-            snake_head_out: out unsigned(7 downto 0);
+            snake_head_out_out: out unsigned(7 downto 0);
             snake_pos_out: out unsigned(99 downto 0) := 100b"0";
             
             snake_dead: out std_logic := '0'
@@ -59,7 +59,7 @@ architecture synth of board is
 
     TYPE buttons is (A, B, START, SEL, UP, DOWN, LEFT, RIGHT);
     signal button: buttons;
-    -- Gabe / Chris TODO, turn NES digital -> buttons TYPE
+    -- Gabe / Chris TODO, turn NES digital_in -> buttons TYPE
 
     signal dir: unsigned(1 to 0);
     -- I need to convert button to dir;
@@ -75,26 +75,25 @@ begin
         end if;
     end process;
 
-    dir <= "00" when digital(3) = '0' else
-           "01" when digital(2) = '0' else
-           "10" when digital(1) = '0' else
+    dir <= "00" when digital_in(3) = '0' else
+           "01" when digital_in(2) = '0' else
+           "10" when digital_in(1) = '0' else
            "11";
-                
 
-    snakePos_inst: snakePos port map (counter(29),reset,growSnake,dir,snake_head,snake,snake_dead);
+    snakePos_inst: snakePos port map (counter(29),reset,growSnake,dir,snake_head_out,snake_out,snake_dead);
 
-    -- apple_random: randomPos port map (enable, clk, apple_id);
+    -- apple_random: randomPos port map (enable, clk, apple_out);
 
     -- Check collision with apple
     -- process is begin
     --     -- If snake head is on apple's coordinate
-    --     if snake_head = apple_id then
+    --     if snake_head_out = apple_out then
     --         -- Create artifical rising edge for enable signal
     --         enable <= '0';
     --         wait for 5 ns;
     --         enable <= '1';
     --         -- Create this signal until we generate a valid apple id (apple can not spawn on snake)
-    --         --while (snake(apple_id) = '1' or apple_id = snake_head) loop
+    --         --while (snake(apple_out) = '1' or apple_out = snake_head_out) loop
     --             --enable <= '0';
     --             --wait for 5 ns;
     --             --enable <= '1';

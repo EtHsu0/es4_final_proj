@@ -30,7 +30,7 @@ end snakePos;
 
 architecture synth of snakePos is
 
-signal snake_head: unsigned(7 downto 0);
+signal snake_head: unsigned(7 downto 0) := 8d"44";
 
 TYPE DirType is (UP, DOWN, LEFT, RIGHT); -- Need to fix this!
 TYPE DirArray is ARRAY (0 to 99) of DirType;
@@ -43,7 +43,6 @@ signal arr_left: unsigned(7 downto 0) := (8d"124"); -- 0 (HEAD)
 signal arr_right: unsigned(7 downto 0) := (8d"127"); -- 3 (TAIL)
 -- From left to right, direction from head to tails
 signal snake_array: DirArray := (others => RIGHT); -- Errors! Fix Type Declarations
--- signal snake_array: DirArray; -- temp replacement
 
 signal snake_coord: unsigned(7 downto 0);
 
@@ -51,7 +50,9 @@ begin
     process(snakeCLK) is
     begin
         if rising_edge(snakeCLK) then
+            -- if reset = '1' then
 
+            -- end if;
         -- Check direction is valid
             if prev_dir(1) /= dir_in(1) then
                 prev_dir <= dir_in;

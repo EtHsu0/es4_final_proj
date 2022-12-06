@@ -96,6 +96,7 @@ architecture synth of top is
     signal snake: unsigned(99 downto 0);
     signal scores: unsigned(7 downto 0);
     signal direction: unsigned(1 downto 0);
+
     TYPE STATE is (START, RUNNING, OVER);
     signal gameState: STATE := START;
 begin
@@ -109,7 +110,6 @@ begin
 
     board_inst: board port map (clk, digital, snake_head, garbage_apple, snake, scores);
 
-    
     
     apple <= 9b"1_1000_0111" when digital = "11101111" else
                 9b"1_0000_0111";
