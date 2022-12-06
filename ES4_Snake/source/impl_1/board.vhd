@@ -78,7 +78,6 @@ begin
         if rising_edge(clk) then
             counter <= counter + 1;
 			apple_id <= 9b"1_0011_0011";
-			
         end if;
     end process;
 	
@@ -122,6 +121,6 @@ begin
         --end if;
    -- end process;
     -- game_state <= "00";
-    scores_out <= "0";
-    snake_head_out <= snake_head;
+    -- scores_out <= "0";
+    -- snake_head_out <= snake_head;
 end;

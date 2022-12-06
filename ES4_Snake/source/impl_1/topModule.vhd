@@ -63,19 +63,24 @@ architecture synth of top is
         );
     end component;
 
-    component game_stuff is
+    component board is
         port (
             clk: in std_logic;
-            game_state: out unsigned(1 downto 0);
-            digital: in unsigned(7 downto 0);
-
-            snake_head: out unsigned(6 downto 0);
+            -- 00 is RESET/BEGIN
+            game_state: out unsigned(1 downto 0) := "00";
+    
+            digital_in: in unsigned(7 downto 0);
+    
+            snake_head_out: out unsigned(6 downto 0);
             -- Return the cell ID (0-99)
-            apple_id: out unsigned(8 downto 0);
+            apple_out: out unsigned(8 downto 0);
+            
             -- Return whether snake is in each cell (0-99)
-            snake: out std_logic_vector(99 downto 0);
-
-            scores: out unsigned(6 downto 0)
+            snake_arr_out: out std_logic_vector(99 downto 0);
+            
+            temp: out std_logic;
+    
+            scores_out: out unsigned(6 downto 0)
             );
     end component;
 
@@ -86,7 +91,6 @@ architecture synth of top is
     signal gameState: unsigned(1 downto 0) := "00";
 
     signal snake_head: unsigned(6 downto 0);
-    signal apple_id: unsigned(6 downto 0);
     signal apple: unsigned(8 downto 0);
     signal snake: std_logic_vector(99 downto 0);
     signal scores: unsigned(6 downto 0) := 7d"0";
@@ -96,13 +100,13 @@ begin
     
     NES_inst: NES port map (CLK, data, latch, continCLK, digital);
     
-    board_inst: game_stuff port map (clk, gameState, digital, snake_head, apple, snake, scores);
+    board_inst: board port map (clk, gameState, digital, snake_head, apple_out => apple, snake, scores);
 
     -- apple <= 9b"1_0011_0011";
 
     display_inst: display port map (pll_in_clock, pll_outcore_o, HSYNC, VSYNC, rgb, apple, snake_head, snake, scores, gameState);
 
-	delete_me <= digital(2 downto 0);
+	delete_me <= apple_id(8 downto 7);
 end;
 
 
