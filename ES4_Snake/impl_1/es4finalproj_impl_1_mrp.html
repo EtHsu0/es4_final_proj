@@ -47,12 +47,13 @@ Target Device:        iCE40UP5KSG48
 Target Performance:   High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 3.2.1.217.3
-Mapped on: Mon Dec  5 19:40:45 2022
+Mapped on: Mon Dec  5 19:47:53 2022
 
 
 <A name="mrp_di"></A><B><U><big>Design Information</big></U></B>
 
-Command line:   map -i es4finalproj_impl_1_syn.udb -o
+Command line:   map -i es4finalproj_impl_1_syn.udb -pdc
+     C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/ports.pdc -o
      es4finalproj_impl_1_map.udb -mp es4finalproj_impl_1.mrp -hierrpt -gui
 
 <A name="mrp_ds"></A><B><U><big>Design Summary</big></U></B>
@@ -99,8 +100,8 @@ Command line:   map -i es4finalproj_impl_1_syn.udb -o
    Top 10 highest fanout non-clock nets:
       Net VCC_net: 65 loads
       Net column_cnt[5]: 22 loads
-      Net column_cnt[7]: 21 loads
 
+      Net column_cnt[7]: 21 loads
       Net column_cnt[4]: 20 loads
       Net column_cnt[6]: 20 loads
       Net row_cnt[4]: 20 loads
@@ -228,13 +229,12 @@ Instance Name: display_inst/pattern_gen_init/mult_96
 
 
 
-
 <A name="mrp_runtime"></A><B><U><big>Run Time and Memory Usage</big></U></B>
 -------------------------
 
-   Total CPU Time: 0 secs
-   Total REAL Time: 0 secs
-   Peak Memory Usage: 62 MB
+   Total CPU Time: 1 secs
+   Total REAL Time: 2 secs
+   Peak Memory Usage: 63 MB
 
 
 
