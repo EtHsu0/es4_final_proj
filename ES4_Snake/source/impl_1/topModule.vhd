@@ -66,20 +66,11 @@ architecture synth of top is
     component board is
         port (
             clk: in std_logic;
-            -- 00 is RESET/BEGIN
-            game_state: out unsigned(1 downto 0) := "00";
-    
             digital_in: in unsigned(7 downto 0);
-    
+            game_state_out: out unsigned(1 downto 0) := "00";    
             snake_head_out: out unsigned(6 downto 0);
-            -- Return the cell ID (0-99)
             apple_out: out unsigned(8 downto 0);
-            
-            -- Return whether snake is in each cell (0-99)
             snake_arr_out: out std_logic_vector(99 downto 0);
-            
-            --temp: out std_logic;
-    
             scores_out: out unsigned(6 downto 0)
             );
     end component;
@@ -88,11 +79,11 @@ architecture synth of top is
     
     signal digital: unsigned(7 downto 0);
 
-    signal gameState: unsigned(1 downto 0) := "00";
+    signal game_state: unsigned(1 downto 0) := "00";
 
     signal snake_head: unsigned(6 downto 0);
     signal apple: unsigned(8 downto 0);
-    signal snake: std_logic_vector(99 downto 0);
+    signal snake_arr: std_logic_vector(99 downto 0);
     signal scores: unsigned(6 downto 0) := 7d"0";
 begin
     HSOSC_inst : HSOSC port map
@@ -100,11 +91,17 @@ begin
     
     NES_inst: NES port map (CLK, data, latch, continCLK, digital);
     
-    board_inst: board port map (CLK, gameState, digital, snake_head, apple, snake, scores);
+    board_inst: board port map (clk => CLK, 
+                                digital_in => digital,
+                                game_state_out => game_state,
+                                snake_head_out => snake_head,
+                                apple_out => apple,
+                                snake_arr_out => snake_arr,
+                                scores_out => scores);
 
     -- apple <= 9b"1_0011_0011";
 
-    display_inst: display port map (pll_in_clock, pll_outcore_o, HSYNC, VSYNC, rgb, apple, snake_head, snake, scores, gameState);
+    display_inst: display port map (pll_in_clock, pll_outcore_o, HSYNC, VSYNC, rgb, apple, snake_head, snake_arr, scores, game_state);
 
 	delete_me <= apple(8 downto 7);
 end;
