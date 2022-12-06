@@ -86,9 +86,9 @@ begin
     reset <= '1' when game_state = "00";
     process is begin
         if reset = '1' then
-            snake_arr_out(42) = '1';
-            snake_arr_out(43) = '1';
-            snake_arr_out(44) = '1';
+            snake_arr_out(42) <= '1';
+            snake_arr_out(43) <= '1';
+            snake_arr_out(44) <= '1';
         end if;
     end process;
     -- snakePos_inst: snakePos port map (counter(29),reset,growSnake,dir,snake_head_out,snake_arr_out,snake_dead);
