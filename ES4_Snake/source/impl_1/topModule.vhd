@@ -63,6 +63,7 @@ architecture synth of top is
     component board is
         port (
             clk: in std_logic;
+			game_status: unsigned(1 downto 0);
             digital: in unsigned(7 downto 0);
 
             snake_head: out unsigned(7 downto 0);
