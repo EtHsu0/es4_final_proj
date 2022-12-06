@@ -42,7 +42,7 @@ if (a)
 <DIV id="content" onclick="hideTocList()"><PRE>
 <A name="Par"></A>Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
 
-Tue Dec  6 13:17:12 2022
+Tue Dec  6 13:35:23 2022
 
 Command Line: par -w -n 1 -t 1 -s 1 -cores 1 -exp parPathBased=ON \
 	es4finalproj_impl_1_map.udb es4finalproj_impl_1.udb 
@@ -52,15 +52,15 @@ Command Line: par -w -n 1 -t 1 -s 1 -cores 1 -exp parPathBased=ON \
 Level/       Number       Worst        Timing       Worst        Timing       Run          Run
 Cost [udb]   Unrouted     Slack        Score        Slack(hold)  Score(hold)  Time         Status
 ----------   --------     -----        ------       -----------  -----------  ----         ------
-5_1   *      0            9.649        0            1.882        0            18           Completed
+5_1   *      0            9.649        0            1.882        0            17           Completed
 * : Design saved.
 
-Total (real) run time for 1-seed: 18 secs 
+Total (real) run time for 1-seed: 17 secs 
 
 par done!
 
 Lattice Place and Route Report for Design &quot;es4finalproj_impl_1_map.udb&quot;
-Tue Dec  6 13:17:12 2022
+Tue Dec  6 13:35:23 2022
 
 
 <A name="par_best"></A><B><U><big>Best Par Run</big></U></B>
@@ -116,13 +116,13 @@ Number of Connections: 959
 Pin Constraint Summary:
    16 out of 16 pins locked (100% locked).
 
-Finished Placer Phase 0 (HIER). CPU time: 2 secs , REAL time: 3 secs 
+Finished Placer Phase 0 (HIER). CPU time: 1 secs , REAL time: 0 secs 
 
 
 ................
-Finished Placer Phase 0 (AP).  CPU time: 2 secs , REAL time: 3 secs 
+Finished Placer Phase 0 (AP).  CPU time: 1 secs , REAL time: 2 secs 
 
-Starting Placer Phase 1. CPU time: 2 secs , REAL time: 3 secs 
+Starting Placer Phase 1. CPU time: 1 secs , REAL time: 2 secs 
 ..  ..
 ....................
 
@@ -135,13 +135,13 @@ WARNING - par: No master clock for
 	generated clock	create_generated_clock -name {display_inst/clk} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTGLOBAL }] .
 WARNING - par: No master clock for
 	generated clock	create_generated_clock -name {pll_outcore_o_c} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTCORE }] .
-Finished Placer Phase 1. CPU time: 13 secs , REAL time: 15 secs 
+Finished Placer Phase 1. CPU time: 12 secs , REAL time: 13 secs 
 
 Starting Placer Phase 2.
 .
 
 Placer score =  61134
-Finished Placer Phase 2.  CPU time: 13 secs , REAL time: 15 secs 
+Finished Placer Phase 2.  CPU time: 12 secs , REAL time: 13 secs 
 
 
 
@@ -171,12 +171,12 @@ I/O Bank Usage Summary:
 | 2        | 8 / 8 (100%)  | 3.3V       |            |            |
 +----------+---------------+------------+------------+------------+
 
-Total Placer CPU time: 13 secs , REAL time: 15 secs 
+Total Placer CPU time: 12 secs , REAL time: 13 secs 
 
 Writing design to file es4finalproj_impl_1_par.dir/5_1.udb ...
 
 
-Start NBR router at 13:17:27 12/06/22
+Start NBR router at 13:35:37 12/06/22
 
 *****************************************************************
 Info: NBR allows conflicts(one node used by more than one signal)
@@ -220,24 +220,24 @@ WARNING - par: No master clock for
 WARNING - par: No master clock for
 	generated clock	create_generated_clock -name {pll_outcore_o_c} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTCORE }] .
 
-Start NBR section for initial routing at 13:17:27 12/06/22
+Start NBR section for initial routing at 13:35:37 12/06/22
 Level 4, iteration 1
 48(0.02%) conflicts; 785(82.03%) untouched conns; 0 (nbr) score; 
-Estimated worst slack/total negative slack&lt;setup&gt;: 10.335ns/0.000ns; real time: 0 secs 
+Estimated worst slack/total negative slack&lt;setup&gt;: 10.335ns/0.000ns; real time: 2 secs 
 Level 4, iteration 2
 3(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack&lt;setup&gt;: 10.335ns/0.000ns; real time: 0 secs 
+Estimated worst slack/total negative slack&lt;setup&gt;: 10.335ns/0.000ns; real time: 2 secs 
 
 Info: Initial congestion level at 75.00% usage is 0
 Info: Initial congestion area  at 75.00% usage is 0 (0.00%)
 
-Start NBR section for normal routing at 13:17:28 12/06/22
+Start NBR section for normal routing at 13:35:38 12/06/22
 Level 4, iteration 1
 3(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack&lt;setup&gt;: 10.335ns/0.000ns; real time: 0 secs 
+Estimated worst slack/total negative slack&lt;setup&gt;: 10.335ns/0.000ns; real time: 2 secs 
 Level 4, iteration 2
 3(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack&lt;setup&gt;: 10.335ns/0.000ns; real time: 0 secs 
+Estimated worst slack/total negative slack&lt;setup&gt;: 10.335ns/0.000ns; real time: 2 secs 
 Level 4, iteration 3
 1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
 Estimated worst slack/total negative slack&lt;setup&gt;: 10.335ns/0.000ns; real time: 2 secs 
@@ -248,11 +248,11 @@ Level 4, iteration 5
 0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
 Estimated worst slack/total negative slack&lt;setup&gt;: 10.335ns/0.000ns; real time: 2 secs 
 
-Start NBR section for setup/hold timing optimization with effort level 3 at 13:17:29 12/06/22
+Start NBR section for setup/hold timing optimization with effort level 3 at 13:35:38 12/06/22
 
 Starting full timing analysis...
 
-Start NBR section for post-routing at 13:17:29 12/06/22
+Start NBR section for post-routing at 13:35:39 12/06/22
 
 End NBR router with 0 unrouted connection
 WARNING - par: No master clock for
@@ -275,8 +275,8 @@ Starting full timing analysis...
 -----------
 
 
-Total CPU time 3 secs 
-Total REAL time: 3 secs 
+Total CPU time 2 secs 
+Total REAL time: 4 secs 
 Completely routed.
 End of route.  957 routed (100.00%); 0 unrouted.
 
@@ -294,9 +294,9 @@ PAR_SUMMARY::Worst  slack&lt;hold /&lt;ns&gt;&gt; = 1.882
 PAR_SUMMARY::Timing score&lt;hold /&lt;ns&gt;&gt; = 0.000
 PAR_SUMMARY::Number of errors = 0
 
-Total CPU  Time: 17 secs 
-Total REAL Time: 18 secs 
-Peak Memory Usage: 124.57 MB
+Total CPU  Time: 15 secs 
+Total REAL Time: 17 secs 
+Peak Memory Usage: 123.53 MB
 
 
 par done!
