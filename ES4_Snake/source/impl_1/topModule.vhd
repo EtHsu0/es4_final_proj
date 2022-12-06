@@ -71,7 +71,7 @@ architecture synth of top is
 
             snake_head: out unsigned(6 downto 0);
             -- Return the cell ID (0-99)
-            apple_id: out unsigned(6 downto 0);
+            apple_id: out unsigned(8 downto 0);
             -- Return whether snake is in each cell (0-99)
             snake: out std_logic_vector(99 downto 0);
 

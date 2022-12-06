@@ -64,10 +64,11 @@ architecture synth of board is
     signal dir: unsigned(1 to 0);
     -- I need to convert button to dir;
     signal snake_dead: std_logic;
+
     --signal game_state: unsigned(1 downto 0);
 
     signal enable: std_logic := '0';
-
+    
     signal test_counter: unsigned(5 downto 0) := 6d"0";
 begin
     process(clk) is
@@ -80,7 +81,7 @@ begin
     process(counter(29)) is
     begin
         if rising_edge(counter(29)) then
-            snake_pos_out(test_counter) <= '1';
+            snake_array(test_counter) <= '1';
             test_counter <= test_counter + 1;
         end if;
 
@@ -91,6 +92,9 @@ begin
            "10" when digital_in(1) = '0' else
            "11";
 
+    apple <= "1_0011_0011";
+
+    snake_arr_out <= snake_array;
     -- snakePos_inst: snakePos port map (counter(29),reset,growSnake,dir,snake_head,snake_arr_out,snake_dead);
 
     -- apple_random: randomPos port map (enable, clk, apple_out);
