@@ -108,7 +108,7 @@ begin
     -- Logics to convert NES digital output to buttons.
 
 
-    board_inst: board port map (clk, digital, snake_head, garbage_apple, snake, scores);
+    board_inst: board port map (clk, 2b"00", digital, snake_head, apple, snake, scores);
 
     
     apple <= 9b"1_1000_0111" when digital = "11101111" else

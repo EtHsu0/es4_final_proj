@@ -6,22 +6,25 @@ use IEEE.numeric_std.all;
 -- use IEEE.std_logic_arith.all;
 
 entity board is
-        port (
-            clk: in std_logic;
-            digital_in: in unsigned(7 downto 0);
+    port (
+        clk: in std_logic;
 
-            snake_head_out: out unsigned(7 downto 0);
-            -- Return the cell ID (0-99)
-            apple_out: out unsigned(7 downto 0);
-            -- Return whether snake is in each cell (0-99)
-            snake_arr_out: out unsigned(99 downto 0);
+        -- 00 is RESET/BEGIN
+        game_state: in unsigned(1 downto 0) := "00";
 
-            scores_out: out unsigned(7 downto 0) := 8b"0"
-        );
+        digital_in: in unsigned(7 downto 0);
+
+        snake_head_out: out unsigned(7 downto 0);
+        -- Return the cell ID (0-99)
+        apple_out: out unsigned(8 downto 0);
+        -- Return whether snake is in each cell (0-99)
+        snake_arr_out: out unsigned(99 downto 0);
+
+        scores_out: out unsigned(7 downto 0) := 8b"0"
+    );
 end board;
 
 architecture synth of board is
-
     component snakePos is
         port (
             snakeCLK: in std_logic;
@@ -51,10 +54,10 @@ architecture synth of board is
         );
     end component;
 
-    signal apple: unsigned (7 downto 0) := 8d"0";
-    signal snakePosition: unsigned(99 downto 0); -- := (40 => '1', 41 => '1', 42 => '1'),(others => '0'); -- TODO: Fix Syntax Error!
+    signal apple_id: unsigned (7 downto 0) := 8d"0";
+    signal snake_array: unsigned(99 downto 0); -- := (40 => '1', 41 => '1', 42 => '1'),(others => '0'); -- TODO: Fix Syntax Error!
     signal counter: unsigned (29 downto 0) := 30d"0";
-    signal reset: std_logic := '0';
+    signal reset: std_logic := '1';
     signal growSnake: std_logic := '0';
 
     TYPE buttons is (A, B, START, SEL, UP, DOWN, LEFT, RIGHT);
@@ -80,6 +83,7 @@ begin
            "10" when digital_in(1) = '0' else
            "11";
 
+    reset <= '1' when game_state = "00"
     snakePos_inst: snakePos port map (counter(29),reset,growSnake,dir,snake_head_out,snake_arr_out,snake_dead);
 
     -- apple_random: randomPos port map (enable, clk, apple_out);

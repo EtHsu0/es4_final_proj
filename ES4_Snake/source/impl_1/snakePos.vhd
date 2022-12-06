@@ -39,8 +39,8 @@ signal prev_dir: unsigned(1 downto 0) := "11";
 signal snake_dir: DirType;
 
 
-signal arr_left: unsigned(7 downto 0) := (8d"124"); -- 0 (HEAD)
-signal arr_right: unsigned(7 downto 0) := (8d"127"); -- 3 (TAIL)
+signal arr_left: unsigned(7 downto 0) := (8d"96"); -- 0 (HEAD)
+signal arr_right: unsigned(7 downto 0) := (8d"99"); -- 3 (TAIL)
 -- From left to right, direction from head to tails
 signal snake_array: DirArray := (others => RIGHT); -- Errors! Fix Type Declarations
 
@@ -50,9 +50,12 @@ begin
     process(snakeCLK) is
     begin
         if rising_edge(snakeCLK) then
-            -- if reset = '1' then
-
-            -- end if;
+            if reset = '1' then
+                arr_left <= 8d"96";
+                arr_right <= 8d"99";
+                snake_head <= 8d"44";
+                snake_array <= (others => RIGHT);
+            end if;
         -- Check direction is valid
             if prev_dir(1) /= dir_in(1) then
                 prev_dir <= dir_in;
