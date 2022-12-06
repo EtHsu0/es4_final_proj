@@ -48,7 +48,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Tue Dec  6 13:49:32 2022
+Tue Dec  6 13:55:55 2022
 
 
 Command Line:  C:\lscc\radiant\3.2\ispfpga\bin\nt64\synthesis.exe -f es4finalproj_impl_1_lattice.synproj -gui -msgset C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/promote.xml 
@@ -138,6 +138,8 @@ VHDL library = work
 VHDL design file = C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/source/impl_1/snakePos.vhd
 VHDL library = work
 VHDL design file = C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/source/impl_1/board.vhd
+VHDL library = work
+VHDL design file = C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/source/impl_1/game_stuff.vhd
 The -r option is OFF. [ Remove LOC Properties is OFF. ]
 Compile design.
 Compile Design Begin
@@ -222,7 +224,12 @@ Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/s
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd
 
 INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(6): analyzing entity board. VHDL-1012
-INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(25): analyzing architecture synth. VHDL-1010
+INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(27): analyzing architecture synth. VHDL-1010
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/game_stuff.vhd. VHDL-1481
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/game_stuff.vhd
+
+INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/game_stuff.vhd(6): analyzing entity game_stuff. VHDL-1012
+INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/game_stuff.vhd(27): analyzing architecture synth. VHDL-1010
 INFO - synthesis: The default VHDL library search path is now "C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/impl_1". VHDL-1504
 Top module language type = VHDL.
 WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(64): case statement does not cover all choices. 'others' clause is needed. VHDL-1037
@@ -434,11 +441,11 @@ Top 10 highest fanout non-clock nets:
   Net : display_inst/vga_init/column_cnt[8], loads : 7
 ################### End Clock Report ##################
 
-Peak Memory Usage: 125 MB
+Peak Memory Usage: 124 MB
 
 --------------------------------------------------------------
 Total CPU Time: 4 secs 
-Total REAL Time: 6 secs 
+Total REAL Time: 5 secs 
 --------------------------------------------------------------
 
 

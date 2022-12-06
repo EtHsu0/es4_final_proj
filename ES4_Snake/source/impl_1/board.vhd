@@ -17,6 +17,8 @@ entity board is
         
         -- Return whether snake is in each cell (0-99)
         snake_arr_out: out std_logic_vector(99 downto 0);
+		
+		temp: out std_logic;
 
         scores_out: out unsigned(6 downto 0)
     );
@@ -50,7 +52,7 @@ architecture synth of board is
         );
     end component;
 
-    signal apple_id: unsigned (7 downto 0) := 8d"0";
+    signal apple_id: unsigned (8 downto 0) := 9d"0";
     signal snake_head: unsigned (6 downto 0);
     signal snake_array: std_logic_vector(99 downto 0); -- := (40 => '1', 41 => '1', 42 => '1'),(others => '0'); -- TODO: Fix Syntax Error!
     signal counter: unsigned (29 downto 0) := 30d"0";
@@ -75,9 +77,12 @@ begin
     begin
         if rising_edge(clk) then
             counter <= counter + 1;
-			apple_out <= 9b"1_0011_0011";
+			apple_id <= 9b"1_0011_0011";
+			
         end if;
     end process;
+	
+	apple_out <= apple_id;
 
     -- process(counter(29)) is
     -- begin

@@ -63,7 +63,7 @@ architecture synth of top is
         );
     end component;
 
-    component board is
+    component game_stuff is
         port (
             clk: in std_logic;
             game_state: out unsigned(1 downto 0);
@@ -96,7 +96,7 @@ begin
     
     NES_inst: NES port map (CLK, data, latch, continCLK, digital);
     
-    board_inst: board port map (clk, gameState, digital, snake_head, apple, snake, scores);
+    board_inst: game_stuff port map (clk, gameState, digital, snake_head, apple, snake, scores);
 
     -- apple <= 9b"1_0011_0011";
 
