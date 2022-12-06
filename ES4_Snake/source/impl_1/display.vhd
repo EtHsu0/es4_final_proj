@@ -14,7 +14,7 @@ entity display is
 
         -- Game logic
         apple: in unsigned(8 downto 0);
-        snake: in unsigned(99 downto 0)
+        snake: in std_logic_vector(99 downto 0)
     );
 end display;
 
@@ -47,7 +47,7 @@ architecture synth of display is
             x_pos : in unsigned(9 downto 0); -- the current x position (column count) of pixel that the VGA is drawing
             
             rand_apple : in unsigned(8 downto 0);
-            snake_location : in unsigned (99 downto 0);
+            snake_location : in std_logic_vector(99 downto 0);
             
             
             
@@ -68,7 +68,7 @@ architecture synth of display is
     signal valid : std_logic;
 
     -- snake testing
-    signal snake_loc : unsigned(99 downto 0);
+    signal snake_loc : std_logic_vector(99 downto 0);
     
     begin
         pll_init: mypll port map(ref_clk_i => pll_in_clock, rst_n_i => '1', outcore_o => pll_outcore_o, outglobal_o => clk);

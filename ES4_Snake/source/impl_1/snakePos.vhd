@@ -22,7 +22,7 @@ entity snakePos is
         -- 10 = left
         -- 11 = right
         snake_head_out: out unsigned(7 downto 0);
-        snake_pos_out: out unsigned(99 downto 0) := 100b"0";
+        snake_pos_out: out std_logic_vector(99 downto 0) := 100b"0";
         
         snake_dead: out std_logic := '0'
     );

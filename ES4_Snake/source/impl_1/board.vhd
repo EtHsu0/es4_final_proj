@@ -18,7 +18,7 @@ entity board is
         -- Return the cell ID (0-99)
         apple_out: out unsigned(8 downto 0);
         -- Return whether snake is in each cell (0-99)
-        snake_arr_out: out unsigned(99 downto 0);
+        snake_arr_out: out std_logic_vector(99 downto 0);
 
         scores_out: out unsigned(7 downto 0) := 8b"0"
     );
@@ -40,7 +40,7 @@ architecture synth of board is
             -- 10 = left
             -- 11 = right
             snake_head_out_out: out unsigned(7 downto 0);
-            snake_pos_out: out unsigned(99 downto 0) := 100b"0";
+            snake_pos_out: out std_logic_vector(99 downto 0) := 100b"0";
             
             snake_dead: out std_logic := '0'
         );
@@ -55,7 +55,7 @@ architecture synth of board is
     end component;
 
     signal apple_id: unsigned (7 downto 0) := 8d"0";
-    signal snake_array: unsigned(99 downto 0); -- := (40 => '1', 41 => '1', 42 => '1'),(others => '0'); -- TODO: Fix Syntax Error!
+    signal snake_array: std_logic_vector(99 downto 0); -- := (40 => '1', 41 => '1', 42 => '1'),(others => '0'); -- TODO: Fix Syntax Error!
     signal counter: unsigned (29 downto 0) := 30d"0";
     signal reset: std_logic := '1';
     signal growSnake: std_logic := '0';
@@ -92,11 +92,11 @@ begin
     --         snake_arr_out(44) <= '1';
     --     end if;
     -- end process;
-    snake_arr_out <= (others => '0');
-    snake_arr_out(42) <= '1';
-    snake_arr_out(43) <= '1';
-    snake_arr_out(44) <= '1';
-    -- snakePos_inst: snakePos port map (counter(29),reset,growSnake,dir,snake_head_out,snake_arr_out,snake_dead);
+    -- snake_arr_out <= (others => '0');
+    -- snake_arr_out(42) <= '1';
+    -- snake_arr_out(43) <= '1';
+    -- snake_arr_out(44) <= '1';
+    snakePos_inst: snakePos port map (counter(29),reset,growSnake,dir,snake_head_out,snake_arr_out,snake_dead);
 
     -- apple_random: randomPos port map (enable, clk, apple_out);
 

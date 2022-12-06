@@ -56,7 +56,7 @@ architecture synth of top is
     
             -- Game logic
             apple: in unsigned(8 downto 0);
-            snake: in unsigned(99 downto 0)
+            snake: in std_logic_vector(99 downto 0)
         );
     end component;
 
@@ -70,7 +70,7 @@ architecture synth of top is
             -- Return the cell ID (0-99)
             apple_id: out unsigned(7 downto 0);
             -- Return whether snake is in each cell (0-99)
-            snake: out unsigned(99 downto 0);
+            snake: out std_logic_vector(99 downto 0);
 
             scores: out unsigned(7 downto 0) := 8b"0"
         );
@@ -94,7 +94,7 @@ architecture synth of top is
     signal snake_head: unsigned(7 downto 0);
     signal garbage_apple: unsigned(7 downto 0);
     signal apple: unsigned(8 downto 0);
-    signal snake: unsigned(99 downto 0);
+    signal snake: std_logic_vector(99 downto 0);
     signal scores: unsigned(7 downto 0);
     signal direction: unsigned(1 downto 0);
 
@@ -109,17 +109,11 @@ begin
     -- Logics to convert NES digital output to buttons.
 
 
-    -- board_inst: board port map (clk, 2b"00", digital, snake_head, apple, snake, scores);
+    board_inst: board port map (clk, 2b"00", digital, snake_head, apple, snake, scores);
 
     
     apple <= 9b"1_1000_0111" when digital = "11101111" else
                 9b"1_0000_0111";
-
-	snake <= 100b"1110";
-     snake(42) <= '1';
-    -- snake(43) <= '1';
-    -- snake(44) <= '1';
-    --snake <= ("0000000000000000001000000000100000000010111111111010000000000000000000000000000000000000000000000000"); 
 
     display_inst: display port map (pll_in_clock, pll_outcore_o, HSYNC, VSYNC, rgb, apple, snake);
 	
