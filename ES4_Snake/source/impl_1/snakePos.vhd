@@ -1,18 +1,16 @@
 library IEEE;
-use IEEE.math_real.uniform;
-use IEEE.math_real.floor;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 -- use IEEE.std_logic_arith.all;
 
 
 
-entity snakePos is
+entity snakearr is
     port (
-        snakeCLK: in std_logic;
-        reset: in std_logic;
+        clk: in std_logic;
+        reset_in: in std_logic;
 
-        grow_snake: in std_logic;
+        grow_snake_in: in std_logic;
 
         -- Direction should be 0-3 (Up, Down, Left, Right)
         dir_in: in unsigned(1 downto 0); 
@@ -21,16 +19,18 @@ entity snakePos is
         -- 01 = down
         -- 10 = left
         -- 11 = right
-        snake_head_out: out unsigned(7 downto 0);
-        snake_pos_out: out std_logic_vector(99 downto 0) := 100b"0";
+        snake_head_out: out unsigned(6 downto 0);
+        snake_tail_out: out unsigned(6 downto 0);
+        snake_arr_out: out std_logic_vector(99 downto 0) := 100b"0";
         
-        snake_dead: out std_logic := '0'
+        snake_dead_out: out std_logic := '0'
     );
-end snakePos;
+end snakearr;
 
-architecture synth of snakePos is
+architecture synth of snakearr is
 
-signal snake_head: unsigned(7 downto 0) := 8d"44";
+signal snake_head: unsigned(6 downto 0) := 7d"44";
+signal snake_tail: unsigned(6 downto 0) := 7d"42";
 
 TYPE DirType is (UP, DOWN, LEFT, RIGHT); -- Need to fix this!
 TYPE DirArray is ARRAY (0 to 99) of DirType;
@@ -39,18 +39,20 @@ signal prev_dir: unsigned(1 downto 0) := "11";
 signal snake_dir: DirType;
 
 
-signal arr_left: unsigned(7 downto 0) := (8d"96"); -- 0 (HEAD)
-signal arr_right: unsigned(7 downto 0) := (8d"99"); -- 3 (TAIL)
+signal arr_left: unsigned(6 downto 0) := 7d"96"; -- 0 (HEAD)
+signal arr_right: unsigned(6 downto 0) := 7d"99"; -- 3 (TAIL)
 -- From left to right, direction from head to tails
 signal snake_array: DirArray := (others => RIGHT); -- Errors! Fix Type Declarations
+signal snake_arr: std_logic_vector(99 downto 0);
 
-signal snake_coord: unsigned(7 downto 0);
+signal snake_dead: std_logic := '0';
+-- signal snake_coord: unsigned(7 downto 0);
 
 begin
     process(snakeCLK) is
     begin
         if rising_edge(snakeCLK) then
-            if reset = '1' then
+            if reset_in = '1' then
                 arr_left <= 8d"96";
                 arr_right <= 8d"99";
                 snake_head <= 8d"44";
@@ -69,7 +71,7 @@ begin
             end case;
 
             -- Remove / update tail if we are not growing
-            if grow_snake = '0' then
+            if grow_snake_in = '0' then
                 arr_right <= arr_right - 1;
             end if;
 
@@ -99,27 +101,33 @@ begin
             
             
             snake_array(to_integer(arr_left)) <= snake_dir;
-            
-
         end if;
     end process;
 	
 	
     -- Draw the snake onto the 2d array
-    process is 
+    process (snake_head, snake_array) is
+        variable snake_coord: unsigned(6 downto 0);
     begin
-        snake_coord <= snake_head;
-        snake_pos_out(to_integer(snake_coord)) <= '1';
+        snake_coord := snake_head;
+        snake_arr(to_integer(snake_coord)) <= '1';
 
         for i in to_integer(arr_left) to to_integer(arr_right) loop
             case snake_array(i) is
-                when UP => snake_coord <= snake_coord - 10;
-                when DOWN => snake_coord <= snake_coord + 10;
-                when LEFT => snake_coord <= snake_coord - 1;
-                when RIGHT => snake_coord <= snake_coord + 1;
+                when UP => snake_coord := snake_coord - 10;
+                when DOWN => snake_coord := snake_coord + 10;
+                when LEFT => snake_coord := snake_coord - 1;
+                when RIGHT => snake_coord := snake_coord + 1;
             end case;
-            snake_pos_out(to_integer(snake_coord)) <= '1';
+            snake_arr(to_integer(snake_coord)) <= '1';
         end loop;
+        snake_tail <= snake_coord;
     end process;
+
+    snake_dead_out <= snake_dead;
+
+    snake_head_out <= snake_head;
+    snake_arr_out <= snake_arr;
+    snake_tail_out <= snake_tail;
 
 end;
