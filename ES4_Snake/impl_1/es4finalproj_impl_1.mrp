@@ -5,7 +5,7 @@ Target Device:        iCE40UP5KSG48
 Target Performance:   High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 3.2.1.217.3
-Mapped on: Mon Dec  5 22:45:16 2022
+Mapped on: Mon Dec  5 23:01:13 2022
 
 Design Information
 ------------------
@@ -19,8 +19,8 @@ Design Summary
 
    Number of slice registers:  50 out of  5280 (1%)
    Number of I/O registers:      1 out of   117 (1%)
-   Number of LUT4s:           325 out of  5280 (6%)
-      Number of logic LUT4s:             184
+   Number of LUT4s:           328 out of  5280 (6%)
+      Number of logic LUT4s:             187
       Number of inserted feedthru LUT4s:   7
       Number of ripple logic:             67 (134 LUT4s)
    Number of IO sites used:   16 out of 39 (41%)
@@ -46,7 +46,7 @@ Design Summary
    Number of PLLs:             1 out of 1 (100%)
    Number of Clocks:  4
       Net NES_inst.NESclk: 8 loads, 8 rising, 0 falling (Driver: Pin
-     NES_inst.count_198_277__i8/Q)
+     NES_inst.count_896_972__i8/Q)
       Net CLK: 11 loads, 11 rising, 0 falling (Driver: Pin HSOSC_inst/CLKHF)
       Net display_inst.clk: 15 loads, 15 rising, 0 falling (Driver: Pin
      display_inst.pll_init.lscc_pll_inst.u_PLL_B/OUTGLOBAL)
@@ -55,11 +55,11 @@ Design Summary
    Number of Clock Enables:  3
       Net VCC_net: 1 loads, 0 SLICEs
       Net NES_inst.output_7__N_35: 8 loads, 7 SLICEs
-      Net display_inst.vga_init.n2547: 6 loads, 6 SLICEs
+      Net display_inst.vga_init.n3272: 6 loads, 6 SLICEs
    Number of LSRs:  4
-      Net display_inst.vga_init.n2547: 6 loads, 6 SLICEs
-      Net display_inst.vga_init.n3771: 6 loads, 6 SLICEs
-      Net display_inst.vga_init.VSYNC_N_87: 1 loads, 1 SLICEs
+      Net display_inst.vga_init.n3272: 6 loads, 6 SLICEs
+      Net display_inst.vga_init.n5364: 6 loads, 6 SLICEs
+      Net display_inst.vga_init.VSYNC_N_411: 1 loads, 1 SLICEs
 
                                     Page 1
 
@@ -69,18 +69,18 @@ Design Summary
 
 Design Summary (cont)
 ---------------------
-      Net display_inst.vga_init.HSYNC_N_84: 1 loads, 1 SLICEs
+      Net display_inst.vga_init.HSYNC_N_408: 1 loads, 1 SLICEs
    Top 10 highest fanout non-clock nets:
       Net VCC_net: 64 loads
-      Net display_inst.vga_init.n2547: 13 loads
-      Net column_cnt[4]: 11 loads
-      Net column_cnt[5]: 11 loads
-      Net column_cnt[6]: 11 loads
-      Net column_cnt[9]: 11 loads
+      Net display_inst.vga_init.n3272: 13 loads
+      Net column_cnt[8]: 11 loads
       Net row_cnt[4]: 11 loads
       Net row_cnt[9]: 11 loads
+      Net column_cnt[6]: 10 loads
       Net column_cnt[7]: 10 loads
-      Net column_cnt[8]: 10 loads
+      Net column_cnt[9]: 10 loads
+      Net NES_inst.output_7__N_35: 10 loads
+      Net row_cnt[2]: 10 loads
 
 
 
@@ -107,13 +107,11 @@ IO (PIO) Attributes
 | IO Name             | Direction | Levelmode |  IO   |  IO   | Special   |
 |                     |           |  IO_TYPE  |  REG  |  DDR  | IO Buffer |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| pll_outcore_o       | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
 | HSYNC               | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| continCLK           | OUTPUT    |           |       |       |           |
+| pll_outcore_o       | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| latch               | OUTPUT    |           |       |       |           |
+| continCLK           | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | pll_in_clock        | INPUT     |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
@@ -126,6 +124,8 @@ IO (PIO) Attributes
 | rgb[2]              | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | rgb[3]              | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| rgb[4]              | OUTPUT    |           |       |       |           |
 
                                     Page 2
 
@@ -136,8 +136,6 @@ IO (PIO) Attributes
 IO (PIO) Attributes (cont)
 --------------------------
 +---------------------+-----------+-----------+-------+-------+-----------+
-| rgb[4]              | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
 | rgb[5]              | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | delete_me[0]        | OUTPUT    |           |       |       |           |
@@ -147,6 +145,8 @@ IO (PIO) Attributes (cont)
 | delete_me[2]        | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | VSYNC               | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| latch               | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 
 PLL/DLL Summary
@@ -213,16 +213,16 @@ Instance Name: HSOSC_inst
          Type: HFOSC
 Instance Name: display_inst/pll_init/lscc_pll_inst/u_PLL_B
          Type: PLL
-Instance Name: display_inst/pattern_gen_initial/mult_114
+Instance Name: display_inst/pattern_gen_initial/mult_14
          Type: DSP
-Instance Name: display_inst/pattern_gen_initial/mult_111
+Instance Name: display_inst/pattern_gen_initial/mult_11
          Type: DSP
 
 Run Time and Memory Usage
 -------------------------
 
    Total CPU Time: 1 secs
-   Total REAL Time: 0 secs
+   Total REAL Time: 2 secs
    Peak Memory Usage: 63 MB
 
 

@@ -9,7 +9,7 @@ I/O cells:      16
                          HSOSC_CORE         1          100.0
                                  IB         2          100.0
                               IOL_B         1          100.0
-                               LUT4       182          100.0
+                               LUT4       185          100.0
                               MAC16         2          100.0
                                  OB        14          100.0
                               PLL_B         1          100.0
@@ -20,7 +20,7 @@ SUB MODULES
 mypll_ipgen_lscc_pll(DIVR="0",DIVF="66",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",FREQUENCY_PIN_REFERENCECLK="12.000000")         1
                         pattern_gen         1
                                 vga         1
-                              TOTAL       326
+                              TOTAL       329
 ----------------------------------------------------------------------
 Report for cell NES.v1
 Instance Path : NES_inst
@@ -29,8 +29,8 @@ Instance Path : NES_inst
                                 FA2        11           16.4
                             FD1P3XZ        27           54.0
                               IOL_B         1          100.0
-                               LUT4        16            8.8
-                              TOTAL        55
+                               LUT4        17            9.2
+                              TOTAL        56
 ----------------------------------------------------------------------
 Report for cell display.v1
 Instance Path : display_inst
@@ -38,7 +38,7 @@ Instance Path : display_inst
                                cell     count   Res Usage(%)
                                 FA2        56           83.6
                             FD1P3XZ        23           46.0
-                               LUT4       136           74.7
+                               LUT4       140           75.7
                               MAC16         2          100.0
                               PLL_B         1          100.0
 SUB MODULES
@@ -46,7 +46,7 @@ SUB MODULES
 mypll_ipgen_lscc_pll(DIVR="0",DIVF="66",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",FREQUENCY_PIN_REFERENCECLK="12.000000")         1
                         pattern_gen         1
                                 vga         1
-                              TOTAL       222
+                              TOTAL       226
 ----------------------------------------------------------------------
 Report for cell vga.v1
 Instance Path : display_inst.vga_init
@@ -54,8 +54,8 @@ Instance Path : display_inst.vga_init
                                cell     count   Res Usage(%)
                                 FA2        12           17.9
                             FD1P3XZ        23           46.0
-                               LUT4        29           15.9
-                              TOTAL        64
+                               LUT4        46           24.9
+                              TOTAL        81
 ----------------------------------------------------------------------
 Report for cell mypll.v1
 Instance Path : display_inst.pll_init
@@ -78,6 +78,6 @@ Instance Path : display_inst.pattern_gen_initial
                                   Cell usage:
                                cell     count   Res Usage(%)
                                 FA2        44           65.7
-                               LUT4       107           58.8
+                               LUT4        94           50.8
                               MAC16         2          100.0
-                              TOTAL       153
+                              TOTAL       140
