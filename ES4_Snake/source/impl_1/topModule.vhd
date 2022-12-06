@@ -115,10 +115,12 @@ begin
     apple <= 9b"1_1000_0111" when digital = "11101111" else
                 9b"1_0000_0111";
 
-	snake <= 100b"0";
-    snake(42) <= '1';
-    snake(43) <= '1';
-    snake(44) <= '1';
+	-- snake <= 100b"0";
+    -- snake(42) <= '1';
+    -- snake(43) <= '1';
+    -- snake(44) <= '1';
+    snake <= ("0000000000000000001000000000100000000010111111111010000000000000000000000000000000000000000000000000"); 
+
     display_inst: display port map (pll_in_clock, pll_outcore_o, HSYNC, VSYNC, rgb, apple, snake);
 	
 	delete_me <= digital(2 downto 0);
