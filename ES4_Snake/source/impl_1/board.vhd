@@ -75,6 +75,7 @@ begin
     begin
         if rising_edge(clk) then
             counter <= counter + 1;
+			apple_out <= 9b"1_0011_0011";
         end if;
     end process;
 
@@ -92,7 +93,7 @@ begin
     --        "10" when digital_in(1) = '0' else
     --        "11";
 
-    apple_out <= 9b"1_0011_0011";
+    
 
     -- snake_arr_out <= snake_array;
     -- snakePos_inst: snakePos port map (counter(29),reset,growSnake,dir,snake_head,snake_arr_out,snake_dead);
