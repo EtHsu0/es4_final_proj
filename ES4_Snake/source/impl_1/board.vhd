@@ -85,21 +85,21 @@ begin
     apple_random: randomPos port map (enable, clk, apple_out);
 
     -- Check collision with apple
-    process (snake_head) is begin
+    --process (snake_head) is begin
         -- If snake head is on apple's coordinate
-        if snake_head_out = apple_out then
+        --if snake_head_out = apple_out then
             -- Create artifical rising edge for enable signal
-            enable <= '0';
-            wait for 5 ns;
-            enable <= '1';
+            --enable <= '0';
+            --wait for 5 ns;
+            --enable <= '1';
             -- Create this signal until we generate a valid apple id (apple can not spawn on snake)
             --while (snake(apple_out) = '1' or apple_out = snake_head_out) loop
                 --enable <= '0';
                 --wait for 5 ns;
                 --enable <= '1';
             --end loop;
-        end if;
-    end process;
+        --end if;
+   -- end process;
     game_state <= "00";
     scores_out <= "0";
     snake_head_out <= snake_head;
