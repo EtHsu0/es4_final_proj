@@ -43,6 +43,21 @@ architecture synth of top is
         );
     end component;
 
+    component display is
+        port(
+            pll_in_clock : in std_logic; -- pin 20, shorted to the 12 MHz pin on the UPduino
+            pll_outcore_o : out std_logic; -- pin 21, for testing purposes
+    
+            HSYNC : out std_logic; -- pin 46
+            VSYNC : out std_logic; -- pin 2
+            
+            rgb : out unsigned(5 downto 0); -- pins 47, 45, 48, 3, 4, 44
+    
+            -- Game logic
+            apple: in unsigned(8 downto 0);
+            snake: in unsigned(99 downto 0)
+        );
+    end component;
 
     
 -- Components for Snake
@@ -60,21 +75,22 @@ architecture synth of top is
     signal CLK: std_logic;
     
     signal digital: unsigned(7 downto 0);
-
+    signal apple: in unsigned(8 downto 0);
+    signal snake: in unsigned(99 downto 0);
+    
+    TYPE STATE is (START, RUNNING, OVER);
+    signal gameState: STATE := START;
 begin
-    HSOSC_instance : HSOSC port map
+    HSOSC_inst : HSOSC port map
                             (CLKHFPU => '1', CLKHFEN => '1', CLKHF => CLK);
     
-    NES_instance: NES port map (CLK, data, latch, continCLK, digital);
+    NES_inst: NES port map (CLK, data, latch, continCLK, digital);
     
-    
+    -- Logics to convert NES digital output to buttons.
+    snake <= ("0000000000000000001000000000100000000010111111111010000000000000000000000000000000000000000000000000");
+    apple <= 9b"1_1000_0111";
+    display_inst: display port map (pll_in_clock, pll_outcore_o, HSYNC, VSYNC, rgb, apple, snake);
 
-    -- display_instance: display port map ();
-    
-    
-    
-
---     a <= '1';
 end;
 
 

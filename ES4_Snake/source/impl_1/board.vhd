@@ -14,7 +14,9 @@ entity board is
             -- Return the cell ID (0-99)
             apple_id: out unsigned(7 downto 0);
             -- Return whether snake is in each cell (0-99)
-            snake: out unsigned(99 downto 0)
+            snake: out unsigned(99 downto 0);
+
+            scores: out unsigned(7 downto 0) := 8b"0"
         );
 end board;
 
@@ -50,7 +52,7 @@ architecture synth of board is
     end component;
 
     signal apple: unsigned (7 downto 0) := 8d"0";
-    signal snakePosition: unsigned(99 downto 0) -- := (40 => '1', 41 => '1', 42 => '1'),(others => '0'); -- TODO: Fix Syntax Error!
+    signal snakePosition: unsigned(99 downto 0); -- := (40 => '1', 41 => '1', 42 => '1'),(others => '0'); -- TODO: Fix Syntax Error!
     signal counter: unsigned (29 downto 0) := 30d"0";
     signal reset: std_logic := '0';
     signal growSnake: std_logic := '0';

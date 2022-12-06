@@ -66,22 +66,19 @@ architecture synth of display is
     signal column_cnt : unsigned(9 downto 0); 
     
     signal valid : std_logic;
-    
-    
+
     -- snake testing
     signal snake_loc : unsigned(99 downto 0);
     
-    
-    
     begin
-        pll_initial: my_pll port map(ref_clk_i => pll_in_clock, rst_n_i => '1', outcore_o => pll_outcore_o, outglobal_o => clk);
+        pll_init: my_pll port map(ref_clk_i => pll_in_clock, rst_n_i => '1', outcore_o => pll_outcore_o, outglobal_o => clk);
         -- vga_initial vga port map(clk <= clk);
         
-        vga_intial: vga port map(clk, valid, row_cnt, column_cnt, HSYNC, VSYNC);
+        vga_init: vga port map(clk, valid, row_cnt, column_cnt, HSYNC, VSYNC);
         
         -- 9B"1_1000_0111" represents the random apple. "1" means that it exists, "1000" means that the column number is 8, "0111" means that the row number is 7
         snake_loc <= ("0000000000000000001000000000100000000010111111111010000000000000000000000000000000000000000000000000"); 
-        pattern_gen_initial: pattern_gen port map(valid, row_cnt, column_cnt, 9B"1_1000_0111", snake_loc, rgb);
+        pattern_gen_init: pattern_gen port map(valid, row_cnt, column_cnt, 9B"1_1000_0111", snake_loc, rgb);
         -- pattern_gen_initial: pattern_gen port map(valid, row_cnt, column_cnt, apple, snake, rgb);
 
     end;
