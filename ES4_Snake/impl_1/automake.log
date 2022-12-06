@@ -1,182 +1,103 @@
-POSTSYN: Post Synthesis Process Radiant Software (64-bit) 3.2.1.217.3
-Command Line: postsyn -a iCE40UP -p iCE40UP5K -t SG48 -sp High-Performance_1.2V -oc Industrial -top -w -o es4finalproj_impl_1_syn.udb -gui -msgset C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/promote.xml es4finalproj_impl_1.vm 
-   Architecture:     iCE40UP
-   Device:           iCE40UP5K
-   Package:          SG48
-   Performance:      High-Performance_1.2V
-Reading input file 'es4finalproj_impl_1.vm' ...
-CPU Time to convert: 0.140625
-REAL Time to convert: 0
-convert PEAK Memory Usage: 27 MB
-convert CURRENT Memory Usage: 27 MB
-Removing unused logic ...
-Starting design annotation....
-Writing output file 'es4finalproj_impl_1_syn.udb'.
-POSTSYN finished successfully.
-Total CPU Time: 0 secs 
-Total REAL Time: 0 secs 
-Peak Memory Usage: 32 MB
+
+tmcheck -par "es4finalproj_impl_1.par" 
+
+bitgen -w "es4finalproj_impl_1.udb" -f "es4finalproj_impl_1.t2b" 
+Loading es4finalproj_impl_1.udb ...
+Loading device for application GENERIC from file 'itpa08.nph' in environment: C:/lscc/radiant/3.2/ispfpga.
+Package Status:                     Preliminary    Version 1.5.
+Performance Hardware Data Status:   Advanced       Version 1.0.
 
 
-map -i "es4finalproj_impl_1_syn.udb"  -o "es4finalproj_impl_1_map.udb" -mp "es4finalproj_impl_1.mrp" -hierrpt     
-map:  version Radiant Software (64-bit) 3.2.1.217.3
 
+Design:  top
+Family:  iCE40UP
+Device:  iCE40UP5K
+Package: SG48
+Performance Grade:   High-Performance_1.2V
+Successfully loading design udb and device data from disks and to up-layer in CPU time: 0 secs , REAL time: 0 secs 
+
+
+
+BITGEN: Bitstream Generator Radiant Software (64-bit) 3.2.1.217.3
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
 
-Command line:   map -i es4finalproj_impl_1_syn.udb -o es4finalproj_impl_1_map.udb -mp es4finalproj_impl_1.mrp -hierrpt -gui 
 
+Running DRC.
+DRC detected 0 errors and 0 warnings.
+
+Preference Summary:
++---------------------------------+---------------------------------+
+|  Preference                     |  Current Setting                |
++---------------------------------+---------------------------------+
+ *  Default setting.
+ ** The specified setting matches the default setting.
+
+
+Creating bit map...
+Saving bit stream in "C:\Users\gsess\OneDrive\Documents\es4_final_proj\ES4_Snake\impl_1\es4finalproj_impl_1.bin".
+Bitstream generation complete!
+
+Total CPU Time: 1 secs 
+Total REAL Time: 2 secs 
+Peak Memory Usage: 114 MB
+
+
+ibisgen "es4finalproj_impl_1.udb" "C:/lscc/radiant/3.2/cae_library/ibis/iCE40UP.ibs"
+IBIS Models Generator: Lattice Radiant Software (64-bit) 3.2.1.217.3
+
+Mon Dec  5 19:41:12 2022
+
+Loading es4finalproj_impl_1.udb ...
 Loading device for application GENERIC from file 'itpa08.nph' in environment: C:/lscc/radiant/3.2/ispfpga.
 Package Status:                     Preliminary    Version 1.5.
+Performance Hardware Data Status:   Advanced       Version 1.0.
 
 
 
-   Remove unused logic
+Design:  top
+Family:  iCE40UP
+Device:  iCE40UP5K
+Package: SG48
+Performance Grade:   High-Performance_1.2V
+Successfully loading design udb and device data from disks and to up-layer in CPU time: 0 secs , REAL time: 0 secs 
 
-   Do not produce over sized UDBs.
-
-Running general design DRC...
-
-WARNING - Top module port 'clk' does not connect to anything.
-WARNING - Top module port 'digital[7]' does not connect to anything.
-WARNING - Top module port 'digital[6]' does not connect to anything.
-WARNING - Top module port 'digital[5]' does not connect to anything.
-WARNING - Top module port 'digital[4]' does not connect to anything.
-WARNING - Top module port 'digital[3]' does not connect to anything.
-WARNING - Top module port 'digital[2]' does not connect to anything.
-WARNING - Top module port 'digital[1]' does not connect to anything.
-WARNING - Top module port 'digital[0]' does not connect to anything.
-Removing unused logic...
-
-Optimizing...
+Created design models.
 
 
+Generating: C:\Users\gsess\OneDrive\Documents\es4_final_proj\ES4_Snake\impl_1\IBIS\es4finalproj_impl_1.ibs
 
 
-Design Summary:
-   Number of slice registers:   0 out of  5280 (0%)
-   Number of I/O registers:      0 out of   117 (0%)
-   Number of LUT4s:             1 out of  5280 (<1%)
-      Number of logic LUT4s:               1
-      Number of ripple logic:              0 (0 LUT4s)
-   Number of IO sites used:   108 out of 39 (277%)
-      Number of IO sites used for general PIO: 108
-      Number of IO sites used for I3C: 0 out of 2 (0%)
-      (note: If I3C is not used, its site can be used as general PIO)
-      Number of IO sites used for PIO+I3C: 108 out of 36 (300%)
-      Number of IO sites used for OD+RGB IO buffers: 0 out of 3 (0%)
-      (note: If RGB LED drivers are not used, sites can be used as OD outputs,
-       see TN1288 iCE40 LED Driver Usage Guide)
-      Number of IO sites used for PIO+I3C+OD+RGB: 108 out of 39 (277%)
-   Number of DSPs:             0 out of 8 (0%)
-   Number of I2Cs:             0 out of 2 (0%)
-   Number of High Speed OSCs:  0 out of 1 (0%)
-   Number of Low Speed OSCs:   0 out of 1 (0%)
-   Number of RGB PWM:          0 out of 1 (0%)
-   Number of RGB Drivers:      0 out of 1 (0%)
-   Number of SCL FILTERs:      0 out of 2 (0%)
-   Number of SRAMs:            0 out of 4 (0%)
-   Number of WARMBOOTs:        0 out of 1 (0%)
-   Number of SPIs:             0 out of 2 (0%)
-   Number of EBRs:             0 out of 30 (0%)
-   Number of PLLs:             0 out of 1 (0%)
-   Number of Clocks:  0
-   Number of Clock Enables:  0
-   Number of LSRs:  0
-   Top 10 highest fanout non-clock nets:
- 
+    <postMsg mid="1191031" type="Info" dynamic="0" navigation="0"  />
 
-   Number of warnings:  9
-   Number of errors:    1
-
-
-
-Total CPU Time: 0 secs  
-Total REAL Time: 0 secs  
-Peak Memory Usage: 53 MB
-
-
-map -i "es4finalproj_impl_1_syn.udb"  -o "es4finalproj_impl_1_map.udb" -mp "es4finalproj_impl_1.mrp" -hierrpt     
-map:  version Radiant Software (64-bit) 3.2.1.217.3
-
+backanno "es4finalproj_impl_1.udb"  -o "es4finalproj_impl_1_vo.vo"      -sp "High-Performance_1.2V"  -w -neg
+backanno: version Radiant Software (64-bit) 3.2.1.217.3
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
 
-Command line:   map -i es4finalproj_impl_1_syn.udb -o es4finalproj_impl_1_map.udb -mp es4finalproj_impl_1.mrp -hierrpt -gui 
-
 Loading device for application GENERIC from file 'itpa08.nph' in environment: C:/lscc/radiant/3.2/ispfpga.
 Package Status:                     Preliminary    Version 1.5.
+Loading udb::Database ...
+Design:  top
+Family:  iCE40UP
+Device:  iCE40UP5K
+Package: SG48
+Performance Grade:   High-Performance_1.2V
+Performance Hardware Data Status:   Advanced       Version 1.0.
 
 
 
-   Remove unused logic
+Writing a verilog netlist based on the es4finalproj_impl_1 design file.
 
-   Do not produce over sized UDBs.
-
-Running general design DRC...
-
-    <postMsg mid="71003020" type="Warning" dynamic="1" navigation="0" arg0="clk"  />
-    <postMsg mid="71003020" type="Warning" dynamic="1" navigation="0" arg0="digital[7]"  />
-    <postMsg mid="71003020" type="Warning" dynamic="1" navigation="0" arg0="digital[6]"  />
-    <postMsg mid="71003020" type="Warning" dynamic="1" navigation="0" arg0="digital[5]"  />
-    <postMsg mid="71003020" type="Warning" dynamic="1" navigation="0" arg0="digital[4]"  />
-    <postMsg mid="71003020" type="Warning" dynamic="1" navigation="0" arg0="digital[3]"  />
-    <postMsg mid="71003020" type="Warning" dynamic="1" navigation="0" arg0="digital[2]"  />
-    <postMsg mid="71003020" type="Warning" dynamic="1" navigation="0" arg0="digital[1]"  />
-    <postMsg mid="71003020" type="Warning" dynamic="1" navigation="0" arg0="digital[0]"  />
-Removing unused logic...
-
-Optimizing...
-
-
-
-
-Design Summary:
-   Number of slice registers:   0 out of  5280 (0%)
-   Number of I/O registers:      0 out of   117 (0%)
-   Number of LUT4s:             1 out of  5280 (<1%)
-      Number of logic LUT4s:               1
-      Number of ripple logic:              0 (0 LUT4s)
-   Number of IO sites used:   108 out of 39 (277%)
-      Number of IO sites used for general PIO: 108
-      Number of IO sites used for I3C: 0 out of 2 (0%)
-      (note: If I3C is not used, its site can be used as general PIO)
-      Number of IO sites used for PIO+I3C: 108 out of 36 (300%)
-      Number of IO sites used for OD+RGB IO buffers: 0 out of 3 (0%)
-      (note: If RGB LED drivers are not used, sites can be used as OD outputs,
-       see TN1288 iCE40 LED Driver Usage Guide)
-      Number of IO sites used for PIO+I3C+OD+RGB: 108 out of 39 (277%)
-   Number of DSPs:             0 out of 8 (0%)
-   Number of I2Cs:             0 out of 2 (0%)
-   Number of High Speed OSCs:  0 out of 1 (0%)
-   Number of Low Speed OSCs:   0 out of 1 (0%)
-   Number of RGB PWM:          0 out of 1 (0%)
-   Number of RGB Drivers:      0 out of 1 (0%)
-   Number of SCL FILTERs:      0 out of 2 (0%)
-   Number of SRAMs:            0 out of 4 (0%)
-   Number of WARMBOOTs:        0 out of 1 (0%)
-   Number of SPIs:             0 out of 2 (0%)
-   Number of EBRs:             0 out of 30 (0%)
-   Number of PLLs:             0 out of 1 (0%)
-   Number of Clocks:  0
-   Number of Clock Enables:  0
-   Number of LSRs:  0
-   Top 10 highest fanout non-clock nets:
-    <postMsg mid="51001122" type="Error" dynamic="0" navigation="0"  />
- 
-
-   Number of warnings:  9
-   Number of errors:    1
-
-
-
-Total CPU Time: 0 secs  
-Total REAL Time: 0 secs  
-Peak Memory Usage: 53 MB
-
+Writing Verilog netlist to file es4finalproj_impl_1_vo.vo
+Writing SDF timing to file es4finalproj_impl_1_vo.sdf
+Backanno finished with 0 posted error messages.
+Total CPU Time: 1 secs 
+Total REAL Time: 2 secs 
+Peak Memory Usage: 94 MB

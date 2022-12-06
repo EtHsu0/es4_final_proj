@@ -19,7 +19,7 @@ entity display is
 end display;
 
 architecture synth of display is
-    component my_pll is
+    component mypll is
         port(
             ref_clk_i: in std_logic; -- input clock, set to pin 20 that is shorted to the 12 MHz pin on the UPduino
             rst_n_i: in std_logic; -- reset (active low), set to '1' so does not reset
@@ -71,7 +71,7 @@ architecture synth of display is
     signal snake_loc : unsigned(99 downto 0);
     
     begin
-        pll_init: my_pll port map(ref_clk_i => pll_in_clock, rst_n_i => '1', outcore_o => pll_outcore_o, outglobal_o => clk);
+        pll_init: mypll port map(ref_clk_i => pll_in_clock, rst_n_i => '1', outcore_o => pll_outcore_o, outglobal_o => clk);
         -- vga_initial vga port map(clk <= clk);
         
         vga_init: vga port map(clk, valid, row_cnt, column_cnt, HSYNC, VSYNC);

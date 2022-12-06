@@ -15,14 +15,14 @@ entity snakePos is
         grow_snake: in std_logic;
 
         -- Direction should be 0-3 (Up, Down, Left, Right)
-        dir_in: in std_logic_vector(1 downto 0); 
+        dir_in: in unsigned(1 downto 0); 
 		-- Gabriel Note: dirtype is not defined, need to fix dirtype declaration or remove entirely
         -- 00 = up
         -- 01 = down
         -- 10 = left
         -- 11 = right
-        snake_head_out: out std_logic_vector(7 downto 0);
-        snake_pos_out: out std_logic_vector(99 downto 0) := 100b"0";
+        snake_head_out: out unsigned(7 downto 0);
+        snake_pos_out: out unsigned(99 downto 0) := 100b"0";
         
         snake_dead: out std_logic := '0'
     );
@@ -35,7 +35,7 @@ signal snake_head: unsigned(7 downto 0);
 TYPE DirType is (UP, DOWN, LEFT, RIGHT); -- Need to fix this!
 TYPE DirArray is ARRAY (0 to 99) of DirType;
 
-signal prev_dir: std_logic_vector(1 downto 0) := "11";
+signal prev_dir: unsigned(1 downto 0) := "11";
 signal snake_dir: DirType;
 
 

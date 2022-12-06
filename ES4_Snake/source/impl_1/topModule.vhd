@@ -16,9 +16,9 @@ entity top is
         HSYNC : out std_logic; -- pin 46
         VSYNC : out std_logic; -- pin 2
         
-        rgb : out unsigned(5 downto 0); -- pins 47, 45, 48, 3, 4, 44
+        rgb : out unsigned(5 downto 0) -- pins 47, 45, 48, 3, 4, 44
 
-        pll_outcore_o : out std_logic -- for testing purposes (pin 2)
+        --pll_outcore_o : out std_logic -- for testing purposes (pin 2)
     );
 end top;
 
@@ -75,8 +75,8 @@ architecture synth of top is
     signal CLK: std_logic;
     
     signal digital: unsigned(7 downto 0);
-    signal apple: in unsigned(8 downto 0);
-    signal snake: in unsigned(99 downto 0);
+    signal apple: unsigned(8 downto 0);
+    signal snake: unsigned(99 downto 0);
     
     TYPE STATE is (START, RUNNING, OVER);
     signal gameState: STATE := START;

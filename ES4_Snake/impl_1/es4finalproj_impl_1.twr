@@ -1,6 +1,6 @@
 Lattice Timing Report -  Setup  and Hold, Version Radiant Software (64-bit) 3.2.1.217.3
 
-Sun Dec  4 17:50:45 2022
+Mon Dec  5 19:41:09 2022
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
@@ -27,8 +27,11 @@ Package Status:                     Preliminary    Version 1.5
     1  DESIGN CHECKING
         1.1  SDC Constraints
         1.2  Combinational Loop
+        1.3  Error/Warning Messages
     2  CLOCK SUMMARY
-        2.1  Clock CLK
+        2.1  Clock display_inst/clk
+        2.2  Clock pll_outcore_o_c
+        2.3  Clock CLK
     3  TIMING ANALYSIS SUMMARY
         3.1  Overall (Setup and Hold)
             3.1.1  Constraint Coverage
@@ -53,7 +56,9 @@ Package Status:                     Preliminary    Version 1.5
 
 1.1  SDC Constraints
 =====================
-create_clock -name {CLK} -period 20.8333 [get_pins {HSOSC_instance/CLKHF }] 
+create_clock -name {CLK} -period 20.8333 [get_pins {HSOSC_inst/CLKHF }] 
+[IGNORED:]create_generated_clock -name {pll_outcore_o_c} -source [get_pins display_inst.pll_init.lscc_pll_inst.u_PLL_B/REFERENCECLK] -divide_by 32 -multiply_by 67 [get_pins display_inst.pll_init.lscc_pll_inst.u_PLL_B/OUTCORE]
+[IGNORED:]create_generated_clock -name {display_inst/clk} -source [get_pins display_inst.pll_init.lscc_pll_inst.u_PLL_B/REFERENCECLK] -divide_by 32 -multiply_by 67 [get_pins display_inst.pll_init.lscc_pll_inst.u_PLL_B/OUTGLOBAL]
 
 Operating conditions:
 --------------------
@@ -63,13 +68,61 @@ Operating conditions:
 ========================
 None
 
+
+1.3  Error/Warning Messages
+============================
+WARNING - No master clock for
+	generated clock	create_generated_clock -name {display_inst/clk} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTGLOBAL }] .
+WARNING - No master clock for
+	generated clock	create_generated_clock -name {pll_outcore_o_c} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTCORE }] .
+
 ==============================================
 2  CLOCK SUMMARY
 ==============================================
 
-2.1 Clock "CLK"
+2.1 Clock "display_inst/clk"
 =======================
-create_clock -name {CLK} -period 20.8333 [get_pins {HSOSC_instance/CLKHF }] 
+create_generated_clock -name {display_inst/clk} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTGLOBAL }] 
+
+Single Clock Domain
+-------------------------------------------------------------------------------------------------------
+         Clock display_inst/clk         |                    |       Period       |     Frequency      
+-------------------------------------------------------------------------------------------------------
+ From display_inst/clk                  |             Target |               +INF |          0.000 MHz 
+                                        | Actual (all paths) |               ---- |               ---- 
+-------------------------------------------------------------------------------------------------------
+
+Clock Domain Crossing
+------------------------------------------------------------------------------------------------------
+         Clock display_inst/clk         |   Worst Time Between Edges   |           Comment            
+------------------------------------------------------------------------------------------------------
+ From pll_outcore_o_c                   |                         ---- |                      No path 
+ From CLK                               |                         ---- |                      No path 
+------------------------------------------------------------------------------------------------------
+
+2.2 Clock "pll_outcore_o_c"
+=======================
+create_generated_clock -name {pll_outcore_o_c} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTCORE }] 
+
+Single Clock Domain
+-------------------------------------------------------------------------------------------------------
+         Clock pll_outcore_o_c          |                    |       Period       |     Frequency      
+-------------------------------------------------------------------------------------------------------
+ From pll_outcore_o_c                   |             Target |               +INF |          0.000 MHz 
+                                        | Actual (all paths) |               ---- |               ---- 
+-------------------------------------------------------------------------------------------------------
+
+Clock Domain Crossing
+------------------------------------------------------------------------------------------------------
+         Clock pll_outcore_o_c          |   Worst Time Between Edges   |           Comment            
+------------------------------------------------------------------------------------------------------
+ From display_inst/clk                  |                         ---- |                      No path 
+ From CLK                               |                         ---- |                      No path 
+------------------------------------------------------------------------------------------------------
+
+2.3 Clock "CLK"
+=======================
+create_clock -name {CLK} -period 20.8333 [get_pins {HSOSC_inst/CLKHF }] 
 
 Single Clock Domain
 -------------------------------------------------------------------------------------------------------
@@ -77,10 +130,16 @@ Single Clock Domain
 -------------------------------------------------------------------------------------------------------
  From CLK                               |             Target |          20.833 ns |         48.000 MHz 
                                         | Actual (all paths) |          20.792 ns |         48.095 MHz 
-HSOSC_instance/CLKHF (MPW)              |   (50% duty cycle) |          20.792 ns |         48.095 MHz 
+HSOSC_inst/CLKHF (MPW)                  |   (50% duty cycle) |          20.792 ns |         48.095 MHz 
 -------------------------------------------------------------------------------------------------------
 
 Clock Domain Crossing
+------------------------------------------------------------------------------------------------------
+               Clock CLK                |   Worst Time Between Edges   |           Comment            
+------------------------------------------------------------------------------------------------------
+ From display_inst/clk                  |                         ---- |                      No path 
+ From pll_outcore_o_c                   |                         ---- |                      No path 
+------------------------------------------------------------------------------------------------------
 
 ==============================================
 3  TIMING ANALYSIS SUMMARY
@@ -91,7 +150,7 @@ Clock Domain Crossing
 
 3.1.1  Constraint Coverage
 ---------------------------
-Constraint Coverage: 72.381%
+Constraint Coverage: 6.81614%
 
 3.1.2  Timing Errors
 ---------------------
@@ -107,16 +166,16 @@ Total Negative Slack: 0.000 ns (setup), 0.000 ns (hold)
 -------------------------------------------------------
           Listing 10 End Points          |    Slack    
 -------------------------------------------------------
-NES_instance/count_21_23__i20/D          |    9.649 ns 
-NES_instance/count_21_23__i19/D          |    9.926 ns 
-NES_instance/count_21_23__i18/D          |   10.203 ns 
-NES_instance/count_21_23__i17/D          |   10.480 ns 
-NES_instance/count_21_23__i16/D          |   10.757 ns 
-NES_instance/count_21_23__i15/D          |   11.589 ns 
-NES_instance/count_21_23__i14/D          |   11.866 ns 
-NES_instance/count_21_23__i13/D          |   12.143 ns 
-NES_instance/count_21_23__i12/D          |   12.420 ns 
-NES_instance/count_21_23__i11/D          |   12.697 ns 
+NES_inst/count_303_376__i20/D            |    9.649 ns 
+NES_inst/count_303_376__i19/D            |    9.926 ns 
+NES_inst/count_303_376__i18/D            |   10.203 ns 
+NES_inst/count_303_376__i17/D            |   10.480 ns 
+NES_inst/count_303_376__i16/D            |   10.757 ns 
+NES_inst/count_303_376__i15/D            |   11.589 ns 
+NES_inst/count_303_376__i14/D            |   11.866 ns 
+NES_inst/count_303_376__i13/D            |   12.143 ns 
+NES_inst/count_303_376__i12/D            |   12.420 ns 
+NES_inst/count_303_376__i11/D            |   12.697 ns 
 -------------------------------------------------------
                                          |             
 Setup # of endpoints with negative slack:|           0 
@@ -129,16 +188,16 @@ Setup # of endpoints with negative slack:|           0
 -------------------------------------------------------
           Listing 10 End Points          |    Slack    
 -------------------------------------------------------
-NES_instance/count_21_23__i12/D          |    1.882 ns 
-NES_instance/count_21_23__i13/D          |    1.882 ns 
-NES_instance/count_21_23__i14/D          |    1.882 ns 
-NES_instance/count_21_23__i15/D          |    1.882 ns 
-NES_instance/count_21_23__i4/D           |    1.882 ns 
-NES_instance/count_21_23__i5/D           |    1.882 ns 
-NES_instance/count_21_23__i6/D           |    1.882 ns 
-NES_instance/count_21_23__i7/D           |    1.882 ns 
-NES_instance/count_21_23__i16/D          |    1.882 ns 
-NES_instance/count_21_23__i17/D          |    1.882 ns 
+NES_inst/count_303_376__i10/D            |    1.882 ns 
+NES_inst/count_303_376__i11/D            |    1.882 ns 
+NES_inst/count_303_376__i12/D            |    1.882 ns 
+NES_inst/count_303_376__i13/D            |    1.882 ns 
+NES_inst/count_303_376__i14/D            |    1.882 ns 
+NES_inst/count_303_376__i15/D            |    1.882 ns 
+NES_inst/count_303_376__i16/D            |    1.882 ns 
+NES_inst/count_303_376__i17/D            |    1.882 ns 
+NES_inst/count_303_376__i18/D            |    1.882 ns 
+NES_inst/count_303_376__i19/D            |    1.882 ns 
 -------------------------------------------------------
                                          |             
 Hold # of endpoints with negative slack: |           0 
@@ -155,7 +214,7 @@ Clocked but unconstrained timing start points
 -------------------------------------------------------------------
          Listing 1 Start Points         |           Type           
 -------------------------------------------------------------------
-NES_instance/count_21_23__i20/Q         |          No required time
+NES_inst/count_303_376__i20/Q           |          No required time
 -------------------------------------------------------------------
                                         |                          
 Number of unconstrained timing start po |                          
@@ -164,9 +223,27 @@ ints                                    |                         1
 -------------------------------------------------------------------
 
 Clocked but unconstrained timing end points
---------------------------------------------------
-There is no end point satisfying reporting criteria
-
+-------------------------------------------------------------------
+         Listing 10 End Points          |           Type           
+-------------------------------------------------------------------
+display_inst/vga_init/x_pos_305__i9/D   |    No arrival or required
+display_inst/vga_init/x_pos_305__i9/SR  |    No arrival or required
+display_inst/vga_init/x_pos_305__i8/D   |    No arrival or required
+display_inst/vga_init/x_pos_305__i7/D   |    No arrival or required
+{display_inst/vga_init/x_pos_305__i7/SR   display_inst/vga_init/x_pos_305__i8/SR}                           
+                                        |    No arrival or required
+display_inst/vga_init/x_pos_305__i6/D   |    No arrival or required
+display_inst/vga_init/x_pos_305__i5/D   |    No arrival or required
+{display_inst/vga_init/x_pos_305__i5/SR   display_inst/vga_init/x_pos_305__i6/SR}                           
+                                        |    No arrival or required
+display_inst/vga_init/x_pos_305__i4/D   |    No arrival or required
+display_inst/vga_init/x_pos_305__i3/D   |    No arrival or required
+-------------------------------------------------------------------
+                                        |                          
+Number of unconstrained timing end poin |                          
+ts                                      |                        43
+                                        |                          
+-------------------------------------------------------------------
 
 3.4.2  Start/End Points Without Timing Constraints
 ---------------------------------------------------
@@ -182,15 +259,21 @@ create_generated_clock,
 ...
 
 -------------------------------------------------------------------
-     Listing 4 Start or End Points      |           Type           
+     Listing 10 Start or End Points     |           Type           
 -------------------------------------------------------------------
-data                                    |                     input
 pll_in_clock                            |                     input
-continCLK                               |                    output
-latch                                   |                    output
+data                                    |                     input
+rgb[4]                                  |                    output
+rgb[5]                                  |                    output
+VSYNC                                   |                    output
+rgb[0]                                  |                    output
+rgb[1]                                  |                    output
+rgb[2]                                  |                    output
+rgb[3]                                  |                    output
+HSYNC                                   |                    output
 -------------------------------------------------------------------
                                         |                          
-Number of I/O ports without constraint  |                         4
+Number of I/O ports without constraint  |                        12
                                         |                          
 -------------------------------------------------------------------
 
@@ -220,8 +303,8 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 ++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_instance/count_21_23__i1/Q  (SLICE_R12C26A)
-Path End         : NES_instance/count_21_23__i20/D  (SLICE_R12C28C)
+Path Begin       : NES_inst/count_303_376__i1/Q  (SLICE_R18C29A)
+Path End         : NES_inst/count_303_376__i20/D  (SLICE_R18C31C)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 21
@@ -234,82 +317,82 @@ Path Slack       : 9.649 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name           Delay  Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  12      
-NES_instance/CLK                                             NET DELAY            5.499                  5.499  12      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  12      
+NES_inst/CLK                                                 NET DELAY            5.499                  5.499  12      
 
 
 Data Path
 
-NES_instance/count_21_23__i1/CK->NES_instance/count_21_23__i1/Q
-                                          SLICE_R12C26A      CLK_TO_Q1_DELAY      1.388                  6.887  1       
-NES_instance/n20                                             NET DELAY            2.022                  8.909  1       
-NES_instance/count_21_23_add_4_1/C1->NES_instance/count_21_23_add_4_1/CO1
-                                          SLICE_R12C26A      C1_TO_COUT1_DELAY    0.343                  9.252  2       
-NES_instance/n198                                            NET DELAY            0.000                  9.252  2       
-NES_instance/count_21_23_add_4_3/CI0->NES_instance/count_21_23_add_4_3/CO0
-                                          SLICE_R12C26B      CIN0_TO_COUT0_DELAY  0.277                  9.529  2       
-NES_instance/n515                                            NET DELAY            0.000                  9.529  2       
-NES_instance/count_21_23_add_4_3/CI1->NES_instance/count_21_23_add_4_3/CO1
-                                          SLICE_R12C26B      CIN1_TO_COUT1_DELAY  0.277                  9.806  2       
-NES_instance/n200                                            NET DELAY            0.000                  9.806  2       
-NES_instance/count_21_23_add_4_5/CI0->NES_instance/count_21_23_add_4_5/CO0
-                                          SLICE_R12C26C      CIN0_TO_COUT0_DELAY  0.277                 10.083  2       
-NES_instance/n518                                            NET DELAY            0.000                 10.083  2       
-NES_instance/count_21_23_add_4_5/CI1->NES_instance/count_21_23_add_4_5/CO1
-                                          SLICE_R12C26C      CIN1_TO_COUT1_DELAY  0.277                 10.360  2       
-NES_instance/n202                                            NET DELAY            0.000                 10.360  2       
-NES_instance/count_21_23_add_4_7/CI0->NES_instance/count_21_23_add_4_7/CO0
-                                          SLICE_R12C26D      CIN0_TO_COUT0_DELAY  0.277                 10.637  2       
-NES_instance/n521                                            NET DELAY            0.000                 10.637  2       
-NES_instance/count_21_23_add_4_7/CI1->NES_instance/count_21_23_add_4_7/CO1
-                                          SLICE_R12C26D      CIN1_TO_COUT1_DELAY  0.277                 10.914  2       
-NES_instance/n204                                            NET DELAY            0.555                 11.469  2       
-NES_instance/count_21_23_add_4_9/CI0->NES_instance/count_21_23_add_4_9/CO0
-                                          SLICE_R12C27A      CIN0_TO_COUT0_DELAY  0.277                 11.746  2       
-NES_instance/n524                                            NET DELAY            0.000                 11.746  2       
-NES_instance/count_21_23_add_4_9/CI1->NES_instance/count_21_23_add_4_9/CO1
-                                          SLICE_R12C27A      CIN1_TO_COUT1_DELAY  0.277                 12.023  2       
-NES_instance/n206                                            NET DELAY            0.000                 12.023  2       
-NES_instance/count_21_23_add_4_11/CI0->NES_instance/count_21_23_add_4_11/CO0
-                                          SLICE_R12C27B      CIN0_TO_COUT0_DELAY  0.277                 12.300  2       
-NES_instance/n527                                            NET DELAY            0.000                 12.300  2       
-NES_instance/count_21_23_add_4_11/CI1->NES_instance/count_21_23_add_4_11/CO1
-                                          SLICE_R12C27B      CIN1_TO_COUT1_DELAY  0.277                 12.577  2       
-NES_instance/n208                                            NET DELAY            0.000                 12.577  2       
-NES_instance/count_21_23_add_4_13/CI0->NES_instance/count_21_23_add_4_13/CO0
-                                          SLICE_R12C27C      CIN0_TO_COUT0_DELAY  0.277                 12.854  2       
-NES_instance/n530                                            NET DELAY            0.000                 12.854  2       
-NES_instance/count_21_23_add_4_13/CI1->NES_instance/count_21_23_add_4_13/CO1
-                                          SLICE_R12C27C      CIN1_TO_COUT1_DELAY  0.277                 13.131  2       
-NES_instance/n210                                            NET DELAY            0.000                 13.131  2       
-NES_instance/count_21_23_add_4_15/CI0->NES_instance/count_21_23_add_4_15/CO0
-                                          SLICE_R12C27D      CIN0_TO_COUT0_DELAY  0.277                 13.408  2       
-NES_instance/n533                                            NET DELAY            0.000                 13.408  2       
-NES_instance/count_21_23_add_4_15/CI1->NES_instance/count_21_23_add_4_15/CO1
-                                          SLICE_R12C27D      CIN1_TO_COUT1_DELAY  0.277                 13.685  2       
-NES_instance/n212                                            NET DELAY            0.555                 14.240  2       
-NES_instance/count_21_23_add_4_17/CI0->NES_instance/count_21_23_add_4_17/CO0
-                                          SLICE_R12C28A      CIN0_TO_COUT0_DELAY  0.277                 14.517  2       
-NES_instance/n536                                            NET DELAY            0.000                 14.517  2       
-NES_instance/count_21_23_add_4_17/CI1->NES_instance/count_21_23_add_4_17/CO1
-                                          SLICE_R12C28A      CIN1_TO_COUT1_DELAY  0.277                 14.794  2       
-NES_instance/n214                                            NET DELAY            0.000                 14.794  2       
-NES_instance/count_21_23_add_4_19/CI0->NES_instance/count_21_23_add_4_19/CO0
-                                          SLICE_R12C28B      CIN0_TO_COUT0_DELAY  0.277                 15.071  2       
-NES_instance/n539                                            NET DELAY            0.000                 15.071  2       
-NES_instance/count_21_23_add_4_19/CI1->NES_instance/count_21_23_add_4_19/CO1
-                                          SLICE_R12C28B      CIN1_TO_COUT1_DELAY  0.277                 15.348  2       
-NES_instance/n216                                            NET DELAY            0.661                 16.009  2       
-NES_instance/count_21_23_add_4_21/D0->NES_instance/count_21_23_add_4_21/S0
-                                          SLICE_R12C28C      D0_TO_F0_DELAY       0.476                 16.485  1       
-NES_instance/n85[19] ( DI0 )                                 NET DELAY            0.000                 16.485  1       
+NES_inst/count_303_376__i1/CK->NES_inst/count_303_376__i1/Q
+                                          SLICE_R18C29A      CLK_TO_Q1_DELAY      1.388                  6.887  1       
+NES_inst/n20                                                 NET DELAY            2.022                  8.909  1       
+NES_inst/count_303_376_add_4_1/C1->NES_inst/count_303_376_add_4_1/CO1
+                                          SLICE_R18C29A      C1_TO_COUT1_DELAY    0.343                  9.252  2       
+NES_inst/n5223                                               NET DELAY            0.000                  9.252  2       
+NES_inst/count_303_376_add_4_3/CI0->NES_inst/count_303_376_add_4_3/CO0
+                                          SLICE_R18C29B      CIN0_TO_COUT0_DELAY  0.277                  9.529  2       
+NES_inst/n7811                                               NET DELAY            0.000                  9.529  2       
+NES_inst/count_303_376_add_4_3/CI1->NES_inst/count_303_376_add_4_3/CO1
+                                          SLICE_R18C29B      CIN1_TO_COUT1_DELAY  0.277                  9.806  2       
+NES_inst/n5225                                               NET DELAY            0.000                  9.806  2       
+NES_inst/count_303_376_add_4_5/CI0->NES_inst/count_303_376_add_4_5/CO0
+                                          SLICE_R18C29C      CIN0_TO_COUT0_DELAY  0.277                 10.083  2       
+NES_inst/n7814                                               NET DELAY            0.000                 10.083  2       
+NES_inst/count_303_376_add_4_5/CI1->NES_inst/count_303_376_add_4_5/CO1
+                                          SLICE_R18C29C      CIN1_TO_COUT1_DELAY  0.277                 10.360  2       
+NES_inst/n5227                                               NET DELAY            0.000                 10.360  2       
+NES_inst/count_303_376_add_4_7/CI0->NES_inst/count_303_376_add_4_7/CO0
+                                          SLICE_R18C29D      CIN0_TO_COUT0_DELAY  0.277                 10.637  2       
+NES_inst/n7817                                               NET DELAY            0.000                 10.637  2       
+NES_inst/count_303_376_add_4_7/CI1->NES_inst/count_303_376_add_4_7/CO1
+                                          SLICE_R18C29D      CIN1_TO_COUT1_DELAY  0.277                 10.914  2       
+NES_inst/n5229                                               NET DELAY            0.555                 11.469  2       
+NES_inst/count_303_376_add_4_9/CI0->NES_inst/count_303_376_add_4_9/CO0
+                                          SLICE_R18C30A      CIN0_TO_COUT0_DELAY  0.277                 11.746  2       
+NES_inst/n7820                                               NET DELAY            0.000                 11.746  2       
+NES_inst/count_303_376_add_4_9/CI1->NES_inst/count_303_376_add_4_9/CO1
+                                          SLICE_R18C30A      CIN1_TO_COUT1_DELAY  0.277                 12.023  2       
+NES_inst/n5231                                               NET DELAY            0.000                 12.023  2       
+NES_inst/count_303_376_add_4_11/CI0->NES_inst/count_303_376_add_4_11/CO0
+                                          SLICE_R18C30B      CIN0_TO_COUT0_DELAY  0.277                 12.300  2       
+NES_inst/n7823                                               NET DELAY            0.000                 12.300  2       
+NES_inst/count_303_376_add_4_11/CI1->NES_inst/count_303_376_add_4_11/CO1
+                                          SLICE_R18C30B      CIN1_TO_COUT1_DELAY  0.277                 12.577  2       
+NES_inst/n5233                                               NET DELAY            0.000                 12.577  2       
+NES_inst/count_303_376_add_4_13/CI0->NES_inst/count_303_376_add_4_13/CO0
+                                          SLICE_R18C30C      CIN0_TO_COUT0_DELAY  0.277                 12.854  2       
+NES_inst/n7826                                               NET DELAY            0.000                 12.854  2       
+NES_inst/count_303_376_add_4_13/CI1->NES_inst/count_303_376_add_4_13/CO1
+                                          SLICE_R18C30C      CIN1_TO_COUT1_DELAY  0.277                 13.131  2       
+NES_inst/n5235                                               NET DELAY            0.000                 13.131  2       
+NES_inst/count_303_376_add_4_15/CI0->NES_inst/count_303_376_add_4_15/CO0
+                                          SLICE_R18C30D      CIN0_TO_COUT0_DELAY  0.277                 13.408  2       
+NES_inst/n7829                                               NET DELAY            0.000                 13.408  2       
+NES_inst/count_303_376_add_4_15/CI1->NES_inst/count_303_376_add_4_15/CO1
+                                          SLICE_R18C30D      CIN1_TO_COUT1_DELAY  0.277                 13.685  2       
+NES_inst/n5237                                               NET DELAY            0.555                 14.240  2       
+NES_inst/count_303_376_add_4_17/CI0->NES_inst/count_303_376_add_4_17/CO0
+                                          SLICE_R18C31A      CIN0_TO_COUT0_DELAY  0.277                 14.517  2       
+NES_inst/n7832                                               NET DELAY            0.000                 14.517  2       
+NES_inst/count_303_376_add_4_17/CI1->NES_inst/count_303_376_add_4_17/CO1
+                                          SLICE_R18C31A      CIN1_TO_COUT1_DELAY  0.277                 14.794  2       
+NES_inst/n5239                                               NET DELAY            0.000                 14.794  2       
+NES_inst/count_303_376_add_4_19/CI0->NES_inst/count_303_376_add_4_19/CO0
+                                          SLICE_R18C31B      CIN0_TO_COUT0_DELAY  0.277                 15.071  2       
+NES_inst/n7835                                               NET DELAY            0.000                 15.071  2       
+NES_inst/count_303_376_add_4_19/CI1->NES_inst/count_303_376_add_4_19/CO1
+                                          SLICE_R18C31B      CIN1_TO_COUT1_DELAY  0.277                 15.348  2       
+NES_inst/n5241                                               NET DELAY            0.661                 16.009  2       
+NES_inst/count_303_376_add_4_21/D0->NES_inst/count_303_376_add_4_21/S0
+                                          SLICE_R18C31C      D0_TO_F0_DELAY       0.476                 16.485  1       
+NES_inst/n85[19] ( DI0 )                                     NET DELAY            0.000                 16.485  1       
 
 
 Destination Clock Path
 
                                                              CONSTRAINT           0.000                 20.833  1       
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                 20.833  12      
-NES_instance/CLK ( CLK )                                     NET DELAY            5.499                 26.332  12      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                 20.833  12      
+NES_inst/CLK ( CLK )                                         NET DELAY            5.499                 26.332  12      
                                                              Uncertainty          0.000                 26.332  
                                                              Setup time           0.198                 26.134  
 ----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
@@ -323,8 +406,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_instance/count_21_23__i1/Q  (SLICE_R12C26A)
-Path End         : NES_instance/count_21_23__i19/D  (SLICE_R12C28B)
+Path Begin       : NES_inst/count_303_376__i1/Q  (SLICE_R18C29A)
+Path End         : NES_inst/count_303_376__i19/D  (SLICE_R18C31B)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 20
@@ -337,79 +420,79 @@ Path Slack       : 9.926 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name           Delay  Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  12      
-NES_instance/CLK                                             NET DELAY            5.499                  5.499  12      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  12      
+NES_inst/CLK                                                 NET DELAY            5.499                  5.499  12      
 
 
 Data Path
 
-NES_instance/count_21_23__i1/CK->NES_instance/count_21_23__i1/Q
-                                          SLICE_R12C26A      CLK_TO_Q1_DELAY      1.388                  6.887  1       
-NES_instance/n20                                             NET DELAY            2.022                  8.909  1       
-NES_instance/count_21_23_add_4_1/C1->NES_instance/count_21_23_add_4_1/CO1
-                                          SLICE_R12C26A      C1_TO_COUT1_DELAY    0.343                  9.252  2       
-NES_instance/n198                                            NET DELAY            0.000                  9.252  2       
-NES_instance/count_21_23_add_4_3/CI0->NES_instance/count_21_23_add_4_3/CO0
-                                          SLICE_R12C26B      CIN0_TO_COUT0_DELAY  0.277                  9.529  2       
-NES_instance/n515                                            NET DELAY            0.000                  9.529  2       
-NES_instance/count_21_23_add_4_3/CI1->NES_instance/count_21_23_add_4_3/CO1
-                                          SLICE_R12C26B      CIN1_TO_COUT1_DELAY  0.277                  9.806  2       
-NES_instance/n200                                            NET DELAY            0.000                  9.806  2       
-NES_instance/count_21_23_add_4_5/CI0->NES_instance/count_21_23_add_4_5/CO0
-                                          SLICE_R12C26C      CIN0_TO_COUT0_DELAY  0.277                 10.083  2       
-NES_instance/n518                                            NET DELAY            0.000                 10.083  2       
-NES_instance/count_21_23_add_4_5/CI1->NES_instance/count_21_23_add_4_5/CO1
-                                          SLICE_R12C26C      CIN1_TO_COUT1_DELAY  0.277                 10.360  2       
-NES_instance/n202                                            NET DELAY            0.000                 10.360  2       
-NES_instance/count_21_23_add_4_7/CI0->NES_instance/count_21_23_add_4_7/CO0
-                                          SLICE_R12C26D      CIN0_TO_COUT0_DELAY  0.277                 10.637  2       
-NES_instance/n521                                            NET DELAY            0.000                 10.637  2       
-NES_instance/count_21_23_add_4_7/CI1->NES_instance/count_21_23_add_4_7/CO1
-                                          SLICE_R12C26D      CIN1_TO_COUT1_DELAY  0.277                 10.914  2       
-NES_instance/n204                                            NET DELAY            0.555                 11.469  2       
-NES_instance/count_21_23_add_4_9/CI0->NES_instance/count_21_23_add_4_9/CO0
-                                          SLICE_R12C27A      CIN0_TO_COUT0_DELAY  0.277                 11.746  2       
-NES_instance/n524                                            NET DELAY            0.000                 11.746  2       
-NES_instance/count_21_23_add_4_9/CI1->NES_instance/count_21_23_add_4_9/CO1
-                                          SLICE_R12C27A      CIN1_TO_COUT1_DELAY  0.277                 12.023  2       
-NES_instance/n206                                            NET DELAY            0.000                 12.023  2       
-NES_instance/count_21_23_add_4_11/CI0->NES_instance/count_21_23_add_4_11/CO0
-                                          SLICE_R12C27B      CIN0_TO_COUT0_DELAY  0.277                 12.300  2       
-NES_instance/n527                                            NET DELAY            0.000                 12.300  2       
-NES_instance/count_21_23_add_4_11/CI1->NES_instance/count_21_23_add_4_11/CO1
-                                          SLICE_R12C27B      CIN1_TO_COUT1_DELAY  0.277                 12.577  2       
-NES_instance/n208                                            NET DELAY            0.000                 12.577  2       
-NES_instance/count_21_23_add_4_13/CI0->NES_instance/count_21_23_add_4_13/CO0
-                                          SLICE_R12C27C      CIN0_TO_COUT0_DELAY  0.277                 12.854  2       
-NES_instance/n530                                            NET DELAY            0.000                 12.854  2       
-NES_instance/count_21_23_add_4_13/CI1->NES_instance/count_21_23_add_4_13/CO1
-                                          SLICE_R12C27C      CIN1_TO_COUT1_DELAY  0.277                 13.131  2       
-NES_instance/n210                                            NET DELAY            0.000                 13.131  2       
-NES_instance/count_21_23_add_4_15/CI0->NES_instance/count_21_23_add_4_15/CO0
-                                          SLICE_R12C27D      CIN0_TO_COUT0_DELAY  0.277                 13.408  2       
-NES_instance/n533                                            NET DELAY            0.000                 13.408  2       
-NES_instance/count_21_23_add_4_15/CI1->NES_instance/count_21_23_add_4_15/CO1
-                                          SLICE_R12C27D      CIN1_TO_COUT1_DELAY  0.277                 13.685  2       
-NES_instance/n212                                            NET DELAY            0.555                 14.240  2       
-NES_instance/count_21_23_add_4_17/CI0->NES_instance/count_21_23_add_4_17/CO0
-                                          SLICE_R12C28A      CIN0_TO_COUT0_DELAY  0.277                 14.517  2       
-NES_instance/n536                                            NET DELAY            0.000                 14.517  2       
-NES_instance/count_21_23_add_4_17/CI1->NES_instance/count_21_23_add_4_17/CO1
-                                          SLICE_R12C28A      CIN1_TO_COUT1_DELAY  0.277                 14.794  2       
-NES_instance/n214                                            NET DELAY            0.000                 14.794  2       
-NES_instance/count_21_23_add_4_19/CI0->NES_instance/count_21_23_add_4_19/CO0
-                                          SLICE_R12C28B      CIN0_TO_COUT0_DELAY  0.277                 15.071  2       
-NES_instance/n539                                            NET DELAY            0.661                 15.732  2       
-NES_instance/count_21_23_add_4_19/D1->NES_instance/count_21_23_add_4_19/S1
-                                          SLICE_R12C28B      D1_TO_F1_DELAY       0.476                 16.208  1       
-NES_instance/n85[18] ( DI1 )                                 NET DELAY            0.000                 16.208  1       
+NES_inst/count_303_376__i1/CK->NES_inst/count_303_376__i1/Q
+                                          SLICE_R18C29A      CLK_TO_Q1_DELAY      1.388                  6.887  1       
+NES_inst/n20                                                 NET DELAY            2.022                  8.909  1       
+NES_inst/count_303_376_add_4_1/C1->NES_inst/count_303_376_add_4_1/CO1
+                                          SLICE_R18C29A      C1_TO_COUT1_DELAY    0.343                  9.252  2       
+NES_inst/n5223                                               NET DELAY            0.000                  9.252  2       
+NES_inst/count_303_376_add_4_3/CI0->NES_inst/count_303_376_add_4_3/CO0
+                                          SLICE_R18C29B      CIN0_TO_COUT0_DELAY  0.277                  9.529  2       
+NES_inst/n7811                                               NET DELAY            0.000                  9.529  2       
+NES_inst/count_303_376_add_4_3/CI1->NES_inst/count_303_376_add_4_3/CO1
+                                          SLICE_R18C29B      CIN1_TO_COUT1_DELAY  0.277                  9.806  2       
+NES_inst/n5225                                               NET DELAY            0.000                  9.806  2       
+NES_inst/count_303_376_add_4_5/CI0->NES_inst/count_303_376_add_4_5/CO0
+                                          SLICE_R18C29C      CIN0_TO_COUT0_DELAY  0.277                 10.083  2       
+NES_inst/n7814                                               NET DELAY            0.000                 10.083  2       
+NES_inst/count_303_376_add_4_5/CI1->NES_inst/count_303_376_add_4_5/CO1
+                                          SLICE_R18C29C      CIN1_TO_COUT1_DELAY  0.277                 10.360  2       
+NES_inst/n5227                                               NET DELAY            0.000                 10.360  2       
+NES_inst/count_303_376_add_4_7/CI0->NES_inst/count_303_376_add_4_7/CO0
+                                          SLICE_R18C29D      CIN0_TO_COUT0_DELAY  0.277                 10.637  2       
+NES_inst/n7817                                               NET DELAY            0.000                 10.637  2       
+NES_inst/count_303_376_add_4_7/CI1->NES_inst/count_303_376_add_4_7/CO1
+                                          SLICE_R18C29D      CIN1_TO_COUT1_DELAY  0.277                 10.914  2       
+NES_inst/n5229                                               NET DELAY            0.555                 11.469  2       
+NES_inst/count_303_376_add_4_9/CI0->NES_inst/count_303_376_add_4_9/CO0
+                                          SLICE_R18C30A      CIN0_TO_COUT0_DELAY  0.277                 11.746  2       
+NES_inst/n7820                                               NET DELAY            0.000                 11.746  2       
+NES_inst/count_303_376_add_4_9/CI1->NES_inst/count_303_376_add_4_9/CO1
+                                          SLICE_R18C30A      CIN1_TO_COUT1_DELAY  0.277                 12.023  2       
+NES_inst/n5231                                               NET DELAY            0.000                 12.023  2       
+NES_inst/count_303_376_add_4_11/CI0->NES_inst/count_303_376_add_4_11/CO0
+                                          SLICE_R18C30B      CIN0_TO_COUT0_DELAY  0.277                 12.300  2       
+NES_inst/n7823                                               NET DELAY            0.000                 12.300  2       
+NES_inst/count_303_376_add_4_11/CI1->NES_inst/count_303_376_add_4_11/CO1
+                                          SLICE_R18C30B      CIN1_TO_COUT1_DELAY  0.277                 12.577  2       
+NES_inst/n5233                                               NET DELAY            0.000                 12.577  2       
+NES_inst/count_303_376_add_4_13/CI0->NES_inst/count_303_376_add_4_13/CO0
+                                          SLICE_R18C30C      CIN0_TO_COUT0_DELAY  0.277                 12.854  2       
+NES_inst/n7826                                               NET DELAY            0.000                 12.854  2       
+NES_inst/count_303_376_add_4_13/CI1->NES_inst/count_303_376_add_4_13/CO1
+                                          SLICE_R18C30C      CIN1_TO_COUT1_DELAY  0.277                 13.131  2       
+NES_inst/n5235                                               NET DELAY            0.000                 13.131  2       
+NES_inst/count_303_376_add_4_15/CI0->NES_inst/count_303_376_add_4_15/CO0
+                                          SLICE_R18C30D      CIN0_TO_COUT0_DELAY  0.277                 13.408  2       
+NES_inst/n7829                                               NET DELAY            0.000                 13.408  2       
+NES_inst/count_303_376_add_4_15/CI1->NES_inst/count_303_376_add_4_15/CO1
+                                          SLICE_R18C30D      CIN1_TO_COUT1_DELAY  0.277                 13.685  2       
+NES_inst/n5237                                               NET DELAY            0.555                 14.240  2       
+NES_inst/count_303_376_add_4_17/CI0->NES_inst/count_303_376_add_4_17/CO0
+                                          SLICE_R18C31A      CIN0_TO_COUT0_DELAY  0.277                 14.517  2       
+NES_inst/n7832                                               NET DELAY            0.000                 14.517  2       
+NES_inst/count_303_376_add_4_17/CI1->NES_inst/count_303_376_add_4_17/CO1
+                                          SLICE_R18C31A      CIN1_TO_COUT1_DELAY  0.277                 14.794  2       
+NES_inst/n5239                                               NET DELAY            0.000                 14.794  2       
+NES_inst/count_303_376_add_4_19/CI0->NES_inst/count_303_376_add_4_19/CO0
+                                          SLICE_R18C31B      CIN0_TO_COUT0_DELAY  0.277                 15.071  2       
+NES_inst/n7835                                               NET DELAY            0.661                 15.732  2       
+NES_inst/count_303_376_add_4_19/D1->NES_inst/count_303_376_add_4_19/S1
+                                          SLICE_R18C31B      D1_TO_F1_DELAY       0.476                 16.208  1       
+NES_inst/n85[18] ( DI1 )                                     NET DELAY            0.000                 16.208  1       
 
 
 Destination Clock Path
 
                                                              CONSTRAINT           0.000                 20.833  1       
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                 20.833  12      
-NES_instance/CLK ( CLK )                                     NET DELAY            5.499                 26.332  12      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                 20.833  12      
+NES_inst/CLK ( CLK )                                         NET DELAY            5.499                 26.332  12      
                                                              Uncertainty          0.000                 26.332  
                                                              Setup time           0.198                 26.134  
 ----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
@@ -423,8 +506,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_instance/count_21_23__i1/Q  (SLICE_R12C26A)
-Path End         : NES_instance/count_21_23__i18/D  (SLICE_R12C28B)
+Path Begin       : NES_inst/count_303_376__i1/Q  (SLICE_R18C29A)
+Path End         : NES_inst/count_303_376__i18/D  (SLICE_R18C31B)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 19
@@ -437,76 +520,76 @@ Path Slack       : 10.203 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name           Delay  Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  12      
-NES_instance/CLK                                             NET DELAY            5.499                  5.499  12      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  12      
+NES_inst/CLK                                                 NET DELAY            5.499                  5.499  12      
 
 
 Data Path
 
-NES_instance/count_21_23__i1/CK->NES_instance/count_21_23__i1/Q
-                                          SLICE_R12C26A      CLK_TO_Q1_DELAY      1.388                  6.887  1       
-NES_instance/n20                                             NET DELAY            2.022                  8.909  1       
-NES_instance/count_21_23_add_4_1/C1->NES_instance/count_21_23_add_4_1/CO1
-                                          SLICE_R12C26A      C1_TO_COUT1_DELAY    0.343                  9.252  2       
-NES_instance/n198                                            NET DELAY            0.000                  9.252  2       
-NES_instance/count_21_23_add_4_3/CI0->NES_instance/count_21_23_add_4_3/CO0
-                                          SLICE_R12C26B      CIN0_TO_COUT0_DELAY  0.277                  9.529  2       
-NES_instance/n515                                            NET DELAY            0.000                  9.529  2       
-NES_instance/count_21_23_add_4_3/CI1->NES_instance/count_21_23_add_4_3/CO1
-                                          SLICE_R12C26B      CIN1_TO_COUT1_DELAY  0.277                  9.806  2       
-NES_instance/n200                                            NET DELAY            0.000                  9.806  2       
-NES_instance/count_21_23_add_4_5/CI0->NES_instance/count_21_23_add_4_5/CO0
-                                          SLICE_R12C26C      CIN0_TO_COUT0_DELAY  0.277                 10.083  2       
-NES_instance/n518                                            NET DELAY            0.000                 10.083  2       
-NES_instance/count_21_23_add_4_5/CI1->NES_instance/count_21_23_add_4_5/CO1
-                                          SLICE_R12C26C      CIN1_TO_COUT1_DELAY  0.277                 10.360  2       
-NES_instance/n202                                            NET DELAY            0.000                 10.360  2       
-NES_instance/count_21_23_add_4_7/CI0->NES_instance/count_21_23_add_4_7/CO0
-                                          SLICE_R12C26D      CIN0_TO_COUT0_DELAY  0.277                 10.637  2       
-NES_instance/n521                                            NET DELAY            0.000                 10.637  2       
-NES_instance/count_21_23_add_4_7/CI1->NES_instance/count_21_23_add_4_7/CO1
-                                          SLICE_R12C26D      CIN1_TO_COUT1_DELAY  0.277                 10.914  2       
-NES_instance/n204                                            NET DELAY            0.555                 11.469  2       
-NES_instance/count_21_23_add_4_9/CI0->NES_instance/count_21_23_add_4_9/CO0
-                                          SLICE_R12C27A      CIN0_TO_COUT0_DELAY  0.277                 11.746  2       
-NES_instance/n524                                            NET DELAY            0.000                 11.746  2       
-NES_instance/count_21_23_add_4_9/CI1->NES_instance/count_21_23_add_4_9/CO1
-                                          SLICE_R12C27A      CIN1_TO_COUT1_DELAY  0.277                 12.023  2       
-NES_instance/n206                                            NET DELAY            0.000                 12.023  2       
-NES_instance/count_21_23_add_4_11/CI0->NES_instance/count_21_23_add_4_11/CO0
-                                          SLICE_R12C27B      CIN0_TO_COUT0_DELAY  0.277                 12.300  2       
-NES_instance/n527                                            NET DELAY            0.000                 12.300  2       
-NES_instance/count_21_23_add_4_11/CI1->NES_instance/count_21_23_add_4_11/CO1
-                                          SLICE_R12C27B      CIN1_TO_COUT1_DELAY  0.277                 12.577  2       
-NES_instance/n208                                            NET DELAY            0.000                 12.577  2       
-NES_instance/count_21_23_add_4_13/CI0->NES_instance/count_21_23_add_4_13/CO0
-                                          SLICE_R12C27C      CIN0_TO_COUT0_DELAY  0.277                 12.854  2       
-NES_instance/n530                                            NET DELAY            0.000                 12.854  2       
-NES_instance/count_21_23_add_4_13/CI1->NES_instance/count_21_23_add_4_13/CO1
-                                          SLICE_R12C27C      CIN1_TO_COUT1_DELAY  0.277                 13.131  2       
-NES_instance/n210                                            NET DELAY            0.000                 13.131  2       
-NES_instance/count_21_23_add_4_15/CI0->NES_instance/count_21_23_add_4_15/CO0
-                                          SLICE_R12C27D      CIN0_TO_COUT0_DELAY  0.277                 13.408  2       
-NES_instance/n533                                            NET DELAY            0.000                 13.408  2       
-NES_instance/count_21_23_add_4_15/CI1->NES_instance/count_21_23_add_4_15/CO1
-                                          SLICE_R12C27D      CIN1_TO_COUT1_DELAY  0.277                 13.685  2       
-NES_instance/n212                                            NET DELAY            0.555                 14.240  2       
-NES_instance/count_21_23_add_4_17/CI0->NES_instance/count_21_23_add_4_17/CO0
-                                          SLICE_R12C28A      CIN0_TO_COUT0_DELAY  0.277                 14.517  2       
-NES_instance/n536                                            NET DELAY            0.000                 14.517  2       
-NES_instance/count_21_23_add_4_17/CI1->NES_instance/count_21_23_add_4_17/CO1
-                                          SLICE_R12C28A      CIN1_TO_COUT1_DELAY  0.277                 14.794  2       
-NES_instance/n214                                            NET DELAY            0.661                 15.455  2       
-NES_instance/count_21_23_add_4_19/D0->NES_instance/count_21_23_add_4_19/S0
-                                          SLICE_R12C28B      D0_TO_F0_DELAY       0.476                 15.931  1       
-NES_instance/n85[17] ( DI0 )                                 NET DELAY            0.000                 15.931  1       
+NES_inst/count_303_376__i1/CK->NES_inst/count_303_376__i1/Q
+                                          SLICE_R18C29A      CLK_TO_Q1_DELAY      1.388                  6.887  1       
+NES_inst/n20                                                 NET DELAY            2.022                  8.909  1       
+NES_inst/count_303_376_add_4_1/C1->NES_inst/count_303_376_add_4_1/CO1
+                                          SLICE_R18C29A      C1_TO_COUT1_DELAY    0.343                  9.252  2       
+NES_inst/n5223                                               NET DELAY            0.000                  9.252  2       
+NES_inst/count_303_376_add_4_3/CI0->NES_inst/count_303_376_add_4_3/CO0
+                                          SLICE_R18C29B      CIN0_TO_COUT0_DELAY  0.277                  9.529  2       
+NES_inst/n7811                                               NET DELAY            0.000                  9.529  2       
+NES_inst/count_303_376_add_4_3/CI1->NES_inst/count_303_376_add_4_3/CO1
+                                          SLICE_R18C29B      CIN1_TO_COUT1_DELAY  0.277                  9.806  2       
+NES_inst/n5225                                               NET DELAY            0.000                  9.806  2       
+NES_inst/count_303_376_add_4_5/CI0->NES_inst/count_303_376_add_4_5/CO0
+                                          SLICE_R18C29C      CIN0_TO_COUT0_DELAY  0.277                 10.083  2       
+NES_inst/n7814                                               NET DELAY            0.000                 10.083  2       
+NES_inst/count_303_376_add_4_5/CI1->NES_inst/count_303_376_add_4_5/CO1
+                                          SLICE_R18C29C      CIN1_TO_COUT1_DELAY  0.277                 10.360  2       
+NES_inst/n5227                                               NET DELAY            0.000                 10.360  2       
+NES_inst/count_303_376_add_4_7/CI0->NES_inst/count_303_376_add_4_7/CO0
+                                          SLICE_R18C29D      CIN0_TO_COUT0_DELAY  0.277                 10.637  2       
+NES_inst/n7817                                               NET DELAY            0.000                 10.637  2       
+NES_inst/count_303_376_add_4_7/CI1->NES_inst/count_303_376_add_4_7/CO1
+                                          SLICE_R18C29D      CIN1_TO_COUT1_DELAY  0.277                 10.914  2       
+NES_inst/n5229                                               NET DELAY            0.555                 11.469  2       
+NES_inst/count_303_376_add_4_9/CI0->NES_inst/count_303_376_add_4_9/CO0
+                                          SLICE_R18C30A      CIN0_TO_COUT0_DELAY  0.277                 11.746  2       
+NES_inst/n7820                                               NET DELAY            0.000                 11.746  2       
+NES_inst/count_303_376_add_4_9/CI1->NES_inst/count_303_376_add_4_9/CO1
+                                          SLICE_R18C30A      CIN1_TO_COUT1_DELAY  0.277                 12.023  2       
+NES_inst/n5231                                               NET DELAY            0.000                 12.023  2       
+NES_inst/count_303_376_add_4_11/CI0->NES_inst/count_303_376_add_4_11/CO0
+                                          SLICE_R18C30B      CIN0_TO_COUT0_DELAY  0.277                 12.300  2       
+NES_inst/n7823                                               NET DELAY            0.000                 12.300  2       
+NES_inst/count_303_376_add_4_11/CI1->NES_inst/count_303_376_add_4_11/CO1
+                                          SLICE_R18C30B      CIN1_TO_COUT1_DELAY  0.277                 12.577  2       
+NES_inst/n5233                                               NET DELAY            0.000                 12.577  2       
+NES_inst/count_303_376_add_4_13/CI0->NES_inst/count_303_376_add_4_13/CO0
+                                          SLICE_R18C30C      CIN0_TO_COUT0_DELAY  0.277                 12.854  2       
+NES_inst/n7826                                               NET DELAY            0.000                 12.854  2       
+NES_inst/count_303_376_add_4_13/CI1->NES_inst/count_303_376_add_4_13/CO1
+                                          SLICE_R18C30C      CIN1_TO_COUT1_DELAY  0.277                 13.131  2       
+NES_inst/n5235                                               NET DELAY            0.000                 13.131  2       
+NES_inst/count_303_376_add_4_15/CI0->NES_inst/count_303_376_add_4_15/CO0
+                                          SLICE_R18C30D      CIN0_TO_COUT0_DELAY  0.277                 13.408  2       
+NES_inst/n7829                                               NET DELAY            0.000                 13.408  2       
+NES_inst/count_303_376_add_4_15/CI1->NES_inst/count_303_376_add_4_15/CO1
+                                          SLICE_R18C30D      CIN1_TO_COUT1_DELAY  0.277                 13.685  2       
+NES_inst/n5237                                               NET DELAY            0.555                 14.240  2       
+NES_inst/count_303_376_add_4_17/CI0->NES_inst/count_303_376_add_4_17/CO0
+                                          SLICE_R18C31A      CIN0_TO_COUT0_DELAY  0.277                 14.517  2       
+NES_inst/n7832                                               NET DELAY            0.000                 14.517  2       
+NES_inst/count_303_376_add_4_17/CI1->NES_inst/count_303_376_add_4_17/CO1
+                                          SLICE_R18C31A      CIN1_TO_COUT1_DELAY  0.277                 14.794  2       
+NES_inst/n5239                                               NET DELAY            0.661                 15.455  2       
+NES_inst/count_303_376_add_4_19/D0->NES_inst/count_303_376_add_4_19/S0
+                                          SLICE_R18C31B      D0_TO_F0_DELAY       0.476                 15.931  1       
+NES_inst/n85[17] ( DI0 )                                     NET DELAY            0.000                 15.931  1       
 
 
 Destination Clock Path
 
                                                              CONSTRAINT           0.000                 20.833  1       
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                 20.833  12      
-NES_instance/CLK ( CLK )                                     NET DELAY            5.499                 26.332  12      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                 20.833  12      
+NES_inst/CLK ( CLK )                                         NET DELAY            5.499                 26.332  12      
                                                              Uncertainty          0.000                 26.332  
                                                              Setup time           0.198                 26.134  
 ----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
@@ -520,8 +603,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_instance/count_21_23__i1/Q  (SLICE_R12C26A)
-Path End         : NES_instance/count_21_23__i17/D  (SLICE_R12C28A)
+Path Begin       : NES_inst/count_303_376__i1/Q  (SLICE_R18C29A)
+Path End         : NES_inst/count_303_376__i17/D  (SLICE_R18C31A)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 18
@@ -534,73 +617,73 @@ Path Slack       : 10.480 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name           Delay  Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  12      
-NES_instance/CLK                                             NET DELAY            5.499                  5.499  12      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  12      
+NES_inst/CLK                                                 NET DELAY            5.499                  5.499  12      
 
 
 Data Path
 
-NES_instance/count_21_23__i1/CK->NES_instance/count_21_23__i1/Q
-                                          SLICE_R12C26A      CLK_TO_Q1_DELAY      1.388                  6.887  1       
-NES_instance/n20                                             NET DELAY            2.022                  8.909  1       
-NES_instance/count_21_23_add_4_1/C1->NES_instance/count_21_23_add_4_1/CO1
-                                          SLICE_R12C26A      C1_TO_COUT1_DELAY    0.343                  9.252  2       
-NES_instance/n198                                            NET DELAY            0.000                  9.252  2       
-NES_instance/count_21_23_add_4_3/CI0->NES_instance/count_21_23_add_4_3/CO0
-                                          SLICE_R12C26B      CIN0_TO_COUT0_DELAY  0.277                  9.529  2       
-NES_instance/n515                                            NET DELAY            0.000                  9.529  2       
-NES_instance/count_21_23_add_4_3/CI1->NES_instance/count_21_23_add_4_3/CO1
-                                          SLICE_R12C26B      CIN1_TO_COUT1_DELAY  0.277                  9.806  2       
-NES_instance/n200                                            NET DELAY            0.000                  9.806  2       
-NES_instance/count_21_23_add_4_5/CI0->NES_instance/count_21_23_add_4_5/CO0
-                                          SLICE_R12C26C      CIN0_TO_COUT0_DELAY  0.277                 10.083  2       
-NES_instance/n518                                            NET DELAY            0.000                 10.083  2       
-NES_instance/count_21_23_add_4_5/CI1->NES_instance/count_21_23_add_4_5/CO1
-                                          SLICE_R12C26C      CIN1_TO_COUT1_DELAY  0.277                 10.360  2       
-NES_instance/n202                                            NET DELAY            0.000                 10.360  2       
-NES_instance/count_21_23_add_4_7/CI0->NES_instance/count_21_23_add_4_7/CO0
-                                          SLICE_R12C26D      CIN0_TO_COUT0_DELAY  0.277                 10.637  2       
-NES_instance/n521                                            NET DELAY            0.000                 10.637  2       
-NES_instance/count_21_23_add_4_7/CI1->NES_instance/count_21_23_add_4_7/CO1
-                                          SLICE_R12C26D      CIN1_TO_COUT1_DELAY  0.277                 10.914  2       
-NES_instance/n204                                            NET DELAY            0.555                 11.469  2       
-NES_instance/count_21_23_add_4_9/CI0->NES_instance/count_21_23_add_4_9/CO0
-                                          SLICE_R12C27A      CIN0_TO_COUT0_DELAY  0.277                 11.746  2       
-NES_instance/n524                                            NET DELAY            0.000                 11.746  2       
-NES_instance/count_21_23_add_4_9/CI1->NES_instance/count_21_23_add_4_9/CO1
-                                          SLICE_R12C27A      CIN1_TO_COUT1_DELAY  0.277                 12.023  2       
-NES_instance/n206                                            NET DELAY            0.000                 12.023  2       
-NES_instance/count_21_23_add_4_11/CI0->NES_instance/count_21_23_add_4_11/CO0
-                                          SLICE_R12C27B      CIN0_TO_COUT0_DELAY  0.277                 12.300  2       
-NES_instance/n527                                            NET DELAY            0.000                 12.300  2       
-NES_instance/count_21_23_add_4_11/CI1->NES_instance/count_21_23_add_4_11/CO1
-                                          SLICE_R12C27B      CIN1_TO_COUT1_DELAY  0.277                 12.577  2       
-NES_instance/n208                                            NET DELAY            0.000                 12.577  2       
-NES_instance/count_21_23_add_4_13/CI0->NES_instance/count_21_23_add_4_13/CO0
-                                          SLICE_R12C27C      CIN0_TO_COUT0_DELAY  0.277                 12.854  2       
-NES_instance/n530                                            NET DELAY            0.000                 12.854  2       
-NES_instance/count_21_23_add_4_13/CI1->NES_instance/count_21_23_add_4_13/CO1
-                                          SLICE_R12C27C      CIN1_TO_COUT1_DELAY  0.277                 13.131  2       
-NES_instance/n210                                            NET DELAY            0.000                 13.131  2       
-NES_instance/count_21_23_add_4_15/CI0->NES_instance/count_21_23_add_4_15/CO0
-                                          SLICE_R12C27D      CIN0_TO_COUT0_DELAY  0.277                 13.408  2       
-NES_instance/n533                                            NET DELAY            0.000                 13.408  2       
-NES_instance/count_21_23_add_4_15/CI1->NES_instance/count_21_23_add_4_15/CO1
-                                          SLICE_R12C27D      CIN1_TO_COUT1_DELAY  0.277                 13.685  2       
-NES_instance/n212                                            NET DELAY            0.555                 14.240  2       
-NES_instance/count_21_23_add_4_17/CI0->NES_instance/count_21_23_add_4_17/CO0
-                                          SLICE_R12C28A      CIN0_TO_COUT0_DELAY  0.277                 14.517  2       
-NES_instance/n536                                            NET DELAY            0.661                 15.178  2       
-NES_instance/count_21_23_add_4_17/D1->NES_instance/count_21_23_add_4_17/S1
-                                          SLICE_R12C28A      D1_TO_F1_DELAY       0.476                 15.654  1       
-NES_instance/n85[16] ( DI1 )                                 NET DELAY            0.000                 15.654  1       
+NES_inst/count_303_376__i1/CK->NES_inst/count_303_376__i1/Q
+                                          SLICE_R18C29A      CLK_TO_Q1_DELAY      1.388                  6.887  1       
+NES_inst/n20                                                 NET DELAY            2.022                  8.909  1       
+NES_inst/count_303_376_add_4_1/C1->NES_inst/count_303_376_add_4_1/CO1
+                                          SLICE_R18C29A      C1_TO_COUT1_DELAY    0.343                  9.252  2       
+NES_inst/n5223                                               NET DELAY            0.000                  9.252  2       
+NES_inst/count_303_376_add_4_3/CI0->NES_inst/count_303_376_add_4_3/CO0
+                                          SLICE_R18C29B      CIN0_TO_COUT0_DELAY  0.277                  9.529  2       
+NES_inst/n7811                                               NET DELAY            0.000                  9.529  2       
+NES_inst/count_303_376_add_4_3/CI1->NES_inst/count_303_376_add_4_3/CO1
+                                          SLICE_R18C29B      CIN1_TO_COUT1_DELAY  0.277                  9.806  2       
+NES_inst/n5225                                               NET DELAY            0.000                  9.806  2       
+NES_inst/count_303_376_add_4_5/CI0->NES_inst/count_303_376_add_4_5/CO0
+                                          SLICE_R18C29C      CIN0_TO_COUT0_DELAY  0.277                 10.083  2       
+NES_inst/n7814                                               NET DELAY            0.000                 10.083  2       
+NES_inst/count_303_376_add_4_5/CI1->NES_inst/count_303_376_add_4_5/CO1
+                                          SLICE_R18C29C      CIN1_TO_COUT1_DELAY  0.277                 10.360  2       
+NES_inst/n5227                                               NET DELAY            0.000                 10.360  2       
+NES_inst/count_303_376_add_4_7/CI0->NES_inst/count_303_376_add_4_7/CO0
+                                          SLICE_R18C29D      CIN0_TO_COUT0_DELAY  0.277                 10.637  2       
+NES_inst/n7817                                               NET DELAY            0.000                 10.637  2       
+NES_inst/count_303_376_add_4_7/CI1->NES_inst/count_303_376_add_4_7/CO1
+                                          SLICE_R18C29D      CIN1_TO_COUT1_DELAY  0.277                 10.914  2       
+NES_inst/n5229                                               NET DELAY            0.555                 11.469  2       
+NES_inst/count_303_376_add_4_9/CI0->NES_inst/count_303_376_add_4_9/CO0
+                                          SLICE_R18C30A      CIN0_TO_COUT0_DELAY  0.277                 11.746  2       
+NES_inst/n7820                                               NET DELAY            0.000                 11.746  2       
+NES_inst/count_303_376_add_4_9/CI1->NES_inst/count_303_376_add_4_9/CO1
+                                          SLICE_R18C30A      CIN1_TO_COUT1_DELAY  0.277                 12.023  2       
+NES_inst/n5231                                               NET DELAY            0.000                 12.023  2       
+NES_inst/count_303_376_add_4_11/CI0->NES_inst/count_303_376_add_4_11/CO0
+                                          SLICE_R18C30B      CIN0_TO_COUT0_DELAY  0.277                 12.300  2       
+NES_inst/n7823                                               NET DELAY            0.000                 12.300  2       
+NES_inst/count_303_376_add_4_11/CI1->NES_inst/count_303_376_add_4_11/CO1
+                                          SLICE_R18C30B      CIN1_TO_COUT1_DELAY  0.277                 12.577  2       
+NES_inst/n5233                                               NET DELAY            0.000                 12.577  2       
+NES_inst/count_303_376_add_4_13/CI0->NES_inst/count_303_376_add_4_13/CO0
+                                          SLICE_R18C30C      CIN0_TO_COUT0_DELAY  0.277                 12.854  2       
+NES_inst/n7826                                               NET DELAY            0.000                 12.854  2       
+NES_inst/count_303_376_add_4_13/CI1->NES_inst/count_303_376_add_4_13/CO1
+                                          SLICE_R18C30C      CIN1_TO_COUT1_DELAY  0.277                 13.131  2       
+NES_inst/n5235                                               NET DELAY            0.000                 13.131  2       
+NES_inst/count_303_376_add_4_15/CI0->NES_inst/count_303_376_add_4_15/CO0
+                                          SLICE_R18C30D      CIN0_TO_COUT0_DELAY  0.277                 13.408  2       
+NES_inst/n7829                                               NET DELAY            0.000                 13.408  2       
+NES_inst/count_303_376_add_4_15/CI1->NES_inst/count_303_376_add_4_15/CO1
+                                          SLICE_R18C30D      CIN1_TO_COUT1_DELAY  0.277                 13.685  2       
+NES_inst/n5237                                               NET DELAY            0.555                 14.240  2       
+NES_inst/count_303_376_add_4_17/CI0->NES_inst/count_303_376_add_4_17/CO0
+                                          SLICE_R18C31A      CIN0_TO_COUT0_DELAY  0.277                 14.517  2       
+NES_inst/n7832                                               NET DELAY            0.661                 15.178  2       
+NES_inst/count_303_376_add_4_17/D1->NES_inst/count_303_376_add_4_17/S1
+                                          SLICE_R18C31A      D1_TO_F1_DELAY       0.476                 15.654  1       
+NES_inst/n85[16] ( DI1 )                                     NET DELAY            0.000                 15.654  1       
 
 
 Destination Clock Path
 
                                                              CONSTRAINT           0.000                 20.833  1       
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                 20.833  12      
-NES_instance/CLK ( CLK )                                     NET DELAY            5.499                 26.332  12      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                 20.833  12      
+NES_inst/CLK ( CLK )                                         NET DELAY            5.499                 26.332  12      
                                                              Uncertainty          0.000                 26.332  
                                                              Setup time           0.198                 26.134  
 ----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
@@ -614,8 +697,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_instance/count_21_23__i1/Q  (SLICE_R12C26A)
-Path End         : NES_instance/count_21_23__i16/D  (SLICE_R12C28A)
+Path Begin       : NES_inst/count_303_376__i1/Q  (SLICE_R18C29A)
+Path End         : NES_inst/count_303_376__i16/D  (SLICE_R18C31A)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 17
@@ -628,70 +711,70 @@ Path Slack       : 10.757 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name           Delay  Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  12      
-NES_instance/CLK                                             NET DELAY            5.499                  5.499  12      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  12      
+NES_inst/CLK                                                 NET DELAY            5.499                  5.499  12      
 
 
 Data Path
 
-NES_instance/count_21_23__i1/CK->NES_instance/count_21_23__i1/Q
-                                          SLICE_R12C26A      CLK_TO_Q1_DELAY      1.388                  6.887  1       
-NES_instance/n20                                             NET DELAY            2.022                  8.909  1       
-NES_instance/count_21_23_add_4_1/C1->NES_instance/count_21_23_add_4_1/CO1
-                                          SLICE_R12C26A      C1_TO_COUT1_DELAY    0.343                  9.252  2       
-NES_instance/n198                                            NET DELAY            0.000                  9.252  2       
-NES_instance/count_21_23_add_4_3/CI0->NES_instance/count_21_23_add_4_3/CO0
-                                          SLICE_R12C26B      CIN0_TO_COUT0_DELAY  0.277                  9.529  2       
-NES_instance/n515                                            NET DELAY            0.000                  9.529  2       
-NES_instance/count_21_23_add_4_3/CI1->NES_instance/count_21_23_add_4_3/CO1
-                                          SLICE_R12C26B      CIN1_TO_COUT1_DELAY  0.277                  9.806  2       
-NES_instance/n200                                            NET DELAY            0.000                  9.806  2       
-NES_instance/count_21_23_add_4_5/CI0->NES_instance/count_21_23_add_4_5/CO0
-                                          SLICE_R12C26C      CIN0_TO_COUT0_DELAY  0.277                 10.083  2       
-NES_instance/n518                                            NET DELAY            0.000                 10.083  2       
-NES_instance/count_21_23_add_4_5/CI1->NES_instance/count_21_23_add_4_5/CO1
-                                          SLICE_R12C26C      CIN1_TO_COUT1_DELAY  0.277                 10.360  2       
-NES_instance/n202                                            NET DELAY            0.000                 10.360  2       
-NES_instance/count_21_23_add_4_7/CI0->NES_instance/count_21_23_add_4_7/CO0
-                                          SLICE_R12C26D      CIN0_TO_COUT0_DELAY  0.277                 10.637  2       
-NES_instance/n521                                            NET DELAY            0.000                 10.637  2       
-NES_instance/count_21_23_add_4_7/CI1->NES_instance/count_21_23_add_4_7/CO1
-                                          SLICE_R12C26D      CIN1_TO_COUT1_DELAY  0.277                 10.914  2       
-NES_instance/n204                                            NET DELAY            0.555                 11.469  2       
-NES_instance/count_21_23_add_4_9/CI0->NES_instance/count_21_23_add_4_9/CO0
-                                          SLICE_R12C27A      CIN0_TO_COUT0_DELAY  0.277                 11.746  2       
-NES_instance/n524                                            NET DELAY            0.000                 11.746  2       
-NES_instance/count_21_23_add_4_9/CI1->NES_instance/count_21_23_add_4_9/CO1
-                                          SLICE_R12C27A      CIN1_TO_COUT1_DELAY  0.277                 12.023  2       
-NES_instance/n206                                            NET DELAY            0.000                 12.023  2       
-NES_instance/count_21_23_add_4_11/CI0->NES_instance/count_21_23_add_4_11/CO0
-                                          SLICE_R12C27B      CIN0_TO_COUT0_DELAY  0.277                 12.300  2       
-NES_instance/n527                                            NET DELAY            0.000                 12.300  2       
-NES_instance/count_21_23_add_4_11/CI1->NES_instance/count_21_23_add_4_11/CO1
-                                          SLICE_R12C27B      CIN1_TO_COUT1_DELAY  0.277                 12.577  2       
-NES_instance/n208                                            NET DELAY            0.000                 12.577  2       
-NES_instance/count_21_23_add_4_13/CI0->NES_instance/count_21_23_add_4_13/CO0
-                                          SLICE_R12C27C      CIN0_TO_COUT0_DELAY  0.277                 12.854  2       
-NES_instance/n530                                            NET DELAY            0.000                 12.854  2       
-NES_instance/count_21_23_add_4_13/CI1->NES_instance/count_21_23_add_4_13/CO1
-                                          SLICE_R12C27C      CIN1_TO_COUT1_DELAY  0.277                 13.131  2       
-NES_instance/n210                                            NET DELAY            0.000                 13.131  2       
-NES_instance/count_21_23_add_4_15/CI0->NES_instance/count_21_23_add_4_15/CO0
-                                          SLICE_R12C27D      CIN0_TO_COUT0_DELAY  0.277                 13.408  2       
-NES_instance/n533                                            NET DELAY            0.000                 13.408  2       
-NES_instance/count_21_23_add_4_15/CI1->NES_instance/count_21_23_add_4_15/CO1
-                                          SLICE_R12C27D      CIN1_TO_COUT1_DELAY  0.277                 13.685  2       
-NES_instance/n212                                            NET DELAY            1.216                 14.901  2       
-NES_instance/count_21_23_add_4_17/D0->NES_instance/count_21_23_add_4_17/S0
-                                          SLICE_R12C28A      D0_TO_F0_DELAY       0.476                 15.377  1       
-NES_instance/n85[15] ( DI0 )                                 NET DELAY            0.000                 15.377  1       
+NES_inst/count_303_376__i1/CK->NES_inst/count_303_376__i1/Q
+                                          SLICE_R18C29A      CLK_TO_Q1_DELAY      1.388                  6.887  1       
+NES_inst/n20                                                 NET DELAY            2.022                  8.909  1       
+NES_inst/count_303_376_add_4_1/C1->NES_inst/count_303_376_add_4_1/CO1
+                                          SLICE_R18C29A      C1_TO_COUT1_DELAY    0.343                  9.252  2       
+NES_inst/n5223                                               NET DELAY            0.000                  9.252  2       
+NES_inst/count_303_376_add_4_3/CI0->NES_inst/count_303_376_add_4_3/CO0
+                                          SLICE_R18C29B      CIN0_TO_COUT0_DELAY  0.277                  9.529  2       
+NES_inst/n7811                                               NET DELAY            0.000                  9.529  2       
+NES_inst/count_303_376_add_4_3/CI1->NES_inst/count_303_376_add_4_3/CO1
+                                          SLICE_R18C29B      CIN1_TO_COUT1_DELAY  0.277                  9.806  2       
+NES_inst/n5225                                               NET DELAY            0.000                  9.806  2       
+NES_inst/count_303_376_add_4_5/CI0->NES_inst/count_303_376_add_4_5/CO0
+                                          SLICE_R18C29C      CIN0_TO_COUT0_DELAY  0.277                 10.083  2       
+NES_inst/n7814                                               NET DELAY            0.000                 10.083  2       
+NES_inst/count_303_376_add_4_5/CI1->NES_inst/count_303_376_add_4_5/CO1
+                                          SLICE_R18C29C      CIN1_TO_COUT1_DELAY  0.277                 10.360  2       
+NES_inst/n5227                                               NET DELAY            0.000                 10.360  2       
+NES_inst/count_303_376_add_4_7/CI0->NES_inst/count_303_376_add_4_7/CO0
+                                          SLICE_R18C29D      CIN0_TO_COUT0_DELAY  0.277                 10.637  2       
+NES_inst/n7817                                               NET DELAY            0.000                 10.637  2       
+NES_inst/count_303_376_add_4_7/CI1->NES_inst/count_303_376_add_4_7/CO1
+                                          SLICE_R18C29D      CIN1_TO_COUT1_DELAY  0.277                 10.914  2       
+NES_inst/n5229                                               NET DELAY            0.555                 11.469  2       
+NES_inst/count_303_376_add_4_9/CI0->NES_inst/count_303_376_add_4_9/CO0
+                                          SLICE_R18C30A      CIN0_TO_COUT0_DELAY  0.277                 11.746  2       
+NES_inst/n7820                                               NET DELAY            0.000                 11.746  2       
+NES_inst/count_303_376_add_4_9/CI1->NES_inst/count_303_376_add_4_9/CO1
+                                          SLICE_R18C30A      CIN1_TO_COUT1_DELAY  0.277                 12.023  2       
+NES_inst/n5231                                               NET DELAY            0.000                 12.023  2       
+NES_inst/count_303_376_add_4_11/CI0->NES_inst/count_303_376_add_4_11/CO0
+                                          SLICE_R18C30B      CIN0_TO_COUT0_DELAY  0.277                 12.300  2       
+NES_inst/n7823                                               NET DELAY            0.000                 12.300  2       
+NES_inst/count_303_376_add_4_11/CI1->NES_inst/count_303_376_add_4_11/CO1
+                                          SLICE_R18C30B      CIN1_TO_COUT1_DELAY  0.277                 12.577  2       
+NES_inst/n5233                                               NET DELAY            0.000                 12.577  2       
+NES_inst/count_303_376_add_4_13/CI0->NES_inst/count_303_376_add_4_13/CO0
+                                          SLICE_R18C30C      CIN0_TO_COUT0_DELAY  0.277                 12.854  2       
+NES_inst/n7826                                               NET DELAY            0.000                 12.854  2       
+NES_inst/count_303_376_add_4_13/CI1->NES_inst/count_303_376_add_4_13/CO1
+                                          SLICE_R18C30C      CIN1_TO_COUT1_DELAY  0.277                 13.131  2       
+NES_inst/n5235                                               NET DELAY            0.000                 13.131  2       
+NES_inst/count_303_376_add_4_15/CI0->NES_inst/count_303_376_add_4_15/CO0
+                                          SLICE_R18C30D      CIN0_TO_COUT0_DELAY  0.277                 13.408  2       
+NES_inst/n7829                                               NET DELAY            0.000                 13.408  2       
+NES_inst/count_303_376_add_4_15/CI1->NES_inst/count_303_376_add_4_15/CO1
+                                          SLICE_R18C30D      CIN1_TO_COUT1_DELAY  0.277                 13.685  2       
+NES_inst/n5237                                               NET DELAY            1.216                 14.901  2       
+NES_inst/count_303_376_add_4_17/D0->NES_inst/count_303_376_add_4_17/S0
+                                          SLICE_R18C31A      D0_TO_F0_DELAY       0.476                 15.377  1       
+NES_inst/n85[15] ( DI0 )                                     NET DELAY            0.000                 15.377  1       
 
 
 Destination Clock Path
 
                                                              CONSTRAINT           0.000                 20.833  1       
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                 20.833  12      
-NES_instance/CLK ( CLK )                                     NET DELAY            5.499                 26.332  12      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                 20.833  12      
+NES_inst/CLK ( CLK )                                         NET DELAY            5.499                 26.332  12      
                                                              Uncertainty          0.000                 26.332  
                                                              Setup time           0.198                 26.134  
 ----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
@@ -705,8 +788,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_instance/count_21_23__i1/Q  (SLICE_R12C26A)
-Path End         : NES_instance/count_21_23__i15/D  (SLICE_R12C27D)
+Path Begin       : NES_inst/count_303_376__i1/Q  (SLICE_R18C29A)
+Path End         : NES_inst/count_303_376__i15/D  (SLICE_R18C30D)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 16
@@ -719,67 +802,67 @@ Path Slack       : 11.589 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name           Delay  Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  12      
-NES_instance/CLK                                             NET DELAY            5.499                  5.499  12      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  12      
+NES_inst/CLK                                                 NET DELAY            5.499                  5.499  12      
 
 
 Data Path
 
-NES_instance/count_21_23__i1/CK->NES_instance/count_21_23__i1/Q
-                                          SLICE_R12C26A      CLK_TO_Q1_DELAY      1.388                  6.887  1       
-NES_instance/n20                                             NET DELAY            2.022                  8.909  1       
-NES_instance/count_21_23_add_4_1/C1->NES_instance/count_21_23_add_4_1/CO1
-                                          SLICE_R12C26A      C1_TO_COUT1_DELAY    0.343                  9.252  2       
-NES_instance/n198                                            NET DELAY            0.000                  9.252  2       
-NES_instance/count_21_23_add_4_3/CI0->NES_instance/count_21_23_add_4_3/CO0
-                                          SLICE_R12C26B      CIN0_TO_COUT0_DELAY  0.277                  9.529  2       
-NES_instance/n515                                            NET DELAY            0.000                  9.529  2       
-NES_instance/count_21_23_add_4_3/CI1->NES_instance/count_21_23_add_4_3/CO1
-                                          SLICE_R12C26B      CIN1_TO_COUT1_DELAY  0.277                  9.806  2       
-NES_instance/n200                                            NET DELAY            0.000                  9.806  2       
-NES_instance/count_21_23_add_4_5/CI0->NES_instance/count_21_23_add_4_5/CO0
-                                          SLICE_R12C26C      CIN0_TO_COUT0_DELAY  0.277                 10.083  2       
-NES_instance/n518                                            NET DELAY            0.000                 10.083  2       
-NES_instance/count_21_23_add_4_5/CI1->NES_instance/count_21_23_add_4_5/CO1
-                                          SLICE_R12C26C      CIN1_TO_COUT1_DELAY  0.277                 10.360  2       
-NES_instance/n202                                            NET DELAY            0.000                 10.360  2       
-NES_instance/count_21_23_add_4_7/CI0->NES_instance/count_21_23_add_4_7/CO0
-                                          SLICE_R12C26D      CIN0_TO_COUT0_DELAY  0.277                 10.637  2       
-NES_instance/n521                                            NET DELAY            0.000                 10.637  2       
-NES_instance/count_21_23_add_4_7/CI1->NES_instance/count_21_23_add_4_7/CO1
-                                          SLICE_R12C26D      CIN1_TO_COUT1_DELAY  0.277                 10.914  2       
-NES_instance/n204                                            NET DELAY            0.555                 11.469  2       
-NES_instance/count_21_23_add_4_9/CI0->NES_instance/count_21_23_add_4_9/CO0
-                                          SLICE_R12C27A      CIN0_TO_COUT0_DELAY  0.277                 11.746  2       
-NES_instance/n524                                            NET DELAY            0.000                 11.746  2       
-NES_instance/count_21_23_add_4_9/CI1->NES_instance/count_21_23_add_4_9/CO1
-                                          SLICE_R12C27A      CIN1_TO_COUT1_DELAY  0.277                 12.023  2       
-NES_instance/n206                                            NET DELAY            0.000                 12.023  2       
-NES_instance/count_21_23_add_4_11/CI0->NES_instance/count_21_23_add_4_11/CO0
-                                          SLICE_R12C27B      CIN0_TO_COUT0_DELAY  0.277                 12.300  2       
-NES_instance/n527                                            NET DELAY            0.000                 12.300  2       
-NES_instance/count_21_23_add_4_11/CI1->NES_instance/count_21_23_add_4_11/CO1
-                                          SLICE_R12C27B      CIN1_TO_COUT1_DELAY  0.277                 12.577  2       
-NES_instance/n208                                            NET DELAY            0.000                 12.577  2       
-NES_instance/count_21_23_add_4_13/CI0->NES_instance/count_21_23_add_4_13/CO0
-                                          SLICE_R12C27C      CIN0_TO_COUT0_DELAY  0.277                 12.854  2       
-NES_instance/n530                                            NET DELAY            0.000                 12.854  2       
-NES_instance/count_21_23_add_4_13/CI1->NES_instance/count_21_23_add_4_13/CO1
-                                          SLICE_R12C27C      CIN1_TO_COUT1_DELAY  0.277                 13.131  2       
-NES_instance/n210                                            NET DELAY            0.000                 13.131  2       
-NES_instance/count_21_23_add_4_15/CI0->NES_instance/count_21_23_add_4_15/CO0
-                                          SLICE_R12C27D      CIN0_TO_COUT0_DELAY  0.277                 13.408  2       
-NES_instance/n533                                            NET DELAY            0.661                 14.069  2       
-NES_instance/count_21_23_add_4_15/D1->NES_instance/count_21_23_add_4_15/S1
-                                          SLICE_R12C27D      D1_TO_F1_DELAY       0.476                 14.545  1       
-NES_instance/n85[14] ( DI1 )                                 NET DELAY            0.000                 14.545  1       
+NES_inst/count_303_376__i1/CK->NES_inst/count_303_376__i1/Q
+                                          SLICE_R18C29A      CLK_TO_Q1_DELAY      1.388                  6.887  1       
+NES_inst/n20                                                 NET DELAY            2.022                  8.909  1       
+NES_inst/count_303_376_add_4_1/C1->NES_inst/count_303_376_add_4_1/CO1
+                                          SLICE_R18C29A      C1_TO_COUT1_DELAY    0.343                  9.252  2       
+NES_inst/n5223                                               NET DELAY            0.000                  9.252  2       
+NES_inst/count_303_376_add_4_3/CI0->NES_inst/count_303_376_add_4_3/CO0
+                                          SLICE_R18C29B      CIN0_TO_COUT0_DELAY  0.277                  9.529  2       
+NES_inst/n7811                                               NET DELAY            0.000                  9.529  2       
+NES_inst/count_303_376_add_4_3/CI1->NES_inst/count_303_376_add_4_3/CO1
+                                          SLICE_R18C29B      CIN1_TO_COUT1_DELAY  0.277                  9.806  2       
+NES_inst/n5225                                               NET DELAY            0.000                  9.806  2       
+NES_inst/count_303_376_add_4_5/CI0->NES_inst/count_303_376_add_4_5/CO0
+                                          SLICE_R18C29C      CIN0_TO_COUT0_DELAY  0.277                 10.083  2       
+NES_inst/n7814                                               NET DELAY            0.000                 10.083  2       
+NES_inst/count_303_376_add_4_5/CI1->NES_inst/count_303_376_add_4_5/CO1
+                                          SLICE_R18C29C      CIN1_TO_COUT1_DELAY  0.277                 10.360  2       
+NES_inst/n5227                                               NET DELAY            0.000                 10.360  2       
+NES_inst/count_303_376_add_4_7/CI0->NES_inst/count_303_376_add_4_7/CO0
+                                          SLICE_R18C29D      CIN0_TO_COUT0_DELAY  0.277                 10.637  2       
+NES_inst/n7817                                               NET DELAY            0.000                 10.637  2       
+NES_inst/count_303_376_add_4_7/CI1->NES_inst/count_303_376_add_4_7/CO1
+                                          SLICE_R18C29D      CIN1_TO_COUT1_DELAY  0.277                 10.914  2       
+NES_inst/n5229                                               NET DELAY            0.555                 11.469  2       
+NES_inst/count_303_376_add_4_9/CI0->NES_inst/count_303_376_add_4_9/CO0
+                                          SLICE_R18C30A      CIN0_TO_COUT0_DELAY  0.277                 11.746  2       
+NES_inst/n7820                                               NET DELAY            0.000                 11.746  2       
+NES_inst/count_303_376_add_4_9/CI1->NES_inst/count_303_376_add_4_9/CO1
+                                          SLICE_R18C30A      CIN1_TO_COUT1_DELAY  0.277                 12.023  2       
+NES_inst/n5231                                               NET DELAY            0.000                 12.023  2       
+NES_inst/count_303_376_add_4_11/CI0->NES_inst/count_303_376_add_4_11/CO0
+                                          SLICE_R18C30B      CIN0_TO_COUT0_DELAY  0.277                 12.300  2       
+NES_inst/n7823                                               NET DELAY            0.000                 12.300  2       
+NES_inst/count_303_376_add_4_11/CI1->NES_inst/count_303_376_add_4_11/CO1
+                                          SLICE_R18C30B      CIN1_TO_COUT1_DELAY  0.277                 12.577  2       
+NES_inst/n5233                                               NET DELAY            0.000                 12.577  2       
+NES_inst/count_303_376_add_4_13/CI0->NES_inst/count_303_376_add_4_13/CO0
+                                          SLICE_R18C30C      CIN0_TO_COUT0_DELAY  0.277                 12.854  2       
+NES_inst/n7826                                               NET DELAY            0.000                 12.854  2       
+NES_inst/count_303_376_add_4_13/CI1->NES_inst/count_303_376_add_4_13/CO1
+                                          SLICE_R18C30C      CIN1_TO_COUT1_DELAY  0.277                 13.131  2       
+NES_inst/n5235                                               NET DELAY            0.000                 13.131  2       
+NES_inst/count_303_376_add_4_15/CI0->NES_inst/count_303_376_add_4_15/CO0
+                                          SLICE_R18C30D      CIN0_TO_COUT0_DELAY  0.277                 13.408  2       
+NES_inst/n7829                                               NET DELAY            0.661                 14.069  2       
+NES_inst/count_303_376_add_4_15/D1->NES_inst/count_303_376_add_4_15/S1
+                                          SLICE_R18C30D      D1_TO_F1_DELAY       0.476                 14.545  1       
+NES_inst/n85[14] ( DI1 )                                     NET DELAY            0.000                 14.545  1       
 
 
 Destination Clock Path
 
                                                              CONSTRAINT           0.000                 20.833  1       
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                 20.833  12      
-NES_instance/CLK ( CLK )                                     NET DELAY            5.499                 26.332  12      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                 20.833  12      
+NES_inst/CLK ( CLK )                                         NET DELAY            5.499                 26.332  12      
                                                              Uncertainty          0.000                 26.332  
                                                              Setup time           0.198                 26.134  
 ----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
@@ -793,8 +876,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_instance/count_21_23__i1/Q  (SLICE_R12C26A)
-Path End         : NES_instance/count_21_23__i14/D  (SLICE_R12C27D)
+Path Begin       : NES_inst/count_303_376__i1/Q  (SLICE_R18C29A)
+Path End         : NES_inst/count_303_376__i14/D  (SLICE_R18C30D)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 15
@@ -807,64 +890,64 @@ Path Slack       : 11.866 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name           Delay  Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  12      
-NES_instance/CLK                                             NET DELAY            5.499                  5.499  12      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  12      
+NES_inst/CLK                                                 NET DELAY            5.499                  5.499  12      
 
 
 Data Path
 
-NES_instance/count_21_23__i1/CK->NES_instance/count_21_23__i1/Q
-                                          SLICE_R12C26A      CLK_TO_Q1_DELAY      1.388                  6.887  1       
-NES_instance/n20                                             NET DELAY            2.022                  8.909  1       
-NES_instance/count_21_23_add_4_1/C1->NES_instance/count_21_23_add_4_1/CO1
-                                          SLICE_R12C26A      C1_TO_COUT1_DELAY    0.343                  9.252  2       
-NES_instance/n198                                            NET DELAY            0.000                  9.252  2       
-NES_instance/count_21_23_add_4_3/CI0->NES_instance/count_21_23_add_4_3/CO0
-                                          SLICE_R12C26B      CIN0_TO_COUT0_DELAY  0.277                  9.529  2       
-NES_instance/n515                                            NET DELAY            0.000                  9.529  2       
-NES_instance/count_21_23_add_4_3/CI1->NES_instance/count_21_23_add_4_3/CO1
-                                          SLICE_R12C26B      CIN1_TO_COUT1_DELAY  0.277                  9.806  2       
-NES_instance/n200                                            NET DELAY            0.000                  9.806  2       
-NES_instance/count_21_23_add_4_5/CI0->NES_instance/count_21_23_add_4_5/CO0
-                                          SLICE_R12C26C      CIN0_TO_COUT0_DELAY  0.277                 10.083  2       
-NES_instance/n518                                            NET DELAY            0.000                 10.083  2       
-NES_instance/count_21_23_add_4_5/CI1->NES_instance/count_21_23_add_4_5/CO1
-                                          SLICE_R12C26C      CIN1_TO_COUT1_DELAY  0.277                 10.360  2       
-NES_instance/n202                                            NET DELAY            0.000                 10.360  2       
-NES_instance/count_21_23_add_4_7/CI0->NES_instance/count_21_23_add_4_7/CO0
-                                          SLICE_R12C26D      CIN0_TO_COUT0_DELAY  0.277                 10.637  2       
-NES_instance/n521                                            NET DELAY            0.000                 10.637  2       
-NES_instance/count_21_23_add_4_7/CI1->NES_instance/count_21_23_add_4_7/CO1
-                                          SLICE_R12C26D      CIN1_TO_COUT1_DELAY  0.277                 10.914  2       
-NES_instance/n204                                            NET DELAY            0.555                 11.469  2       
-NES_instance/count_21_23_add_4_9/CI0->NES_instance/count_21_23_add_4_9/CO0
-                                          SLICE_R12C27A      CIN0_TO_COUT0_DELAY  0.277                 11.746  2       
-NES_instance/n524                                            NET DELAY            0.000                 11.746  2       
-NES_instance/count_21_23_add_4_9/CI1->NES_instance/count_21_23_add_4_9/CO1
-                                          SLICE_R12C27A      CIN1_TO_COUT1_DELAY  0.277                 12.023  2       
-NES_instance/n206                                            NET DELAY            0.000                 12.023  2       
-NES_instance/count_21_23_add_4_11/CI0->NES_instance/count_21_23_add_4_11/CO0
-                                          SLICE_R12C27B      CIN0_TO_COUT0_DELAY  0.277                 12.300  2       
-NES_instance/n527                                            NET DELAY            0.000                 12.300  2       
-NES_instance/count_21_23_add_4_11/CI1->NES_instance/count_21_23_add_4_11/CO1
-                                          SLICE_R12C27B      CIN1_TO_COUT1_DELAY  0.277                 12.577  2       
-NES_instance/n208                                            NET DELAY            0.000                 12.577  2       
-NES_instance/count_21_23_add_4_13/CI0->NES_instance/count_21_23_add_4_13/CO0
-                                          SLICE_R12C27C      CIN0_TO_COUT0_DELAY  0.277                 12.854  2       
-NES_instance/n530                                            NET DELAY            0.000                 12.854  2       
-NES_instance/count_21_23_add_4_13/CI1->NES_instance/count_21_23_add_4_13/CO1
-                                          SLICE_R12C27C      CIN1_TO_COUT1_DELAY  0.277                 13.131  2       
-NES_instance/n210                                            NET DELAY            0.661                 13.792  2       
-NES_instance/count_21_23_add_4_15/D0->NES_instance/count_21_23_add_4_15/S0
-                                          SLICE_R12C27D      D0_TO_F0_DELAY       0.476                 14.268  1       
-NES_instance/n85[13] ( DI0 )                                 NET DELAY            0.000                 14.268  1       
+NES_inst/count_303_376__i1/CK->NES_inst/count_303_376__i1/Q
+                                          SLICE_R18C29A      CLK_TO_Q1_DELAY      1.388                  6.887  1       
+NES_inst/n20                                                 NET DELAY            2.022                  8.909  1       
+NES_inst/count_303_376_add_4_1/C1->NES_inst/count_303_376_add_4_1/CO1
+                                          SLICE_R18C29A      C1_TO_COUT1_DELAY    0.343                  9.252  2       
+NES_inst/n5223                                               NET DELAY            0.000                  9.252  2       
+NES_inst/count_303_376_add_4_3/CI0->NES_inst/count_303_376_add_4_3/CO0
+                                          SLICE_R18C29B      CIN0_TO_COUT0_DELAY  0.277                  9.529  2       
+NES_inst/n7811                                               NET DELAY            0.000                  9.529  2       
+NES_inst/count_303_376_add_4_3/CI1->NES_inst/count_303_376_add_4_3/CO1
+                                          SLICE_R18C29B      CIN1_TO_COUT1_DELAY  0.277                  9.806  2       
+NES_inst/n5225                                               NET DELAY            0.000                  9.806  2       
+NES_inst/count_303_376_add_4_5/CI0->NES_inst/count_303_376_add_4_5/CO0
+                                          SLICE_R18C29C      CIN0_TO_COUT0_DELAY  0.277                 10.083  2       
+NES_inst/n7814                                               NET DELAY            0.000                 10.083  2       
+NES_inst/count_303_376_add_4_5/CI1->NES_inst/count_303_376_add_4_5/CO1
+                                          SLICE_R18C29C      CIN1_TO_COUT1_DELAY  0.277                 10.360  2       
+NES_inst/n5227                                               NET DELAY            0.000                 10.360  2       
+NES_inst/count_303_376_add_4_7/CI0->NES_inst/count_303_376_add_4_7/CO0
+                                          SLICE_R18C29D      CIN0_TO_COUT0_DELAY  0.277                 10.637  2       
+NES_inst/n7817                                               NET DELAY            0.000                 10.637  2       
+NES_inst/count_303_376_add_4_7/CI1->NES_inst/count_303_376_add_4_7/CO1
+                                          SLICE_R18C29D      CIN1_TO_COUT1_DELAY  0.277                 10.914  2       
+NES_inst/n5229                                               NET DELAY            0.555                 11.469  2       
+NES_inst/count_303_376_add_4_9/CI0->NES_inst/count_303_376_add_4_9/CO0
+                                          SLICE_R18C30A      CIN0_TO_COUT0_DELAY  0.277                 11.746  2       
+NES_inst/n7820                                               NET DELAY            0.000                 11.746  2       
+NES_inst/count_303_376_add_4_9/CI1->NES_inst/count_303_376_add_4_9/CO1
+                                          SLICE_R18C30A      CIN1_TO_COUT1_DELAY  0.277                 12.023  2       
+NES_inst/n5231                                               NET DELAY            0.000                 12.023  2       
+NES_inst/count_303_376_add_4_11/CI0->NES_inst/count_303_376_add_4_11/CO0
+                                          SLICE_R18C30B      CIN0_TO_COUT0_DELAY  0.277                 12.300  2       
+NES_inst/n7823                                               NET DELAY            0.000                 12.300  2       
+NES_inst/count_303_376_add_4_11/CI1->NES_inst/count_303_376_add_4_11/CO1
+                                          SLICE_R18C30B      CIN1_TO_COUT1_DELAY  0.277                 12.577  2       
+NES_inst/n5233                                               NET DELAY            0.000                 12.577  2       
+NES_inst/count_303_376_add_4_13/CI0->NES_inst/count_303_376_add_4_13/CO0
+                                          SLICE_R18C30C      CIN0_TO_COUT0_DELAY  0.277                 12.854  2       
+NES_inst/n7826                                               NET DELAY            0.000                 12.854  2       
+NES_inst/count_303_376_add_4_13/CI1->NES_inst/count_303_376_add_4_13/CO1
+                                          SLICE_R18C30C      CIN1_TO_COUT1_DELAY  0.277                 13.131  2       
+NES_inst/n5235                                               NET DELAY            0.661                 13.792  2       
+NES_inst/count_303_376_add_4_15/D0->NES_inst/count_303_376_add_4_15/S0
+                                          SLICE_R18C30D      D0_TO_F0_DELAY       0.476                 14.268  1       
+NES_inst/n85[13] ( DI0 )                                     NET DELAY            0.000                 14.268  1       
 
 
 Destination Clock Path
 
                                                              CONSTRAINT           0.000                 20.833  1       
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                 20.833  12      
-NES_instance/CLK ( CLK )                                     NET DELAY            5.499                 26.332  12      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                 20.833  12      
+NES_inst/CLK ( CLK )                                         NET DELAY            5.499                 26.332  12      
                                                              Uncertainty          0.000                 26.332  
                                                              Setup time           0.198                 26.134  
 ----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
@@ -878,8 +961,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_instance/count_21_23__i1/Q  (SLICE_R12C26A)
-Path End         : NES_instance/count_21_23__i13/D  (SLICE_R12C27C)
+Path Begin       : NES_inst/count_303_376__i1/Q  (SLICE_R18C29A)
+Path End         : NES_inst/count_303_376__i13/D  (SLICE_R18C30C)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 14
@@ -892,61 +975,61 @@ Path Slack       : 12.143 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name           Delay  Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  12      
-NES_instance/CLK                                             NET DELAY            5.499                  5.499  12      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  12      
+NES_inst/CLK                                                 NET DELAY            5.499                  5.499  12      
 
 
 Data Path
 
-NES_instance/count_21_23__i1/CK->NES_instance/count_21_23__i1/Q
-                                          SLICE_R12C26A      CLK_TO_Q1_DELAY      1.388                  6.887  1       
-NES_instance/n20                                             NET DELAY            2.022                  8.909  1       
-NES_instance/count_21_23_add_4_1/C1->NES_instance/count_21_23_add_4_1/CO1
-                                          SLICE_R12C26A      C1_TO_COUT1_DELAY    0.343                  9.252  2       
-NES_instance/n198                                            NET DELAY            0.000                  9.252  2       
-NES_instance/count_21_23_add_4_3/CI0->NES_instance/count_21_23_add_4_3/CO0
-                                          SLICE_R12C26B      CIN0_TO_COUT0_DELAY  0.277                  9.529  2       
-NES_instance/n515                                            NET DELAY            0.000                  9.529  2       
-NES_instance/count_21_23_add_4_3/CI1->NES_instance/count_21_23_add_4_3/CO1
-                                          SLICE_R12C26B      CIN1_TO_COUT1_DELAY  0.277                  9.806  2       
-NES_instance/n200                                            NET DELAY            0.000                  9.806  2       
-NES_instance/count_21_23_add_4_5/CI0->NES_instance/count_21_23_add_4_5/CO0
-                                          SLICE_R12C26C      CIN0_TO_COUT0_DELAY  0.277                 10.083  2       
-NES_instance/n518                                            NET DELAY            0.000                 10.083  2       
-NES_instance/count_21_23_add_4_5/CI1->NES_instance/count_21_23_add_4_5/CO1
-                                          SLICE_R12C26C      CIN1_TO_COUT1_DELAY  0.277                 10.360  2       
-NES_instance/n202                                            NET DELAY            0.000                 10.360  2       
-NES_instance/count_21_23_add_4_7/CI0->NES_instance/count_21_23_add_4_7/CO0
-                                          SLICE_R12C26D      CIN0_TO_COUT0_DELAY  0.277                 10.637  2       
-NES_instance/n521                                            NET DELAY            0.000                 10.637  2       
-NES_instance/count_21_23_add_4_7/CI1->NES_instance/count_21_23_add_4_7/CO1
-                                          SLICE_R12C26D      CIN1_TO_COUT1_DELAY  0.277                 10.914  2       
-NES_instance/n204                                            NET DELAY            0.555                 11.469  2       
-NES_instance/count_21_23_add_4_9/CI0->NES_instance/count_21_23_add_4_9/CO0
-                                          SLICE_R12C27A      CIN0_TO_COUT0_DELAY  0.277                 11.746  2       
-NES_instance/n524                                            NET DELAY            0.000                 11.746  2       
-NES_instance/count_21_23_add_4_9/CI1->NES_instance/count_21_23_add_4_9/CO1
-                                          SLICE_R12C27A      CIN1_TO_COUT1_DELAY  0.277                 12.023  2       
-NES_instance/n206                                            NET DELAY            0.000                 12.023  2       
-NES_instance/count_21_23_add_4_11/CI0->NES_instance/count_21_23_add_4_11/CO0
-                                          SLICE_R12C27B      CIN0_TO_COUT0_DELAY  0.277                 12.300  2       
-NES_instance/n527                                            NET DELAY            0.000                 12.300  2       
-NES_instance/count_21_23_add_4_11/CI1->NES_instance/count_21_23_add_4_11/CO1
-                                          SLICE_R12C27B      CIN1_TO_COUT1_DELAY  0.277                 12.577  2       
-NES_instance/n208                                            NET DELAY            0.000                 12.577  2       
-NES_instance/count_21_23_add_4_13/CI0->NES_instance/count_21_23_add_4_13/CO0
-                                          SLICE_R12C27C      CIN0_TO_COUT0_DELAY  0.277                 12.854  2       
-NES_instance/n530                                            NET DELAY            0.661                 13.515  2       
-NES_instance/count_21_23_add_4_13/D1->NES_instance/count_21_23_add_4_13/S1
-                                          SLICE_R12C27C      D1_TO_F1_DELAY       0.476                 13.991  1       
-NES_instance/n85[12] ( DI1 )                                 NET DELAY            0.000                 13.991  1       
+NES_inst/count_303_376__i1/CK->NES_inst/count_303_376__i1/Q
+                                          SLICE_R18C29A      CLK_TO_Q1_DELAY      1.388                  6.887  1       
+NES_inst/n20                                                 NET DELAY            2.022                  8.909  1       
+NES_inst/count_303_376_add_4_1/C1->NES_inst/count_303_376_add_4_1/CO1
+                                          SLICE_R18C29A      C1_TO_COUT1_DELAY    0.343                  9.252  2       
+NES_inst/n5223                                               NET DELAY            0.000                  9.252  2       
+NES_inst/count_303_376_add_4_3/CI0->NES_inst/count_303_376_add_4_3/CO0
+                                          SLICE_R18C29B      CIN0_TO_COUT0_DELAY  0.277                  9.529  2       
+NES_inst/n7811                                               NET DELAY            0.000                  9.529  2       
+NES_inst/count_303_376_add_4_3/CI1->NES_inst/count_303_376_add_4_3/CO1
+                                          SLICE_R18C29B      CIN1_TO_COUT1_DELAY  0.277                  9.806  2       
+NES_inst/n5225                                               NET DELAY            0.000                  9.806  2       
+NES_inst/count_303_376_add_4_5/CI0->NES_inst/count_303_376_add_4_5/CO0
+                                          SLICE_R18C29C      CIN0_TO_COUT0_DELAY  0.277                 10.083  2       
+NES_inst/n7814                                               NET DELAY            0.000                 10.083  2       
+NES_inst/count_303_376_add_4_5/CI1->NES_inst/count_303_376_add_4_5/CO1
+                                          SLICE_R18C29C      CIN1_TO_COUT1_DELAY  0.277                 10.360  2       
+NES_inst/n5227                                               NET DELAY            0.000                 10.360  2       
+NES_inst/count_303_376_add_4_7/CI0->NES_inst/count_303_376_add_4_7/CO0
+                                          SLICE_R18C29D      CIN0_TO_COUT0_DELAY  0.277                 10.637  2       
+NES_inst/n7817                                               NET DELAY            0.000                 10.637  2       
+NES_inst/count_303_376_add_4_7/CI1->NES_inst/count_303_376_add_4_7/CO1
+                                          SLICE_R18C29D      CIN1_TO_COUT1_DELAY  0.277                 10.914  2       
+NES_inst/n5229                                               NET DELAY            0.555                 11.469  2       
+NES_inst/count_303_376_add_4_9/CI0->NES_inst/count_303_376_add_4_9/CO0
+                                          SLICE_R18C30A      CIN0_TO_COUT0_DELAY  0.277                 11.746  2       
+NES_inst/n7820                                               NET DELAY            0.000                 11.746  2       
+NES_inst/count_303_376_add_4_9/CI1->NES_inst/count_303_376_add_4_9/CO1
+                                          SLICE_R18C30A      CIN1_TO_COUT1_DELAY  0.277                 12.023  2       
+NES_inst/n5231                                               NET DELAY            0.000                 12.023  2       
+NES_inst/count_303_376_add_4_11/CI0->NES_inst/count_303_376_add_4_11/CO0
+                                          SLICE_R18C30B      CIN0_TO_COUT0_DELAY  0.277                 12.300  2       
+NES_inst/n7823                                               NET DELAY            0.000                 12.300  2       
+NES_inst/count_303_376_add_4_11/CI1->NES_inst/count_303_376_add_4_11/CO1
+                                          SLICE_R18C30B      CIN1_TO_COUT1_DELAY  0.277                 12.577  2       
+NES_inst/n5233                                               NET DELAY            0.000                 12.577  2       
+NES_inst/count_303_376_add_4_13/CI0->NES_inst/count_303_376_add_4_13/CO0
+                                          SLICE_R18C30C      CIN0_TO_COUT0_DELAY  0.277                 12.854  2       
+NES_inst/n7826                                               NET DELAY            0.661                 13.515  2       
+NES_inst/count_303_376_add_4_13/D1->NES_inst/count_303_376_add_4_13/S1
+                                          SLICE_R18C30C      D1_TO_F1_DELAY       0.476                 13.991  1       
+NES_inst/n85[12] ( DI1 )                                     NET DELAY            0.000                 13.991  1       
 
 
 Destination Clock Path
 
                                                              CONSTRAINT           0.000                 20.833  1       
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                 20.833  12      
-NES_instance/CLK ( CLK )                                     NET DELAY            5.499                 26.332  12      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                 20.833  12      
+NES_inst/CLK ( CLK )                                         NET DELAY            5.499                 26.332  12      
                                                              Uncertainty          0.000                 26.332  
                                                              Setup time           0.198                 26.134  
 ----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
@@ -960,8 +1043,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_instance/count_21_23__i1/Q  (SLICE_R12C26A)
-Path End         : NES_instance/count_21_23__i12/D  (SLICE_R12C27C)
+Path Begin       : NES_inst/count_303_376__i1/Q  (SLICE_R18C29A)
+Path End         : NES_inst/count_303_376__i12/D  (SLICE_R18C30C)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 13
@@ -974,58 +1057,58 @@ Path Slack       : 12.420 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name           Delay  Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  12      
-NES_instance/CLK                                             NET DELAY            5.499                  5.499  12      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  12      
+NES_inst/CLK                                                 NET DELAY            5.499                  5.499  12      
 
 
 Data Path
 
-NES_instance/count_21_23__i1/CK->NES_instance/count_21_23__i1/Q
-                                          SLICE_R12C26A      CLK_TO_Q1_DELAY      1.388                  6.887  1       
-NES_instance/n20                                             NET DELAY            2.022                  8.909  1       
-NES_instance/count_21_23_add_4_1/C1->NES_instance/count_21_23_add_4_1/CO1
-                                          SLICE_R12C26A      C1_TO_COUT1_DELAY    0.343                  9.252  2       
-NES_instance/n198                                            NET DELAY            0.000                  9.252  2       
-NES_instance/count_21_23_add_4_3/CI0->NES_instance/count_21_23_add_4_3/CO0
-                                          SLICE_R12C26B      CIN0_TO_COUT0_DELAY  0.277                  9.529  2       
-NES_instance/n515                                            NET DELAY            0.000                  9.529  2       
-NES_instance/count_21_23_add_4_3/CI1->NES_instance/count_21_23_add_4_3/CO1
-                                          SLICE_R12C26B      CIN1_TO_COUT1_DELAY  0.277                  9.806  2       
-NES_instance/n200                                            NET DELAY            0.000                  9.806  2       
-NES_instance/count_21_23_add_4_5/CI0->NES_instance/count_21_23_add_4_5/CO0
-                                          SLICE_R12C26C      CIN0_TO_COUT0_DELAY  0.277                 10.083  2       
-NES_instance/n518                                            NET DELAY            0.000                 10.083  2       
-NES_instance/count_21_23_add_4_5/CI1->NES_instance/count_21_23_add_4_5/CO1
-                                          SLICE_R12C26C      CIN1_TO_COUT1_DELAY  0.277                 10.360  2       
-NES_instance/n202                                            NET DELAY            0.000                 10.360  2       
-NES_instance/count_21_23_add_4_7/CI0->NES_instance/count_21_23_add_4_7/CO0
-                                          SLICE_R12C26D      CIN0_TO_COUT0_DELAY  0.277                 10.637  2       
-NES_instance/n521                                            NET DELAY            0.000                 10.637  2       
-NES_instance/count_21_23_add_4_7/CI1->NES_instance/count_21_23_add_4_7/CO1
-                                          SLICE_R12C26D      CIN1_TO_COUT1_DELAY  0.277                 10.914  2       
-NES_instance/n204                                            NET DELAY            0.555                 11.469  2       
-NES_instance/count_21_23_add_4_9/CI0->NES_instance/count_21_23_add_4_9/CO0
-                                          SLICE_R12C27A      CIN0_TO_COUT0_DELAY  0.277                 11.746  2       
-NES_instance/n524                                            NET DELAY            0.000                 11.746  2       
-NES_instance/count_21_23_add_4_9/CI1->NES_instance/count_21_23_add_4_9/CO1
-                                          SLICE_R12C27A      CIN1_TO_COUT1_DELAY  0.277                 12.023  2       
-NES_instance/n206                                            NET DELAY            0.000                 12.023  2       
-NES_instance/count_21_23_add_4_11/CI0->NES_instance/count_21_23_add_4_11/CO0
-                                          SLICE_R12C27B      CIN0_TO_COUT0_DELAY  0.277                 12.300  2       
-NES_instance/n527                                            NET DELAY            0.000                 12.300  2       
-NES_instance/count_21_23_add_4_11/CI1->NES_instance/count_21_23_add_4_11/CO1
-                                          SLICE_R12C27B      CIN1_TO_COUT1_DELAY  0.277                 12.577  2       
-NES_instance/n208                                            NET DELAY            0.661                 13.238  2       
-NES_instance/count_21_23_add_4_13/D0->NES_instance/count_21_23_add_4_13/S0
-                                          SLICE_R12C27C      D0_TO_F0_DELAY       0.476                 13.714  1       
-NES_instance/n85[11] ( DI0 )                                 NET DELAY            0.000                 13.714  1       
+NES_inst/count_303_376__i1/CK->NES_inst/count_303_376__i1/Q
+                                          SLICE_R18C29A      CLK_TO_Q1_DELAY      1.388                  6.887  1       
+NES_inst/n20                                                 NET DELAY            2.022                  8.909  1       
+NES_inst/count_303_376_add_4_1/C1->NES_inst/count_303_376_add_4_1/CO1
+                                          SLICE_R18C29A      C1_TO_COUT1_DELAY    0.343                  9.252  2       
+NES_inst/n5223                                               NET DELAY            0.000                  9.252  2       
+NES_inst/count_303_376_add_4_3/CI0->NES_inst/count_303_376_add_4_3/CO0
+                                          SLICE_R18C29B      CIN0_TO_COUT0_DELAY  0.277                  9.529  2       
+NES_inst/n7811                                               NET DELAY            0.000                  9.529  2       
+NES_inst/count_303_376_add_4_3/CI1->NES_inst/count_303_376_add_4_3/CO1
+                                          SLICE_R18C29B      CIN1_TO_COUT1_DELAY  0.277                  9.806  2       
+NES_inst/n5225                                               NET DELAY            0.000                  9.806  2       
+NES_inst/count_303_376_add_4_5/CI0->NES_inst/count_303_376_add_4_5/CO0
+                                          SLICE_R18C29C      CIN0_TO_COUT0_DELAY  0.277                 10.083  2       
+NES_inst/n7814                                               NET DELAY            0.000                 10.083  2       
+NES_inst/count_303_376_add_4_5/CI1->NES_inst/count_303_376_add_4_5/CO1
+                                          SLICE_R18C29C      CIN1_TO_COUT1_DELAY  0.277                 10.360  2       
+NES_inst/n5227                                               NET DELAY            0.000                 10.360  2       
+NES_inst/count_303_376_add_4_7/CI0->NES_inst/count_303_376_add_4_7/CO0
+                                          SLICE_R18C29D      CIN0_TO_COUT0_DELAY  0.277                 10.637  2       
+NES_inst/n7817                                               NET DELAY            0.000                 10.637  2       
+NES_inst/count_303_376_add_4_7/CI1->NES_inst/count_303_376_add_4_7/CO1
+                                          SLICE_R18C29D      CIN1_TO_COUT1_DELAY  0.277                 10.914  2       
+NES_inst/n5229                                               NET DELAY            0.555                 11.469  2       
+NES_inst/count_303_376_add_4_9/CI0->NES_inst/count_303_376_add_4_9/CO0
+                                          SLICE_R18C30A      CIN0_TO_COUT0_DELAY  0.277                 11.746  2       
+NES_inst/n7820                                               NET DELAY            0.000                 11.746  2       
+NES_inst/count_303_376_add_4_9/CI1->NES_inst/count_303_376_add_4_9/CO1
+                                          SLICE_R18C30A      CIN1_TO_COUT1_DELAY  0.277                 12.023  2       
+NES_inst/n5231                                               NET DELAY            0.000                 12.023  2       
+NES_inst/count_303_376_add_4_11/CI0->NES_inst/count_303_376_add_4_11/CO0
+                                          SLICE_R18C30B      CIN0_TO_COUT0_DELAY  0.277                 12.300  2       
+NES_inst/n7823                                               NET DELAY            0.000                 12.300  2       
+NES_inst/count_303_376_add_4_11/CI1->NES_inst/count_303_376_add_4_11/CO1
+                                          SLICE_R18C30B      CIN1_TO_COUT1_DELAY  0.277                 12.577  2       
+NES_inst/n5233                                               NET DELAY            0.661                 13.238  2       
+NES_inst/count_303_376_add_4_13/D0->NES_inst/count_303_376_add_4_13/S0
+                                          SLICE_R18C30C      D0_TO_F0_DELAY       0.476                 13.714  1       
+NES_inst/n85[11] ( DI0 )                                     NET DELAY            0.000                 13.714  1       
 
 
 Destination Clock Path
 
                                                              CONSTRAINT           0.000                 20.833  1       
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                 20.833  12      
-NES_instance/CLK ( CLK )                                     NET DELAY            5.499                 26.332  12      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                 20.833  12      
+NES_inst/CLK ( CLK )                                         NET DELAY            5.499                 26.332  12      
                                                              Uncertainty          0.000                 26.332  
                                                              Setup time           0.198                 26.134  
 ----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
@@ -1039,8 +1122,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_instance/count_21_23__i1/Q  (SLICE_R12C26A)
-Path End         : NES_instance/count_21_23__i11/D  (SLICE_R12C27B)
+Path Begin       : NES_inst/count_303_376__i1/Q  (SLICE_R18C29A)
+Path End         : NES_inst/count_303_376__i11/D  (SLICE_R18C30B)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 12
@@ -1053,55 +1136,55 @@ Path Slack       : 12.697 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name           Delay  Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  12      
-NES_instance/CLK                                             NET DELAY            5.499                  5.499  12      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  12      
+NES_inst/CLK                                                 NET DELAY            5.499                  5.499  12      
 
 
 Data Path
 
-NES_instance/count_21_23__i1/CK->NES_instance/count_21_23__i1/Q
-                                          SLICE_R12C26A      CLK_TO_Q1_DELAY      1.388                  6.887  1       
-NES_instance/n20                                             NET DELAY            2.022                  8.909  1       
-NES_instance/count_21_23_add_4_1/C1->NES_instance/count_21_23_add_4_1/CO1
-                                          SLICE_R12C26A      C1_TO_COUT1_DELAY    0.343                  9.252  2       
-NES_instance/n198                                            NET DELAY            0.000                  9.252  2       
-NES_instance/count_21_23_add_4_3/CI0->NES_instance/count_21_23_add_4_3/CO0
-                                          SLICE_R12C26B      CIN0_TO_COUT0_DELAY  0.277                  9.529  2       
-NES_instance/n515                                            NET DELAY            0.000                  9.529  2       
-NES_instance/count_21_23_add_4_3/CI1->NES_instance/count_21_23_add_4_3/CO1
-                                          SLICE_R12C26B      CIN1_TO_COUT1_DELAY  0.277                  9.806  2       
-NES_instance/n200                                            NET DELAY            0.000                  9.806  2       
-NES_instance/count_21_23_add_4_5/CI0->NES_instance/count_21_23_add_4_5/CO0
-                                          SLICE_R12C26C      CIN0_TO_COUT0_DELAY  0.277                 10.083  2       
-NES_instance/n518                                            NET DELAY            0.000                 10.083  2       
-NES_instance/count_21_23_add_4_5/CI1->NES_instance/count_21_23_add_4_5/CO1
-                                          SLICE_R12C26C      CIN1_TO_COUT1_DELAY  0.277                 10.360  2       
-NES_instance/n202                                            NET DELAY            0.000                 10.360  2       
-NES_instance/count_21_23_add_4_7/CI0->NES_instance/count_21_23_add_4_7/CO0
-                                          SLICE_R12C26D      CIN0_TO_COUT0_DELAY  0.277                 10.637  2       
-NES_instance/n521                                            NET DELAY            0.000                 10.637  2       
-NES_instance/count_21_23_add_4_7/CI1->NES_instance/count_21_23_add_4_7/CO1
-                                          SLICE_R12C26D      CIN1_TO_COUT1_DELAY  0.277                 10.914  2       
-NES_instance/n204                                            NET DELAY            0.555                 11.469  2       
-NES_instance/count_21_23_add_4_9/CI0->NES_instance/count_21_23_add_4_9/CO0
-                                          SLICE_R12C27A      CIN0_TO_COUT0_DELAY  0.277                 11.746  2       
-NES_instance/n524                                            NET DELAY            0.000                 11.746  2       
-NES_instance/count_21_23_add_4_9/CI1->NES_instance/count_21_23_add_4_9/CO1
-                                          SLICE_R12C27A      CIN1_TO_COUT1_DELAY  0.277                 12.023  2       
-NES_instance/n206                                            NET DELAY            0.000                 12.023  2       
-NES_instance/count_21_23_add_4_11/CI0->NES_instance/count_21_23_add_4_11/CO0
-                                          SLICE_R12C27B      CIN0_TO_COUT0_DELAY  0.277                 12.300  2       
-NES_instance/n527                                            NET DELAY            0.661                 12.961  2       
-NES_instance/count_21_23_add_4_11/D1->NES_instance/count_21_23_add_4_11/S1
-                                          SLICE_R12C27B      D1_TO_F1_DELAY       0.476                 13.437  1       
-NES_instance/n85[10] ( DI1 )                                 NET DELAY            0.000                 13.437  1       
+NES_inst/count_303_376__i1/CK->NES_inst/count_303_376__i1/Q
+                                          SLICE_R18C29A      CLK_TO_Q1_DELAY      1.388                  6.887  1       
+NES_inst/n20                                                 NET DELAY            2.022                  8.909  1       
+NES_inst/count_303_376_add_4_1/C1->NES_inst/count_303_376_add_4_1/CO1
+                                          SLICE_R18C29A      C1_TO_COUT1_DELAY    0.343                  9.252  2       
+NES_inst/n5223                                               NET DELAY            0.000                  9.252  2       
+NES_inst/count_303_376_add_4_3/CI0->NES_inst/count_303_376_add_4_3/CO0
+                                          SLICE_R18C29B      CIN0_TO_COUT0_DELAY  0.277                  9.529  2       
+NES_inst/n7811                                               NET DELAY            0.000                  9.529  2       
+NES_inst/count_303_376_add_4_3/CI1->NES_inst/count_303_376_add_4_3/CO1
+                                          SLICE_R18C29B      CIN1_TO_COUT1_DELAY  0.277                  9.806  2       
+NES_inst/n5225                                               NET DELAY            0.000                  9.806  2       
+NES_inst/count_303_376_add_4_5/CI0->NES_inst/count_303_376_add_4_5/CO0
+                                          SLICE_R18C29C      CIN0_TO_COUT0_DELAY  0.277                 10.083  2       
+NES_inst/n7814                                               NET DELAY            0.000                 10.083  2       
+NES_inst/count_303_376_add_4_5/CI1->NES_inst/count_303_376_add_4_5/CO1
+                                          SLICE_R18C29C      CIN1_TO_COUT1_DELAY  0.277                 10.360  2       
+NES_inst/n5227                                               NET DELAY            0.000                 10.360  2       
+NES_inst/count_303_376_add_4_7/CI0->NES_inst/count_303_376_add_4_7/CO0
+                                          SLICE_R18C29D      CIN0_TO_COUT0_DELAY  0.277                 10.637  2       
+NES_inst/n7817                                               NET DELAY            0.000                 10.637  2       
+NES_inst/count_303_376_add_4_7/CI1->NES_inst/count_303_376_add_4_7/CO1
+                                          SLICE_R18C29D      CIN1_TO_COUT1_DELAY  0.277                 10.914  2       
+NES_inst/n5229                                               NET DELAY            0.555                 11.469  2       
+NES_inst/count_303_376_add_4_9/CI0->NES_inst/count_303_376_add_4_9/CO0
+                                          SLICE_R18C30A      CIN0_TO_COUT0_DELAY  0.277                 11.746  2       
+NES_inst/n7820                                               NET DELAY            0.000                 11.746  2       
+NES_inst/count_303_376_add_4_9/CI1->NES_inst/count_303_376_add_4_9/CO1
+                                          SLICE_R18C30A      CIN1_TO_COUT1_DELAY  0.277                 12.023  2       
+NES_inst/n5231                                               NET DELAY            0.000                 12.023  2       
+NES_inst/count_303_376_add_4_11/CI0->NES_inst/count_303_376_add_4_11/CO0
+                                          SLICE_R18C30B      CIN0_TO_COUT0_DELAY  0.277                 12.300  2       
+NES_inst/n7823                                               NET DELAY            0.661                 12.961  2       
+NES_inst/count_303_376_add_4_11/D1->NES_inst/count_303_376_add_4_11/S1
+                                          SLICE_R18C30B      D1_TO_F1_DELAY       0.476                 13.437  1       
+NES_inst/n85[10] ( DI1 )                                     NET DELAY            0.000                 13.437  1       
 
 
 Destination Clock Path
 
                                                              CONSTRAINT           0.000                 20.833  1       
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                 20.833  12      
-NES_instance/CLK ( CLK )                                     NET DELAY            5.499                 26.332  12      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                 20.833  12      
+NES_inst/CLK ( CLK )                                         NET DELAY            5.499                 26.332  12      
                                                              Uncertainty          0.000                 26.332  
                                                              Setup time           0.198                 26.134  
 ----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
@@ -1135,8 +1218,8 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 ++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_instance/count_21_23__i12/Q  (SLICE_R12C27C)
-Path End         : NES_instance/count_21_23__i12/D  (SLICE_R12C27C)
+Path Begin       : NES_inst/count_303_376__i10/Q  (SLICE_R18C30B)
+Path End         : NES_inst/count_303_376__i10/D  (SLICE_R18C30B)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 2
@@ -1149,25 +1232,25 @@ Path Slack       : 1.882 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Delay  Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
-NES_instance/CLK ( CLK )                                     NET DELAY        3.035                  3.035  13      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
+NES_inst/CLK ( CLK )                                         NET DELAY        3.035                  3.035  13      
 
 
 Data Path
 
-NES_instance/count_21_23__i12/CK->NES_instance/count_21_23__i12/Q
-                                          SLICE_R12C27C      CLK_TO_Q0_DELAY  0.766                  3.801  3       
-NES_instance/NEScount[3]                                     NET DELAY        0.868                  4.669  3       
-NES_instance/count_21_23_add_4_13/C0->NES_instance/count_21_23_add_4_13/S0
-                                          SLICE_R12C27C      C0_TO_F0_DELAY   0.248                  4.917  1       
-NES_instance/n85[11] ( DI0 )                                 NET DELAY        0.000                  4.917  1       
+NES_inst/count_303_376__i10/CK->NES_inst/count_303_376__i10/Q
+                                          SLICE_R18C30B      CLK_TO_Q0_DELAY  0.766                  3.801  2       
+NES_inst/NEScount[1]                                         NET DELAY        0.868                  4.669  2       
+NES_inst/count_303_376_add_4_11/C0->NES_inst/count_303_376_add_4_11/S0
+                                          SLICE_R18C30B      C0_TO_F0_DELAY   0.248                  4.917  1       
+NES_inst/n85[9] ( DI0 )                                      NET DELAY        0.000                  4.917  1       
 
 
 Destination Clock Path
 
                                                              CONSTRAINT       0.000                  0.000  1       
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
-NES_instance/CLK ( CLK )                                     NET DELAY        3.035                  3.035  13      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
+NES_inst/CLK ( CLK )                                         NET DELAY        3.035                  3.035  13      
                                                              Uncertainty      0.000                  3.035  
                                                              Hold time        0.000                  3.035  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
@@ -1181,8 +1264,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_instance/count_21_23__i13/Q  (SLICE_R12C27C)
-Path End         : NES_instance/count_21_23__i13/D  (SLICE_R12C27C)
+Path Begin       : NES_inst/count_303_376__i11/Q  (SLICE_R18C30B)
+Path End         : NES_inst/count_303_376__i11/D  (SLICE_R18C30B)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 2
@@ -1195,25 +1278,25 @@ Path Slack       : 1.882 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Delay  Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
-NES_instance/CLK ( CLK )                                     NET DELAY        3.035                  3.035  13      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
+NES_inst/CLK ( CLK )                                         NET DELAY        3.035                  3.035  13      
 
 
 Data Path
 
-NES_instance/count_21_23__i13/CK->NES_instance/count_21_23__i13/Q
-                                          SLICE_R12C27C      CLK_TO_Q1_DELAY  0.766                  3.801  3       
-NES_instance/NEScount[4]                                     NET DELAY        0.868                  4.669  3       
-NES_instance/count_21_23_add_4_13/C1->NES_instance/count_21_23_add_4_13/S1
-                                          SLICE_R12C27C      C1_TO_F1_DELAY   0.248                  4.917  1       
-NES_instance/n85[12] ( DI1 )                                 NET DELAY        0.000                  4.917  1       
+NES_inst/count_303_376__i11/CK->NES_inst/count_303_376__i11/Q
+                                          SLICE_R18C30B      CLK_TO_Q1_DELAY  0.766                  3.801  2       
+NES_inst/NEScount[2]                                         NET DELAY        0.868                  4.669  2       
+NES_inst/count_303_376_add_4_11/C1->NES_inst/count_303_376_add_4_11/S1
+                                          SLICE_R18C30B      C1_TO_F1_DELAY   0.248                  4.917  1       
+NES_inst/n85[10] ( DI1 )                                     NET DELAY        0.000                  4.917  1       
 
 
 Destination Clock Path
 
                                                              CONSTRAINT       0.000                  0.000  1       
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
-NES_instance/CLK ( CLK )                                     NET DELAY        3.035                  3.035  13      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
+NES_inst/CLK ( CLK )                                         NET DELAY        3.035                  3.035  13      
                                                              Uncertainty      0.000                  3.035  
                                                              Hold time        0.000                  3.035  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
@@ -1227,8 +1310,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_instance/count_21_23__i14/Q  (SLICE_R12C27D)
-Path End         : NES_instance/count_21_23__i14/D  (SLICE_R12C27D)
+Path Begin       : NES_inst/count_303_376__i12/Q  (SLICE_R18C30C)
+Path End         : NES_inst/count_303_376__i12/D  (SLICE_R18C30C)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 2
@@ -1241,25 +1324,25 @@ Path Slack       : 1.882 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Delay  Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
-NES_instance/CLK ( CLK )                                     NET DELAY        3.035                  3.035  13      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
+NES_inst/CLK ( CLK )                                         NET DELAY        3.035                  3.035  13      
 
 
 Data Path
 
-NES_instance/count_21_23__i14/CK->NES_instance/count_21_23__i14/Q
-                                          SLICE_R12C27D      CLK_TO_Q0_DELAY  0.766                  3.801  3       
-NES_instance/NEScount[5]                                     NET DELAY        0.868                  4.669  3       
-NES_instance/count_21_23_add_4_15/C0->NES_instance/count_21_23_add_4_15/S0
-                                          SLICE_R12C27D      C0_TO_F0_DELAY   0.248                  4.917  1       
-NES_instance/n85[13] ( DI0 )                                 NET DELAY        0.000                  4.917  1       
+NES_inst/count_303_376__i12/CK->NES_inst/count_303_376__i12/Q
+                                          SLICE_R18C30C      CLK_TO_Q0_DELAY  0.766                  3.801  3       
+NES_inst/NEScount[3]                                         NET DELAY        0.868                  4.669  3       
+NES_inst/count_303_376_add_4_13/C0->NES_inst/count_303_376_add_4_13/S0
+                                          SLICE_R18C30C      C0_TO_F0_DELAY   0.248                  4.917  1       
+NES_inst/n85[11] ( DI0 )                                     NET DELAY        0.000                  4.917  1       
 
 
 Destination Clock Path
 
                                                              CONSTRAINT       0.000                  0.000  1       
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
-NES_instance/CLK ( CLK )                                     NET DELAY        3.035                  3.035  13      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
+NES_inst/CLK ( CLK )                                         NET DELAY        3.035                  3.035  13      
                                                              Uncertainty      0.000                  3.035  
                                                              Hold time        0.000                  3.035  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
@@ -1273,8 +1356,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_instance/count_21_23__i15/Q  (SLICE_R12C27D)
-Path End         : NES_instance/count_21_23__i15/D  (SLICE_R12C27D)
+Path Begin       : NES_inst/count_303_376__i13/Q  (SLICE_R18C30C)
+Path End         : NES_inst/count_303_376__i13/D  (SLICE_R18C30C)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 2
@@ -1287,25 +1370,25 @@ Path Slack       : 1.882 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Delay  Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
-NES_instance/CLK ( CLK )                                     NET DELAY        3.035                  3.035  13      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
+NES_inst/CLK ( CLK )                                         NET DELAY        3.035                  3.035  13      
 
 
 Data Path
 
-NES_instance/count_21_23__i15/CK->NES_instance/count_21_23__i15/Q
-                                          SLICE_R12C27D      CLK_TO_Q1_DELAY  0.766                  3.801  3       
-NES_instance/NEScount[6]                                     NET DELAY        0.868                  4.669  3       
-NES_instance/count_21_23_add_4_15/C1->NES_instance/count_21_23_add_4_15/S1
-                                          SLICE_R12C27D      C1_TO_F1_DELAY   0.248                  4.917  1       
-NES_instance/n85[14] ( DI1 )                                 NET DELAY        0.000                  4.917  1       
+NES_inst/count_303_376__i13/CK->NES_inst/count_303_376__i13/Q
+                                          SLICE_R18C30C      CLK_TO_Q1_DELAY  0.766                  3.801  3       
+NES_inst/NEScount[4]                                         NET DELAY        0.868                  4.669  3       
+NES_inst/count_303_376_add_4_13/C1->NES_inst/count_303_376_add_4_13/S1
+                                          SLICE_R18C30C      C1_TO_F1_DELAY   0.248                  4.917  1       
+NES_inst/n85[12] ( DI1 )                                     NET DELAY        0.000                  4.917  1       
 
 
 Destination Clock Path
 
                                                              CONSTRAINT       0.000                  0.000  1       
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
-NES_instance/CLK ( CLK )                                     NET DELAY        3.035                  3.035  13      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
+NES_inst/CLK ( CLK )                                         NET DELAY        3.035                  3.035  13      
                                                              Uncertainty      0.000                  3.035  
                                                              Hold time        0.000                  3.035  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
@@ -1319,8 +1402,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_instance/count_21_23__i4/Q  (SLICE_R12C26C)
-Path End         : NES_instance/count_21_23__i4/D  (SLICE_R12C26C)
+Path Begin       : NES_inst/count_303_376__i14/Q  (SLICE_R18C30D)
+Path End         : NES_inst/count_303_376__i14/D  (SLICE_R18C30D)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 2
@@ -1333,25 +1416,25 @@ Path Slack       : 1.882 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Delay  Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
-NES_instance/CLK ( CLK )                                     NET DELAY        3.035                  3.035  13      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
+NES_inst/CLK ( CLK )                                         NET DELAY        3.035                  3.035  13      
 
 
 Data Path
 
-NES_instance/count_21_23__i4/CK->NES_instance/count_21_23__i4/Q
-                                          SLICE_R12C26C      CLK_TO_Q0_DELAY  0.766                  3.801  1       
-NES_instance/n17_adj_36                                      NET DELAY        0.868                  4.669  1       
-NES_instance/count_21_23_add_4_5/C0->NES_instance/count_21_23_add_4_5/S0
-                                          SLICE_R12C26C      C0_TO_F0_DELAY   0.248                  4.917  1       
-NES_instance/n85[3] ( DI0 )                                  NET DELAY        0.000                  4.917  1       
+NES_inst/count_303_376__i14/CK->NES_inst/count_303_376__i14/Q
+                                          SLICE_R18C30D      CLK_TO_Q0_DELAY  0.766                  3.801  3       
+NES_inst/NEScount[5]                                         NET DELAY        0.868                  4.669  3       
+NES_inst/count_303_376_add_4_15/C0->NES_inst/count_303_376_add_4_15/S0
+                                          SLICE_R18C30D      C0_TO_F0_DELAY   0.248                  4.917  1       
+NES_inst/n85[13] ( DI0 )                                     NET DELAY        0.000                  4.917  1       
 
 
 Destination Clock Path
 
                                                              CONSTRAINT       0.000                  0.000  1       
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
-NES_instance/CLK ( CLK )                                     NET DELAY        3.035                  3.035  13      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
+NES_inst/CLK ( CLK )                                         NET DELAY        3.035                  3.035  13      
                                                              Uncertainty      0.000                  3.035  
                                                              Hold time        0.000                  3.035  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
@@ -1365,8 +1448,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_instance/count_21_23__i5/Q  (SLICE_R12C26C)
-Path End         : NES_instance/count_21_23__i5/D  (SLICE_R12C26C)
+Path Begin       : NES_inst/count_303_376__i15/Q  (SLICE_R18C30D)
+Path End         : NES_inst/count_303_376__i15/D  (SLICE_R18C30D)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 2
@@ -1379,25 +1462,25 @@ Path Slack       : 1.882 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Delay  Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
-NES_instance/CLK ( CLK )                                     NET DELAY        3.035                  3.035  13      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
+NES_inst/CLK ( CLK )                                         NET DELAY        3.035                  3.035  13      
 
 
 Data Path
 
-NES_instance/count_21_23__i5/CK->NES_instance/count_21_23__i5/Q
-                                          SLICE_R12C26C      CLK_TO_Q1_DELAY  0.766                  3.801  1       
-NES_instance/n16_adj_37                                      NET DELAY        0.868                  4.669  1       
-NES_instance/count_21_23_add_4_5/C1->NES_instance/count_21_23_add_4_5/S1
-                                          SLICE_R12C26C      C1_TO_F1_DELAY   0.248                  4.917  1       
-NES_instance/n85[4] ( DI1 )                                  NET DELAY        0.000                  4.917  1       
+NES_inst/count_303_376__i15/CK->NES_inst/count_303_376__i15/Q
+                                          SLICE_R18C30D      CLK_TO_Q1_DELAY  0.766                  3.801  3       
+NES_inst/NEScount[6]                                         NET DELAY        0.868                  4.669  3       
+NES_inst/count_303_376_add_4_15/C1->NES_inst/count_303_376_add_4_15/S1
+                                          SLICE_R18C30D      C1_TO_F1_DELAY   0.248                  4.917  1       
+NES_inst/n85[14] ( DI1 )                                     NET DELAY        0.000                  4.917  1       
 
 
 Destination Clock Path
 
                                                              CONSTRAINT       0.000                  0.000  1       
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
-NES_instance/CLK ( CLK )                                     NET DELAY        3.035                  3.035  13      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
+NES_inst/CLK ( CLK )                                         NET DELAY        3.035                  3.035  13      
                                                              Uncertainty      0.000                  3.035  
                                                              Hold time        0.000                  3.035  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
@@ -1411,8 +1494,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_instance/count_21_23__i6/Q  (SLICE_R12C26D)
-Path End         : NES_instance/count_21_23__i6/D  (SLICE_R12C26D)
+Path Begin       : NES_inst/count_303_376__i16/Q  (SLICE_R18C31A)
+Path End         : NES_inst/count_303_376__i16/D  (SLICE_R18C31A)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 2
@@ -1425,25 +1508,25 @@ Path Slack       : 1.882 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Delay  Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
-NES_instance/CLK ( CLK )                                     NET DELAY        3.035                  3.035  13      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
+NES_inst/CLK ( CLK )                                         NET DELAY        3.035                  3.035  13      
 
 
 Data Path
 
-NES_instance/count_21_23__i6/CK->NES_instance/count_21_23__i6/Q
-                                          SLICE_R12C26D      CLK_TO_Q0_DELAY  0.766                  3.801  1       
-NES_instance/n15                                             NET DELAY        0.868                  4.669  1       
-NES_instance/count_21_23_add_4_7/C0->NES_instance/count_21_23_add_4_7/S0
-                                          SLICE_R12C26D      C0_TO_F0_DELAY   0.248                  4.917  1       
-NES_instance/n85[5] ( DI0 )                                  NET DELAY        0.000                  4.917  1       
+NES_inst/count_303_376__i16/CK->NES_inst/count_303_376__i16/Q
+                                          SLICE_R18C31A      CLK_TO_Q0_DELAY  0.766                  3.801  3       
+NES_inst/NEScount[7]                                         NET DELAY        0.868                  4.669  3       
+NES_inst/count_303_376_add_4_17/C0->NES_inst/count_303_376_add_4_17/S0
+                                          SLICE_R18C31A      C0_TO_F0_DELAY   0.248                  4.917  1       
+NES_inst/n85[15] ( DI0 )                                     NET DELAY        0.000                  4.917  1       
 
 
 Destination Clock Path
 
                                                              CONSTRAINT       0.000                  0.000  1       
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
-NES_instance/CLK ( CLK )                                     NET DELAY        3.035                  3.035  13      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
+NES_inst/CLK ( CLK )                                         NET DELAY        3.035                  3.035  13      
                                                              Uncertainty      0.000                  3.035  
                                                              Hold time        0.000                  3.035  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
@@ -1457,8 +1540,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_instance/count_21_23__i7/Q  (SLICE_R12C26D)
-Path End         : NES_instance/count_21_23__i7/D  (SLICE_R12C26D)
+Path Begin       : NES_inst/count_303_376__i17/Q  (SLICE_R18C31A)
+Path End         : NES_inst/count_303_376__i17/D  (SLICE_R18C31A)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 2
@@ -1471,25 +1554,25 @@ Path Slack       : 1.882 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Delay  Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
-NES_instance/CLK ( CLK )                                     NET DELAY        3.035                  3.035  13      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
+NES_inst/CLK ( CLK )                                         NET DELAY        3.035                  3.035  13      
 
 
 Data Path
 
-NES_instance/count_21_23__i7/CK->NES_instance/count_21_23__i7/Q
-                                          SLICE_R12C26D      CLK_TO_Q1_DELAY  0.766                  3.801  1       
-NES_instance/n14                                             NET DELAY        0.868                  4.669  1       
-NES_instance/count_21_23_add_4_7/C1->NES_instance/count_21_23_add_4_7/S1
-                                          SLICE_R12C26D      C1_TO_F1_DELAY   0.248                  4.917  1       
-NES_instance/n85[6] ( DI1 )                                  NET DELAY        0.000                  4.917  1       
+NES_inst/count_303_376__i17/CK->NES_inst/count_303_376__i17/Q
+                                          SLICE_R18C31A      CLK_TO_Q1_DELAY  0.766                  3.801  2       
+NES_inst/NEScount[8]                                         NET DELAY        0.868                  4.669  2       
+NES_inst/count_303_376_add_4_17/C1->NES_inst/count_303_376_add_4_17/S1
+                                          SLICE_R18C31A      C1_TO_F1_DELAY   0.248                  4.917  1       
+NES_inst/n85[16] ( DI1 )                                     NET DELAY        0.000                  4.917  1       
 
 
 Destination Clock Path
 
                                                              CONSTRAINT       0.000                  0.000  1       
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
-NES_instance/CLK ( CLK )                                     NET DELAY        3.035                  3.035  13      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
+NES_inst/CLK ( CLK )                                         NET DELAY        3.035                  3.035  13      
                                                              Uncertainty      0.000                  3.035  
                                                              Hold time        0.000                  3.035  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
@@ -1503,8 +1586,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_instance/count_21_23__i16/Q  (SLICE_R12C28A)
-Path End         : NES_instance/count_21_23__i16/D  (SLICE_R12C28A)
+Path Begin       : NES_inst/count_303_376__i18/Q  (SLICE_R18C31B)
+Path End         : NES_inst/count_303_376__i18/D  (SLICE_R18C31B)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 2
@@ -1517,25 +1600,25 @@ Path Slack       : 1.882 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Delay  Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
-NES_instance/CLK ( CLK )                                     NET DELAY        3.035                  3.035  13      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
+NES_inst/CLK ( CLK )                                         NET DELAY        3.035                  3.035  13      
 
 
 Data Path
 
-NES_instance/count_21_23__i16/CK->NES_instance/count_21_23__i16/Q
-                                          SLICE_R12C28A      CLK_TO_Q0_DELAY  0.766                  3.801  3       
-NES_instance/NEScount[7]                                     NET DELAY        0.868                  4.669  3       
-NES_instance/count_21_23_add_4_17/C0->NES_instance/count_21_23_add_4_17/S0
-                                          SLICE_R12C28A      C0_TO_F0_DELAY   0.248                  4.917  1       
-NES_instance/n85[15] ( DI0 )                                 NET DELAY        0.000                  4.917  1       
+NES_inst/count_303_376__i18/CK->NES_inst/count_303_376__i18/Q
+                                          SLICE_R18C31B      CLK_TO_Q0_DELAY  0.766                  3.801  2       
+NES_inst/NEScount[9]                                         NET DELAY        0.868                  4.669  2       
+NES_inst/count_303_376_add_4_19/C0->NES_inst/count_303_376_add_4_19/S0
+                                          SLICE_R18C31B      C0_TO_F0_DELAY   0.248                  4.917  1       
+NES_inst/n85[17] ( DI0 )                                     NET DELAY        0.000                  4.917  1       
 
 
 Destination Clock Path
 
                                                              CONSTRAINT       0.000                  0.000  1       
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
-NES_instance/CLK ( CLK )                                     NET DELAY        3.035                  3.035  13      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
+NES_inst/CLK ( CLK )                                         NET DELAY        3.035                  3.035  13      
                                                              Uncertainty      0.000                  3.035  
                                                              Hold time        0.000                  3.035  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
@@ -1549,8 +1632,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_instance/count_21_23__i17/Q  (SLICE_R12C28A)
-Path End         : NES_instance/count_21_23__i17/D  (SLICE_R12C28A)
+Path Begin       : NES_inst/count_303_376__i19/Q  (SLICE_R18C31B)
+Path End         : NES_inst/count_303_376__i19/D  (SLICE_R18C31B)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 2
@@ -1563,25 +1646,25 @@ Path Slack       : 1.882 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Delay  Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
-NES_instance/CLK ( CLK )                                     NET DELAY        3.035                  3.035  13      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
+NES_inst/CLK ( CLK )                                         NET DELAY        3.035                  3.035  13      
 
 
 Data Path
 
-NES_instance/count_21_23__i17/CK->NES_instance/count_21_23__i17/Q
-                                          SLICE_R12C28A      CLK_TO_Q1_DELAY  0.766                  3.801  2       
-NES_instance/NEScount[8]                                     NET DELAY        0.868                  4.669  2       
-NES_instance/count_21_23_add_4_17/C1->NES_instance/count_21_23_add_4_17/S1
-                                          SLICE_R12C28A      C1_TO_F1_DELAY   0.248                  4.917  1       
-NES_instance/n85[16] ( DI1 )                                 NET DELAY        0.000                  4.917  1       
+NES_inst/count_303_376__i19/CK->NES_inst/count_303_376__i19/Q
+                                          SLICE_R18C31B      CLK_TO_Q1_DELAY  0.766                  3.801  2       
+NES_inst/NEScount[10]                                        NET DELAY        0.868                  4.669  2       
+NES_inst/count_303_376_add_4_19/C1->NES_inst/count_303_376_add_4_19/S1
+                                          SLICE_R18C31B      C1_TO_F1_DELAY   0.248                  4.917  1       
+NES_inst/n85[18] ( DI1 )                                     NET DELAY        0.000                  4.917  1       
 
 
 Destination Clock Path
 
                                                              CONSTRAINT       0.000                  0.000  1       
-HSOSC_instance/CLKHF                      HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
-NES_instance/CLK ( CLK )                                     NET DELAY        3.035                  3.035  13      
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  13      
+NES_inst/CLK ( CLK )                                         NET DELAY        3.035                  3.035  13      
                                                              Uncertainty      0.000                  3.035  
                                                              Hold time        0.000                  3.035  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
