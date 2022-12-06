@@ -48,7 +48,7 @@ Performance Grade:      High-Performance_1.2V
 PACKAGE:          SG48
 Package Status:                     Preliminary    Version 1.5
 
-Tue Dec  6 13:56:17 2022
+Tue Dec  6 14:19:48 2022
 
 Pinout by Port Name:
 +---------------+----------+--------------+-------+--------------------+
@@ -57,7 +57,6 @@ Pinout by Port Name:
 | HSYNC         | 46/2     | LVCMOS33_OUT | PL6A  | DRIVE:8mA PULL:NA  |
 | VSYNC         | 2/2      | LVCMOS33_OUT | PL9A  | DRIVE:8mA PULL:NA  |
 | continCLK     | 42/0     | LVCMOS33_OUT | PR9A  | DRIVE:8mA PULL:NA  |
-| data          | 43/0     | LVCMOS33_IN  | PR10A | PULL:100K          |
 | delete_me[0]  | 9/1      | LVCMOS33_OUT | PL16A | DRIVE:8mA PULL:NA  |
 | delete_me[1]  | 11/1     | LVCMOS33_OUT | PL18A | DRIVE:8mA PULL:NA  |
 | delete_me[2]  | 18/1     | LVCMOS33_OUT | PL23B | DRIVE:8mA PULL:NA  |
@@ -118,7 +117,7 @@ Vccio by Bank:
 | 40/0     |                     |            |              | PR6A  | RGB1             |
 | 41/0     |                     |            |              | PR7A  | RGB2             |
 | 42/0     | continCLK           | LOCATED    | LVCMOS33_OUT | PR9A  |                  |
-| 43/0     | data                | LOCATED    | LVCMOS33_IN  | PR10A |                  |
+| 43/0     |     unused, PULL:UP |            |              | PR10A |                  |
 | 44/2     | rgb[5]              | LOCATED    | LVCMOS33_OUT | PL7B  | PCLKT2_0         |
 | 45/2     | rgb[1]              | LOCATED    | LVCMOS33_OUT | PL8B  |                  |
 | 46/2     | HSYNC               | LOCATED    | LVCMOS33_OUT | PL6A  |                  |
@@ -149,7 +148,6 @@ Locate Constraints for each Pin:
 ldc_set_location -site {46} [ get_ports {HSYNC} ]
 ldc_set_location -site {2} [ get_ports {VSYNC} ]
 ldc_set_location -site {42} [ get_ports {continCLK} ]
-ldc_set_location -site {43} [ get_ports {data} ]
 ldc_set_location -site {9} [ get_ports {delete_me[0]} ]
 ldc_set_location -site {11} [ get_ports {delete_me[1]} ]
 ldc_set_location -site {18} [ get_ports {delete_me[2]} ]
@@ -169,7 +167,7 @@ ldc_set_location -site {44} [ get_ports {rgb[5]} ]
 
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
 
-Tue Dec  6 13:56:17 2022
+Tue Dec  6 14:19:48 2022
 
 
 

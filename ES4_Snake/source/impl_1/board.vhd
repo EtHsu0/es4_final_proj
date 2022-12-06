@@ -18,7 +18,7 @@ entity board is
         -- Return whether snake is in each cell (0-99)
         snake_arr_out: out std_logic_vector(99 downto 0);
 		
-		temp: out std_logic;
+		--temp: out std_logic;
 
         scores_out: out unsigned(6 downto 0)
     );
@@ -77,7 +77,7 @@ begin
     begin
         if rising_edge(clk) then
             counter <= counter + 1;
-			apple_id <= 9b"1_0011_0011";
+			apple_id <= 9b"1_1001_0111";
         end if;
     end process;
 	

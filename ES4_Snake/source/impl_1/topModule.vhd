@@ -78,7 +78,7 @@ architecture synth of top is
             -- Return whether snake is in each cell (0-99)
             snake_arr_out: out std_logic_vector(99 downto 0);
             
-            temp: out std_logic;
+            --temp: out std_logic;
     
             scores_out: out unsigned(6 downto 0)
             );
@@ -100,13 +100,13 @@ begin
     
     NES_inst: NES port map (CLK, data, latch, continCLK, digital);
     
-    board_inst: board port map (clk, gameState, digital, snake_head, apple_out => apple, snake, scores);
+    board_inst: board port map (CLK, gameState, digital, snake_head, apple, snake, scores);
 
     -- apple <= 9b"1_0011_0011";
 
     display_inst: display port map (pll_in_clock, pll_outcore_o, HSYNC, VSYNC, rgb, apple, snake_head, snake, scores, gameState);
 
-	delete_me <= apple_id(8 downto 7);
+	delete_me <= apple(8 downto 7);
 end;
 
 
