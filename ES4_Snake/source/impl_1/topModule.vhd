@@ -60,6 +60,20 @@ architecture synth of top is
         );
     end component;
 
+    component board is
+        port (
+            clk: in std_logic;
+            digital: in unsigned(7 downto 0);
+
+            snake_head: out unsigned(7 downto 0);
+            -- Return the cell ID (0-99)
+            apple_id: out unsigned(7 downto 0);
+            -- Return whether snake is in each cell (0-99)
+            snake: out unsigned(99 downto 0);
+
+            scores: out unsigned(7 downto 0) := 8b"0"
+        );
+    end component;
     
 -- Components for Snake
 -- Components for menu selection?
@@ -76,9 +90,12 @@ architecture synth of top is
     signal CLK: std_logic;
     
     signal digital: unsigned(7 downto 0);
+    signal snake_head: unsigned(7 downto 0);
+    signal garbage_apple: unsigned(7 downto 0);
     signal apple: unsigned(8 downto 0);
     signal snake: unsigned(99 downto 0);
-    
+    signal scores: unsigned(7 downto 0);
+    signal direction: unsigned(1 downto 0);
     TYPE STATE is (START, RUNNING, OVER);
     signal gameState: STATE := START;
 begin
@@ -88,10 +105,16 @@ begin
     NES_inst: NES port map (CLK, data, latch, continCLK, digital);
     
     -- Logics to convert NES digital output to buttons.
-    snake <= ("0000000000000000001000000000100000000010111111111010000000000000000000000000000000000000000000000000");
+
+
+    board_inst: board port map (clk, digital, snake_head, garbage_apple, snake, scores);
+
+    
+    
     apple <= 9b"1_1000_0111" when digital = "11101111" else
                 9b"1_0000_0111";
-	--apple <= 9b"1_0110_0111";
+
+    
     display_inst: display port map (pll_in_clock, pll_outcore_o, HSYNC, VSYNC, rgb, apple, snake);
 	
 	delete_me <= digital(2 downto 0);

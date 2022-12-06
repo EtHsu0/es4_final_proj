@@ -75,24 +75,30 @@ begin
         end if;
     end process;
 
+    dir <= "00" when digital(3) = '0' else
+           "01" when digital(2) = '0' else
+           "10" when digital(1) = '0' else
+           "11";
+                
+
     snakePos_inst: snakePos port map (counter(29),reset,growSnake,dir,snake_head,snake,snake_dead);
 
-    apple_random: randomPos port map (enable, clk, apple_id);
+    -- apple_random: randomPos port map (enable, clk, apple_id);
 
     -- Check collision with apple
-    process is begin
-        -- If snake head is on apple's coordinate
-        if snake_head = apple_id then
-            -- Create artifical rising edge for enable signal
-            enable <= '0';
-            wait for 5 ns;
-            enable <= '1';
-            -- Create this signal until we generate a valid apple id (apple can not spawn on snake)
-            --while (snake(apple_id) = '1' or apple_id = snake_head) loop
-                --enable <= '0';
-                --wait for 5 ns;
-                --enable <= '1';
-            --end loop;
-        end if;
-    end process;
+    -- process is begin
+    --     -- If snake head is on apple's coordinate
+    --     if snake_head = apple_id then
+    --         -- Create artifical rising edge for enable signal
+    --         enable <= '0';
+    --         wait for 5 ns;
+    --         enable <= '1';
+    --         -- Create this signal until we generate a valid apple id (apple can not spawn on snake)
+    --         --while (snake(apple_id) = '1' or apple_id = snake_head) loop
+    --             --enable <= '0';
+    --             --wait for 5 ns;
+    --             --enable <= '1';
+    --         --end loop;
+    --     end if;
+    -- end process;
 end;
