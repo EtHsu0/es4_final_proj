@@ -98,6 +98,8 @@ architecture synth of top is
     signal scores: unsigned(7 downto 0);
     signal direction: unsigned(1 downto 0);
 
+    -- signal test_snake: 
+
     TYPE STATE is (START, RUNNING, OVER);
     signal gameState: STATE := START;
 begin
@@ -114,9 +116,16 @@ begin
     
     apple <= 9b"1_1000_0111" when digital = "11101111" else
                 9b"1_0000_0111";
-    snake <= 100d"0";
+
+    process is begin
+        snake <= 100d"14";
+        snake(44) <= '1';
+        snake(43) <= '1';
+        snake(42) <= '1';
+    end process;
+
     -- snake <= snake(99 downto 1) & "11";    --snake(43) <= '1';
-    snake <= (44 => '1');
+    -- snake <= (44 => '1');
 
     display_inst: display port map (pll_in_clock, pll_outcore_o, HSYNC, VSYNC, rgb, apple, snake);
 	
