@@ -16,6 +16,7 @@ entity top is
         HSYNC : out std_logic; -- pin 46
         VSYNC : out std_logic; -- pin 2
         
+		delete_me: out unsigned(2 downto 0);
         rgb : out unsigned(5 downto 0) -- pins 47, 45, 48, 3, 4, 44
 
         --pll_outcore_o : out std_logic -- for testing purposes (pin 2)
@@ -90,8 +91,10 @@ begin
     snake <= ("0000000000000000001000000000100000000010111111111010000000000000000000000000000000000000000000000000");
     apple <= 9b"1_1000_0111" when digital = "11101111" else
                 9b"1_0000_0111";
-
+	--apple <= 9b"1_0110_0111";
     display_inst: display port map (pll_in_clock, pll_outcore_o, HSYNC, VSYNC, rgb, apple, snake);
+	
+	delete_me <= digital(2 downto 0);
 
 end;
 

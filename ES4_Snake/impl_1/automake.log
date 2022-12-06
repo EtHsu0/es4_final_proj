@@ -15,13 +15,16 @@ Package Status:                     Preliminary    Version 1.5.
 
 
 
+WARNING - C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/ports.pdc (10) : No port matched &apos;delete_me&apos;.
+WARNING - No port matched 'delete_me'.
+WARNING - Can't resolve object 'delete_me' in constraint 'ldc_set_location -site {37} [get_ports delete_me]'.
+WARNING - Remove invalid constraint 'ldc_set_location -site {37} [get_ports delete_me]'.
    Remove unused logic
 
    Do not produce over sized UDBs.
 
 Running general design DRC...
 
-    <postMsg mid="71003020" type="Warning" dynamic="1" navigation="0" arg0="data"  />
 Removing unused logic...
 
 Optimizing...
@@ -30,20 +33,21 @@ Optimizing...
 
 
 Design Summary:
-   Number of slice registers:  43 out of  5280 (1%)
-   Number of I/O registers:      0 out of   117 (0%)
-   Number of LUT4s:           372 out of  5280 (7%)
-      Number of logic LUT4s:             238
+   Number of slice registers:  50 out of  5280 (1%)
+   Number of I/O registers:      1 out of   117 (1%)
+   Number of LUT4s:           393 out of  5280 (7%)
+      Number of logic LUT4s:             252
+      Number of inserted feedthru LUT4s:   7
       Number of ripple logic:             67 (134 LUT4s)
-   Number of IO sites used:   12 out of 39 (31%)
-      Number of IO sites used for general PIO: 12
+   Number of IO sites used:   16 out of 39 (41%)
+      Number of IO sites used for general PIO: 16
       Number of IO sites used for I3C: 0 out of 2 (0%)
       (note: If I3C is not used, its site can be used as general PIO)
-      Number of IO sites used for PIO+I3C: 12 out of 36 (33%)
+      Number of IO sites used for PIO+I3C: 16 out of 36 (44%)
       Number of IO sites used for OD+RGB IO buffers: 0 out of 3 (0%)
       (note: If RGB LED drivers are not used, sites can be used as OD outputs,
        see TN1288 iCE40 LED Driver Usage Guide)
-      Number of IO sites used for PIO+I3C+OD+RGB: 12 out of 39 (31%)
+      Number of IO sites used for PIO+I3C+OD+RGB: 16 out of 39 (41%)
    Number of DSPs:             2 out of 8 (25%)
    Number of I2Cs:             0 out of 2 (0%)
    Number of High Speed OSCs:  1 out of 1 (100%)
@@ -56,48 +60,49 @@ Design Summary:
    Number of SPIs:             0 out of 2 (0%)
    Number of EBRs:             0 out of 30 (0%)
    Number of PLLs:             1 out of 1 (100%)
-   Number of Clocks:  3
+   Number of Clocks:  4
       Net CLK: 11 loads, 11 rising, 0 falling (Driver: Pin HSOSC_inst/CLKHF)
+      Net NES_inst.NESclk: 8 loads, 8 rising, 0 falling (Driver: Pin NES_inst.count_325_405__i8/Q)
       Net display_inst.clk: 15 loads, 15 rising, 0 falling (Driver: Pin display_inst.pll_init.lscc_pll_inst.u_PLL_B/OUTGLOBAL)
       Net pll_in_clock_c: 1 loads, 1 rising, 0 falling (Driver: Port pll_in_clock)
-   Number of Clock Enables:  2
+   Number of Clock Enables:  3
       Net VCC_net: 1 loads, 0 SLICEs
-      Net display_inst.vga_init.n2646: 6 loads, 6 SLICEs
+      Net NES_inst.output_7__N_35: 8 loads, 7 SLICEs
+      Net display_inst.vga_init.n3036: 6 loads, 6 SLICEs
    Number of LSRs:  4
-      Net display_inst.vga_init.n2646: 6 loads, 6 SLICEs
-      Net display_inst.vga_init.n2671: 6 loads, 6 SLICEs
-      Net display_inst.vga_init.HSYNC_N_83: 1 loads, 1 SLICEs
-      Net display_inst.vga_init.VSYNC_N_86: 1 loads, 1 SLICEs
+      Net display_inst.vga_init.n3036: 6 loads, 6 SLICEs
+      Net display_inst.vga_init.n3181: 6 loads, 6 SLICEs
+      Net display_inst.vga_init.VSYNC_N_87: 1 loads, 1 SLICEs
+      Net display_inst.vga_init.HSYNC_N_84: 1 loads, 1 SLICEs
    Top 10 highest fanout non-clock nets:
-      Net VCC_net: 65 loads
-      Net column_cnt[5]: 22 loads
-      Net column_cnt[7]: 21 loads
+      Net VCC_net: 64 loads
+      Net column_cnt[5]: 24 loads
+      Net column_cnt[6]: 23 loads
       Net column_cnt[4]: 20 loads
-      Net column_cnt[6]: 20 loads
-      Net row_cnt[4]: 20 loads
-      Net column_cnt[8]: 18 loads
-      Net row_cnt[5]: 18 loads
-      Net row_cnt[3]: 17 loads
-      Net row_cnt[6]: 17 loads
+      Net column_cnt[8]: 20 loads
+      Net column_cnt[7]: 19 loads
+      Net display_inst.column_cnt[3]_2: 17 loads
+      Net column_cnt[9]: 16 loads
+      Net row_cnt[3]: 16 loads
+      Net row_cnt[4]: 16 loads
 Running physical design DRC...
 
-    <postMsg mid="71003020" type="Warning" dynamic="1" navigation="0" arg0="data"  />
  
 
-   Number of warnings:  2
+   Number of warnings:  4
    Number of errors:    0
 
 
 
 Total CPU Time: 1 secs  
 Total REAL Time: 2 secs  
-Peak Memory Usage: 63 MB
+Peak Memory Usage: 64 MB
 
 
 par -f "es4finalproj_impl_1.p2t" "es4finalproj_impl_1_map.udb" "es4finalproj_impl_1.udb"
 
 Lattice Place and Route Report for Design "es4finalproj_impl_1_map.udb"
-Mon Dec  5 19:47:54 2022
+Mon Dec  5 21:15:39 2022
 
 PAR: Place And Route Radiant Software (64-bit) 3.2.1.217.3.
 Command Line: par -w -t 1 -cores 1 -exp parPathBased=ON \
@@ -115,24 +120,22 @@ Family:  iCE40UP
 Device:  iCE40UP5K
 Package: SG48
 Performance Grade:   High-Performance_1.2V
-    <postMsg mid="70001944" type="Warning" dynamic="1" navigation="0" arg0="create_generated_clock -name {display_inst/clk} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTGLOBAL }] "  />
-    <postMsg mid="70001944" type="Warning" dynamic="1" navigation="0" arg0="create_generated_clock -name {pll_outcore_o_c} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTCORE }] "  />
+WARNING - No master clock for
+	generated clock	create_generated_clock -name {display_inst/clk} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTGLOBAL }] .
+WARNING - No master clock for
+	generated clock	create_generated_clock -name {pll_outcore_o_c} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTCORE }] .
 
 WARNING: Database constraint "create_generated_clock -name {pll_outcore_o_c} -source [get_pins display_inst.pll_init.lscc_pll_inst.u_PLL_B/REFERENCECLK] -divide_by 32 -multiply_by 67 [get_pins display_inst.pll_init.lscc_pll_inst.u_PLL_B/OUTCORE]" does not have corresponding timing constraint. Please check if the resource objects of the constraint are valid carefully!
-    <postMsg mid="71003020" type="Warning" dynamic="1" navigation="0" arg0="data"  />
-    <postMsg mid="71003020" type="Warning" dynamic="1" navigation="0" arg0="data"  />
-    <postMsg mid="71003020" type="Warning" dynamic="1" navigation="0" arg0="data"  />
-    <postMsg mid="71003020" type="Warning" dynamic="1" navigation="0" arg0="data"  />
-Number of Signals: 533
-Number of Connections: 1342
+Number of Signals: 563
+Number of Connections: 1426
 Device utilization summary:
 
-   SLICE (est.)     198/2640          7% used
-     LUT            374/5280          7% used
-     REG             43/5280         <1% used
-   PIO               12/56           21% used
-                     12/36           33% bonded
-   IOLOGIC            0/56            0% used
+   SLICE (est.)     207/2640          7% used
+     LUT            395/5280          7% used
+     REG             50/5280         <1% used
+   PIO               16/56           28% used
+                     16/36           44% bonded
+   IOLOGIC            1/56            1% used
    DSP                2/8            25% used
    I2C                0/2             0% used
    HFOSC              1/1           100% used
@@ -150,32 +153,34 @@ Device utilization summary:
    OPENDRAIN          0/3             0% used
 
 Pin Constraint Summary:
-   12 out of 12 pins locked (100% locked).
+   16 out of 16 pins locked (100% locked).
 
-Finished Placer Phase 0 (HIER). CPU time: 1 secs , REAL time: 0 secs 
+Finished Placer Phase 0 (HIER). CPU time: 2 secs , REAL time: 2 secs 
 
 
 ................
-Finished Placer Phase 0 (AP).  CPU time: 1 secs , REAL time: 2 secs 
+Finished Placer Phase 0 (AP).  CPU time: 2 secs , REAL time: 2 secs 
 
-Starting Placer Phase 1. CPU time: 1 secs , REAL time: 2 secs 
+Starting Placer Phase 1. CPU time: 2 secs , REAL time: 2 secs 
 ..  ..
 ....................
 
-Placer score = 66527.
+Placer score = 74585.
 
 Device SLICE utilization summary after final SLICE packing:
-   SLICE            198/2640          7% used
+   SLICE            205/2640          7% used
 
-    <postMsg mid="70001944" type="Warning" dynamic="1" navigation="0" arg0="create_generated_clock -name {display_inst/clk} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTGLOBAL }] "  />
-    <postMsg mid="70001944" type="Warning" dynamic="1" navigation="0" arg0="create_generated_clock -name {pll_outcore_o_c} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTCORE }] "  />
-Finished Placer Phase 1. CPU time: 14 secs , REAL time: 14 secs 
+WARNING - No master clock for
+	generated clock	create_generated_clock -name {display_inst/clk} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTGLOBAL }] .
+WARNING - No master clock for
+	generated clock	create_generated_clock -name {pll_outcore_o_c} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTCORE }] .
+Finished Placer Phase 1. CPU time: 22 secs , REAL time: 23 secs 
 
 Starting Placer Phase 2.
 .
 
-Placer score =  85914
-Finished Placer Phase 2.  CPU time: 14 secs , REAL time: 14 secs 
+Placer score =  96182
+Finished Placer Phase 2.  CPU time: 22 secs , REAL time: 24 secs 
 
 
 ------------------ Clock Report ------------------
@@ -190,26 +195,26 @@ Global Clocks :
 
 
 I/O Usage Summary (final):
-   12 out of 56 (21.4%) I/O sites used.
-   12 out of 36 (33.3%) bonded I/O sites used.
-   Number of I/O comps: 12; differential: 0
+   16 out of 56 (28.6%) I/O sites used.
+   16 out of 36 (44.4%) bonded I/O sites used.
+   Number of I/O comps: 16; differential: 0
    Number of Vref pins used: 0
 
 I/O Bank Usage Summary:
 +----------+---------------+------------+------------+------------+
 | I/O Bank | Usage         | Bank Vccio | Bank Vref1 | Bank Vref2 |
 +----------+---------------+------------+------------+------------+
-| 0        | 2 / 14 ( 14%) | 3.3V       |            |            |
-| 1        | 2 / 14 ( 14%) | 3.3V       |            |            |
+| 0        | 3 / 14 ( 21%) | 3.3V       |            |            |
+| 1        | 5 / 14 ( 35%) | 3.3V       |            |            |
 | 2        | 8 / 8 (100%)  | 3.3V       |            |            |
 +----------+---------------+------------+------------+------------+
 
-Total Placer CPU time: 14 secs , REAL time: 14 secs 
+Total Placer CPU time: 22 secs , REAL time: 24 secs 
 
 Writing design to file es4finalproj_impl_1_par.dir/5_1.udb ...
 
 
-Start NBR router at 19:48:08 12/05/22
+Start NBR router at 21:16:03 12/05/22
 
 *****************************************************************
 Info: NBR allows conflicts(one node used by more than one signal)
@@ -227,9 +232,9 @@ Note: NBR uses a different method to calculate timing slacks. The
 Starting routing resource preassignment
 Preassignment Summary:
 --------------------------------------------------------------------------------
-157 connections routed with dedicated routing resources
+165 connections routed with dedicated routing resources
 2 global clock signals routed
-183 connections routed (of 1342 total) (13.64%)
+191 connections routed (of 1420 total) (13.45%)
 ---------------------------------------------------------
 Clock routing summary:
 Primary clocks (2 used out of 8 available):
@@ -238,6 +243,9 @@ Primary clocks (2 used out of 8 available):
 #7  Signal "display_inst.clk"
        Clock   loads: 15    out of    15 routed (100.00%)
 Other clocks:
+    Signal "NES_inst.NESclk"
+       Clock   loads: 0     out of     5 routed (  0.00%)
+       Data    loads: 0     out of     2 routed (  0.00%)
     Signal "pll_in_clock_c"
        Clock   loads: 0     out of     1 routed (  0.00%)
     Signal "display_inst.pll_init.lscc_pll_inst.feedback_w"
@@ -245,43 +253,53 @@ Other clocks:
 ---------------------------------------------------------
 --------------------------------------------------------------------------------
 Completed routing resource preassignment
-    <postMsg mid="70001944" type="Warning" dynamic="1" navigation="0" arg0="create_generated_clock -name {display_inst/clk} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTGLOBAL }] "  />
-    <postMsg mid="70001944" type="Warning" dynamic="1" navigation="0" arg0="create_generated_clock -name {pll_outcore_o_c} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTCORE }] "  />
+WARNING - No master clock for
+	generated clock	create_generated_clock -name {display_inst/clk} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTGLOBAL }] .
+WARNING - No master clock for
+	generated clock	create_generated_clock -name {pll_outcore_o_c} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTCORE }] .
     TimerIf::skewscore 0
 
-Start NBR section for initial routing at 19:48:09 12/05/22
+Start NBR section for initial routing at 21:16:04 12/05/22
 Level 4, iteration 1
-68(0.03%) conflicts; 1159(86.36%) untouched conns; 0 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: 10.335ns/0.000ns; real time: 2 secs 
+66(0.03%) conflicts; 1229(86.55%) untouched conns; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 10.335ns/0.000ns; real time: 3 secs 
 Level 4, iteration 2
-4(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: 10.335ns/0.000ns; real time: 2 secs 
+5(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 10.335ns/0.000ns; real time: 4 secs 
 
 Info: Initial congestion level at 75.00% usage is 0
 Info: Initial congestion area  at 75.00% usage is 0 (0.00%)
 
-Start NBR section for normal routing at 19:48:10 12/05/22
+Start NBR section for normal routing at 21:16:07 12/05/22
 Level 4, iteration 1
-2(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: 10.335ns/0.000ns; real time: 2 secs 
+4(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 10.335ns/0.000ns; real time: 4 secs 
 Level 4, iteration 2
-1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: 10.335ns/0.000ns; real time: 2 secs 
+4(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 10.335ns/0.000ns; real time: 4 secs 
 Level 4, iteration 3
+2(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 10.335ns/0.000ns; real time: 4 secs 
+Level 4, iteration 4
+1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 10.335ns/0.000ns; real time: 4 secs 
+Level 4, iteration 5
 0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: 10.335ns/0.000ns; real time: 2 secs 
+Estimated worst slack/total negative slack<setup>: 10.335ns/0.000ns; real time: 4 secs 
 
-Start NBR section for setup/hold timing optimization with effort level 3 at 19:48:10 12/05/22
+Start NBR section for setup/hold timing optimization with effort level 3 at 21:16:07 12/05/22
 Changing speed to M
 
 Starting full timing analysis...
 Changing speed to 6
 
-Start NBR section for post-routing at 19:48:11 12/05/22
+Start NBR section for post-routing at 21:16:09 12/05/22
 
 End NBR router with 0 unrouted connection
-    <postMsg mid="70001944" type="Warning" dynamic="1" navigation="0" arg0="create_generated_clock -name {display_inst/clk} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTGLOBAL }] "  />
-    <postMsg mid="70001944" type="Warning" dynamic="1" navigation="0" arg0="create_generated_clock -name {pll_outcore_o_c} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTCORE }] "  />
+WARNING - No master clock for
+	generated clock	create_generated_clock -name {display_inst/clk} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTGLOBAL }] .
+WARNING - No master clock for
+	generated clock	create_generated_clock -name {pll_outcore_o_c} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTCORE }] .
 Changing speed to M
 
 Starting full timing analysis...
@@ -299,10 +317,10 @@ NBR Summary
 -----------
 
 
-Total CPU time 3 secs 
-Total REAL time: 4 secs 
+Total CPU time 6 secs 
+Total REAL time: 7 secs 
 Completely routed.
-End of route.  1342 routed (100.00%); 0 unrouted.
+End of route.  1420 routed (100.00%); 0 unrouted.
 
 Writing design to file es4finalproj_impl_1_par.dir/5_1.udb ...
 
@@ -315,9 +333,9 @@ PAR_SUMMARY::Worst  slack<hold /<ns>> = 1.882
 PAR_SUMMARY::Timing score<hold /<ns>> = 0.000
 PAR_SUMMARY::Number of errors = 0
 
-Total CPU  Time: 18 secs 
-Total REAL Time: 18 secs 
-Peak Memory Usage: 126.87 MB
+Total CPU  Time: 29 secs 
+Total REAL Time: 32 secs 
+Peak Memory Usage: 124.99 MB
 
 
 par done!
@@ -345,27 +363,29 @@ Performance Grade:   High-Performance_1.2V
 
 
 
-Successfully loading udb, 0.11 seconds
+Successfully loading udb, 0.22 seconds
 
 Initializing timer
 Starting design annotation....
-    <postMsg mid="70001944" type="Warning" dynamic="1" navigation="0" arg0="create_generated_clock -name {display_inst/clk} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTGLOBAL }] "  />
-    <postMsg mid="70001944" type="Warning" dynamic="1" navigation="0" arg0="create_generated_clock -name {pll_outcore_o_c} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTCORE }] "  />
+WARNING - No master clock for
+	generated clock	create_generated_clock -name {display_inst/clk} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTGLOBAL }] .
+WARNING - No master clock for
+	generated clock	create_generated_clock -name {pll_outcore_o_c} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTCORE }] .
 High-Performance_1.2V
 
 Starting full timing analysis...
 Performance Hardware Data Status:   Advanced       Version 1.0.
-Connections ignored  109  counted  1115  covered  76
+Connections ignored  92  counted  1214  covered  76
 Changing speed to m
 
 Starting full timing analysis...
 
 STA Runtime and Peak Memory Usage :
-Total CPU Time: 2 secs 
-Total REAL Time: 3 secs 
+Total CPU Time: 3 secs 
+Total REAL Time: 5 secs 
 Peak Memory Usage: 97 MB
 
- 2.627345s wall, 1.968750s user + 0.328125s system = 2.296875s CPU (87.4%)
+ 4.297485s wall, 3.171875s user + 0.531250s system = 3.703125s CPU (86.2%)
 
 
 tmcheck -par "es4finalproj_impl_1.par" 
@@ -383,7 +403,7 @@ Family:  iCE40UP
 Device:  iCE40UP5K
 Package: SG48
 Performance Grade:   High-Performance_1.2V
-Successfully loading design udb and device data from disks and to up-layer in CPU time: 0 secs , REAL time: 0 secs 
+Successfully loading design udb and device data from disks and to up-layer in CPU time: 1 secs , REAL time: 0 secs 
 
 
 
@@ -408,18 +428,17 @@ Preference Summary:
 
 Creating bit map...
 Saving bit stream in "C:\Users\gsess\OneDrive\Documents\es4_final_proj\ES4_Snake\impl_1\es4finalproj_impl_1.bin".
-    <postMsg mid="1009992" type="Info" dynamic="1" navigation="0" arg0="Bitstream authenticated."  />
 Bitstream generation complete!
 
-Total CPU Time: 1 secs 
-Total REAL Time: 0 secs 
+Total CPU Time: 2 secs 
+Total REAL Time: 2 secs 
 Peak Memory Usage: 115 MB
 
 
 ibisgen "es4finalproj_impl_1.udb" "C:/lscc/radiant/3.2/cae_library/ibis/iCE40UP.ibs"
 IBIS Models Generator: Lattice Radiant Software (64-bit) 3.2.1.217.3
 
-Mon Dec  5 19:48:17 2022
+Mon Dec  5 21:16:20 2022
 
 Loading es4finalproj_impl_1.udb ...
 Loading device for application GENERIC from file 'itpa08.nph' in environment: C:/lscc/radiant/3.2/ispfpga.
@@ -433,7 +452,7 @@ Family:  iCE40UP
 Device:  iCE40UP5K
 Package: SG48
 Performance Grade:   High-Performance_1.2V
-Successfully loading design udb and device data from disks and to up-layer in CPU time: 0 secs , REAL time: 0 secs 
+Successfully loading design udb and device data from disks and to up-layer in CPU time: 1 secs , REAL time: 0 secs 
 
 Created design models.
 
@@ -441,7 +460,8 @@ Created design models.
 Generating: C:\Users\gsess\OneDrive\Documents\es4_final_proj\ES4_Snake\impl_1\IBIS\es4finalproj_impl_1.ibs
 
 
-    <postMsg mid="1191031" type="Info" dynamic="0" navigation="0"  />
+INFO - Design IBIS models are generated for board level analysis.
+
 
 backanno "es4finalproj_impl_1.udb"  -o "es4finalproj_impl_1_vo.vo"      -sp "High-Performance_1.2V"  -w -neg
 backanno: version Radiant Software (64-bit) 3.2.1.217.3
@@ -468,6 +488,6 @@ Writing a verilog netlist based on the es4finalproj_impl_1 design file.
 Writing Verilog netlist to file es4finalproj_impl_1_vo.vo
 Writing SDF timing to file es4finalproj_impl_1_vo.sdf
 Backanno finished with 0 posted error messages.
-Total CPU Time: 1 secs 
-Total REAL Time: 2 secs 
+Total CPU Time: 3 secs 
+Total REAL Time: 4 secs 
 Peak Memory Usage: 95 MB
