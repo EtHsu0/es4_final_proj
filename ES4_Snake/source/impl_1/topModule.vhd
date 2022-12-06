@@ -96,9 +96,9 @@ begin
     
     NES_inst: NES port map (CLK, data, latch, continCLK, digital);
     
-    -- board_inst: board port map (clk, gameState, digital, snake_head, apple, snake, scores);
+    board_inst: board port map (clk, gameState, digital, snake_head, apple, snake, scores);
 
-    apple <= 9b"1_0011_0011";
+    -- apple <= 9b"1_0011_0011";
 
     display_inst: display port map (pll_in_clock, pll_outcore_o, HSYNC, VSYNC, rgb, apple, snake_head, snake, scores, gameState);
 

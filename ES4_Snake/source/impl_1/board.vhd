@@ -78,23 +78,23 @@ begin
         end if;
     end process;
 
-    process(counter(29)) is
-    begin
-        if rising_edge(counter(29)) then
-            snake_array(to_integer(test_counter)) <= '1';
-            test_counter <= test_counter + 1;
-        end if;
+    -- process(counter(29)) is
+    -- begin
+    --     if rising_edge(counter(29)) then
+    --         snake_array(to_integer(test_counter)) <= '1';
+    --         test_counter <= test_counter + 1;
+    --     end if;
 
-    end process;
+    -- end process;
 
-    dir <= "00" when digital_in(3) = '0' else
-           "01" when digital_in(2) = '0' else
-           "10" when digital_in(1) = '0' else
-           "11";
+    -- dir <= "00" when digital_in(3) = '0' else
+    --        "01" when digital_in(2) = '0' else
+    --        "10" when digital_in(1) = '0' else
+    --        "11";
 
     apple_out <= "100110011";
 
-    snake_arr_out <= snake_array;
+    -- snake_arr_out <= snake_array;
     -- snakePos_inst: snakePos port map (counter(29),reset,growSnake,dir,snake_head,snake_arr_out,snake_dead);
 
     -- apple_random: randomPos port map (enable, clk, apple_out);
@@ -115,7 +115,7 @@ begin
             --end loop;
         --end if;
    -- end process;
-    game_state <= "00";
+    -- game_state <= "00";
     scores_out <= "0";
     snake_head_out <= snake_head;
 end;
