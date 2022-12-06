@@ -1,42 +1,50 @@
 ----------------------------------------------------------------------
 Report for cell top.TECH
-Register bits:  43 of 5280 (0.814%)
+Register bits:  44 of 5280 (0.833%)
 I/O cells:      15
                                   Cell usage:
                                cell     count   Res Usage(%)
                                CCU2        77          100.0
-                            FD1P3XZ        43          100.0
+                            FD1P3XZ        44          100.0
                          HSOSC_CORE         1          100.0
                                  IB         1          100.0
-                               LUT4       171          100.0
+                               LUT4       195          100.0
                               MAC16         2          100.0
                                  OB        14          100.0
                               PLL_B         1          100.0
 SUB MODULES
                                 NES         1
+                              board         1
                             display         1
                               mypll         1
 mypll_ipgen_lscc_pll(DIVR="0",DIVF="66",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",FREQUENCY_PIN_REFERENCECLK="12.000000")         1
                         pattern_gen         1
                                 vga         1
-                              TOTAL       316
+                              TOTAL       342
 ----------------------------------------------------------------------
 Report for cell NES.v1
 Instance Path : NES_inst
                                   Cell usage:
                                cell     count   Res Usage(%)
                                 FA2        11           14.3
-                            FD1P3XZ        20           46.5
-                               LUT4         6            3.5
-                              TOTAL        37
+                            FD1P3XZ        20           45.5
+                               LUT4         7            3.6
+                              TOTAL        38
+----------------------------------------------------------------------
+Report for cell board.v1
+Instance Path : board_inst
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ         1            2.3
+                              TOTAL         1
 ----------------------------------------------------------------------
 Report for cell display.v1
 Instance Path : display_inst
                                   Cell usage:
                                cell     count   Res Usage(%)
                                 FA2        66           85.7
-                            FD1P3XZ        23           53.5
-                               LUT4       133           77.8
+                            FD1P3XZ        23           52.3
+                               LUT4       159           81.5
                               MAC16         2          100.0
                               PLL_B         1          100.0
 SUB MODULES
@@ -44,16 +52,16 @@ SUB MODULES
 mypll_ipgen_lscc_pll(DIVR="0",DIVF="66",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",FREQUENCY_PIN_REFERENCECLK="12.000000")         1
                         pattern_gen         1
                                 vga         1
-                              TOTAL       229
+                              TOTAL       255
 ----------------------------------------------------------------------
 Report for cell vga.v1
 Instance Path : display_inst.vga_init
                                   Cell usage:
                                cell     count   Res Usage(%)
                                 FA2        12           15.6
-                            FD1P3XZ        23           53.5
-                               LUT4        22           12.9
-                              TOTAL        57
+                            FD1P3XZ        23           52.3
+                               LUT4        36           18.5
+                              TOTAL        71
 ----------------------------------------------------------------------
 Report for cell mypll.v1
 Instance Path : display_inst.pll_init
@@ -76,6 +84,6 @@ Instance Path : display_inst.pattern_gen_initial
                                   Cell usage:
                                cell     count   Res Usage(%)
                                 FA2        54           70.1
-                               LUT4       111           64.9
+                               LUT4       123           63.1
                               MAC16         2          100.0
-                              TOTAL       167
+                              TOTAL       179

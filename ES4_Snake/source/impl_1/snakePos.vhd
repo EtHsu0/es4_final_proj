@@ -49,6 +49,7 @@ signal snake_dead: std_logic := '0';
 -- signal snake_coord: unsigned(7 downto 0);
 
 begin
+/*
     process(snakeCLK) is
     begin
         if rising_edge(snakeCLK) then
@@ -103,6 +104,7 @@ begin
             snake_array(to_integer(arr_left)) <= snake_dir;
         end if;
     end process;
+	*/
 	
 	
     -- Draw the snake onto the 2d array
