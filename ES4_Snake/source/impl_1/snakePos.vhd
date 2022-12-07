@@ -120,28 +120,28 @@ begin
 				*/
              -- Update snake head coordinate
 
-             if prev_dir = "00" then
+             if dir_signal = "00" then
                  if snake_head < 10 then
                      snake_dead <= '1';
                  end if;
                  snake_head <= snake_head - 10;
 				 snake_dir_arr <= (98 downto 0 => snake_dir_arr(99 downto 1));
 				 snake_dir_arr(0) <= DOWN;
-             elsif prev_dir = "01" then
+             elsif dir_signal = "01" then
                  if snake_head > 89 then
                      snake_dead <= '1';
                  end if;
                  snake_head <= snake_head + 10;
 				 snake_dir_arr <= (98 downto 0 => snake_dir_arr(99 downto 1));
 				 snake_dir_arr(0) <= UP;
-             elsif prev_dir = "10" then
+             elsif dir_signal = "10" then
                  if snake_head mod 10 = 0 then
                      snake_dead <= '1';
                  end if;
                  snake_head <= snake_head - 1;
 				 snake_dir_arr <= (98 downto 0 => snake_dir_arr(99 downto 1));
 				 snake_dir_arr(0) <= RIGHT;
-             elsif prev_dir = "11" then
+             elsif dir_signal = "11" then
                  if snake_head mod 10 = 9 then
                      snake_dead <= '1';
                  end if;
