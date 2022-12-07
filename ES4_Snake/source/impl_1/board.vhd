@@ -68,9 +68,12 @@ begin
     begin
         if rising_edge(clk) then
             counter <= counter + 1;
-            apple_id <= 9b"1_0101_0100";
-            apple_id(1 downto 0) <= dir;
-            snake_arr(to_integer(counter)) <= '1';
+            case dir is
+                when "00" => apple_id <= 9b"1_0101_0100";
+                when "01" => apple_id <= 9b"1_0100_0101";
+                when "10" => apple_id <= 9b"1_0101_0101";
+                when "11" => apple_id <= 9b"1_0100_0100";
+            end case;
         end if;
     end process;
 	
