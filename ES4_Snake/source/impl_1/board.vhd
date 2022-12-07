@@ -59,9 +59,9 @@ begin
 				apple_id <= 9b"1_0111_0100";
 				reset <= '1';
                 if button = START then
-                    game_state = "01";
+                    game_state <= "01";
                 end if;
-			elsif game_state = "01" then;
+			elsif game_state = "01" then
 			    reset <= '0';
                 case button is
                     -- when START => game_state <= "01";
