@@ -97,14 +97,14 @@ begin
 
             case button is
                 -- when START => --reset <= '1';
-                --                 snake_arr(i) <= '0';
-                --               end loop;
-                --                 snake_arr(1) <= '1';
-                --                 snake_arr(2) <= '1';
                 when UP => apple_id <= 9b"1_0101_0100";
+                            dir <= "00";
                 when DOWN => apple_id <= 9b"1_0100_0101";
+                            dir <= "01"
                 when LEFT => apple_id <= 9b"1_0101_0101";
+                            dir <= "10";
                 when RIGHT => apple_id <= 9b"1_0100_0100";
+                            dir <= "11";
                 -- when others => --reset <= '0';
             -- snake_arr(44) <= '1';
             --                     snake_arr(43) <= '1';
@@ -119,10 +119,6 @@ begin
 	
 	snake_arr_out <= snake_arr;
 	apple_out <= apple_id;
-    dir <= "00" when digital_in(3) = '0' else
-           "01" when digital_in(2) = '0' else
-           "10" when digital_in(1) = '0' else
-           "11" when digital_in(0);
 
 
     snakePos_inst: snakePos port map(clk, reset, grow_snake, dir, snake_head, snake_tail, snake_arr, snake_dead);
