@@ -114,8 +114,6 @@ begin
             
         end if;
     end process;
-    
-    reset <= '1';
 	
 	snake_arr_out <= snake_arr;
 	apple_out <= apple_id;
