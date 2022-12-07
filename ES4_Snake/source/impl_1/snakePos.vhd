@@ -62,15 +62,15 @@ begin
     process(snakeCLK) is
     begin
         if rising_edge(snakeCLK) then
-            -- snake_arr(to_integer(slow_test_counter)) <= '1';
-            -- slow_test_counter <= slow_test_counter + 1;
+            snake_arr(to_integer(slow_test_counter)) <= '1';
+            slow_test_counter <= slow_test_counter + 1;
             if reset_in = '1' then
+                slow_test_counter <= 0;
                 arr_left <= 8d"96";
                 arr_right <= 8d"99";
                 snake_head <= 8d"44";
                 dir_arr <= (others => RIGHT);
                 snake_arr <= (44 downto 42 => '1', others => '0');
-				
 			end if;
                 -- for i in 99 downto 0 loop
                                 --     snake_arr(i) <= '0';

@@ -96,7 +96,7 @@ begin
             end if;
 
             case button is
-                -- when START => for i in 99 downto 0 loop
+                when START => reset <= '1';
                 --                 snake_arr(i) <= '0';
                 --               end loop;
                 --                 snake_arr(1) <= '1';
@@ -105,7 +105,8 @@ begin
                 when DOWN => apple_id <= 9b"1_0100_0101";
                 when LEFT => apple_id <= 9b"1_0101_0101";
                 when RIGHT => apple_id <= 9b"1_0100_0100";
-            --     when others =>  snake_arr(44) <= '1';
+                when others => reset <= '0';
+            -- snake_arr(44) <= '1';
             --                     snake_arr(43) <= '1';
             --                     snake_arr(42) <= '1';
             --                    apple_id <= 9b"1_0000_0000";
