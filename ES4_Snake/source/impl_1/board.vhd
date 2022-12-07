@@ -90,7 +90,7 @@ begin
 
             case button is
                 when START => for i in 99 downto 0 loop
-                                snake_arr('0');
+                                snake_arr(i) <= '0';
                               end loop;
                                 snake_arr(1) <= '1';
                                 snake_arr(2) <= '1';
