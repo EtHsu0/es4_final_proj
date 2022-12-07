@@ -35,6 +35,10 @@ end pattern_gen;
 architecture synth of pattern_gen is
 
 signal intermed_rgb : unsigned(5 downto 0);
+signal colL : unsigned(3 downto 0);
+signal colR : unsigned(3 downto 0);
+signal rowB : unsigned(3 downto 0);
+signal rowT : unsigned(3 downto 0);
 begin
 	--intermed_rgb <= "001100" when (x_pos mod 10d"5" = 10d"0") else "110000";
 	--rgb <= 6d"0" when valid='0' else intermed_rgb;
@@ -55,23 +59,36 @@ begin
 			end if;
 			
 			-- Fill in apple cell
-			--if rand_apple(8) = '1' then
-			--	if (x_pos > 10d"102" + 10d"44" * rand_apple(7 downto 4)) and (x_pos < 10d"99" + 10d"44" + 10d"44" * rand_apple(7 downto 4)) and (y_pos > 10d"21" + 10d"44" * rand_apple(3 downto 0)) and (y_pos < 10d"19" + 10d"44" + 10d"44" * rand_apple(3 downto 0)) then
-			--		rgb <= "110000"; -- red apple
-			--	end if;
-			--end if;
-
-
-			-- Fill in apple cell
 			if rand_apple(8) = '1' then
-				if (x_pos > 10d"102" + 10d"44" * rand_apple(7 downto 4)) and (x_pos < 10d"99" + 10d"44" + 10d"44" * rand_apple(7 downto 4)) and (y_pos > 10d"21" + 10d"44" * rand_apple(3 downto 0)) and (y_pos < 10d"19" + 10d"44" + 10d"44" * rand_apple(3 downto 0)) then
-					if(x_pos > 10d"110" + 10d"44" * rand_apple(7 downto 4)) and (x_pos < 10d"135" + 10d"44" * rand_apple(7 downto 4)) and (y_pos > 10d"21" + 10d"44" * rand_apple(3 downto 0)) and (y_pos < 10d"30" + 10d"44" * rand_apple(3 downto 0)) then
-						rgb <= "001100"; -- Green leaf
-					else
-						rgb <= "110000"; -- red apple
+				colL <= 10d"102" + 10d"44" * rand_apple(7 downto 4);           -- Left wall of grid
+				colR <= 10d"99" + 10d"44" + 10d"44" * rand_apple(7 downto 4);  -- Right wall of grid
+				rowB <= 10d"21" + 10d"44" * rand_apple(3 downto 0);            -- Bottom wall of grid
+				rowT <= 10d"19" + 10d"44" + 10d"44" * rand_apple(3 downto 0);  -- Top wall of grid
+				
+				if (x_pos > colL and x_pos < colR and y_pos > rowB and y_pos < rowT) then
+					if(x_pos > colL + 10d"18" and x_pos < colL + 10d"21" and y_pos > rowB - 10d"41" and y_pos < rowT) then  -- top leaf block
+						rgb <= "001100";
+					end if;
+					if(x_pos > colL + 10d"17" and x_pos < colL + 10d"20" and y_pos > rowB - 10d"39" and y_pos < rowT + 10d"2") then  -- bottom leaf block
+						rgb <= "001100";
+					end if;
+					if((x_pos = colL + 10d"20" and y_pos = rowT - 10d"3") or (x_pos = colL + 10d"21" and y_pos = rowT - 10d"4")) then
+						rgb <= "111111";
 					end if;
 				end if;
 			end if;
+
+
+			-- Fill in apple cell
+			--if rand_apple(8) = '1' then
+			--	if (x_pos > 10d"102" + 10d"44" * rand_apple(7 downto 4)) and (x_pos < 10d"99" + 10d"44" + 10d"44" * rand_apple(7 downto 4)) and (y_pos > 10d"21" + 10d"44" * rand_apple(3 downto 0)) and (y_pos < 10d"19" + 10d"44" + 10d"44" * rand_apple(3 downto 0)) then
+			--		if(x_pos > 10d"110" + 10d"44" * rand_apple(7 downto 4)) and (x_pos < 10d"135" + 10d"44" * rand_apple(7 downto 4)) and (y_pos > 10d"21" + 10d"44" * rand_apple(3 downto 0)) and (y_pos < 10d"30" + 10d"44" * rand_apple(3 downto 0)) then
+			--			rgb <= "001100"; -- Green leaf
+			--		else
+			--			rgb <= "110000"; -- red apple
+			--		end if;
+			--	end if;
+			--end if;
 
 			
 			-- Fill in snake cells
