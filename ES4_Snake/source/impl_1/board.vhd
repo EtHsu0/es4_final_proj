@@ -50,7 +50,7 @@ architecture synth of board is
     signal reset: std_logic := '1';
     signal grow_snake: std_logic := '0';
 
-    TYPE buttons is (A, B, START, SEL, UP, DOWN, LEFT, RIGHT);
+    TYPE buttons is (A, B, START, SEL, UP, DOWN, LEFT, RIGHT, NONE);
     signal button: buttons;
     -- Gabe / Chris TODO, turn NES digital_in -> buttons TYPE
 
@@ -68,29 +68,52 @@ begin
     begin
         if rising_edge(clk) then
             counter <= counter + 1;
-            case dir is
-                when "00" => apple_id <= 9b"1_0101_0100";
-                when "01" => apple_id <= 9b"1_0100_0101";
-                when "10" => apple_id <= 9b"1_0101_0101";
-                when "11" => apple_id <= 9b"1_0100_0100";
+            if digital_in(0) = '0' then
+                button <= RIGHT;
+            elsif digital_in(1) = '0' then
+                button <= LEFT;
+            elsif digital_in(2) = '0' then
+                button <= DOWN;
+            elsif digital_in(3) = '0' then
+                button <= UP;
+            elsif digital_in(4) = '0' then
+                button <= START;
+            elsif digital_in(5) = '0' then
+                button <= SEL;
+            elsif digital_in(6) = '0' then
+                button <= B;
+            elsif digital_in(7) = '0' then
+                button <= A;
+            else
+                button <= NONE;
+            end if;
+
+            case button is
+                when START => snake_arr(44) <= '1';
+                              snake_arr(43) <= '1';
+                              snake_arr(42) <= '1';
+                when UP => apple_id <= 9b"1_0101_0100";
+                when DOWN => apple_id <= 9b"1_0100_0101";
+                when LEFT => apple_id <= 9b"1_0101_0101";
+                when RIGHT => apple_id <= 9b"1_0100_0100";
+                when others => snake_arr <= 99b"1110";
+                               apple_id <= 9b"1_0000_0000";
             end case;
+            
         end if;
     end process;
 	
 	snake_arr_out <= snake_arr;
 	apple_out <= apple_id;
-
-    dir <= "00" when digital_in(3) = '0' else
-           "01" when digital_in(2) = '0' else
-           "10" when digital_in(1) = '0' else
-           "11";
+    -- dir <= "00" when digital_in(3) = '0' else
+    --        "01" when digital_in(2) = '0' else
+    --        "10" when digital_in(1) = '0' else
+    --        "11" when digital_in(0);
 
     
 
-    -- snake_arr_out <= snake_arr;
     -- snakePos_inst: snakePos port map (counter(29),reset,grow_snake,dir,snake_head,snake_arr_out,snake_dead);
 
-    -- Check collision with apple
     --process (snake_head) is begin
         -- If snake head is on apple's coordinate
         --if snake_head_out = apple_out then
@@ -109,4 +132,6 @@ begin
     game_state_out <= "00";
     scores_out <= "0";
     snake_head_out <= snake_head;
+    snake_arr_out <= snake_arr;
+
 end;
