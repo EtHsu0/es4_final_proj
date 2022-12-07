@@ -1,6 +1,6 @@
 
 Lattice Place and Route Report for Design "es4finalproj_impl_1_map.udb"
-Tue Dec  6 21:39:44 2022
+Tue Dec  6 21:57:55 2022
 
 PAR: Place And Route Radiant Software (64-bit) 3.2.1.217.3.
 Command Line: par -w -t 1 -cores 1 -exp parPathBased=ON \
@@ -24,17 +24,17 @@ WARNING - par: No master clock for
 	generated clock	create_generated_clock -name {pll_outcore_o_c} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTCORE }] .
 
 WARNING: Database constraint "create_generated_clock -name {pll_outcore_o_c} -source [get_pins display_inst.pll_init.lscc_pll_inst.u_PLL_B/REFERENCECLK] -divide_by 32 -multiply_by 67 [get_pins display_inst.pll_init.lscc_pll_inst.u_PLL_B/OUTCORE]" does not have corresponding timing constraint. Please check if the resource objects of the constraint are valid carefully!
-Number of Signals: 671
-Number of Connections: 1517
+Number of Signals: 577
+Number of Connections: 1353
 Device utilization summary:
 
-   SLICE (est.)     227/2640          8% used
-     LUT            431/5280          8% used
-     REG             57/5280          1% used
+   SLICE (est.)     198/2640          7% used
+     LUT            381/5280          7% used
+     REG             58/5280          1% used
    PIO               16/56           28% used
                      16/36           44% bonded
    IOLOGIC            1/56            1% used
-   DSP                5/8            62% used
+   DSP                2/8            25% used
    I2C                0/2             0% used
    HFOSC              1/1           100% used
    LFOSC              0/1             0% used
@@ -53,32 +53,32 @@ Device utilization summary:
 Pin Constraint Summary:
    16 out of 16 pins locked (100% locked).
 
-Finished Placer Phase 0 (HIER). CPU time: 1 secs , REAL time: 2 secs 
+Finished Placer Phase 0 (HIER). CPU time: 1 secs , REAL time: 0 secs 
 
 
-.........................
-Finished Placer Phase 0 (AP).  CPU time: 2 secs , REAL time: 3 secs 
+..................
+Finished Placer Phase 0 (AP).  CPU time: 2 secs , REAL time: 2 secs 
 
-Starting Placer Phase 1. CPU time: 2 secs , REAL time: 3 secs 
+Starting Placer Phase 1. CPU time: 2 secs , REAL time: 2 secs 
 ..  ..
 ....................
 
-Placer score = 111615.
+Placer score = 103686.
 
 Device SLICE utilization summary after final SLICE packing:
-   SLICE            226/2640          8% used
+   SLICE            197/2640          7% used
 
 WARNING - par: No master clock for
 	generated clock	create_generated_clock -name {display_inst/clk} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTGLOBAL }] .
 WARNING - par: No master clock for
 	generated clock	create_generated_clock -name {pll_outcore_o_c} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTCORE }] .
-Finished Placer Phase 1. CPU time: 18 secs , REAL time: 19 secs 
+Finished Placer Phase 1. CPU time: 16 secs , REAL time: 17 secs 
 
 Starting Placer Phase 2.
 .
 
-Placer score =  107965
-Finished Placer Phase 2.  CPU time: 18 secs , REAL time: 20 secs 
+Placer score =  94459
+Finished Placer Phase 2.  CPU time: 16 secs , REAL time: 17 secs 
 
 
 ------------------ Clock Report ------------------
@@ -107,12 +107,12 @@ I/O Bank Usage Summary:
 | 2        | 8 / 8 (100%)  | 3.3V       |            |            |
 +----------+---------------+------------+------------+------------+
 
-Total Placer CPU time: 18 secs , REAL time: 20 secs 
+Total Placer CPU time: 16 secs , REAL time: 17 secs 
 
 Writing design to file es4finalproj_impl_1_par.dir/5_1.udb ...
 
 
-Start NBR router at 21:40:04 12/06/22
+Start NBR router at 21:58:12 12/06/22
 
 *****************************************************************
 Info: NBR allows conflicts(one node used by more than one signal)
@@ -130,9 +130,9 @@ Note: NBR uses a different method to calculate timing slacks. The
 Starting routing resource preassignment
 Preassignment Summary:
 --------------------------------------------------------------------------------
-213 connections routed with dedicated routing resources
+191 connections routed with dedicated routing resources
 2 global clock signals routed
-245 connections routed (of 1509 total) (16.24%)
+223 connections routed (of 1344 total) (16.59%)
 ---------------------------------------------------------
 Clock routing summary:
 Primary clocks (2 used out of 8 available):
@@ -156,39 +156,33 @@ WARNING - par: No master clock for
 WARNING - par: No master clock for
 	generated clock	create_generated_clock -name {pll_outcore_o_c} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTCORE }] .
 
-Start NBR section for initial routing at 21:40:05 12/06/22
+Start NBR section for initial routing at 21:58:13 12/06/22
 Level 4, iteration 1
-62(0.02%) conflicts; 1264(83.76%) untouched conns; 0 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: 5.945ns/0.000ns; real time: 2 secs 
+59(0.02%) conflicts; 1121(83.41%) untouched conns; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 5.875ns/0.000ns; real time: 2 secs 
 Level 4, iteration 2
 1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: 5.451ns/0.000ns; real time: 3 secs 
+Estimated worst slack/total negative slack<setup>: 3.705ns/0.000ns; real time: 2 secs 
 
 Info: Initial congestion level at 75.00% usage is 0
 Info: Initial congestion area  at 75.00% usage is 0 (0.00%)
 
-Start NBR section for normal routing at 21:40:07 12/06/22
+Start NBR section for normal routing at 21:58:14 12/06/22
 Level 4, iteration 1
 1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: 5.451ns/0.000ns; real time: 3 secs 
+Estimated worst slack/total negative slack<setup>: 3.705ns/0.000ns; real time: 2 secs 
 Level 4, iteration 2
 1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: 5.451ns/0.000ns; real time: 3 secs 
+Estimated worst slack/total negative slack<setup>: 3.705ns/0.000ns; real time: 2 secs 
 Level 4, iteration 3
-1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: 5.451ns/0.000ns; real time: 3 secs 
-Level 4, iteration 4
-1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: 5.451ns/0.000ns; real time: 3 secs 
-Level 4, iteration 5
 0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: 5.451ns/0.000ns; real time: 3 secs 
+Estimated worst slack/total negative slack<setup>: 3.705ns/0.000ns; real time: 2 secs 
 
-Start NBR section for setup/hold timing optimization with effort level 3 at 21:40:07 12/06/22
+Start NBR section for setup/hold timing optimization with effort level 3 at 21:58:14 12/06/22
 
 Starting full timing analysis...
 
-Start NBR section for post-routing at 21:40:09 12/06/22
+Start NBR section for post-routing at 21:58:15 12/06/22
 
 End NBR router with 0 unrouted connection
 WARNING - par: No master clock for
@@ -201,8 +195,8 @@ Starting full timing analysis...
 NBR Summary
 -----------
   Number of unrouted connections : 0 (0.00%)
-  Estimated worst slack<setup> : 3.809ns
-  Estimated worst slack<hold > : 1.882ns
+  Estimated worst slack<setup> : 3.944ns
+  Estimated worst slack<hold > : 1.715ns
   Timing score<setup> : 0
   Timing score<hold > : 0
   Number of connections with timing violations<setup> : 0 (0.00%)
@@ -210,10 +204,10 @@ NBR Summary
 -----------
 
 
-Total CPU time 5 secs 
-Total REAL time: 5 secs 
+Total CPU time 3 secs 
+Total REAL time: 4 secs 
 Completely routed.
-End of route.  1509 routed (100.00%); 0 unrouted.
+End of route.  1344 routed (100.00%); 0 unrouted.
 
 Writing design to file es4finalproj_impl_1_par.dir/5_1.udb ...
 
@@ -223,15 +217,15 @@ All signals are completely routed.
 
 PAR_SUMMARY::Run status = Completed
 PAR_SUMMARY::Number of unrouted conns = 0
-PAR_SUMMARY::Worst  slack<setup/<ns>> = 3.809
+PAR_SUMMARY::Worst  slack<setup/<ns>> = 3.944
 PAR_SUMMARY::Timing score<setup/<ns>> = 0.000
-PAR_SUMMARY::Worst  slack<hold /<ns>> = 1.882
+PAR_SUMMARY::Worst  slack<hold /<ns>> = 1.715
 PAR_SUMMARY::Timing score<hold /<ns>> = 0.000
 PAR_SUMMARY::Number of errors = 0
 
-Total CPU  Time: 24 secs 
-Total REAL Time: 26 secs 
-Peak Memory Usage: 126.51 MB
+Total CPU  Time: 20 secs 
+Total REAL Time: 22 secs 
+Peak Memory Usage: 126.85 MB
 
 
 par done!

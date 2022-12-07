@@ -59,8 +59,8 @@ begin
 				if (x_pos > 10d"102" + 10d"44" * rand_apple(7 downto 4)) and (x_pos < 10d"99" + 10d"44" + 10d"44" * rand_apple(7 downto 4)) and (y_pos > 10d"21" + 10d"44" * rand_apple(3 downto 0)) and (y_pos < 10d"19" + 10d"44" + 10d"44" * rand_apple(3 downto 0)) then
 					rgb <= "110000"; -- red apple
 				end if;
+			end if;
 
-			--end if;
 
 			-- Fill in apple cell
 			--if rand_apple(8) = '1' then

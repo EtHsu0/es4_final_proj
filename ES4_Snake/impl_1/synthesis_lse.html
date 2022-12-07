@@ -48,7 +48,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Tue Dec  6 21:39:34 2022
+Tue Dec  6 21:57:47 2022
 
 
 Command Line:  C:\lscc\radiant\3.2\ispfpga\bin\nt64\synthesis.exe -f es4finalproj_impl_1_lattice.synproj -gui -msgset C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/promote.xml 
@@ -479,58 +479,58 @@ WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/
 
 
 
-Mapped 5 multiplier(s)
+Mapped 2 multiplier(s)
 
 
-######## Missing driver on net n534. Patching with GND.
-######## Missing driver on net n531. Patching with GND.
-######## Missing driver on net n528. Patching with GND.
-######## Missing driver on net n525. Patching with GND.
-WARNING - synthesis: Bit 7 of Register \board_inst/apple_id is stuck at Zero
-WARNING - synthesis: Bit 5 of Register \board_inst/apple_id is stuck at Zero
-WARNING - synthesis: Bit 3 of Register \board_inst/apple_id is stuck at Zero
-WARNING - synthesis: Bit 1 of Register \board_inst/apple_id is stuck at Zero
+######## Missing driver on net n517. Patching with GND.
+######## Missing driver on net n514. Patching with GND.
+######## Missing driver on net n511. Patching with GND.
+######## Missing driver on net n508. Patching with GND.
+WARNING - synthesis: Bit 3 of Register \board_inst/apple_id_res2_i0 is stuck at Zero
+WARNING - synthesis: Bit 1 of Register \board_inst/apple_id_res2_i0 is stuck at Zero
+WARNING - synthesis: Bit 3 of Register \board_inst/apple_id_res1_i0 is stuck at Zero
+WARNING - synthesis: Bit 1 of Register \board_inst/apple_id_res1_i0 is stuck at Zero
 Combinational loop found : 1
-
-	Net digital[3] 
-
-	Instance \NES_inst/digital_7__I_0_i4 
-
-Combinational loop found : 2
-
-	Net digital[2] 
-
-	Instance \NES_inst/digital_7__I_0_i3 
-
-Combinational loop found : 3
-
-	Net digital[1] 
-
-	Instance \NES_inst/digital_7__I_0_i2 
-
-Combinational loop found : 4
-
-	Net digital[0] 
-
-	Instance \NES_inst/digital_7__I_0_i1 
-
-Combinational loop found : 5
 
 	Net digital[6] 
 
 	Instance \NES_inst/digital_7__I_0_i7 
 
-Combinational loop found : 6
+Combinational loop found : 2
 
 	Net digital[5] 
 
 	Instance \NES_inst/digital_7__I_0_i6 
 
-Combinational loop found : 7
+Combinational loop found : 3
 
 	Net digital[4] 
 
 	Instance \NES_inst/digital_7__I_0_i5 
+
+Combinational loop found : 4
+
+	Net digital[3] 
+
+	Instance \NES_inst/digital_7__I_0_i4 
+
+Combinational loop found : 5
+
+	Net digital[2] 
+
+	Instance \NES_inst/digital_7__I_0_i3 
+
+Combinational loop found : 6
+
+	Net digital[1] 
+
+	Instance \NES_inst/digital_7__I_0_i2 
+
+Combinational loop found : 7
+
+	Net digital[0] 
+
+	Instance \NES_inst/digital_7__I_0_i1 
 
 Combinational loop found : 8
 
@@ -538,27 +538,26 @@ Combinational loop found : 8
 
 	Instance \NES_inst/digital_7__I_0_i8 
 
-Duplicate register/latch removal. \board_inst/apple_id_i2 is a one-to-one match with \board_inst/apple_id_i4.
-Duplicate register/latch removal. \board_inst/apple_id_i5 is a one-to-one match with \board_inst/apple_id_i2.
+Duplicate register/latch removal. \board_inst/apple_id_res1_i0_i2 is a one-to-one match with \board_inst/apple_id_res2_i0_i2.
 INFO - synthesis: Special Primitives IFD1P3AZ and OFD1P3AZ for ThunderPlus are synthesized using IOL_B.
 
 
 <A name="lse_area"></A><B><U><big>Area Report</big></U></B>
 
 ################### Begin Area Report (top)######################
-Number of register bits => 57 of 5280 (1 % )
-CCU2 => 93
-FD1P3XZ => 57
+Number of register bits => 58 of 5280 (1 % )
+CCU2 => 79
+FD1P3XZ => 58
 HSOSC_CORE => 1
 IB => 2
 IOL_B => 1
-LUT4 => 234
-MAC16 => 5
+LUT4 => 213
+MAC16 => 2
 OB => 14
 PLL_B => 1
 ################### End Area Report ##################
-Number of odd-length carry chains : 3
-Number of even-length carry chains : 15
+Number of odd-length carry chains : 2
+Number of even-length carry chains : 13
 
 
 <A name="lse_clock"></A><B><U><big>Clock Report</big></U></B>
@@ -574,23 +573,23 @@ Clock Enable Nets
 Number of Clock Enables: 0
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : display_inst/vga_init/n2801, loads : 21
-  Net : display_inst/vga_init/column_cnt[4], loads : 14
-  Net : display_inst/vga_init/column_cnt[9], loads : 12
-  Net : display_inst/vga_init/column_cnt[6], loads : 12
+  Net : display_inst/vga_init/n2843, loads : 21
   Net : display_inst/vga_init/row_cnt[4], loads : 11
-  Net : display_inst/vga_init/column_cnt[8], loads : 11
   Net : display_inst/vga_init/column_cnt[7], loads : 11
-  Net : display_inst/vga_init/column_cnt[5], loads : 11
+  Net : display_inst/vga_init/column_cnt[4], loads : 11
   Net : display_inst/vga_init/row_cnt[9], loads : 10
+  Net : display_inst/vga_init/column_cnt[8], loads : 10
+  Net : display_inst/vga_init/column_cnt[6], loads : 10
   Net : NES_inst/NESclk, loads : 10
+  Net : display_inst/vga_init/n2993, loads : 10
+  Net : display_inst/vga_init/column_cnt[9], loads : 9
 ################### End Clock Report ##################
 
-Peak Memory Usage: 172 MB
+Peak Memory Usage: 145 MB
 
 --------------------------------------------------------------
-Total CPU Time: 5 secs 
-Total REAL Time: 6 secs 
+Total CPU Time: 4 secs 
+Total REAL Time: 5 secs 
 --------------------------------------------------------------
 
 

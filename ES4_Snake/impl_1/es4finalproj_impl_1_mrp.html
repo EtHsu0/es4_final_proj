@@ -47,7 +47,7 @@ Target Device:        iCE40UP5KSG48
 Target Performance:   High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 3.2.1.217.3
-Mapped on: Tue Dec  6 21:39:43 2022
+Mapped on: Tue Dec  6 21:57:54 2022
 
 
 <A name="mrp_di"></A><B><U><big>Design Information</big></U></B>
@@ -57,12 +57,13 @@ Command line:   map -i es4finalproj_impl_1_syn.udb -pdc
      es4finalproj_impl_1_map.udb -mp es4finalproj_impl_1.mrp -hierrpt -gui
 
 <A name="mrp_ds"></A><B><U><big>Design Summary</big></U></B>
-   Number of slice registers:  57 out of  5280 (1%)
+   Number of slice registers:  58 out of  5280 (1%)
    Number of I/O registers:      1 out of   117 (1%)
-   Number of LUT4s:           430 out of  5280 (8%)
-      Number of logic LUT4s:             236
-      Number of inserted feedthru LUT4s:   8
-      Number of ripple logic:             93 (186 LUT4s)
+   Number of LUT4s:           381 out of  5280 (7%)
+      Number of logic LUT4s:             215
+      Number of inserted feedthru LUT4s:   7
+      Number of replicated LUT4s:          1
+      Number of ripple logic:             79 (158 LUT4s)
    Number of IO sites used:   16 out of 39 (41%)
       Number of IO sites used for general PIO: 16
       Number of IO sites used for I3C: 0 out of 2 (0%)
@@ -72,7 +73,7 @@ Command line:   map -i es4finalproj_impl_1_syn.udb -pdc
       (note: If RGB LED drivers are not used, sites can be used as OD outputs,
        see TN1288 iCE40 LED Driver Usage Guide)
       Number of IO sites used for PIO+I3C+OD+RGB: 16 out of 39 (41%)
-   Number of DSPs:             5 out of 8 (62%)
+   Number of DSPs:             2 out of 8 (25%)
    Number of I2Cs:             0 out of 2 (0%)
    Number of High Speed OSCs:  1 out of 1 (100%)
    Number of Low Speed OSCs:   0 out of 1 (0%)
@@ -85,39 +86,38 @@ Command line:   map -i es4finalproj_impl_1_syn.udb -pdc
    Number of EBRs:             0 out of 30 (0%)
    Number of PLLs:             1 out of 1 (100%)
    Number of Clocks:  4
-      Net CLK: 18 loads, 18 rising, 0 falling (Driver: Pin HSOSC_inst/CLKHF)
+      Net CLK: 19 loads, 19 rising, 0 falling (Driver: Pin HSOSC_inst/CLKHF)
       Net NES_inst.NESclk: 8 loads, 8 rising, 0 falling (Driver: Pin
-     NES_inst.count_277_372__i8/Q)
+     NES_inst.count_249_348__i8/Q)
       Net display_inst.clk: 15 loads, 15 rising, 0 falling (Driver: Pin
      display_inst.pll_init.lscc_pll_inst.u_PLL_B/OUTGLOBAL)
       Net pll_in_clock_c: 1 loads, 1 rising, 0 falling (Driver: Port
      pll_in_clock)
    Number of Clock Enables:  3
-      Net VCC_net: 1 loads, 0 SLICEs
       Net NES_inst.output_7__N_34: 8 loads, 7 SLICEs
-      Net display_inst.vga_init.n2801: 6 loads, 6 SLICEs
-   Number of LSRs:  9
-      Net n2670: 1 loads, 1 SLICEs
-      Net board_inst.n2388: 2 loads, 2 SLICEs
-      Net board_inst.button[3]: 1 loads, 1 SLICEs
+      Net VCC_net: 1 loads, 0 SLICEs
+      Net display_inst.vga_init.n2843: 6 loads, 6 SLICEs
+   Number of LSRs:  8
+      Net n25: 1 loads, 1 SLICEs
+      Net board_inst.n4: 1 loads, 1 SLICEs
 
-      Net board_inst.n2368: 1 loads, 1 SLICEs
-      Net n2946: 1 loads, 1 SLICEs
-      Net display_inst.vga_init.n2801: 6 loads, 6 SLICEs
-      Net display_inst.vga_init.n2953: 6 loads, 6 SLICEs
+      Net board_inst.n2990: 2 loads, 2 SLICEs
+      Net n2989: 1 loads, 1 SLICEs
       Net display_inst.vga_init.VSYNC_N_235: 1 loads, 1 SLICEs
+      Net display_inst.vga_init.n2843: 6 loads, 6 SLICEs
+      Net display_inst.vga_init.n2993: 6 loads, 6 SLICEs
       Net display_inst.vga_init.HSYNC_N_232: 1 loads, 1 SLICEs
    Top 10 highest fanout non-clock nets:
-      Net VCC_net: 87 loads
-      Net column_cnt[4]: 16 loads
-      Net column_cnt[6]: 14 loads
-      Net column_cnt[9]: 14 loads
-      Net row_cnt[4]: 14 loads
-      Net column_cnt[5]: 13 loads
+      Net VCC_net: 67 loads
+      Net column_cnt[4]: 13 loads
       Net column_cnt[7]: 13 loads
-      Net column_cnt[8]: 13 loads
-      Net display_inst.vga_init.n2801: 13 loads
-      Net row_cnt[9]: 13 loads
+      Net display_inst.vga_init.n2843: 13 loads
+      Net row_cnt[4]: 13 loads
+      Net column_cnt[6]: 12 loads
+      Net column_cnt[8]: 12 loads
+      Net row_cnt[9]: 12 loads
+      Net column_cnt[2]: 11 loads
+      Net column_cnt[3]: 11 loads
 
 
 
@@ -237,21 +237,15 @@ OSC 1:                                 Pin/Node Value
 <A name="mrp_asic"></A><B><U><big>ASIC Components</big></U></B>
 ---------------
 
-Instance Name: HSOSC_inst
-         Type: HFOSC
 Instance Name: NES_inst/output_i0_i0
          Type: IOLOGIC
+Instance Name: HSOSC_inst
+         Type: HFOSC
 Instance Name: display_inst/pll_init/lscc_pll_inst/u_PLL_B
          Type: PLL
-Instance Name: display_inst/pattern_gen_initial/mult_7
+Instance Name: display_inst/pattern_gen_initial/mult_105
          Type: DSP
-Instance Name: display_inst/pattern_gen_initial/mult_68
-         Type: DSP
-Instance Name: display_inst/pattern_gen_initial/mult_8
-         Type: DSP
-Instance Name: display_inst/pattern_gen_initial/mult_107
-         Type: DSP
-Instance Name: display_inst/pattern_gen_initial/mult_106
+Instance Name: display_inst/pattern_gen_initial/mult_104
          Type: DSP
 
 
@@ -260,8 +254,14 @@ Instance Name: display_inst/pattern_gen_initial/mult_106
 -------------------------
 
    Total CPU Time: 1 secs
-   Total REAL Time: 2 secs
-   Peak Memory Usage: 64 MB
+   Total REAL Time: 0 secs
+   Peak Memory Usage: 63 MB
+
+
+
+
+
+
 
 
 
