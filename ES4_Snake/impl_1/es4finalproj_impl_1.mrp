@@ -4,14 +4,14 @@ Target Vendor:        LATTICE
 Target Device:        iCE40UP5KSG48
 Target Performance:   High-Performance_1.2V
 
-Mapper:    version Radiant Software (64-bit) 3.0.0.24.1
-Mapped on: Wed Dec  7 18:18:59 2022
+Mapper:    version Radiant Software (64-bit) 3.2.1.217.3
+Mapped on: Wed Dec  7 18:32:08 2022
 
 Design Information
 ------------------
 
-Command line:   map es4finalproj_impl_1_syn.udb
-     C:/Users/iqin01/Desktop/es4_final_proj-main/ES4_Snake/ports.pdc -o
+Command line:   map -i es4finalproj_impl_1_syn.udb -pdc
+     C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/ports.pdc -o
      es4finalproj_impl_1_map.udb -mp es4finalproj_impl_1.mrp -hierrpt -gui
 
 Design Summary
@@ -58,8 +58,8 @@ Design Summary
       Net board_inst.n117044: 2 loads, 2 SLICEs
       Net board_inst.n82028: 1 loads, 1 SLICEs
       Net game_State[0]: 6 loads, 6 SLICEs
-      Net board_inst.snakePos_inst.n160781: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n97220: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n160751: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n97218: 1 loads, 1 SLICEs
 
                                     Page 1
 
@@ -75,7 +75,7 @@ Design Summary (cont)
       Net NES_inst.output_7__N_34: 7 loads, 6 SLICEs
    Number of LSRs:  8
       Net board_inst.apple_id_8__N_36[5]: 3 loads, 3 SLICEs
-      Net board_inst.n160759: 1 loads, 1 SLICEs
+      Net board_inst.n160729: 1 loads, 1 SLICEs
       Net board_inst.snakePos_inst.digital_in_3__N_437: 1 loads, 1 SLICEs
       Net board_inst.snakePos_inst.prev_dir[0]: 1 loads, 1 SLICEs
       Net display_inst.n82061: 6 loads, 6 SLICEs
@@ -97,12 +97,15 @@ Design Summary (cont)
 
 
 
-   Number of warnings:  3
+   Number of warnings:  4
    Number of errors:    0
 
 Design Errors/Warnings
 ----------------------
 
+WARNING - map:
+     C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/ports.pdc (10) :
+     No port matched 'delete_me'.
 WARNING - map: No port matched 'delete_me'.
 WARNING - map: Can't resolve object 'delete_me' in constraint 'ldc_set_location
      -site {37} [get_ports delete_me]'.
@@ -116,16 +119,13 @@ IO (PIO) Attributes
 | IO Name             | Direction | Levelmode |  IO   |  IO   | Special   |
 |                     |           |  IO_TYPE  |  REG  |  DDR  | IO Buffer |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| VSYNC               | OUTPUT    | LVCMOS33  |       |       |           |
+| VSYNC               | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| HSYNC               | OUTPUT    | LVCMOS33  |       |       |           |
+| HSYNC               | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| pll_outcore_o       | OUTPUT    | LVCMOS33  |       |       |           |
+| pll_outcore_o       | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| continCLK           | OUTPUT    | LVCMOS33  |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| latch               | OUTPUT    | LVCMOS33  |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
+| continCLK           | OUTPUT    |           |       |       |           |
 
                                     Page 2
 
@@ -135,27 +135,30 @@ IO (PIO) Attributes
 
 IO (PIO) Attributes (cont)
 --------------------------
-| pll_in_clock        | INPUT     | LVCMOS33  |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| data                | INPUT     | LVCMOS33  | I     |       |           |
+| latch               | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| rgb[0]              | OUTPUT    | LVCMOS33  |       |       |           |
+| pll_in_clock        | INPUT     |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| rgb[1]              | OUTPUT    | LVCMOS33  |       |       |           |
+| data                | INPUT     |           | I     |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| rgb[2]              | OUTPUT    | LVCMOS33  |       |       |           |
+| rgb[0]              | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| rgb[3]              | OUTPUT    | LVCMOS33  |       |       |           |
+| rgb[1]              | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| rgb[4]              | OUTPUT    | LVCMOS33  |       |       |           |
+| rgb[2]              | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| rgb[5]              | OUTPUT    | LVCMOS33  |       |       |           |
+| rgb[3]              | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| delete_me[0]        | OUTPUT    | LVCMOS33  |       |       |           |
+| rgb[4]              | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| delete_me[1]        | OUTPUT    | LVCMOS33  |       |       |           |
+| rgb[5]              | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| delete_me[2]        | OUTPUT    | LVCMOS33  |       |       |           |
+| delete_me[0]        | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| delete_me[1]        | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| delete_me[2]        | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 
 PLL/DLL Summary
@@ -178,20 +181,17 @@ PLL 1:                                 Pin/Node Value
   Lock Signal:                                  NONE
   Input Clock Frequency (MHz):                  NA
   Reference Divider:                            0
-  Feedback Divider:                             0
-  VCO Divider:                                  1
+  Feedback Divider:                             66
+  VCO Divider:                                  5
   ENABLE_ICEGATE_PORTA:                         0
   ENABLE_ICEGATE_PORTB:                         0
-  PLLOUT_SELECT_PORTA:                          SHIFTREG_0deg
-  PLLOUT_SELECT_PORTB:                          SHIFTREG_0deg
+  PLLOUT_SELECT_PORTA:                          GENCLK
+  PLLOUT_SELECT_PORTB:                          GENCLK
   SHIFTREG_DIV_MODE:                            0
   DELAY_ADJUSTMENT_MODE_RELATIVE:               FIXED
   FDA_RELATIVE:                                 0
   FEEDBACK_PATH:                                SIMPLE
   DELAY_ADJUSTMENT_MODE_FEEDBACK:               FIXED
-  FDA_FEEDBACK:                                 0
-  FILTER_RANGE:                                 0
-  EXTERNAL_DIVIDE_FACTOR:                       NONE
 
                                     Page 3
 
@@ -201,6 +201,9 @@ PLL 1:                                 Pin/Node Value
 
 PLL/DLL Summary (cont)
 ----------------------
+  FDA_FEEDBACK:                                 0
+  FILTER_RANGE:                                 1
+  EXTERNAL_DIVIDE_FACTOR:                       NONE
   TEST Mode:                                    0
 
 OSC Summary
@@ -230,12 +233,9 @@ Instance Name: HSOSC_inst
 Run Time and Memory Usage
 -------------------------
 
-   Total CPU Time: 0 secs
-   Total REAL Time: 0 secs
-   Peak Memory Usage: 67 MB
-
-
-
+   Total CPU Time: 2 secs
+   Total REAL Time: 2 secs
+   Peak Memory Usage: 72 MB
 
 
 
@@ -269,5 +269,5 @@ Copyright (c) 1995-2001 Lucent
      Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems
      All rights reserved.
-Copyright (c) 2002-2021 Lattice Semiconductor
+Copyright (c) 2002-2022 Lattice Semiconductor
      Corporation,  All rights reserved.
