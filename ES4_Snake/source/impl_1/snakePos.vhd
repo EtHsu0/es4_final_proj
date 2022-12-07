@@ -35,7 +35,7 @@ architecture synth of snakepos is
 signal snake_head: unsigned(6 downto 0) := 7d"44";
 signal snake_tail: unsigned(6 downto 0) := 7d"42";
 
-TYPE DirType is (UP, DOWN, LEFT, RIGHT); -- Need to fix this!
+TYPE DirType is (UP, DOWN, LEFT, RIGHT);
 TYPE DirArray is ARRAY (0 to 99) of DirType;
 
 signal prev_dir: unsigned(1 downto 0) := "11";
@@ -77,7 +77,7 @@ begin
 			snake_coord := snake_head;
             snake_arr(to_integer(snake_coord)) <= '1';
 
-			for i in (0)to (99) loop
+			for i in 0 to 99 loop
 			  exit when i = arr_length;
               case snake_dir_arr(i) is
                  when UP => snake_coord := snake_coord - 10;
