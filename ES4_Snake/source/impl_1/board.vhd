@@ -58,52 +58,37 @@ begin
 		    if game_state = "00" then
 				apple_id <= 9b"1_0111_0100";
 				reset <= '1';
-				
-			else
-			reset <= '0';
-            if digital_in(0) = '0' then
-                button <= RIGHT;
-            elsif digital_in(1) = '0' then
-                button <= LEFT;
-            elsif digital_in(2) = '0' then
-                button <= DOWN;
-            elsif digital_in(3) = '0' then
-                button <= UP;
-            elsif digital_in(4) = '0' then
-                button <= START;
-            elsif digital_in(5) = '0' then
-                button <= SEL;
-            elsif digital_in(6) = '0' then
-                button <= B;
-            elsif digital_in(7) = '0' then
-                button <= A;
-            else
-                button <= NONE;
-            end if;
-
-            case button is
-                when START => game_state <= "01";
-                when UP => apple_id <= 9b"1_0101_0100";
-                            dir <= "00";
-                when DOWN => apple_id <= 9b"1_0100_0101";
-                            dir <= "01";
-                when LEFT => apple_id <= 9b"1_0101_0101";
-                            dir <= "10";
-                when RIGHT => apple_id <= 9b"1_0100_0100";
-                            dir <= "11";
-                when B => game_state <= "00";
-                -- when NONE => game_state <;--reset <= '0';
-            -- snake_arr(44) <= '1';
-            --                     snake_arr(43) <= '1';
-            --                     snake_arr(42) <= '1';
-            --                    apple_id <= 9b"1_0000_0000";
-            end case;
+                if button = START then
+                    game_state = "01";
+                end if;
+			elsif game_state = "01" then;
+			    reset <= '0';
+                case button is
+                    -- when START => game_state <= "01";
+                    when UP => apple_id <= 9b"1_0101_0100";
+                                dir <= "00";
+                    when DOWN => apple_id <= 9b"1_0100_0101";
+                                dir <= "01";
+                    when LEFT => apple_id <= 9b"1_0101_0101";
+                                dir <= "10";
+                    when RIGHT => apple_id <= 9b"1_0100_0100";
+                                dir <= "11";
+                    when B => game_state <= "00";
+                end case;
             end if;
         end if;
     end process;
     
     --reset <= '1' when button = START else '0';
-	
+    button <= RIGHT when digital_in(0) = '0' else
+            LEFT when digital_in(2) = '0' else
+            DOWN when digital_in(3) = '0' else
+            UP when digital_in(4) = '0' else
+            START when digital_in(5) = '0' else
+            SEL when digital_in(6) = '0' else
+            B when digital_in(7) = '0' else
+            A when digital_in(8) = '0' else
+            NONE;
 	snake_arr_out <= snake_arr;
 	apple_out <= apple_id;
 
