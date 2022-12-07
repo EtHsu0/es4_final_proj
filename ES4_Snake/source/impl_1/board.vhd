@@ -89,11 +89,18 @@ begin
             B when digital_in(7) = '0' else
             A when digital_in(8) = '0' else
             NONE;
-	snake_arr_out <= snake_arr;
-	apple_out <= apple_id;
 
 
-    snakePos_inst: snakePos port map(clk, reset, grow_snake, dir, snake_head, snake_tail, snake_arr, snake_dead);
+    snakePos_inst: snakePos port map
+        (
+            clk => clk, 
+            reset_in => reset, 
+            grow_snake_in => grow_snake,
+            dir_in => dir,
+            snake_head_out => snake_head,
+            snake_tail_out => snake_tail,
+            snake_arr_out => snake_arr,
+            snake_dead_out => snake_dead);
     --process (snake_head) is begin
         -- If snake head is on apple's coordinate
         --if snake_head_out = apple_out then
@@ -113,5 +120,6 @@ begin
     scores_out <= "0";
     snake_head_out <= snake_head;
     snake_arr_out <= snake_arr;
+	apple_out <= apple_id;
 
 end;
