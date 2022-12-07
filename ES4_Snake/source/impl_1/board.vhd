@@ -123,8 +123,7 @@ begin
 
     
 
-    snakePos_inst: snakePos port map (counter(29), reset, grow_snake, dir, snake_head, snake_tail, snake_arr_out, snake_dead);
-
+    snakePos_inst: snakePos port map (clk, reset, grow_snake, dir, snake_head, snake_tail, snake_arr, snake_dead);
     --process (snake_head) is begin
         -- If snake head is on apple's coordinate
         --if snake_head_out = apple_out then
