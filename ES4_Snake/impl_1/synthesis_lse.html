@@ -48,7 +48,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Tue Dec  6 20:47:45 2022
+Tue Dec  6 21:01:21 2022
 
 
 Command Line:  C:\lscc\radiant\3.2\ispfpga\bin\nt64\synthesis.exe -f es4finalproj_impl_1_lattice.synproj -gui -msgset C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/promote.xml 
@@ -379,14 +379,14 @@ WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/
 Mapped 2 multiplier(s)
 
 
-######## Missing driver on net n1493. Patching with GND.
-######## Missing driver on net n1490. Patching with GND.
-######## Missing driver on net n1487. Patching with GND.
-######## Missing driver on net n1484. Patching with GND.
-WARNING - synthesis: Bit 3 of Register \board_inst/apple_id_res1_i0 is stuck at Zero
-WARNING - synthesis: Bit 1 of Register \board_inst/apple_id_res1_i0 is stuck at Zero
+######## Missing driver on net n1514. Patching with GND.
+######## Missing driver on net n1511. Patching with GND.
+######## Missing driver on net n1508. Patching with GND.
+######## Missing driver on net n1505. Patching with GND.
 WARNING - synthesis: Bit 3 of Register \board_inst/apple_id_res2_i0 is stuck at Zero
 WARNING - synthesis: Bit 1 of Register \board_inst/apple_id_res2_i0 is stuck at Zero
+WARNING - synthesis: Bit 3 of Register \board_inst/apple_id_res1_i0 is stuck at Zero
+WARNING - synthesis: Bit 1 of Register \board_inst/apple_id_res1_i0 is stuck at Zero
 Combinational loop found : 1
 
 	Net digital[6] 
@@ -442,19 +442,19 @@ INFO - synthesis: Special Primitives IFD1P3AZ and OFD1P3AZ for ThunderPlus are s
 <A name="lse_area"></A><B><U><big>Area Report</big></U></B>
 
 ################### Begin Area Report (top)######################
-Number of register bits => 195 of 5280 (3 % )
-CCU2 => 99
-FD1P3XZ => 195
+Number of register bits => 189 of 5280 (3 % )
+CCU2 => 105
+FD1P3XZ => 189
 HSOSC_CORE => 1
 IB => 2
 IOL_B => 1
-LUT4 => 467
+LUT4 => 482
 MAC16 => 2
 OB => 14
 PLL_B => 1
 ################### End Area Report ##################
-Number of odd-length carry chains : 3
-Number of even-length carry chains : 14
+Number of odd-length carry chains : 4
+Number of even-length carry chains : 15
 
 
 <A name="lse_clock"></A><B><U><big>Clock Report</big></U></B>
@@ -471,18 +471,18 @@ Number of Clock Enables: 0
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
   Net : board_inst/snakePos_inst/snakeCLK, loads : 108
-  Net : display_inst/vga_init/n5342, loads : 21
+  Net : board_inst/snakePos_inst/n11, loads : 24
+  Net : board_inst/snakePos_inst/n11_adj_554, loads : 24
+  Net : display_inst/vga_init/row_cnt[4], loads : 21
+  Net : display_inst/vga_init/column_cnt[7], loads : 21
+  Net : display_inst/vga_init/n5045, loads : 21
+  Net : display_inst/vga_init/row_cnt[6], loads : 20
+  Net : display_inst/vga_init/row_cnt[5], loads : 20
   Net : display_inst/vga_init/column_cnt[4], loads : 20
-  Net : display_inst/vga_init/row_cnt[4], loads : 19
-  Net : display_inst/vga_init/row_cnt[6], loads : 18
-  Net : display_inst/vga_init/row_cnt[5], loads : 18
-  Net : display_inst/vga_init/column_cnt[7], loads : 18
-  Net : display_inst/vga_init/row_cnt[7], loads : 17
-  Net : display_inst/vga_init/column_cnt[6], loads : 17
-  Net : display_inst/vga_init/row_cnt[9], loads : 16
+  Net : display_inst/vga_init/column_cnt[8], loads : 19
 ################### End Clock Report ##################
 
-Peak Memory Usage: 137 MB
+Peak Memory Usage: 141 MB
 
 --------------------------------------------------------------
 Total CPU Time: 5 secs 
