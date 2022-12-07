@@ -44,7 +44,7 @@ architecture synth of board is
     end component;
 
     signal apple_id: unsigned (8 downto 0) := 9d"0";
-    signal snake_head: unsigned (6 downto 0);
+    signal snake_head: unsigned (6 downto 0) := 6d"44";
     signal snake_arr: std_logic_vector(99 downto 0) := 100d"0"; -- := (40 => '1', 41 => '1', 42 => '1'),(others => '0'); -- TODO: Fix Syntax Error!
     signal counter: unsigned (29 downto 0) := 30d"0";
     signal reset: std_logic := '1';
@@ -68,10 +68,9 @@ begin
     begin
         if rising_edge(clk) then
             counter <= counter + 1;
-            apple_id <= 9b"1_1001_0111";
-            snake_arr(43) <= '1';
-            snake_arr(42) <= '1';
-            snake_arr(41) <= '1';
+            apple_id <= 9b"1_0101_0100";
+            apple_id(1 downto 0) <= dir;
+            snake_arr(to_integer(counter)) <= '1';
         end if;
     end process;
 	
@@ -104,7 +103,7 @@ begin
             --end loop;
         --end if;
    -- end process;
-    -- game_state <= "00";
-    -- scores_out <= "0";
-    -- snake_head_out <= snake_head;
+    game_state_out <= "00";
+    scores_out <= "0";
+    snake_head_out <= snake_head;
 end;

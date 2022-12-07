@@ -99,8 +99,6 @@ begin
                                 snake_arr_out => snake_arr,
                                 scores_out => scores);
 
-    -- apple <= 9b"1_0011_0011";
-
     display_inst: display port map (pll_in_clock, pll_outcore_o, HSYNC, VSYNC, rgb, apple, snake_head, snake_arr, scores, game_state);
 
 	delete_me <= apple(8 downto 7);
