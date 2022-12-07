@@ -47,7 +47,7 @@ Target Device:        iCE40UP5KSG48
 Target Performance:   High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 3.2.1.217.3
-Mapped on: Tue Dec  6 18:54:11 2022
+Mapped on: Tue Dec  6 19:18:27 2022
 
 
 <A name="mrp_di"></A><B><U><big>Design Information</big></U></B>
@@ -57,11 +57,11 @@ Command line:   map -i es4finalproj_impl_1_syn.udb -pdc
      es4finalproj_impl_1_map.udb -mp es4finalproj_impl_1.mrp -hierrpt -gui
 
 <A name="mrp_ds"></A><B><U><big>Design Summary</big></U></B>
-   Number of slice registers:  44 out of  5280 (1%)
+   Number of slice registers:  43 out of  5280 (1%)
    Number of I/O registers:      0 out of   117 (0%)
-   Number of LUT4s:           352 out of  5280 (7%)
-      Number of logic LUT4s:             198
-      Number of ripple logic:             77 (154 LUT4s)
+   Number of LUT4s:           256 out of  5280 (5%)
+      Number of logic LUT4s:             138
+      Number of ripple logic:             59 (118 LUT4s)
    Number of IO sites used:   15 out of 39 (38%)
       Number of IO sites used for general PIO: 15
       Number of IO sites used for I3C: 0 out of 2 (0%)
@@ -71,7 +71,7 @@ Command line:   map -i es4finalproj_impl_1_syn.udb -pdc
       (note: If RGB LED drivers are not used, sites can be used as OD outputs,
        see TN1288 iCE40 LED Driver Usage Guide)
       Number of IO sites used for PIO+I3C+OD+RGB: 15 out of 39 (38%)
-   Number of DSPs:             2 out of 8 (25%)
+   Number of DSPs:             0 out of 8 (0%)
    Number of I2Cs:             0 out of 2 (0%)
    Number of High Speed OSCs:  1 out of 1 (100%)
    Number of Low Speed OSCs:   0 out of 1 (0%)
@@ -84,31 +84,31 @@ Command line:   map -i es4finalproj_impl_1_syn.udb -pdc
    Number of EBRs:             0 out of 30 (0%)
    Number of PLLs:             1 out of 1 (100%)
    Number of Clocks:  3
-      Net CLK: 12 loads, 12 rising, 0 falling (Driver: Pin HSOSC_inst/CLKHF)
+      Net CLK: 11 loads, 11 rising, 0 falling (Driver: Pin HSOSC_inst/CLKHF)
       Net display_inst.clk: 15 loads, 15 rising, 0 falling (Driver: Pin
      display_inst.pll_init.lscc_pll_inst.u_PLL_B/OUTGLOBAL)
       Net pll_in_clock_c: 1 loads, 1 rising, 0 falling (Driver: Port
      pll_in_clock)
    Number of Clock Enables:  2
       Net VCC_net: 1 loads, 0 SLICEs
-      Net display_inst.vga_init.n2400: 6 loads, 6 SLICEs
+      Net display_inst.vga_init.n2058: 6 loads, 6 SLICEs
    Number of LSRs:  4
-      Net display_inst.vga_init.n2400: 6 loads, 6 SLICEs
-      Net display_inst.vga_init.n2428: 6 loads, 6 SLICEs
+      Net display_inst.vga_init.n2058: 6 loads, 6 SLICEs
+      Net display_inst.vga_init.n3765: 6 loads, 6 SLICEs
       Net display_inst.vga_init.HSYNC_N_83: 1 loads, 1 SLICEs
-      Net display_inst.VSYNC_N_86: 1 loads, 1 SLICEs
+      Net display_inst.vga_init.VSYNC_N_86: 1 loads, 1 SLICEs
    Top 10 highest fanout non-clock nets:
-      Net VCC_net: 72 loads
-      Net column_cnt[5]: 14 loads
+      Net VCC_net: 49 loads
+      Net display_inst.vga_init.n2058: 13 loads
 
-      Net column_cnt[8]: 13 loads
-      Net display_inst.vga_init.n2400: 13 loads
-      Net row_cnt[9]: 13 loads
-      Net column_cnt[3]: 12 loads
-      Net column_cnt[4]: 12 loads
-      Net column_cnt[6]: 12 loads
-      Net column_cnt[7]: 12 loads
-      Net column_cnt[9]: 12 loads
+      Net display_inst.column_cnt[9]: 10 loads
+      Net display_inst.column_cnt[8]: 9 loads
+      Net display_inst.column_cnt[5]: 8 loads
+      Net display_inst.column_cnt[6]: 8 loads
+      Net display_inst.column_cnt[7]: 8 loads
+      Net display_inst.row_cnt[4]: 8 loads
+      Net display_inst.row_cnt[5]: 8 loads
+      Net display_inst.row_cnt[9]: 8 loads
 
 
 
@@ -140,15 +140,19 @@ WARNING - map: Top module port &apos;data&apos; does not connect to anything.
 | IO Name             | Direction | Levelmode |  IO   |  IO   | Special   |
 |                     |           |  IO_TYPE  |  REG  |  DDR  | IO Buffer |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| delete_me[1]        | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
 | delete_me[2]        | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| delete_me[1]        | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | VSYNC               | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | HSYNC               | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | pll_outcore_o       | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| continCLK           | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| latch               | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | pll_in_clock        | INPUT     |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
@@ -157,19 +161,15 @@ WARNING - map: Top module port &apos;data&apos; does not connect to anything.
 | rgb[1]              | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | rgb[2]              | OUTPUT    |           |       |       |           |
+
 +---------------------+-----------+-----------+-------+-------+-----------+
 | rgb[3]              | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | rgb[4]              | OUTPUT    |           |       |       |           |
-
 +---------------------+-----------+-----------+-------+-------+-----------+
 | rgb[5]              | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | delete_me[0]        | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| continCLK           | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| latch               | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 
 
@@ -231,10 +231,6 @@ Instance Name: HSOSC_inst
          Type: HFOSC
 Instance Name: display_inst/pll_init/lscc_pll_inst/u_PLL_B
          Type: PLL
-Instance Name: display_inst/pattern_gen_initial/mult_106
-         Type: DSP
-Instance Name: display_inst/pattern_gen_initial/mult_104
-         Type: DSP
 
 
 
@@ -243,7 +239,11 @@ Instance Name: display_inst/pattern_gen_initial/mult_104
 
    Total CPU Time: 0 secs
    Total REAL Time: 0 secs
-   Peak Memory Usage: 63 MB
+   Peak Memory Usage: 62 MB
+
+
+
+
 
 
 

@@ -5,7 +5,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Tue Dec  6 18:54:06 2022
+Tue Dec  6 19:18:23 2022
 
 
 Command Line:  C:\lscc\radiant\3.2\ispfpga\bin\nt64\synthesis.exe -f es4finalproj_impl_1_lattice.synproj -gui -msgset C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/promote.xml 
@@ -181,6 +181,7 @@ INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/sou
 INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(29): analyzing architecture synth. VHDL-1010
 INFO - synthesis: The default VHDL library search path is now "C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/impl_1". VHDL-1504
 Top module language type = VHDL.
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(71): case statement does not cover all choices. 'others' clause is needed. VHDL-1037
 Top module name (VHDL, mixed language): top
                                                          
 
@@ -207,15 +208,7 @@ Top module name (VHDL, mixed language): top
 
 
 WARNING - synthesis: Initial value found on net gnd will be ignored due to unrecognized driver type
-WARNING - synthesis: Bit 8 of Register apple_id is stuck at One
-WARNING - synthesis: Bit 7 of Register apple_id is stuck at One
-WARNING - synthesis: Bit 6 of Register apple_id is stuck at Zero
-WARNING - synthesis: Bit 5 of Register apple_id is stuck at Zero
-WARNING - synthesis: Bit 4 of Register apple_id is stuck at One
-WARNING - synthesis: Bit 3 of Register apple_id is stuck at Zero
-WARNING - synthesis: Bit 2 of Register apple_id is stuck at One
-WARNING - synthesis: Bit 1 of Register apple_id is stuck at One
-WARNING - synthesis: Bit 0 of Register apple_id is stuck at One
+WARNING - synthesis: Initial value found on net gnd_2 will be ignored due to unrecognized driver type
 WARNING - synthesis: I/O Port delete_me[2] 's net has no driver and is unused.
 WARNING - synthesis: I/O Port delete_me[1] 's net has no driver and is unused.
 WARNING - synthesis: I/O Port delete_me[0] 's net has no driver and is unused.
@@ -229,26 +222,20 @@ WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/
 
 
 
-Mapped 2 multiplier(s)
-
-
-######## Missing driver on net n484. Patching with GND.
-######## Missing driver on net n481. Patching with GND.
 WARNING - synthesis: I/O Port data 's net has no driver and is unused.
 
 ################### Begin Area Report (top)######################
-Number of register bits => 44 of 5280 (0 % )
-CCU2 => 77
-FD1P3XZ => 44
+Number of register bits => 43 of 5280 (0 % )
+CCU2 => 59
+FD1P3XZ => 43
 HSOSC_CORE => 1
 IB => 1
-LUT4 => 195
-MAC16 => 2
+LUT4 => 136
 OB => 14
 PLL_B => 1
 ################### End Area Report ##################
-Number of odd-length carry chains : 4
-Number of even-length carry chains : 11
+Number of odd-length carry chains : 2
+Number of even-length carry chains : 9
 
 ################### Begin Clock Report ######################
 Clock Nets
@@ -261,21 +248,21 @@ Clock Enable Nets
 Number of Clock Enables: 0
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : display_inst/vga_init/n2400, loads : 21
-  Net : display_inst/vga_init/row_cnt[9], loads : 11
-  Net : display_inst/vga_init/column_cnt[8], loads : 11
-  Net : display_inst/vga_init/column_cnt[5], loads : 11
-  Net : display_inst/vga_init/row_cnt[4], loads : 10
-  Net : display_inst/vga_init/column_cnt[9], loads : 10
-  Net : display_inst/vga_init/column_cnt[7], loads : 10
-  Net : display_inst/vga_init/column_cnt[4], loads : 10
-  Net : display_inst/vga_init/column_cnt[3], loads : 10
-  Net : display_inst/vga_init/column_cnt[2], loads : 10
+  Net : display_inst/vga_init/n2058, loads : 21
+  Net : display_inst/vga_init/n3765, loads : 10
+  Net : display_inst/vga_init/column_cnt[9], loads : 9
+  Net : display_inst/vga_init/column_cnt[8], loads : 8
+  Net : display_inst/pattern_gen_initial/n497_c, loads : 8
+  Net : display_inst/vga_init/column_cnt[5], loads : 7
+  Net : display_inst/vga_init/column_cnt[6], loads : 7
+  Net : display_inst/vga_init/row_cnt[9], loads : 7
+  Net : display_inst/vga_init/row_cnt[5], loads : 7
+  Net : display_inst/vga_init/column_cnt[7], loads : 7
 ################### End Clock Report ##################
 
-Peak Memory Usage: 138 MB
+Peak Memory Usage: 126 MB
 
 --------------------------------------------------------------
 Total CPU Time: 3 secs 
-Total REAL Time: 4 secs 
+Total REAL Time: 3 secs 
 --------------------------------------------------------------
