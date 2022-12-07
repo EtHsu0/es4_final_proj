@@ -8,7 +8,7 @@ use IEEE.numeric_std.all;
 entity snakepos is
     port (
         clk: in std_logic;
-        reset_in: in std_logic;
+        game_state_in: in unsigned(1 downto 0);
 
         grow_snake_in: in std_logic;
 
@@ -59,17 +59,43 @@ begin
     end process;
     snakeCLK <= counter(23);
 
-    process(snakeCLK, reset_in) is
+    process(snakeCLK) is
         variable snake_coord: unsigned(6 downto 0);
-        variable inited: std_logic := '0';
     begin
-        if (reset_in = '1' or inited = '0') then
-            snake_arr <= (44 downto 42 => '1', others => '0');
-            arr_left <= 8d"96";
-            arr_right <= 8d"99";
-            snake_head <= 8d"44";
-            dir_arr <= (others => RIGHT);
-        elsif rising_edge(snakeCLK) then
+
+        if rising_edge(snakeCLK) then
+		    if game_state_in = "00" then
+				snake_arr <= (44 downto 42 => '1', others => '0');
+				snake_dead <= '0';
+				arr_left <= 8d"96";
+				arr_right <= 8d"99";
+				snake_head <= 8d"44";
+				dir_arr <= (others => RIGHT);
+			elsif game_state_in = "01" then
+				if dir_in = "00" then 
+					snake_arr <= (3 downto 0 => '1', others => '0');
+				elsif dir_in = "01" then
+					snake_arr <= (13 downto 10 => '1', others => '0');
+				elsif dir_in = "10" then
+					snake_arr <= (23 downto 20 => '1', others => '0');
+				elsif dir_in = "11" then
+					snake_arr <= (33 downto 30 => '1', others => '0');
+				end if;
+				/*
+				case dir_in is
+					when "00" => snake_dir <= UP;
+					when "01" => snake_dir <= DOWN;
+					when "10" => snake_dir <= LEFT;
+					when "11" => snake_dir <= RIGHT;
+				end case;
+
+				case snake_dir is
+					when UP =>
+				end case;
+				*/
+			else
+				snake_arr <= (73 downto 70 => '1', others => '0');
+			end if;
             -- snake_arr(to_integer(slow_test_counter)) <= '1';
             -- slow_test_counter <= slow_test_counter + 1;
         -- Check direction is valid
@@ -77,19 +103,7 @@ begin
         --     prev_dir <= dir_in;
         -- end if;
         --     -- Convert to type
-            case dir_in is
-                when "00" => snake_dir <= UP;
-                when "01" => snake_dir <= DOWN;
-                when "10" => snake_dir <= LEFT;
-                when "11" => snake_dir <= RIGHT;
-            end case;
 
-            case snake_dir is
-                when UP => snake_arr <= (3 downto 0 => '1', others => '0');
-                when DOWN => snake_arr <= (13 downto 10 => '1', others => '0');
-                when LEFT => snake_arr <= (23 downto 20 => '1', others => '0');
-                when RIGHT => snake_arr <= (33 downto 30 => '1', others => '0');
-            end case;
         --     -- Remove / update tail if we are not growing
         --     if grow_snake_in = '0' then
         --         arr_right <= arr_right - 1;

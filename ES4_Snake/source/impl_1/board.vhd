@@ -21,8 +21,7 @@ architecture synth of board is
     component snakePos is
         port (
             clk: in std_logic;
-			reset_in: in std_logic;
-			grow_snake_in: in std_logic;
+			game_state_in: in unsigned(1 downto 0);			grow_snake_in: in std_logic;
 			dir_in: in unsigned(1 downto 0); 
 			snake_head_out: out unsigned(6 downto 0);
 			snake_tail_out: out unsigned(6 downto 0);
@@ -46,7 +45,7 @@ architecture synth of board is
     -- I need to convert button to dir;
     signal snake_dead: std_logic;
 
-    signal game_State : unsigned(1 downto 0) := "01";
+    signal game_State : unsigned(1 downto 0) := "00";
     --signal game_state: unsigned(1 downto 0);
 
     signal enable: std_logic := '0';
@@ -58,43 +57,45 @@ begin
 		    if game_state = "00" then
 				apple_id <= 9b"1_0111_0100";
 				reset <= '1';
-                if button = START then
+                if digital_in(4) = '0' then
                     game_state <= "01";
                 end if;
 			elsif game_state = "01" then
-			    reset <= '0';
-                case button is
-                    -- when START => game_state <= "01";
-                    when UP => apple_id <= 9b"1_0101_0100";
-                                dir <= "00";
-                    when DOWN => apple_id <= 9b"1_0100_0101";
-                                dir <= "01";
-                    when LEFT => apple_id <= 9b"1_0101_0101";
-                                dir <= "10";
-                    when RIGHT => apple_id <= 9b"1_0100_0100";
-                                dir <= "11";
-                    when B => game_state <= "00";
-                end case;
+			    reset <= '0';	
+				-- RIGHT
+				if digital_in(0) = '0' then
+					 apple_id <= 9b"1_0100_0100";
+					dir <= "11";
+				-- LEFT
+				elsif digital_in(1) = '0' then
+					apple_id <= 9b"1_0101_0101";
+					dir <= "10";
+				-- DOWN
+				elsif digital_in(2) = '0' then
+					apple_id <= 9b"1_0101_0100";
+					dir <= "01";
+				-- UP
+				elsif digital_in(3) = '0' then
+					apple_id <= 9b"1_0100_0101";
+                     dir <= "00";
+				-- B
+				elsif digital_in(6) = '0' then
+					game_state <= "00";	
+				else
+					apple_id <= apple_id;
+				end if;
+				
+				
             end if;
         end if;
     end process;
     
-    --reset <= '1' when button = START else '0';
-    button <= RIGHT when digital_in(0) = '0' else
-            LEFT when digital_in(2) = '0' else
-            DOWN when digital_in(3) = '0' else
-            UP when digital_in(4) = '0' else
-            START when digital_in(5) = '0' else
-            SEL when digital_in(6) = '0' else
-            B when digital_in(7) = '0' else
-            A when digital_in(8) = '0' else
-            NONE;
-
+    --reset <= '1' when button = START else '0'
 
     snakePos_inst: snakePos port map
         (
             clk => clk, 
-            reset_in => reset, 
+            game_state_in => game_state, 
             grow_snake_in => grow_snake,
             dir_in => dir,
             snake_head_out => snake_head,
