@@ -1,104 +1,368 @@
 
-tmcheck -par "es4finalproj_impl_1.par" 
+"C:/lscc/radiant/3.2/tcltk/windows/bin/tclsh" "es4finalproj_impl_1_synthesize.tcl"
 
-bitgen -w "es4finalproj_impl_1.udb" -f "es4finalproj_impl_1.t2b" 
-Loading es4finalproj_impl_1.udb ...
-Loading device for application GENERIC from file 'itpa08.nph' in environment: C:/lscc/radiant/3.2/ispfpga.
-Package Status:                     Preliminary    Version 1.5.
-Performance Hardware Data Status:   Advanced       Version 1.0.
+cpe -f es4finalproj_impl_1.cprj mypll.cprj -a iCE40UP -o es4finalproj_impl_1_cpe.ldc
+    <postMsg mid="35831026" type="Warning" dynamic="0" navigation="0"  />
+Analyzing Verilog file C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v. VERI-1482
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(1): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_addsub.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="1"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_addsub.v(40): " arg1="C:/lscc/radiant/3.2/ip/pmi/../common/adder_subtractor/rtl/lscc_add_sub.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_addsub.v" arg3="40"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(2): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_add.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="2"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_add.v(50): " arg1="C:/lscc/radiant/3.2/ip/pmi/../common/adder/rtl/lscc_adder.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_add.v" arg3="50"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(3): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_complex_mult.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="3"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_complex_mult.v(52): " arg1="C:/lscc/radiant/3.2/ip/pmi/../common/complex_mult/rtl/lscc_complex_mult.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_complex_mult.v" arg3="52"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(4): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_counter.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="4"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_counter.v(39): " arg1="C:/lscc/radiant/3.2/ip/pmi/../common/counter/rtl/lscc_cntr.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_counter.v" arg3="39"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(5): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_fifo.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="5"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_fifo.v(44): " arg1="C:/lscc/radiant/3.2/ip/pmi/../avant/fifo/rtl/lscc_fifo.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_fifo.v" arg3="44"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(6): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_fifo_dc.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="6"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_fifo_dc.v(47): " arg1="C:/lscc/radiant/3.2/ip/pmi/../avant/fifo_dc/rtl/lscc_fifo_dc.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_fifo_dc.v" arg3="47"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(7): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_mac.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="7"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_mac.v(52): " arg1="C:/lscc/radiant/3.2/ip/pmi/../common/mult_accumulate/rtl/lscc_mult_accumulate.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_mac.v" arg3="52"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(8): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_multaddsubsum.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="8"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_multaddsubsum.v(53): " arg1="C:/lscc/radiant/3.2/ip/pmi/../common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_multaddsubsum.v" arg3="53"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(9): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_multaddsub.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="9"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_multaddsub.v(52): " arg1="C:/lscc/radiant/3.2/ip/pmi/../common/mult_add_sub/rtl/lscc_mult_add_sub.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_multaddsub.v" arg3="52"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(10): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_mult.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="10"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_mult.v(51): " arg1="C:/lscc/radiant/3.2/ip/pmi/../common/multiplier/rtl/lscc_multiplier.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_mult.v" arg3="51"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(11): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="11"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp.v(48): " arg1="C:/lscc/radiant/3.2/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp.v" arg3="48"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(12): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="12"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq.v(45): " arg1="C:/lscc/radiant/3.2/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq.v" arg3="45"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(13): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_rom.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="13"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_rom.v(45): " arg1="C:/lscc/radiant/3.2/ip/pmi/../avant/rom/rtl/lscc_rom.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_rom.v" arg3="45"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(14): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_sub.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="14"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_sub.v(50): " arg1="C:/lscc/radiant/3.2/ip/pmi/../common/subtractor/rtl/lscc_subtractor.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_sub.v" arg3="50"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(15): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp_be.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="15"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp_be.v(49): " arg1="C:/lscc/radiant/3.2/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp_be.v" arg3="49"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(16): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq_be.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="16"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq_be.v(45): " arg1="C:/lscc/radiant/3.2/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq_be.v" arg3="45"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(17): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_dsp.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="17"  />
+Analyzing Verilog file C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/mypll/rtl/mypll.v. VERI-1482
+Analyzing Verilog file C:/lscc/radiant/3.2/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v. VERI-1482
+Top module name (Verilog): mypll
+    <postMsg mid="35901018" type="Info" dynamic="2" navigation="2" arg0="C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/mypll/rtl/mypll.v(11): " arg1="mypll" arg2="C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/mypll/rtl/mypll.v" arg3="11"  />
+    <postMsg mid="35901018" type="Info" dynamic="2" navigation="2" arg0="C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/mypll/rtl/mypll.v(105): " arg1="mypll_ipgen_lscc_pll(DIVR=&quot;0&quot;,DIVF=&quot;66&quot;,DIVQ=&quot;5&quot;,FILTER_RANGE=&quot;1&quot;,PLLOUT_SELECT_PORTA=&quot;GENCLK&quot;,PLLOUT_SELECT_PORTB=&quot;GENCLK&quot;,FREQUENCY_PIN_REFERENCECLK=&quot;12.000000&quot;)" arg2="C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/mypll/rtl/mypll.v" arg3="105"  />
+    <postMsg mid="35901018" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v(428): " arg1="PLL_B(PLLOUT_SELECT_PORTA=&quot;GENCLK&quot;,PLLOUT_SELECT_PORTB=&quot;GENCLK&quot;,DIVF=&quot;66&quot;,DIVQ=&quot;5&quot;,FILTER_RANGE=&quot;1&quot;,FREQUENCY_PIN_REFERENCECLK=&quot;12.000000&quot;)" arg2="C:/lscc/radiant/3.2/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v" arg3="428"  />
+Last elaborated design is mypll()
+Source compile complete.
+    <postMsg mid="35831038" type="Info" dynamic="1" navigation="0" arg0="top"  />
+    <postMsg mid="35831026" type="Warning" dynamic="0" navigation="0"  />
+Analyzing Verilog file c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v. VERI-1482
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(1): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_addsub.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="1"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_addsub.v(40): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/adder_subtractor/rtl/lscc_add_sub.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_addsub.v" arg3="40"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(2): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_add.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="2"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_add.v(50): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/adder/rtl/lscc_adder.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_add.v" arg3="50"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(3): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_complex_mult.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="3"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_complex_mult.v(52): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/complex_mult/rtl/lscc_complex_mult.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_complex_mult.v" arg3="52"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(4): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_counter.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="4"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_counter.v(39): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/counter/rtl/lscc_cntr.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_counter.v" arg3="39"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(5): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_fifo.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="5"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_fifo.v(44): " arg1="c:/lscc/radiant/3.2/ip/pmi/../avant/fifo/rtl/lscc_fifo.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_fifo.v" arg3="44"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(6): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_fifo_dc.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="6"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_fifo_dc.v(47): " arg1="c:/lscc/radiant/3.2/ip/pmi/../avant/fifo_dc/rtl/lscc_fifo_dc.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_fifo_dc.v" arg3="47"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(7): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_mac.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="7"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_mac.v(52): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/mult_accumulate/rtl/lscc_mult_accumulate.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_mac.v" arg3="52"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(8): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsubsum.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="8"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsubsum.v(53): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsubsum.v" arg3="53"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(9): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsub.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="9"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsub.v(52): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/mult_add_sub/rtl/lscc_mult_add_sub.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsub.v" arg3="52"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(10): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_mult.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="10"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_mult.v(51): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/multiplier/rtl/lscc_multiplier.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_mult.v" arg3="51"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(11): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="11"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp.v(48): " arg1="c:/lscc/radiant/3.2/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp.v" arg3="48"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(12): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="12"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq.v(45): " arg1="c:/lscc/radiant/3.2/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq.v" arg3="45"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(13): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_rom.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="13"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_rom.v(45): " arg1="c:/lscc/radiant/3.2/ip/pmi/../avant/rom/rtl/lscc_rom.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_rom.v" arg3="45"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(14): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_sub.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="14"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_sub.v(50): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/subtractor/rtl/lscc_subtractor.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_sub.v" arg3="50"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(15): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp_be.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="15"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp_be.v(49): " arg1="c:/lscc/radiant/3.2/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp_be.v" arg3="49"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(16): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq_be.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="16"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq_be.v(45): " arg1="c:/lscc/radiant/3.2/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq_be.v" arg3="45"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(17): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_dsp.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="17"  />
+Analyzing Verilog file mypll.v. VERI-1482
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd. VHDL-1481
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd
+
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(5): " arg1="display" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd" arg3="5"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(21): " arg1="synth" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd" arg3="21"  />
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd. VHDL-1481
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd
+
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd(7): " arg1="nes" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd" arg3="7"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd(20): " arg1="synth" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd" arg3="20"  />
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd. VHDL-1481
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd
+
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd(6): " arg1="pattern_gen" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd" arg3="6"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd(35): " arg1="synth" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd" arg3="35"  />
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/randompos.vhd. VHDL-1481
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/randompos.vhd
+
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/randompos.vhd(8): " arg1="randompos" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/randompos.vhd" arg3="8"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/randompos.vhd(16): " arg1="synth" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/randompos.vhd" arg3="16"  />
+    <postMsg mid="35929000" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/randompos.vhd(28): " arg1="size_res" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/randompos.vhd" arg3="28"  />
+    <postMsg mid="35921259" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ispfpga/vhdl_packages/vh2008/ieee/numeric_std_2008.vhd(1155): " arg1="size_res" arg2="C:/lscc/radiant/3.2/ispfpga/vhdl_packages/vh2008/ieee/numeric_std_2008.vhd" arg3="1155"  />
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd. VHDL-1481
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd
+
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(5): " arg1="top" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd" arg3="5"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(26): " arg1="synth" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd" arg3="26"  />
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd. VHDL-1481
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd
+
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd(5): " arg1="vga" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd" arg3="5"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd(19): " arg1="synth" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd" arg3="19"  />
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd. VHDL-1481
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd
+
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(8): " arg1="snakearr" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd" arg3="8"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(30): " arg1="synth" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd" arg3="30"  />
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd. VHDL-1481
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd
+
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(6): " arg1="board" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd" arg3="6"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(29): " arg1="synth" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd" arg3="29"  />
+    <postMsg mid="35921504" type="Info" dynamic="2" navigation="0" arg0="" arg1="C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/impl_1"  />
+Top module language type = VHDL.
+    <postMsg mid="35928037" type="Warning" dynamic="1" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(98): " arg1="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd" arg2="98"  />
+    <postMsg mid="35001714" type="Warning" dynamic="1" navigation="0" arg0="snake_arr[99]"  />
+Top module name (VHDL, mixed language): top
+Source compile complete.
+Starting IP constraint check for mypll.
+Writing output files.
+CPE Completed. es4finalproj_impl_1_cpe.ldc and CPEReport.txt produced.
 
 
+synthesis -f es4finalproj_impl_1_lattice.synproj
+synthesis:  version Radiant Software (64-bit) 3.2.1.217.3
 
-Design:  top
-Family:  iCE40UP
-Device:  iCE40UP5K
-Package: SG48
-Performance Grade:   High-Performance_1.2V
-Successfully loading design udb and device data from disks and to up-layer in CPU time: 0 secs , REAL time: 0 secs 
-
-
-
-BITGEN: Bitstream Generator Radiant Software (64-bit) 3.2.1.217.3
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
+Tue Dec  6 20:33:20 2022
 
 
-Running DRC.
-DRC detected 0 errors and 0 warnings.
+Command Line:  C:\lscc\radiant\3.2\ispfpga\bin\nt64\synthesis.exe -f es4finalproj_impl_1_lattice.synproj -gui -msgset C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/promote.xml 
 
-Preference Summary:
-+---------------------------------+---------------------------------+
-|  Preference                     |  Current Setting                |
-+---------------------------------+---------------------------------+
- *  Default setting.
- ** The specified setting matches the default setting.
-
-
-Creating bit map...
-Saving bit stream in "C:\Users\gsess\OneDrive\Documents\es4_final_proj\ES4_Snake\impl_1\es4finalproj_impl_1.bin".
-    <postMsg mid="1009992" type="Info" dynamic="1" navigation="0" arg0="Bitstream authenticated."  />
-Bitstream generation complete!
-
-Total CPU Time: 1 secs 
-Total REAL Time: 2 secs 
-Peak Memory Usage: 115 MB
+INFO - synthesis: Lattice Synthesis Engine Launched.
+Synthesis options:
+The -a option is iCE40UP.
+The -t option is SG48.
+The -sp option is High-Performance_1.2V.
+The -p option is iCE40UP5K.
+                                                          
 
 
-ibisgen "es4finalproj_impl_1.udb" "C:/lscc/radiant/3.2/cae_library/ibis/iCE40UP.ibs"
-IBIS Models Generator: Lattice Radiant Software (64-bit) 3.2.1.217.3
-
-Tue Dec  6 20:09:34 2022
-
-Loading es4finalproj_impl_1.udb ...
-Loading device for application GENERIC from file 'itpa08.nph' in environment: C:/lscc/radiant/3.2/ispfpga.
-Package Status:                     Preliminary    Version 1.5.
-Performance Hardware Data Status:   Advanced       Version 1.0.
+##########################################################
 
 
-
-Design:  top
-Family:  iCE40UP
-Device:  iCE40UP5K
-Package: SG48
-Performance Grade:   High-Performance_1.2V
-Successfully loading design udb and device data from disks and to up-layer in CPU time: 0 secs , REAL time: 0 secs 
-
-Created design models.
+### Lattice Family     : iCE40UP
 
 
-Generating: C:\Users\gsess\OneDrive\Documents\es4_final_proj\ES4_Snake\impl_1\IBIS\es4finalproj_impl_1.ibs
+### Device             : iCE40UP5K
 
 
-    <postMsg mid="1191031" type="Info" dynamic="0" navigation="0"  />
-
-backanno "es4finalproj_impl_1.udb"  -o "es4finalproj_impl_1_vo.vo"      -sp "High-Performance_1.2V"  -w -neg
-backanno: version Radiant Software (64-bit) 3.2.1.217.3
-Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
-Copyright (c) 1995 AT&T Corp.   All rights reserved.
-Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
-Copyright (c) 2001 Agere Systems   All rights reserved.
-Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-
-Loading device for application GENERIC from file 'itpa08.nph' in environment: C:/lscc/radiant/3.2/ispfpga.
-Package Status:                     Preliminary    Version 1.5.
-Loading udb::Database ...
-Design:  top
-Family:  iCE40UP
-Device:  iCE40UP5K
-Package: SG48
-Performance Grade:   High-Performance_1.2V
-Performance Hardware Data Status:   Advanced       Version 1.0.
+### Package            : SG48
 
 
+### Performance Grade  : High-Performance_1.2V
 
-Writing a verilog netlist based on the es4finalproj_impl_1 design file.
 
-Writing Verilog netlist to file es4finalproj_impl_1_vo.vo
-Writing SDF timing to file es4finalproj_impl_1_vo.sdf
-Backanno finished with 0 posted error messages.
-Total CPU Time: 2 secs 
-Total REAL Time: 2 secs 
-Peak Memory Usage: 96 MB
+                                                         
+
+
+    <postMsg mid="35001786" type="Info" dynamic="0" navigation="0"  />
+Optimization goal = Area
+Top-level module name = top.
+Target frequency = 200.000000 MHz.
+Maximum fanout = 1000.
+Timing path count = 3
+RWCheckOnRam = 0
+
+BRAM utilization = 100.000000 %
+DSP usage = true
+DSP utilization = 100.000000 %
+fsm_encoding_style = auto
+resolve_mixed_drivers = 0
+fix_gated_clocks = 1
+
+
+Mux style = auto (Default)
+Use Carry Chain = true
+carry_chain_length = 0
+Loop Limit = 1950.
+Use IO Insertion = TRUE
+Use IO Reg = AUTO
+
+Resource Sharing = TRUE
+Propagate Constants = TRUE
+Remove Duplicate Registers = TRUE
+Output HDL file name = es4finalproj_impl_1.vm.
+ROM style = auto
+RAM style = auto
+The -comp option is FALSE.
+The -syn option is FALSE.
+-sdc option: SDC file input is es4finalproj_impl_1_cpe.ldc.
+-vh2008
+
+-path C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake (searchpath added)
+-path C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/impl_1 (searchpath added)
+-path C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/mypll (searchpath added)
+-path C:/lscc/radiant/3.2/ispfpga/ice40tp/data (searchpath added)
+Mixed language design
+Verilog design file = C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v
+Verilog design file = C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/mypll/rtl/mypll.v
+VHDL library = pmi
+VHDL design file = C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.vhd
+VHDL library = work
+VHDL design file = C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/source/impl_1/display.vhd
+VHDL library = work
+VHDL design file = C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/source/impl_1/nes.vhd
+VHDL library = work
+VHDL design file = C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/source/impl_1/pattern_gen.vhd
+VHDL library = work
+VHDL design file = C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/source/impl_1/randomPos.vhd
+VHDL library = work
+VHDL design file = C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/source/impl_1/topModule.vhd
+VHDL library = work
+VHDL design file = C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/source/impl_1/vga.vhd
+VHDL library = work
+VHDL design file = C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/source/impl_1/snakePos.vhd
+VHDL library = work
+VHDL design file = C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/source/impl_1/board.vhd
+The -r option is OFF. [ Remove LOC Properties is OFF. ]
+Compile design.
+Compile Design Begin
+Analyzing Verilog file c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v. VERI-1482
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(1): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_addsub.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="1"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_addsub.v(40): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/adder_subtractor/rtl/lscc_add_sub.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_addsub.v" arg3="40"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(2): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_add.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="2"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_add.v(50): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/adder/rtl/lscc_adder.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_add.v" arg3="50"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(3): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_complex_mult.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="3"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_complex_mult.v(52): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/complex_mult/rtl/lscc_complex_mult.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_complex_mult.v" arg3="52"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(4): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_counter.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="4"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_counter.v(39): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/counter/rtl/lscc_cntr.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_counter.v" arg3="39"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(5): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_fifo.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="5"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_fifo.v(44): " arg1="c:/lscc/radiant/3.2/ip/pmi/../avant/fifo/rtl/lscc_fifo.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_fifo.v" arg3="44"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(6): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_fifo_dc.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="6"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_fifo_dc.v(47): " arg1="c:/lscc/radiant/3.2/ip/pmi/../avant/fifo_dc/rtl/lscc_fifo_dc.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_fifo_dc.v" arg3="47"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(7): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_mac.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="7"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_mac.v(52): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/mult_accumulate/rtl/lscc_mult_accumulate.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_mac.v" arg3="52"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(8): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsubsum.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="8"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsubsum.v(53): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsubsum.v" arg3="53"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(9): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsub.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="9"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsub.v(52): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/mult_add_sub/rtl/lscc_mult_add_sub.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsub.v" arg3="52"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(10): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_mult.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="10"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_mult.v(51): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/multiplier/rtl/lscc_multiplier.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_mult.v" arg3="51"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(11): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="11"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp.v(48): " arg1="c:/lscc/radiant/3.2/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp.v" arg3="48"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(12): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="12"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq.v(45): " arg1="c:/lscc/radiant/3.2/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq.v" arg3="45"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(13): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_rom.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="13"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_rom.v(45): " arg1="c:/lscc/radiant/3.2/ip/pmi/../avant/rom/rtl/lscc_rom.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_rom.v" arg3="45"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(14): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_sub.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="14"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_sub.v(50): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/subtractor/rtl/lscc_subtractor.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_sub.v" arg3="50"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(15): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp_be.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="15"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp_be.v(49): " arg1="c:/lscc/radiant/3.2/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp_be.v" arg3="49"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(16): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq_be.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="16"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq_be.v(45): " arg1="c:/lscc/radiant/3.2/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq_be.v" arg3="45"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(17): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_dsp.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="17"  />
+Analyzing Verilog file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/mypll/rtl/mypll.v. VERI-1482
+Analyzing VHDL file c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.vhd. VHDL-1481
+Analyzing VHDL file c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.vhd
+
+    <postMsg mid="35921014" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.vhd(4): " arg1="components" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.vhd" arg3="4"  />
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd. VHDL-1481
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd
+
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(5): " arg1="display" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd" arg3="5"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(21): " arg1="synth" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd" arg3="21"  />
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd. VHDL-1481
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd
+
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd(7): " arg1="nes" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd" arg3="7"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd(20): " arg1="synth" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd" arg3="20"  />
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd. VHDL-1481
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd
+
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd(6): " arg1="pattern_gen" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd" arg3="6"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd(35): " arg1="synth" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd" arg3="35"  />
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/randompos.vhd. VHDL-1481
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/randompos.vhd
+
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/randompos.vhd(8): " arg1="randompos" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/randompos.vhd" arg3="8"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/randompos.vhd(16): " arg1="synth" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/randompos.vhd" arg3="16"  />
+    <postMsg mid="35929000" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/randompos.vhd(28): " arg1="size_res" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/randompos.vhd" arg3="28"  />
+    <postMsg mid="35921259" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ispfpga/vhdl_packages/vh2008/ieee/numeric_std_2008.vhd(1155): " arg1="size_res" arg2="C:/lscc/radiant/3.2/ispfpga/vhdl_packages/vh2008/ieee/numeric_std_2008.vhd" arg3="1155"  />
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd. VHDL-1481
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd
+
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(5): " arg1="top" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd" arg3="5"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(26): " arg1="synth" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd" arg3="26"  />
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd. VHDL-1481
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd
+
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd(5): " arg1="vga" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd" arg3="5"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd(19): " arg1="synth" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd" arg3="19"  />
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd. VHDL-1481
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd
+
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(8): " arg1="snakearr" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd" arg3="8"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(30): " arg1="synth" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd" arg3="30"  />
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd. VHDL-1481
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd
+
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(6): " arg1="board" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd" arg3="6"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(29): " arg1="synth" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd" arg3="29"  />
+    <postMsg mid="35921504" type="Info" dynamic="2" navigation="0" arg0="" arg1="C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/impl_1"  />
+Top module language type = VHDL.
+    <postMsg mid="35928037" type="Warning" dynamic="1" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(98): " arg1="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd" arg2="98"  />
+    <postMsg mid="35001714" type="Warning" dynamic="1" navigation="0" arg0="snake_arr[99]"  />
+Top module name (VHDL, mixed language): top
+                                                         
+
+
+### Number of Logic Cells: 5280
+
+
+### Number of RAM Blocks: 30
+
+
+### Number of DSP Blocks: 8
+
+
+### Number of PLLs: 1
+
+
+### Number of IO Pins: 56
+
+
+##########################################################
+
+
+                                                         
+
+
+    <postMsg mid="35001771" type="Warning" dynamic="1" navigation="0" arg0="gnd"  />
+    <postMsg mid="35001771" type="Warning" dynamic="1" navigation="0" arg0="snake_head[6]"  />
+    <postMsg mid="35001771" type="Warning" dynamic="1" navigation="0" arg0="snake_head[5]"  />
+    <postMsg mid="35001771" type="Warning" dynamic="1" navigation="0" arg0="snake_head[4]"  />
+    <postMsg mid="35001771" type="Warning" dynamic="1" navigation="0" arg0="snake_head[3]"  />
+    <postMsg mid="35001771" type="Warning" dynamic="1" navigation="0" arg0="snake_head[2]"  />
+    <postMsg mid="35001771" type="Warning" dynamic="1" navigation="0" arg0="snake_head[1]"  />
+    <postMsg mid="35001771" type="Warning" dynamic="1" navigation="0" arg0="snake_head[0]"  />
+    <postMsg mid="35001747" type="Warning" dynamic="2" navigation="0" arg0="99" arg1="snake_arr"  />
+    <postMsg mid="35001714" type="Warning" dynamic="1" navigation="0" arg0="gnd"  />
+	 instance i1
+
+	 instance snakePos_inst
+
+
+
+    <postMsg mid="35931000" type="Error" dynamic="4" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(126): " arg1="gnd" arg2="snakePos_inst" arg3="snake_arr_out[99]" arg4="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd" arg5="126"  />
+child process exited abnormally
+Fail to run synthesis -f es4finalproj_impl_1_lattice.synproj -gui -msgset C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/promote.xml 

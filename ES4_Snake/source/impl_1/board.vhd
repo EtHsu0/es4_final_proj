@@ -29,22 +29,29 @@ end board;
 architecture synth of board is
     component snakePos is
         port (
-            snakeCLK: in std_logic;
-            reset_in: in std_logic;
+            clk: in std_logic;
+			reset_in: in std_logic;
 
-            grow_snake_in: in std_logic;
+			grow_snake_in: in std_logic;
 
-            -- Direction should be 0-3 (Up, Down, Left, Right)
-            dir_in: in unsigned(1 downto 0); 
-            snake_head_out: out unsigned(7 downto 0);
-            snake_pos_out: out std_logic_vector(99 downto 0) := 100b"0";
-            
-            snake_dead_out: out std_logic := '0'
+			-- Direction should be 0-3 (Up, Down, Left, Right)
+			dir_in: in unsigned(1 downto 0); 
+			-- Gabriel Note: dirtype is not defined, need to fix dirtype declaration or remove entirely
+			-- 00 = up
+			-- 01 = down
+			-- 10 = left
+			-- 11 = right
+			snake_head_out: out unsigned(6 downto 0);
+			snake_tail_out: out unsigned(6 downto 0);
+			snake_arr_out: out std_logic_vector(99 downto 0) := 100b"0";
+			
+			snake_dead_out: out std_logic := '0'
         );
     end component;
 
     signal apple_id: unsigned (8 downto 0) := 9d"0";
-    signal snake_head: unsigned (6 downto 0) := 6d"44";
+    signal snake_head: unsigned (6 downto 0) := 7d"44";
+	signal snake_tail: unsigned (6 downto 0) := 7d"0";
     signal snake_arr: std_logic_vector(99 downto 0) := 100d"0"; -- := (40 => '1', 41 => '1', 42 => '1'),(others => '0'); -- TODO: Fix Syntax Error!
     signal counter: unsigned (29 downto 0) := 30d"0";
     signal reset: std_logic := '1';
@@ -116,7 +123,7 @@ begin
 
     
 
-    snakePos_inst: snakePos port map (counter(29), reset, grow_snake, dir, snake_head,snake_arr_out, snake_dead);
+    snakePos_inst: snakePos port map (counter(29), reset, grow_snake, dir, snake_head, snake_tail, snake_arr_out, snake_dead);
 
     --process (snake_head) is begin
         -- If snake head is on apple's coordinate
