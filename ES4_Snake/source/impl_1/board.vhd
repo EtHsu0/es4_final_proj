@@ -6,22 +6,13 @@ use IEEE.numeric_std.all;
 entity board is
     port (
         clk: in std_logic;
-
         digital_in: in unsigned(7 downto 0);
-
         -- 00 is RESET/BEGIN
         game_state_out: out unsigned(1 downto 0) := "00";
-
-
         snake_head_out: out unsigned(6 downto 0);
-        -- Return the cell ID (0-99)
         apple_out: out unsigned(8 downto 0);
-        
         -- Return whether snake is in each cell (0-99)
         snake_arr_out: out std_logic_vector(99 downto 0);
-		
-		--temp: out std_logic;
-
         scores_out: out unsigned(6 downto 0)
     );
 end board;
@@ -31,16 +22,8 @@ architecture synth of board is
         port (
             clk: in std_logic;
 			reset_in: in std_logic;
-
 			grow_snake_in: in std_logic;
-
-			-- Direction should be 0-3 (Up, Down, Left, Right)
 			dir_in: in unsigned(1 downto 0); 
-			-- Gabriel Note: dirtype is not defined, need to fix dirtype declaration or remove entirely
-			-- 00 = up
-			-- 01 = down
-			-- 10 = left
-			-- 11 = right
 			snake_head_out: out unsigned(6 downto 0);
 			snake_tail_out: out unsigned(6 downto 0);
 			snake_arr_out: out std_logic_vector(99 downto 0) := 100b"0";
@@ -53,28 +36,27 @@ architecture synth of board is
     signal snake_head: unsigned (6 downto 0) := 7d"44";
 	signal snake_tail: unsigned (6 downto 0) := 7d"0";
     signal snake_arr: std_logic_vector(99 downto 0) := 100d"0"; -- := (40 => '1', 41 => '1', 42 => '1'),(others => '0'); -- TODO: Fix Syntax Error!
-    signal counter: unsigned (29 downto 0) := 30d"0";
     signal reset: std_logic := '1';
     signal grow_snake: std_logic := '0';
 
     TYPE buttons is (A, B, START, SEL, UP, DOWN, LEFT, RIGHT, NONE);
     signal button: buttons;
-    -- Gabe / Chris TODO, turn NES digital_in -> buttons TYPE
 
     signal dir: unsigned(1 to 0);
     -- I need to convert button to dir;
     signal snake_dead: std_logic;
 
+    signal game_State
     --signal game_state: unsigned(1 downto 0);
 
     signal enable: std_logic := '0';
     
-    signal test_counter: unsigned(5 downto 0) := 6d"0";
 begin
     process(clk) is
     begin
-        if rising_edge(clk) then
-            counter <= counter + 1;
+        if game_state == "00" then
+            apple_id <= 9b"1_0111_0100";
+        elsif rising_edge(clk) then
             if digital_in(0) = '0' then
                 button <= RIGHT;
             elsif digital_in(1) = '0' then
@@ -105,6 +87,7 @@ begin
                             dir <= "10";
                 when RIGHT => apple_id <= 9b"1_0100_0100";
                             dir <= "11";
+                when B => game_state <= "00";
                 -- when others => --reset <= '0';
             -- snake_arr(44) <= '1';
             --                     snake_arr(43) <= '1';

@@ -59,33 +59,28 @@ begin
     end process;
     snakeCLK <= counter(23);
 
-    process(snakeCLK) is
+    process(snakeCLK, reset) is
         variable snake_coord: unsigned(6 downto 0);
+        variable inited: std_logic := '0';
     begin
-        if rising_edge(snakeCLK) then
+        if (reset_in = '1' or inited = '0') then
+            snake_arr <= (44 downto 42 => '1', others => '0');
+            arr_left <= 8d"96";
+            arr_right <= 8d"99";
+            snake_head <= 8d"44";
+            dir_arr <= (others => RIGHT);
+        elsif rising_edge(snakeCLK) then
             -- snake_arr(to_integer(slow_test_counter)) <= '1';
             -- slow_test_counter <= slow_test_counter + 1;
-            if reset_in = '1' then
-                slow_test_counter <= 7d"0";
-                -- arr_left <= 8d"96";
-                -- arr_right <= 8d"99";
-                -- snake_head <= 8d"44";
-                -- dir_arr <= (others => RIGHT);
-                snake_arr <= (44 downto 42 => '1', others => '0');
-			end if;
-                -- for i in 99 downto 0 loop
-                                --     snake_arr(i) <= '0';
-                -- end loop;
         -- Check direction is valid
-            -- if prev_dir(1) /= dir_in(1) then
-            --     prev_dir <= dir_in;
-            -- end if;
+        -- if prev_dir(1) /= dir_in(1) then
+        --     prev_dir <= dir_in;
+        -- end if;
         --     -- Convert to type
             case dir_in is
                 when "00" => snake_dir <= UP;
                 when "01" => snake_dir <= DOWN;
                 when "10" => snake_dir <= LEFT;
-                snake_arr <= (53 downto 50 => '1', others => '0');
                 when "11" => snake_dir <= RIGHT;
             end case;
 
