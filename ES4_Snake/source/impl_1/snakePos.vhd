@@ -65,7 +65,7 @@ begin
             -- snake_arr(to_integer(slow_test_counter)) <= '1';
             -- slow_test_counter <= slow_test_counter + 1;
             if reset_in = '1' then
-                slow_test_counter <= 0;
+                slow_test_counter <= 7d"0";
                 arr_left <= 8d"96";
                 arr_right <= 8d"99";
                 snake_head <= 8d"44";
