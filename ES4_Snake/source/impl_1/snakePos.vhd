@@ -59,7 +59,7 @@ begin
     end process;
     snakeCLK <= counter(23);
 
-    process(snakeCLK, reset) is
+    process(snakeCLK, reset_in) is
         variable snake_coord: unsigned(6 downto 0);
         variable inited: std_logic := '0';
     begin

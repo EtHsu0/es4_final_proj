@@ -46,7 +46,7 @@ architecture synth of board is
     -- I need to convert button to dir;
     signal snake_dead: std_logic;
 
-    signal game_State
+    signal game_State : unsigned(1 downto 0) := "01";
     --signal game_state: unsigned(1 downto 0);
 
     signal enable: std_logic := '0';
@@ -54,9 +54,13 @@ architecture synth of board is
 begin
     process(clk) is
     begin
-        if game_state == "00" then
-            apple_id <= 9b"1_0111_0100";
-        elsif rising_edge(clk) then
+        if rising_edge(clk) then
+		    if game_state = "00" then
+				apple_id <= 9b"1_0111_0100";
+				reset <= '1';
+				
+			else
+			reset <= '0';
             if digital_in(0) = '0' then
                 button <= RIGHT;
             elsif digital_in(1) = '0' then
@@ -78,7 +82,7 @@ begin
             end if;
 
             case button is
-                -- when START => --reset <= '1';
+                when START => game_state <= "01";
                 when UP => apple_id <= 9b"1_0101_0100";
                             dir <= "00";
                 when DOWN => apple_id <= 9b"1_0100_0101";
@@ -88,17 +92,17 @@ begin
                 when RIGHT => apple_id <= 9b"1_0100_0100";
                             dir <= "11";
                 when B => game_state <= "00";
-                -- when others => --reset <= '0';
+                -- when NONE => game_state <;--reset <= '0';
             -- snake_arr(44) <= '1';
             --                     snake_arr(43) <= '1';
             --                     snake_arr(42) <= '1';
             --                    apple_id <= 9b"1_0000_0000";
             end case;
-            
+            end if;
         end if;
     end process;
     
-    reset <= '1' when button = START else '0';
+    --reset <= '1' when button = START else '0';
 	
 	snake_arr_out <= snake_arr;
 	apple_out <= apple_id;
@@ -120,7 +124,7 @@ begin
             --end loop;
         --end if;
    -- end process;
-    game_state_out <= "00";
+    game_state_out <= game_state;
     scores_out <= "0";
     snake_head_out <= snake_head;
     snake_arr_out <= snake_arr;
