@@ -42,89 +42,100 @@ signal snake_dir: DirType;
 signal arr_left: unsigned(6 downto 0) := 7d"96"; -- 0 (HEAD)
 signal arr_right: unsigned(6 downto 0) := 7d"99"; -- 3 (TAIL)
 -- From left to right, direction from head to tails
-signal snake_array: DirArray := (others => RIGHT); -- Errors! Fix Type Declarations
-signal snake_arr: std_logic_vector(99 downto 0);
+signal dir_arr: DirArray := (others => RIGHT); -- Errors! Fix Type Declarations
+signal snake_arr: std_logic_vector(99 downto 0) := 99d"0";
 
 signal snake_dead: std_logic := '0';
 -- signal snake_coord: unsigned(7 downto 0);
-
+signal counter: unsigned(29 downto 0) := 30d"0";
+signal snakeCLK: std_logic;
+signal slow_test_counter: unsigned(6 downto 0) := 7d"0";
 begin
-/*
+    process(clk) is
+    begin
+        if rising_edge(clk) then
+            counter <= counter + 1;
+        end if;
+    end process;
+    snakeCLK <= counter(29);
+
     process(snakeCLK) is
     begin
         if rising_edge(snakeCLK) then
-            if reset_in = '1' then
-                arr_left <= 8d"96";
-                arr_right <= 8d"99";
-                snake_head <= 8d"44";
-                snake_array <= (others => RIGHT);
-            end if;
-        -- Check direction is valid
-            if prev_dir(1) /= dir_in(1) then
-                prev_dir <= dir_in;
-            end if;
-            -- Convert to type
-            case prev_dir is
-                when "00" => snake_dir <= UP;
-                when "01" => snake_dir <= DOWN;
-                when "10" => snake_dir <= LEFT;
-                when "11" => snake_dir <= RIGHT;
-            end case;
+            snake_arr(to_integer(slow_test_counter)) <= '1';
+            slow_test_counter <= slow_test_counter + 1;
+        --     if reset_in = '1' then
+        --         arr_left <= 8d"96";
+        --         arr_right <= 8d"99";
+        --         snake_head <= 8d"44";
+        --         dir_arr <= (others => RIGHT);
+        --     end if;
+        -- -- Check direction is valid
+        --     if prev_dir(1) /= dir_in(1) then
+        --         prev_dir <= dir_in;
+        --     end if;
+        --     -- Convert to type
+        --     case prev_dir is
+        --         when "00" => snake_dir <= UP;
+        --         when "01" => snake_dir <= DOWN;
+        --         when "10" => snake_dir <= LEFT;
+        --         when "11" => snake_dir <= RIGHT;
+        --     end case;
 
-            -- Remove / update tail if we are not growing
-            if grow_snake_in = '0' then
-                arr_right <= arr_right - 1;
-            end if;
+        --     -- Remove / update tail if we are not growing
+        --     if grow_snake_in = '0' then
+        --         arr_right <= arr_right - 1;
+        --     end if;
 
-            -- Update snake head coordinate
-            arr_left <= arr_left - 1;
-            if snake_dir = UP then
-                if snake_head < 10 then
-                    snake_dead <= '1';
-                end if;
-                snake_head <= snake_head - 10;
-            elsif snake_dir = DOWN then
-                if snake_head > 89 then
-                    snake_dead <= '1';
-                end if;
-                snake_head <= snake_head + 10;
-            elsif snake_dir = LEFT then
-                if snake_head mod 10 = 0 then
-                    snake_dead <= '1';
-                end if;
-                snake_head <= snake_head - 1;
-            elsif snake_dir = RIGHT then
-                if snake_head mod 10 = 9 then
-                    snake_dead <= '1';
-                end if;
-                snake_head <= snake_head + 1;
-            end if;
+        --     -- Update snake head coordinate
+        --     arr_left <= arr_left - 1;
+        --     if snake_dir = UP then
+        --         if snake_head < 10 then
+        --             snake_dead <= '1';
+        --         end if;
+        --         snake_head <= snake_head - 10;
+        --     elsif snake_dir = DOWN then
+        --         if snake_head > 89 then
+        --             snake_dead <= '1';
+        --         end if;
+        --         snake_head <= snake_head + 10;
+        --     elsif snake_dir = LEFT then
+        --         if snake_head mod 10 = 0 then
+        --             snake_dead <= '1';
+        --         end if;
+        --         snake_head <= snake_head - 1;
+        --     elsif snake_dir = RIGHT then
+        --         if snake_head mod 10 = 9 then
+        --             snake_dead <= '1';
+        --         end if;
+        --         snake_head <= snake_head + 1;
+        --     end if;
             
             
-            snake_array(to_integer(arr_left)) <= snake_dir;
+        --     dir_arr(to_integer(arr_left)) <= snake_dir;
         end if;
     end process;
-	*/
 	
 	
-    -- Draw the snake onto the 2d array
-    process (snake_head, snake_array) is
-        variable snake_coord: unsigned(6 downto 0);
-    begin
-        snake_coord := snake_head;
-        snake_arr(to_integer(snake_coord)) <= '1';
+	
+    -- -- Draw the snake onto the 2d array
+    -- process (snake_head, dir_arr) is
+    --     variable snake_coord: unsigned(6 downto 0);
+    -- begin
+    --     snake_coord := snake_head;
+    --     snake_arr(to_integer(snake_coord)) <= '1';
 
-        for i in to_integer(arr_left) to to_integer(arr_right) loop
-            case snake_array(i) is
-                when UP => snake_coord := snake_coord - 10;
-                when DOWN => snake_coord := snake_coord + 10;
-                when LEFT => snake_coord := snake_coord - 1;
-                when RIGHT => snake_coord := snake_coord + 1;
-            end case;
-            snake_arr(to_integer(snake_coord)) <= '1';
-        end loop;
-        snake_tail <= snake_coord;
-    end process;
+    --     for i in to_integer(arr_left) to to_integer(arr_right) loop
+    --         case dir_arr(i) is
+    --             when UP => snake_coord := snake_coord - 10;
+    --             when DOWN => snake_coord := snake_coord + 10;
+    --             when LEFT => snake_coord := snake_coord - 1;
+    --             when RIGHT => snake_coord := snake_coord + 1;
+    --         end case;
+    --         snake_arr(to_integer(snake_coord)) <= '1';
+    --     end loop;
+    --     snake_tail <= snake_coord;
+    -- end process;
 
     snake_dead_out <= snake_dead;
 
