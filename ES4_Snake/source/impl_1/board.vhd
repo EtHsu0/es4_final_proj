@@ -100,7 +100,7 @@ begin
                 when UP => apple_id <= 9b"1_0101_0100";
                             dir <= "00";
                 when DOWN => apple_id <= 9b"1_0100_0101";
-                            dir <= "01"
+                            dir <= "01";
                 when LEFT => apple_id <= 9b"1_0101_0101";
                             dir <= "10";
                 when RIGHT => apple_id <= 9b"1_0100_0100";
