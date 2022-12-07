@@ -5,7 +5,7 @@ use IEEE.numeric_std.all;
 
 
 
-entity snakearr is
+entity snakepos is
     port (
         clk: in std_logic;
         reset_in: in std_logic;
@@ -25,9 +25,9 @@ entity snakearr is
         
         snake_dead_out: out std_logic := '0'
     );
-end snakearr;
+end snakepos;
 
-architecture synth of snakearr is
+architecture synth of snakepos is
 
 signal snake_head: unsigned(6 downto 0) := 7d"44";
 signal snake_tail: unsigned(6 downto 0) := 7d"42";

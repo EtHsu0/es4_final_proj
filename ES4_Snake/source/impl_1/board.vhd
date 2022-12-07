@@ -113,6 +113,7 @@ begin
             
         end if;
     end process;
+
 	
 	snake_arr_out <= snake_arr;
 	apple_out <= apple_id;
