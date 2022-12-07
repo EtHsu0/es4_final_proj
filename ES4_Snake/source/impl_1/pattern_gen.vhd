@@ -60,7 +60,7 @@ begin
 					rgb <= "110000"; -- red apple
 				end if;
 
-			--end if;
+			end if;
 
 			-- Fill in apple cell
 			--if rand_apple(8) = '1' then
