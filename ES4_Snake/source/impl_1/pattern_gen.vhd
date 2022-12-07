@@ -69,6 +69,7 @@ begin
 						rgb <= "001100"; -- Green leaf
 					else
 						rgb <= "110000"; -- red apple
+					end if;
 				end if;
 			end if;
 			
@@ -83,8 +84,6 @@ begin
 					end if;
 				end if;
 			end loop;
-			
-		
 		else -- if valid is 0, then set rgb to low
 			rgb <= 6d"0";
 		end if;
