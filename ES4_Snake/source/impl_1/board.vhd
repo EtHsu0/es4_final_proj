@@ -96,15 +96,15 @@ begin
             end if;
 
             case button is
-                when START => for i in 99 downto 0 loop
-                                snake_arr(i) <= '0';
-                              end loop;
-                                snake_arr(1) <= '1';
-                                snake_arr(2) <= '1';
-            --     when UP => apple_id <= 9b"1_0101_0100";
-            --     when DOWN => apple_id <= 9b"1_0100_0101";
-            --     when LEFT => apple_id <= 9b"1_0101_0101";
-            --     when RIGHT => apple_id <= 9b"1_0100_0100";
+                -- when START => for i in 99 downto 0 loop
+                --                 snake_arr(i) <= '0';
+                --               end loop;
+                --                 snake_arr(1) <= '1';
+                --                 snake_arr(2) <= '1';
+                when UP => apple_id <= 9b"1_0101_0100";
+                when DOWN => apple_id <= 9b"1_0100_0101";
+                when LEFT => apple_id <= 9b"1_0101_0101";
+                when RIGHT => apple_id <= 9b"1_0100_0100";
             --     when others =>  snake_arr(44) <= '1';
             --                     snake_arr(43) <= '1';
             --                     snake_arr(42) <= '1';
@@ -123,7 +123,7 @@ begin
 
     
 
-    snakePos_inst: snakePos port map (clk, reset, grow_snake, dir, snake_head, snake_tail, snake_arr, snake_dead);
+    snakePos_inst: snakePos port map(clk, reset, grow_snake, dir, snake_head, snake_tail, snake_arr, snake_dead);
     --process (snake_head) is begin
         -- If snake head is on apple's coordinate
         --if snake_head_out = apple_out then
