@@ -125,29 +125,41 @@ begin
                      snake_dead <= '1';
                  end if;
                  snake_head <= snake_head - 10;
-				 snake_dir_arr <= (98 downto 0 => snake_dir_arr(99 downto 1));
-				 snake_dir_arr(0) <= DOWN;
+				 -- snake_dir_arr <= (98 downto 0 => snake_dir_arr(99 downto 1));
+                for i in 0 to 98 loop
+                    snake_dir_arr(i + 1) <= snake_dir_arr(i);
+                end loop;
+				snake_dir_arr(0) <= DOWN;
              elsif dir_signal = "01" then
                  if snake_head > 89 then
                      snake_dead <= '1';
                  end if;
                  snake_head <= snake_head + 10;
-				 snake_dir_arr <= (98 downto 0 => snake_dir_arr(99 downto 1));
-				 snake_dir_arr(0) <= UP;
-             elsif dir_signal = "10" then
-                 if snake_head mod 10 = 0 then
+				 --snake_dir_arr <= (98 downto 0 => snake_dir_arr(99 downto 1));
+                for i in 0 to 98 loop
+                    snake_dir_arr(i + 1) <= snake_dir_arr(i);
+                end loop;
+                snake_dir_arr(0) <= UP;
+            elsif dir_signal = "10" then
+                if snake_head mod 10 = 0 then
                      snake_dead <= '1';
-                 end if;
-                 snake_head <= snake_head - 1;
-				 snake_dir_arr <= (98 downto 0 => snake_dir_arr(99 downto 1));
-				 snake_dir_arr(0) <= RIGHT;
+                end if;
+                snake_head <= snake_head - 1;
+				--snake_dir_arr <= (98 downto 0 => snake_dir_arr(99 downto 1));
+                for i in 0 to 98 loop
+                    snake_dir_arr(i + 1) <= snake_dir_arr(i);
+                end loop;
+                snake_dir_arr(0) <= RIGHT;
              elsif dir_signal = "11" then
                  if snake_head mod 10 = 9 then
                      snake_dead <= '1';
                  end if;
                  snake_head <= snake_head + 1;
-				 snake_dir_arr <= (98 downto 0 => snake_dir_arr(99 downto 1));
-				 snake_dir_arr(0) <= LEFT;
+				--snake_dir_arr <= (98 downto 0 => snake_dir_arr(99 downto 1));
+                for i in 0 to 98 loop
+                    snake_dir_arr(i + 1) <= snake_dir_arr(i);
+                end loop;
+                snake_dir_arr(0) <= LEFT;
              end if;
 				
 				
