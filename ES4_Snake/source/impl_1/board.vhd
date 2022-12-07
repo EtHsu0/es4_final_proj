@@ -96,7 +96,7 @@ begin
                 when DOWN => apple_id <= 9b"1_0100_0101";
                 when LEFT => apple_id <= 9b"1_0101_0101";
                 when RIGHT => apple_id <= 9b"1_0100_0100";
-                when others => snake_arr <= 99b"1110";
+                when others => snake_arr <= 99d"14";
                                apple_id <= 9b"1_0000_0000";
             end case;
             
