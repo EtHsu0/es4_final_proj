@@ -1,6 +1,6 @@
 Lattice Timing Report -  Setup  and Hold, Version Radiant Software (64-bit) 3.0.0.24.1
 
-Wed Dec  7 17:24:46 2022
+Wed Dec  7 18:19:19 2022
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
@@ -69,22 +69,22 @@ Operating conditions:
 Combinational Loops
 -------------------
 ++++ Loop1
-NES_inst/digital_7__I_0_i5_3_lut/A	->	NES_inst/digital_7__I_0_i5_3_lut/Z
+NES_inst/digital_7__I_0_i2_3_lut/A	->	NES_inst/digital_7__I_0_i2_3_lut/Z
 
 ++++ Loop2
-NES_inst/digital_7__I_0_i4_3_lut/A	->	NES_inst/digital_7__I_0_i4_3_lut/Z
+NES_inst/digital_7__I_0_i5_3_lut/A	->	NES_inst/digital_7__I_0_i5_3_lut/Z
 
 ++++ Loop3
 NES_inst/digital_7__I_0_i1_3_lut/A	->	NES_inst/digital_7__I_0_i1_3_lut/Z
 
 ++++ Loop4
-NES_inst/digital_7__I_0_i7_3_lut/A	->	NES_inst/digital_7__I_0_i7_3_lut/Z
+NES_inst/digital_7__I_0_i3_3_lut/A	->	NES_inst/digital_7__I_0_i3_3_lut/Z
 
 ++++ Loop5
-NES_inst/digital_7__I_0_i2_3_lut/A	->	NES_inst/digital_7__I_0_i2_3_lut/Z
+NES_inst/digital_7__I_0_i4_3_lut/A	->	NES_inst/digital_7__I_0_i4_3_lut/Z
 
 ++++ Loop6
-NES_inst/digital_7__I_0_i3_3_lut/A	->	NES_inst/digital_7__I_0_i3_3_lut/Z
+NES_inst/digital_7__I_0_i7_3_lut/A	->	NES_inst/digital_7__I_0_i7_3_lut/Z
 
 ==============================================
 2  CLOCK SUMMARY
@@ -160,7 +160,7 @@ Clock Domain Crossing
 
 3.1.1  Constraint Coverage
 ---------------------------
-Constraint Coverage: 9.82889%
+Constraint Coverage: 8.00248%
 
 3.1.2  Timing Errors
 ---------------------
@@ -176,16 +176,18 @@ Total Negative Slack: 0.000 ns (setup), 0.000 ns (hold)
 -------------------------------------------------------
           Listing 10 End Points          |    Slack    
 -------------------------------------------------------
-board_inst/apple_id_i4/SP                |    3.257 ns 
-board_inst/apple_id_i0/SP                |    3.257 ns 
-board_inst/game_State_i0/SP              |    3.681 ns 
-board_inst/apple_id_i5/D                 |    4.118 ns 
-board_inst/apple_id_i6/D                 |    4.118 ns 
-board_inst/game_State_i0/D               |    4.714 ns 
-board_inst/apple_id_i2/D                 |    4.714 ns 
-board_inst/apple_id_i8/D                 |    4.714 ns 
-board_inst/game_State_i0/SR              |    5.336 ns 
-board_inst/apple_id_i0/D                 |    6.674 ns 
+{board_inst/apple_id_i4/SP   board_inst/apple_id_i0/SP}              
+                                         |    4.211 ns 
+board_inst/snakePos_inst/dir_signal__i1/D|    4.940 ns 
+board_inst/apple_id_i6/D                 |    4.940 ns 
+board_inst/apple_id_i2/D                 |    4.940 ns 
+board_inst/apple_id_i8/D                 |    4.940 ns 
+board_inst/snakePos_inst/dir_signal__i0/SP              
+                                         |    5.059 ns 
+board_inst/game_State_i0/SR              |    5.112 ns 
+board_inst/game_State_i0/D               |    5.152 ns 
+board_inst/apple_id_i5/D                 |    5.152 ns 
+board_inst/game_State_i0/SP              |    6.025 ns 
 -------------------------------------------------------
                                          |             
 Setup # of endpoints with negative slack:|           0 
@@ -198,25 +200,25 @@ Setup # of endpoints with negative slack:|           0
 -------------------------------------------------------
           Listing 10 End Points          |    Slack    
 -------------------------------------------------------
-board_inst/snakePos_inst/counter_11961_12084__i14/D              
+board_inst/snakePos_inst/counter_14661_14787__i14/D              
                                          |    1.887 ns 
-board_inst/snakePos_inst/counter_11961_12084__i15/D              
+board_inst/snakePos_inst/counter_14661_14787__i15/D              
                                          |    1.887 ns 
-board_inst/snakePos_inst/counter_11961_12084__i16/D              
+board_inst/snakePos_inst/counter_14661_14787__i16/D              
                                          |    1.887 ns 
-board_inst/snakePos_inst/counter_11961_12084__i17/D              
+board_inst/snakePos_inst/counter_14661_14787__i17/D              
                                          |    1.887 ns 
-board_inst/snakePos_inst/counter_11961_12084__i18/D              
+board_inst/snakePos_inst/counter_14661_14787__i18/D              
                                          |    1.887 ns 
-board_inst/snakePos_inst/counter_11961_12084__i19/D              
+board_inst/snakePos_inst/counter_14661_14787__i19/D              
                                          |    1.887 ns 
-board_inst/snakePos_inst/counter_11961_12084__i20/D              
+board_inst/snakePos_inst/counter_14661_14787__i20/D              
                                          |    1.887 ns 
-board_inst/snakePos_inst/counter_11961_12084__i21/D              
+board_inst/snakePos_inst/counter_14661_14787__i21/D              
                                          |    1.887 ns 
-board_inst/snakePos_inst/counter_11961_12084__i22/D              
+board_inst/snakePos_inst/counter_14661_14787__i22/D              
                                          |    1.887 ns 
-board_inst/snakePos_inst/counter_11961_12084__i23/D              
+board_inst/snakePos_inst/counter_14661_14787__i23/D              
                                          |    1.887 ns 
 -------------------------------------------------------
                                          |             
@@ -234,21 +236,21 @@ Clocked but unconstrained timing start points
 -------------------------------------------------------------------
         Listing 10 Start Points         |           Type           
 -------------------------------------------------------------------
-board_inst/snakePos_inst/counter_11961_12084__i24/Q                           
+board_inst/apple_id_i4/Q                |          No required time
+board_inst/apple_id_i0/Q                |          No required time
+board_inst/snakePos_inst/dir_signal__i0/Q                           
                                         |          No required time
+board_inst/snakePos_inst/snake_arr_i99/Q|          No required time
 board_inst/snakePos_inst/snake_arr_i98/Q|          No required time
 board_inst/snakePos_inst/snake_arr_i97/Q|          No required time
 board_inst/snakePos_inst/snake_arr_i96/Q|          No required time
 board_inst/snakePos_inst/snake_arr_i95/Q|          No required time
 board_inst/snakePos_inst/snake_arr_i94/Q|          No required time
 board_inst/snakePos_inst/snake_arr_i93/Q|          No required time
-board_inst/snakePos_inst/snake_arr_i92/Q|          No required time
-board_inst/snakePos_inst/snake_arr_i91/Q|          No required time
-board_inst/snakePos_inst/snake_arr_i90/Q|          No required time
 -------------------------------------------------------------------
                                         |                          
 Number of unconstrained timing start po |                          
-ints                                    |                       102
+ints                                    |                       103
                                         |                          
 -------------------------------------------------------------------
 
@@ -256,23 +258,22 @@ Clocked but unconstrained timing end points
 -------------------------------------------------------------------
          Listing 10 End Points          |           Type           
 -------------------------------------------------------------------
-display_inst/vga_init/y_pos_11962__i9/D |    No arrival or required
-display_inst/vga_init/y_pos_11962__i9/SP|    No arrival or required
-display_inst/vga_init/y_pos_11962__i9/SR|    No arrival or required
-display_inst/vga_init/y_pos_11962__i8/D |    No arrival or required
-display_inst/vga_init/y_pos_11962__i7/D |    No arrival or required
-{display_inst/vga_init/y_pos_11962__i7/SP   display_inst/vga_init/y_pos_11962__i8/SP}                           
+display_inst/vga_init/x_pos_14663__i9/D |    No arrival or required
+display_inst/vga_init/x_pos_14663__i9/SR|    No arrival or required
+display_inst/vga_init/x_pos_14663__i8/D |    No arrival or required
+display_inst/vga_init/x_pos_14663__i7/D |    No arrival or required
+{display_inst/vga_init/x_pos_14663__i7/SR   display_inst/vga_init/x_pos_14663__i8/SR}                           
                                         |    No arrival or required
-{display_inst/vga_init/y_pos_11962__i7/SR   display_inst/vga_init/y_pos_11962__i8/SR}                           
+display_inst/vga_init/x_pos_14663__i6/D |    No arrival or required
+display_inst/vga_init/x_pos_14663__i5/D |    No arrival or required
+{display_inst/vga_init/x_pos_14663__i5/SR   display_inst/vga_init/x_pos_14663__i6/SR}                           
                                         |    No arrival or required
-display_inst/vga_init/y_pos_11962__i6/D |    No arrival or required
-display_inst/vga_init/y_pos_11962__i5/D |    No arrival or required
-{display_inst/vga_init/y_pos_11962__i5/SP   display_inst/vga_init/y_pos_11962__i6/SP}                           
-                                        |    No arrival or required
+display_inst/vga_init/x_pos_14663__i4/D |    No arrival or required
+display_inst/vga_init/x_pos_14663__i3/D |    No arrival or required
 -------------------------------------------------------------------
                                         |                          
 Number of unconstrained timing end poin |                          
-ts                                      |                       142
+ts                                      |                       143
                                         |                          
 -------------------------------------------------------------------
 
@@ -311,19 +312,22 @@ Number of I/O ports without constraint  |                        12
 Registers without clock definition
 Define the clock for these registers.
 -------------------------------------------------------------------
-         Listing 7 Instance(s)          |           Type           
+         Listing 10 Instance(s)         |           Type           
 -------------------------------------------------------------------
-board_inst/snakePos_inst/dir_arr[0]_i0  |                  No Clock
-NES_inst/output_i0_i5                   |                  No Clock
+board_inst/snakePos_inst/snake_head_i0  |                  No Clock
+board_inst/snakePos_inst/snake_head_i2  |                  No Clock
+board_inst/snakePos_inst/snake_head_i6  |                  No Clock
+board_inst/snakePos_inst/snake_head_i4  |                  No Clock
+board_inst/snakePos_inst/prev_dir_i0_i0 |                  No Clock
+NES_inst/output_i0_i6                   |                  No Clock
 NES_inst/output_i0_i3                   |                  No Clock
 NES_inst/output_i0_i1                   |                  No Clock
-board_inst/snakePos_inst/dir_arr[3]_i1  |                  No Clock
-board_inst/snakePos_inst/arr_length_i2  |                  No Clock
-NES_inst/output_i0_i0                   |                  No Clock
+board_inst/snakePos_inst/dir_arr[1]_i1  |                  No Clock
+board_inst/snakePos_inst/dir_arr[0]_i0  |                  No Clock
 -------------------------------------------------------------------
                                         |                          
 Number of registers without clock defin |                          
-ition                                   |                         7
+ition                                   |                        22
                                         |                          
 -------------------------------------------------------------------
 
@@ -347,15 +351,15 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 ++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_inst/count_11960_12085__i18/Q  (SLICE_R4C24B)
-Path End         : board_inst/apple_id_i4/SP  (SLICE_R5C22C)
+Path Begin       : NES_inst/count_14660_14796__i14/Q  (SLICE_R10C20D)
+Path End         : {board_inst/apple_id_i4/SP   board_inst/apple_id_i0/SP}  (SLICE_R11C19A)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
-Logic Level      : 7
-Delay Ratio      : 76.1% (route), 23.9% (logic)
+Logic Level      : 6
+Delay Ratio      : 77.7% (route), 22.3% (logic)
 Clock Skew       : 0.000 ns
 Setup Constraint : 20.833 ns 
-Path Slack       : 3.257 ns  (Passed)
+Path Slack       : 4.211 ns  (Passed)
 
 Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
 ----------------------------------------  -----------------  -------------  -----  ------------  ------  
@@ -364,25 +368,24 @@ NES_inst/CLK                                                 NET DELAY      5.51
 
 
 
-NES_inst/count_11960_12085__i18/CK->NES_inst/count_11960_12085__i18/Q
-                                          SLICE_R4C24B    CLK_TO_Q0_DELAY  1.391         6.901  3       
-NES_inst/NEScount[9]                                      NET DELAY        2.146         9.047  3       
-NES_inst/i2_3_lut_adj_10244/B->NES_inst/i2_3_lut_adj_10244/Z
-                                          SLICE_R5C24A    A0_TO_F0_DELAY   0.477         9.524  1       
-NES_inst/n21                                              NET DELAY        0.305         9.829  1       
-NES_inst/i1_4_lut/A->NES_inst/i1_4_lut/Z  SLICE_R5C24A    C1_TO_F1_DELAY   0.450        10.279  2       
-NES_inst/n86496                                           NET DELAY        2.490        12.769  2       
-NES_inst/i2_3_lut/C->NES_inst/i2_3_lut/Z  SLICE_R5C23B    B0_TO_F0_DELAY   0.450        13.219  6       
-NES_inst/n172705                                          NET DELAY        2.172        15.391  6       
-NES_inst/digital_7__I_0_i3_3_lut/C->NES_inst/digital_7__I_0_i3_3_lut/Z
-                                          SLICE_R5C22C    D0_TO_F0_DELAY   0.450        15.841  4       
-NES_inst/digital[2]                                       NET DELAY        2.490        18.331  4       
-board_inst/i2_2_lut_3_lut/A->board_inst/i2_2_lut_3_lut/Z
-                                          SLICE_R5C23C    B0_TO_F0_DELAY   0.477        18.808  6       
-board_inst/n172678                                        NET DELAY        0.305        19.113  6       
-board_inst/i168658_2_lut_3_lut/B->board_inst/i168658_2_lut_3_lut/Z
-                                          SLICE_R5C23C    C1_TO_F1_DELAY   0.450        19.563  2       
-board_inst/n174229 ( CE )                                 NET DELAY        3.324        22.887  2       
+NES_inst/count_14660_14796__i14/CK->NES_inst/count_14660_14796__i14/Q
+                                          SLICE_R10C20D   CLK_TO_Q0_DELAY  1.391         6.901  3       
+NES_inst/NEScount[5]                                      NET DELAY        2.742         9.643  3       
+NES_inst/i2_3_lut_adj_10113/C->NES_inst/i2_3_lut_adj_10113/Z
+                                          SLICE_R10C22A   A0_TO_F0_DELAY   0.450        10.093  3       
+NES_inst/n28                                              NET DELAY        2.172        12.265  3       
+NES_inst/i2_3_lut_4_lut/C->NES_inst/i2_3_lut_4_lut/Z
+                                          SLICE_R11C21B   D0_TO_F0_DELAY   0.450        12.715  6       
+NES_inst/n153985                                          NET DELAY        2.172        14.887  6       
+NES_inst/digital_7__I_0_i2_3_lut/C->NES_inst/digital_7__I_0_i2_3_lut/Z
+                                          SLICE_R11C22A   D0_TO_F0_DELAY   0.450        15.337  7       
+NES_inst/digital[1]                                       NET DELAY        2.556        17.893  7       
+board_inst/i1_3_lut_4_lut/C->board_inst/i1_3_lut_4_lut/Z
+                                          SLICE_R11C21C   A0_TO_F0_DELAY   0.477        18.370  3       
+board_inst/n81732                                         NET DELAY        0.305        18.675  3       
+board_inst/i170362_2_lut/A->board_inst/i170362_2_lut/Z
+                                          SLICE_R11C21C   C1_TO_F1_DELAY   0.450        19.125  1       
+board_inst/n117044 ( CE )                                 NET DELAY        2.808        21.933  1       
 
 
                                                              CONSTRAINT     0.000        20.833  1       
@@ -392,24 +395,24 @@ NES_inst/CLK ( CLK )                                         NET DELAY      5.51
                                                              Setup time     0.199        26.144  
 ----------------------------------------  -----------------  -------------  -----  ------------  ------  
 Required Time                                                                            26.144  
-Arrival Time                                                                            -22.886  
+Arrival Time                                                                            -21.932  
 ----------------------------------------  -----------------  -------------  -----  ------------  ------  
-Path Slack  (Passed)                                                                      3.257  
+Path Slack  (Passed)                                                                      4.211  
 
 
 
 
 ++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_inst/count_11960_12085__i18/Q  (SLICE_R4C24B)
-Path End         : board_inst/apple_id_i0/SP  (SLICE_R5C22B)
+Path Begin       : NES_inst/count_14660_14796__i14/Q  (SLICE_R10C20D)
+Path End         : board_inst/snakePos_inst/dir_signal__i1/D  (SLICE_R11C20B)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
-Logic Level      : 7
-Delay Ratio      : 76.1% (route), 23.9% (logic)
+Logic Level      : 6
+Delay Ratio      : 76.6% (route), 23.4% (logic)
 Clock Skew       : 0.000 ns
 Setup Constraint : 20.833 ns 
-Path Slack       : 3.257 ns  (Passed)
+Path Slack       : 4.940 ns  (Passed)
 
 Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
 ----------------------------------------  -----------------  -------------  -----  ------------  ------  
@@ -418,25 +421,23 @@ NES_inst/CLK                                                 NET DELAY      5.51
 
 
 
-NES_inst/count_11960_12085__i18/CK->NES_inst/count_11960_12085__i18/Q
-                                          SLICE_R4C24B    CLK_TO_Q0_DELAY  1.391         6.901  3       
-NES_inst/NEScount[9]                                      NET DELAY        2.146         9.047  3       
-NES_inst/i2_3_lut_adj_10244/B->NES_inst/i2_3_lut_adj_10244/Z
-                                          SLICE_R5C24A    A0_TO_F0_DELAY   0.477         9.524  1       
-NES_inst/n21                                              NET DELAY        0.305         9.829  1       
-NES_inst/i1_4_lut/A->NES_inst/i1_4_lut/Z  SLICE_R5C24A    C1_TO_F1_DELAY   0.450        10.279  2       
-NES_inst/n86496                                           NET DELAY        2.490        12.769  2       
-NES_inst/i2_3_lut/C->NES_inst/i2_3_lut/Z  SLICE_R5C23B    B0_TO_F0_DELAY   0.450        13.219  6       
-NES_inst/n172705                                          NET DELAY        2.172        15.391  6       
-NES_inst/digital_7__I_0_i3_3_lut/C->NES_inst/digital_7__I_0_i3_3_lut/Z
-                                          SLICE_R5C22C    D0_TO_F0_DELAY   0.450        15.841  4       
-NES_inst/digital[2]                                       NET DELAY        2.490        18.331  4       
-board_inst/i2_2_lut_3_lut/A->board_inst/i2_2_lut_3_lut/Z
-                                          SLICE_R5C23C    B0_TO_F0_DELAY   0.477        18.808  6       
-board_inst/n172678                                        NET DELAY        0.305        19.113  6       
-board_inst/i168658_2_lut_3_lut/B->board_inst/i168658_2_lut_3_lut/Z
-                                          SLICE_R5C23C    C1_TO_F1_DELAY   0.450        19.563  2       
-board_inst/n174229 ( CE )                                 NET DELAY        3.324        22.887  2       
+NES_inst/count_14660_14796__i14/CK->NES_inst/count_14660_14796__i14/Q
+                                          SLICE_R10C20D   CLK_TO_Q0_DELAY  1.391         6.901  3       
+NES_inst/NEScount[5]                                      NET DELAY        2.742         9.643  3       
+NES_inst/i2_3_lut_adj_10113/C->NES_inst/i2_3_lut_adj_10113/Z
+                                          SLICE_R10C22A   A0_TO_F0_DELAY   0.450        10.093  3       
+NES_inst/n28                                              NET DELAY        2.172        12.265  3       
+NES_inst/i2_3_lut_4_lut/C->NES_inst/i2_3_lut_4_lut/Z
+                                          SLICE_R11C21B   D0_TO_F0_DELAY   0.450        12.715  6       
+NES_inst/n153985                                          NET DELAY        2.172        14.887  6       
+NES_inst/digital_7__I_0_i1_3_lut/C->NES_inst/digital_7__I_0_i1_3_lut/Z
+                                          SLICE_R11C22B   D0_TO_F0_DELAY   0.450        15.337  6       
+NES_inst/digital[0]                                       NET DELAY        2.172        17.509  6       
+board_inst/i1_2_lut_adj_10245/B->board_inst/i1_2_lut_adj_10245/Z
+                                          SLICE_R11C22A   D1_TO_F1_DELAY   0.450        17.959  4       
+board_inst/snakePos_inst/n4                               NET DELAY        2.768        20.727  4       
+i1_3_lut_4_lut/D->i1_3_lut_4_lut/Z        SLICE_R11C20B   D1_TO_F1_DELAY   0.477        21.204  1       
+board_inst/snakePos_inst/n158008 ( DI1 )                  NET DELAY        0.000        21.204  1       
 
 
                                                              CONSTRAINT     0.000        20.833  1       
@@ -446,24 +447,24 @@ NES_inst/CLK ( CLK )                                         NET DELAY      5.51
                                                              Setup time     0.199        26.144  
 ----------------------------------------  -----------------  -------------  -----  ------------  ------  
 Required Time                                                                            26.144  
-Arrival Time                                                                            -22.886  
+Arrival Time                                                                            -21.203  
 ----------------------------------------  -----------------  -------------  -----  ------------  ------  
-Path Slack  (Passed)                                                                      3.257  
+Path Slack  (Passed)                                                                      4.940  
 
 
 
 
 ++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_inst/count_11960_12085__i18/Q  (SLICE_R4C24B)
-Path End         : board_inst/game_State_i0/SP  (SLICE_R6C23C)
+Path Begin       : NES_inst/count_14660_14796__i14/Q  (SLICE_R10C20D)
+Path End         : board_inst/apple_id_i6/D  (SLICE_R11C20A)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 6
-Delay Ratio      : 78.4% (route), 21.6% (logic)
+Delay Ratio      : 76.6% (route), 23.4% (logic)
 Clock Skew       : 0.000 ns
 Setup Constraint : 20.833 ns 
-Path Slack       : 3.681 ns  (Passed)
+Path Slack       : 4.940 ns  (Passed)
 
 Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
 ----------------------------------------  -----------------  -------------  -----  ------------  ------  
@@ -472,22 +473,24 @@ NES_inst/CLK                                                 NET DELAY      5.51
 
 
 
-NES_inst/count_11960_12085__i18/CK->NES_inst/count_11960_12085__i18/Q
-                                          SLICE_R4C24B    CLK_TO_Q0_DELAY  1.391         6.901  3       
-NES_inst/NEScount[9]                                      NET DELAY        2.146         9.047  3       
-NES_inst/i2_3_lut_adj_10244/B->NES_inst/i2_3_lut_adj_10244/Z
-                                          SLICE_R5C24A    A0_TO_F0_DELAY   0.477         9.524  1       
-NES_inst/n21                                              NET DELAY        0.305         9.829  1       
-NES_inst/i1_4_lut/A->NES_inst/i1_4_lut/Z  SLICE_R5C24A    C1_TO_F1_DELAY   0.450        10.279  2       
-NES_inst/n86496                                           NET DELAY        2.490        12.769  2       
-NES_inst/i2_3_lut/C->NES_inst/i2_3_lut/Z  SLICE_R5C23B    B0_TO_F0_DELAY   0.450        13.219  6       
-NES_inst/n172705                                          NET DELAY        2.172        15.391  6       
-NES_inst/digital_7__I_0_i5_3_lut/C->NES_inst/digital_7__I_0_i5_3_lut/Z
-                                          SLICE_R6C23D    D0_TO_F0_DELAY   0.450        15.841  3       
-NES_inst/digital[4]                                       NET DELAY        2.172        18.013  3       
-board_inst/i1_2_lut/A->board_inst/i1_2_lut/Z
-                                          SLICE_R6C23C    D0_TO_F0_DELAY   0.450        18.463  1       
-board_inst/n86579 ( CE )                                  NET DELAY        4.000        22.463  1       
+NES_inst/count_14660_14796__i14/CK->NES_inst/count_14660_14796__i14/Q
+                                          SLICE_R10C20D   CLK_TO_Q0_DELAY  1.391         6.901  3       
+NES_inst/NEScount[5]                                      NET DELAY        2.742         9.643  3       
+NES_inst/i2_3_lut_adj_10113/C->NES_inst/i2_3_lut_adj_10113/Z
+                                          SLICE_R10C22A   A0_TO_F0_DELAY   0.450        10.093  3       
+NES_inst/n28                                              NET DELAY        2.172        12.265  3       
+NES_inst/i2_3_lut_4_lut/C->NES_inst/i2_3_lut_4_lut/Z
+                                          SLICE_R11C21B   D0_TO_F0_DELAY   0.450        12.715  6       
+NES_inst/n153985                                          NET DELAY        2.172        14.887  6       
+NES_inst/digital_7__I_0_i1_3_lut/C->NES_inst/digital_7__I_0_i1_3_lut/Z
+                                          SLICE_R11C22B   D0_TO_F0_DELAY   0.450        15.337  6       
+NES_inst/digital[0]                                       NET DELAY        2.172        17.509  6       
+board_inst/i1_2_lut_adj_10245/B->board_inst/i1_2_lut_adj_10245/Z
+                                          SLICE_R11C22A   D1_TO_F1_DELAY   0.450        17.959  4       
+board_inst/snakePos_inst/n4                               NET DELAY        2.768        20.727  4       
+board_inst/snakePos_inst/i170377_2_lut_4_lut/B->board_inst/snakePos_inst/i170377_2_lut_4_lut/Z
+                                          SLICE_R11C20A   D1_TO_F1_DELAY   0.477        21.204  1       
+board_inst/snakePos_inst/n157950 ( DI1 )                  NET DELAY        0.000        21.204  1       
 
 
                                                              CONSTRAINT     0.000        20.833  1       
@@ -497,24 +500,24 @@ NES_inst/CLK ( CLK )                                         NET DELAY      5.51
                                                              Setup time     0.199        26.144  
 ----------------------------------------  -----------------  -------------  -----  ------------  ------  
 Required Time                                                                            26.144  
-Arrival Time                                                                            -22.462  
+Arrival Time                                                                            -21.203  
 ----------------------------------------  -----------------  -------------  -----  ------------  ------  
-Path Slack  (Passed)                                                                      3.681  
+Path Slack  (Passed)                                                                      4.940  
 
 
 
 
 ++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_inst/count_11960_12085__i18/Q  (SLICE_R4C24B)
-Path End         : board_inst/apple_id_i5/D  (SLICE_R5C21A)
+Path Begin       : NES_inst/count_14660_14796__i14/Q  (SLICE_R10C20D)
+Path End         : board_inst/apple_id_i2/D  (SLICE_R12C19A)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
-Logic Level      : 7
-Delay Ratio      : 74.9% (route), 25.1% (logic)
+Logic Level      : 6
+Delay Ratio      : 76.6% (route), 23.4% (logic)
 Clock Skew       : 0.000 ns
 Setup Constraint : 20.833 ns 
-Path Slack       : 4.118 ns  (Passed)
+Path Slack       : 4.940 ns  (Passed)
 
 Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
 ----------------------------------------  -----------------  -------------  -----  ------------  ------  
@@ -523,25 +526,24 @@ NES_inst/CLK                                                 NET DELAY      5.51
 
 
 
-NES_inst/count_11960_12085__i18/CK->NES_inst/count_11960_12085__i18/Q
-                                          SLICE_R4C24B    CLK_TO_Q0_DELAY  1.391         6.901  3       
-NES_inst/NEScount[9]                                      NET DELAY        2.146         9.047  3       
-NES_inst/i2_3_lut_adj_10244/B->NES_inst/i2_3_lut_adj_10244/Z
-                                          SLICE_R5C24A    A0_TO_F0_DELAY   0.477         9.524  1       
-NES_inst/n21                                              NET DELAY        0.305         9.829  1       
-NES_inst/i1_4_lut/A->NES_inst/i1_4_lut/Z  SLICE_R5C24A    C1_TO_F1_DELAY   0.450        10.279  2       
-NES_inst/n86496                                           NET DELAY        2.490        12.769  2       
-NES_inst/i2_3_lut/C->NES_inst/i2_3_lut/Z  SLICE_R5C23B    B0_TO_F0_DELAY   0.450        13.219  6       
-NES_inst/n172705                                          NET DELAY        2.172        15.391  6       
-NES_inst/digital_7__I_0_i3_3_lut/C->NES_inst/digital_7__I_0_i3_3_lut/Z
-                                          SLICE_R5C22C    D0_TO_F0_DELAY   0.450        15.841  4       
-NES_inst/digital[2]                                       NET DELAY        2.490        18.331  4       
-board_inst/i2_2_lut_3_lut/A->board_inst/i2_2_lut_3_lut/Z
-                                          SLICE_R5C23C    B0_TO_F0_DELAY   0.450        18.781  6       
-board_inst/n172678                                        NET DELAY        2.768        21.549  6       
-board_inst/i157328_3_lut_4_lut_4_lut/B->board_inst/i157328_3_lut_4_lut_4_lut/Z
-                                          SLICE_R5C21A    D0_TO_F0_DELAY   0.477        22.026  1       
-board_inst/n174214 ( DI0 )                                NET DELAY        0.000        22.026  1       
+NES_inst/count_14660_14796__i14/CK->NES_inst/count_14660_14796__i14/Q
+                                          SLICE_R10C20D   CLK_TO_Q0_DELAY  1.391         6.901  3       
+NES_inst/NEScount[5]                                      NET DELAY        2.742         9.643  3       
+NES_inst/i2_3_lut_adj_10113/C->NES_inst/i2_3_lut_adj_10113/Z
+                                          SLICE_R10C22A   A0_TO_F0_DELAY   0.450        10.093  3       
+NES_inst/n28                                              NET DELAY        2.172        12.265  3       
+NES_inst/i2_3_lut_4_lut/C->NES_inst/i2_3_lut_4_lut/Z
+                                          SLICE_R11C21B   D0_TO_F0_DELAY   0.450        12.715  6       
+NES_inst/n153985                                          NET DELAY        2.172        14.887  6       
+NES_inst/digital_7__I_0_i1_3_lut/C->NES_inst/digital_7__I_0_i1_3_lut/Z
+                                          SLICE_R11C22B   D0_TO_F0_DELAY   0.450        15.337  6       
+NES_inst/digital[0]                                       NET DELAY        2.172        17.509  6       
+board_inst/i1_2_lut_adj_10245/B->board_inst/i1_2_lut_adj_10245/Z
+                                          SLICE_R11C22A   D1_TO_F1_DELAY   0.450        17.959  4       
+board_inst/snakePos_inst/n4                               NET DELAY        2.768        20.727  4       
+board_inst/snakePos_inst/i170375_2_lut_4_lut/B->board_inst/snakePos_inst/i170375_2_lut_4_lut/Z
+                                          SLICE_R12C19A   D0_TO_F0_DELAY   0.477        21.204  1       
+board_inst/snakePos_inst/n157951 ( DI0 )                  NET DELAY        0.000        21.204  1       
 
 
                                                              CONSTRAINT     0.000        20.833  1       
@@ -551,24 +553,24 @@ NES_inst/CLK ( CLK )                                         NET DELAY      5.51
                                                              Setup time     0.199        26.144  
 ----------------------------------------  -----------------  -------------  -----  ------------  ------  
 Required Time                                                                            26.144  
-Arrival Time                                                                            -22.025  
+Arrival Time                                                                            -21.203  
 ----------------------------------------  -----------------  -------------  -----  ------------  ------  
-Path Slack  (Passed)                                                                      4.118  
+Path Slack  (Passed)                                                                      4.940  
 
 
 
 
 ++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_inst/count_11960_12085__i18/Q  (SLICE_R4C24B)
-Path End         : board_inst/apple_id_i6/D  (SLICE_R5C21A)
+Path Begin       : NES_inst/count_14660_14796__i14/Q  (SLICE_R10C20D)
+Path End         : board_inst/apple_id_i8/D  (SLICE_R12C19A)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
-Logic Level      : 7
-Delay Ratio      : 74.9% (route), 25.1% (logic)
+Logic Level      : 6
+Delay Ratio      : 76.6% (route), 23.4% (logic)
 Clock Skew       : 0.000 ns
 Setup Constraint : 20.833 ns 
-Path Slack       : 4.118 ns  (Passed)
+Path Slack       : 4.940 ns  (Passed)
 
 Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
 ----------------------------------------  -----------------  -------------  -----  ------------  ------  
@@ -577,25 +579,24 @@ NES_inst/CLK                                                 NET DELAY      5.51
 
 
 
-NES_inst/count_11960_12085__i18/CK->NES_inst/count_11960_12085__i18/Q
-                                          SLICE_R4C24B    CLK_TO_Q0_DELAY  1.391         6.901  3       
-NES_inst/NEScount[9]                                      NET DELAY        2.146         9.047  3       
-NES_inst/i2_3_lut_adj_10244/B->NES_inst/i2_3_lut_adj_10244/Z
-                                          SLICE_R5C24A    A0_TO_F0_DELAY   0.477         9.524  1       
-NES_inst/n21                                              NET DELAY        0.305         9.829  1       
-NES_inst/i1_4_lut/A->NES_inst/i1_4_lut/Z  SLICE_R5C24A    C1_TO_F1_DELAY   0.450        10.279  2       
-NES_inst/n86496                                           NET DELAY        2.490        12.769  2       
-NES_inst/i2_3_lut/C->NES_inst/i2_3_lut/Z  SLICE_R5C23B    B0_TO_F0_DELAY   0.450        13.219  6       
-NES_inst/n172705                                          NET DELAY        2.172        15.391  6       
-NES_inst/digital_7__I_0_i3_3_lut/C->NES_inst/digital_7__I_0_i3_3_lut/Z
-                                          SLICE_R5C22C    D0_TO_F0_DELAY   0.450        15.841  4       
-NES_inst/digital[2]                                       NET DELAY        2.490        18.331  4       
-board_inst/i2_2_lut_3_lut/A->board_inst/i2_2_lut_3_lut/Z
-                                          SLICE_R5C23C    B0_TO_F0_DELAY   0.450        18.781  6       
-board_inst/n172678                                        NET DELAY        2.768        21.549  6       
-board_inst/i168685_2_lut_4_lut/A->board_inst/i168685_2_lut_4_lut/Z
-                                          SLICE_R5C21A    D1_TO_F1_DELAY   0.477        22.026  1       
-board_inst/n172596 ( DI1 )                                NET DELAY        0.000        22.026  1       
+NES_inst/count_14660_14796__i14/CK->NES_inst/count_14660_14796__i14/Q
+                                          SLICE_R10C20D   CLK_TO_Q0_DELAY  1.391         6.901  3       
+NES_inst/NEScount[5]                                      NET DELAY        2.742         9.643  3       
+NES_inst/i2_3_lut_adj_10113/C->NES_inst/i2_3_lut_adj_10113/Z
+                                          SLICE_R10C22A   A0_TO_F0_DELAY   0.450        10.093  3       
+NES_inst/n28                                              NET DELAY        2.172        12.265  3       
+NES_inst/i2_3_lut_4_lut/C->NES_inst/i2_3_lut_4_lut/Z
+                                          SLICE_R11C21B   D0_TO_F0_DELAY   0.450        12.715  6       
+NES_inst/n153985                                          NET DELAY        2.172        14.887  6       
+NES_inst/digital_7__I_0_i1_3_lut/C->NES_inst/digital_7__I_0_i1_3_lut/Z
+                                          SLICE_R11C22B   D0_TO_F0_DELAY   0.450        15.337  6       
+NES_inst/digital[0]                                       NET DELAY        2.172        17.509  6       
+board_inst/i1_2_lut_adj_10245/B->board_inst/i1_2_lut_adj_10245/Z
+                                          SLICE_R11C22A   D1_TO_F1_DELAY   0.450        17.959  4       
+board_inst/snakePos_inst/n4                               NET DELAY        2.768        20.727  4       
+board_inst/snakePos_inst/i170373_2_lut_4_lut/B->board_inst/snakePos_inst/i170373_2_lut_4_lut/Z
+                                          SLICE_R12C19A   D1_TO_F1_DELAY   0.477        21.204  1       
+board_inst/snakePos_inst/n157949 ( DI1 )                  NET DELAY        0.000        21.204  1       
 
 
                                                              CONSTRAINT     0.000        20.833  1       
@@ -605,24 +606,24 @@ NES_inst/CLK ( CLK )                                         NET DELAY      5.51
                                                              Setup time     0.199        26.144  
 ----------------------------------------  -----------------  -------------  -----  ------------  ------  
 Required Time                                                                            26.144  
-Arrival Time                                                                            -22.025  
+Arrival Time                                                                            -21.203  
 ----------------------------------------  -----------------  -------------  -----  ------------  ------  
-Path Slack  (Passed)                                                                      4.118  
+Path Slack  (Passed)                                                                      4.940  
 
 
 
 
 ++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_inst/count_11960_12085__i18/Q  (SLICE_R4C24B)
-Path End         : board_inst/game_State_i0/D  (SLICE_R6C23C)
+Path Begin       : NES_inst/count_14660_14796__i14/Q  (SLICE_R10C20D)
+Path End         : board_inst/snakePos_inst/dir_signal__i0/SP  (SLICE_R11C22D)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
-Logic Level      : 7
-Delay Ratio      : 74.0% (route), 26.0% (logic)
+Logic Level      : 5
+Delay Ratio      : 79.5% (route), 20.5% (logic)
 Clock Skew       : 0.000 ns
 Setup Constraint : 20.833 ns 
-Path Slack       : 4.714 ns  (Passed)
+Path Slack       : 5.059 ns  (Passed)
 
 Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
 ----------------------------------------  -----------------  -------------  -----  ------------  ------  
@@ -631,25 +632,21 @@ NES_inst/CLK                                                 NET DELAY      5.51
 
 
 
-NES_inst/count_11960_12085__i18/CK->NES_inst/count_11960_12085__i18/Q
-                                          SLICE_R4C24B    CLK_TO_Q0_DELAY  1.391         6.901  3       
-NES_inst/NEScount[9]                                      NET DELAY        2.146         9.047  3       
-NES_inst/i2_3_lut_adj_10244/B->NES_inst/i2_3_lut_adj_10244/Z
-                                          SLICE_R5C24A    A0_TO_F0_DELAY   0.477         9.524  1       
-NES_inst/n21                                              NET DELAY        0.305         9.829  1       
-NES_inst/i1_4_lut/A->NES_inst/i1_4_lut/Z  SLICE_R5C24A    C1_TO_F1_DELAY   0.450        10.279  2       
-NES_inst/n86496                                           NET DELAY        2.490        12.769  2       
-NES_inst/i2_3_lut/C->NES_inst/i2_3_lut/Z  SLICE_R5C23B    B0_TO_F0_DELAY   0.450        13.219  6       
-NES_inst/n172705                                          NET DELAY        2.172        15.391  6       
+NES_inst/count_14660_14796__i14/CK->NES_inst/count_14660_14796__i14/Q
+                                          SLICE_R10C20D   CLK_TO_Q0_DELAY  1.391         6.901  3       
+NES_inst/NEScount[5]                                      NET DELAY        2.742         9.643  3       
+NES_inst/i2_3_lut_adj_10113/C->NES_inst/i2_3_lut_adj_10113/Z
+                                          SLICE_R10C22A   A0_TO_F0_DELAY   0.450        10.093  3       
+NES_inst/n28                                              NET DELAY        2.172        12.265  3       
+NES_inst/i2_3_lut_4_lut/C->NES_inst/i2_3_lut_4_lut/Z
+                                          SLICE_R11C21B   D0_TO_F0_DELAY   0.450        12.715  6       
+NES_inst/n153985                                          NET DELAY        2.172        14.887  6       
 NES_inst/digital_7__I_0_i3_3_lut/C->NES_inst/digital_7__I_0_i3_3_lut/Z
-                                          SLICE_R5C22C    D0_TO_F0_DELAY   0.450        15.841  4       
-NES_inst/digital[2]                                       NET DELAY        2.490        18.331  4       
-board_inst/i2_2_lut_3_lut/A->board_inst/i2_2_lut_3_lut/Z
-                                          SLICE_R5C23C    B0_TO_F0_DELAY   0.450        18.781  6       
-board_inst/n172678                                        NET DELAY        2.172        20.953  6       
-board_inst/i71619_3_lut_4_lut/B->board_inst/i71619_3_lut_4_lut/Z
-                                          SLICE_R6C23C    D1_TO_F1_DELAY   0.477        21.430  1       
-board_inst/game_State_1__N_57[0] ( DI1 )                  NET DELAY        0.000        21.430  1       
+                                          SLICE_R11C20D   D0_TO_F0_DELAY   0.450        15.337  8       
+NES_inst/digital[2]                                       NET DELAY        3.086        18.423  8       
+board_inst/snakePos_inst/i170380_2_lut_4_lut/C->board_inst/snakePos_inst/i170380_2_lut_4_lut/Z
+                                          SLICE_R11C22B   B1_TO_F1_DELAY   0.450        18.873  1       
+board_inst/snakePos_inst/n160781 ( CE )                   NET DELAY        2.212        21.085  1       
 
 
                                                              CONSTRAINT     0.000        20.833  1       
@@ -659,24 +656,24 @@ NES_inst/CLK ( CLK )                                         NET DELAY      5.51
                                                              Setup time     0.199        26.144  
 ----------------------------------------  -----------------  -------------  -----  ------------  ------  
 Required Time                                                                            26.144  
-Arrival Time                                                                            -21.429  
+Arrival Time                                                                            -21.084  
 ----------------------------------------  -----------------  -------------  -----  ------------  ------  
-Path Slack  (Passed)                                                                      4.714  
+Path Slack  (Passed)                                                                      5.059  
 
 
 
 
 ++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_inst/count_11960_12085__i18/Q  (SLICE_R4C24B)
-Path End         : board_inst/apple_id_i2/D  (SLICE_R6C22B)
+Path Begin       : NES_inst/count_14660_14796__i14/Q  (SLICE_R10C20D)
+Path End         : board_inst/game_State_i0/SR  (SLICE_R12C21C)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
-Logic Level      : 7
-Delay Ratio      : 74.0% (route), 26.0% (logic)
+Logic Level      : 5
+Delay Ratio      : 79.0% (route), 21.0% (logic)
 Clock Skew       : 0.000 ns
 Setup Constraint : 20.833 ns 
-Path Slack       : 4.714 ns  (Passed)
+Path Slack       : 5.112 ns  (Passed)
 
 Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
 ----------------------------------------  -----------------  -------------  -----  ------------  ------  
@@ -685,130 +682,21 @@ NES_inst/CLK                                                 NET DELAY      5.51
 
 
 
-NES_inst/count_11960_12085__i18/CK->NES_inst/count_11960_12085__i18/Q
-                                          SLICE_R4C24B    CLK_TO_Q0_DELAY  1.391         6.901  3       
-NES_inst/NEScount[9]                                      NET DELAY        2.146         9.047  3       
-NES_inst/i2_3_lut_adj_10244/B->NES_inst/i2_3_lut_adj_10244/Z
-                                          SLICE_R5C24A    A0_TO_F0_DELAY   0.477         9.524  1       
-NES_inst/n21                                              NET DELAY        0.305         9.829  1       
-NES_inst/i1_4_lut/A->NES_inst/i1_4_lut/Z  SLICE_R5C24A    C1_TO_F1_DELAY   0.450        10.279  2       
-NES_inst/n86496                                           NET DELAY        2.490        12.769  2       
-NES_inst/i2_3_lut/C->NES_inst/i2_3_lut/Z  SLICE_R5C23B    B0_TO_F0_DELAY   0.450        13.219  6       
-NES_inst/n172705                                          NET DELAY        2.172        15.391  6       
-NES_inst/digital_7__I_0_i3_3_lut/C->NES_inst/digital_7__I_0_i3_3_lut/Z
-                                          SLICE_R5C22C    D0_TO_F0_DELAY   0.450        15.841  4       
-NES_inst/digital[2]                                       NET DELAY        2.490        18.331  4       
-board_inst/i2_2_lut_3_lut/A->board_inst/i2_2_lut_3_lut/Z
-                                          SLICE_R5C23C    B0_TO_F0_DELAY   0.450        18.781  6       
-board_inst/n172678                                        NET DELAY        2.172        20.953  6       
-board_inst/i168683_2_lut_4_lut/A->board_inst/i168683_2_lut_4_lut/Z
-                                          SLICE_R6C22B    D0_TO_F0_DELAY   0.477        21.430  1       
-board_inst/n172595 ( DI0 )                                NET DELAY        0.000        21.430  1       
-
-
-                                                             CONSTRAINT     0.000        20.833  1       
-HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000        20.833  80      
-NES_inst/CLK ( CLK )                                         NET DELAY      5.510        26.343  80      
-                                                             Uncertainty    0.000        26.343  
-                                                             Setup time     0.199        26.144  
-----------------------------------------  -----------------  -------------  -----  ------------  ------  
-Required Time                                                                            26.144  
-Arrival Time                                                                            -21.429  
-----------------------------------------  -----------------  -------------  -----  ------------  ------  
-Path Slack  (Passed)                                                                      4.714  
-
-
-
-
-++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-
-Path Begin       : NES_inst/count_11960_12085__i18/Q  (SLICE_R4C24B)
-Path End         : board_inst/apple_id_i8/D  (SLICE_R6C22B)
-Source Clock     : CLK (R)
-Destination Clock: CLK (R)
-Logic Level      : 7
-Delay Ratio      : 74.0% (route), 26.0% (logic)
-Clock Skew       : 0.000 ns
-Setup Constraint : 20.833 ns 
-Path Slack       : 4.714 ns  (Passed)
-
-Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
-----------------------------------------  -----------------  -------------  -----  ------------  ------  
-HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  80      
-NES_inst/CLK                                                 NET DELAY      5.510         5.510  80      
-
-
-
-NES_inst/count_11960_12085__i18/CK->NES_inst/count_11960_12085__i18/Q
-                                          SLICE_R4C24B    CLK_TO_Q0_DELAY  1.391         6.901  3       
-NES_inst/NEScount[9]                                      NET DELAY        2.146         9.047  3       
-NES_inst/i2_3_lut_adj_10244/B->NES_inst/i2_3_lut_adj_10244/Z
-                                          SLICE_R5C24A    A0_TO_F0_DELAY   0.477         9.524  1       
-NES_inst/n21                                              NET DELAY        0.305         9.829  1       
-NES_inst/i1_4_lut/A->NES_inst/i1_4_lut/Z  SLICE_R5C24A    C1_TO_F1_DELAY   0.450        10.279  2       
-NES_inst/n86496                                           NET DELAY        2.490        12.769  2       
-NES_inst/i2_3_lut/C->NES_inst/i2_3_lut/Z  SLICE_R5C23B    B0_TO_F0_DELAY   0.450        13.219  6       
-NES_inst/n172705                                          NET DELAY        2.172        15.391  6       
-NES_inst/digital_7__I_0_i3_3_lut/C->NES_inst/digital_7__I_0_i3_3_lut/Z
-                                          SLICE_R5C22C    D0_TO_F0_DELAY   0.450        15.841  4       
-NES_inst/digital[2]                                       NET DELAY        2.490        18.331  4       
-board_inst/i2_2_lut_3_lut/A->board_inst/i2_2_lut_3_lut/Z
-                                          SLICE_R5C23C    B0_TO_F0_DELAY   0.450        18.781  6       
-board_inst/n172678                                        NET DELAY        2.172        20.953  6       
-board_inst/i168681_2_lut_4_lut/A->board_inst/i168681_2_lut_4_lut/Z
-                                          SLICE_R6C22B    D1_TO_F1_DELAY   0.477        21.430  1       
-board_inst/n172597 ( DI1 )                                NET DELAY        0.000        21.430  1       
-
-
-                                                             CONSTRAINT     0.000        20.833  1       
-HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000        20.833  80      
-NES_inst/CLK ( CLK )                                         NET DELAY      5.510        26.343  80      
-                                                             Uncertainty    0.000        26.343  
-                                                             Setup time     0.199        26.144  
-----------------------------------------  -----------------  -------------  -----  ------------  ------  
-Required Time                                                                            26.144  
-Arrival Time                                                                            -21.429  
-----------------------------------------  -----------------  -------------  -----  ------------  ------  
-Path Slack  (Passed)                                                                      4.714  
-
-
-
-
-++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-
-Path Begin       : NES_inst/count_11960_12085__i18/Q  (SLICE_R4C24B)
-Path End         : board_inst/game_State_i0/SR  (SLICE_R6C23C)
-Source Clock     : CLK (R)
-Destination Clock: CLK (R)
-Logic Level      : 6
-Delay Ratio      : 75.3% (route), 24.7% (logic)
-Clock Skew       : 0.000 ns
-Setup Constraint : 20.833 ns 
-Path Slack       : 5.336 ns  (Passed)
-
-Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
-----------------------------------------  -----------------  -------------  -----  ------------  ------  
-HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  80      
-NES_inst/CLK                                                 NET DELAY      5.510         5.510  80      
-
-
-
-NES_inst/count_11960_12085__i18/CK->NES_inst/count_11960_12085__i18/Q
-                                          SLICE_R4C24B    CLK_TO_Q0_DELAY  1.391         6.901  3       
-NES_inst/NEScount[9]                                      NET DELAY        2.146         9.047  3       
-NES_inst/i2_3_lut_adj_10244/B->NES_inst/i2_3_lut_adj_10244/Z
-                                          SLICE_R5C24A    A0_TO_F0_DELAY   0.477         9.524  1       
-NES_inst/n21                                              NET DELAY        0.305         9.829  1       
-NES_inst/i1_4_lut/A->NES_inst/i1_4_lut/Z  SLICE_R5C24A    C1_TO_F1_DELAY   0.450        10.279  2       
-NES_inst/n86496                                           NET DELAY        2.490        12.769  2       
-NES_inst/i2_3_lut/C->NES_inst/i2_3_lut/Z  SLICE_R5C23B    B0_TO_F0_DELAY   0.450        13.219  6       
-NES_inst/n172705                                          NET DELAY        2.172        15.391  6       
+NES_inst/count_14660_14796__i14/CK->NES_inst/count_14660_14796__i14/Q
+                                          SLICE_R10C20D   CLK_TO_Q0_DELAY  1.391         6.901  3       
+NES_inst/NEScount[5]                                      NET DELAY        2.742         9.643  3       
+NES_inst/i2_3_lut_adj_10113/C->NES_inst/i2_3_lut_adj_10113/Z
+                                          SLICE_R10C22A   A0_TO_F0_DELAY   0.450        10.093  3       
+NES_inst/n28                                              NET DELAY        2.172        12.265  3       
+NES_inst/i2_3_lut_4_lut/C->NES_inst/i2_3_lut_4_lut/Z
+                                          SLICE_R11C21B   D0_TO_F0_DELAY   0.450        12.715  6       
+NES_inst/n153985                                          NET DELAY        2.172        14.887  6       
 NES_inst/digital_7__I_0_i5_3_lut/C->NES_inst/digital_7__I_0_i5_3_lut/Z
-                                          SLICE_R6C23D    D0_TO_F0_DELAY   0.477        15.868  3       
-NES_inst/digital[4]                                       NET DELAY        0.305        16.173  3       
-board_inst/i168661_2_lut/A->board_inst/i168661_2_lut/Z
-                                          SLICE_R6C23D    C1_TO_F1_DELAY   0.450        16.623  1       
-board_inst/n174231 ( LSR )                                NET DELAY        3.854        20.477  1       
+                                          SLICE_R12C21B   D1_TO_F1_DELAY   0.450        15.337  3       
+NES_inst/digital[4]                                       NET DELAY        2.172        17.509  3       
+board_inst/i170368_2_lut/A->board_inst/i170368_2_lut/Z
+                                          SLICE_R12C21B   D0_TO_F0_DELAY   0.450        17.959  1       
+board_inst/n160759 ( LSR )                                NET DELAY        2.742        20.701  1       
 
 
                                                              CONSTRAINT     0.000        20.833  1       
@@ -818,24 +706,24 @@ NES_inst/CLK ( CLK )                                         NET DELAY      5.51
                                                              Setup time     0.530        25.813  
 ----------------------------------------  -----------------  -------------  -----  ------------  ------  
 Required Time                                                                            25.813  
-Arrival Time                                                                            -20.476  
+Arrival Time                                                                            -20.700  
 ----------------------------------------  -----------------  -------------  -----  ------------  ------  
-Path Slack  (Passed)                                                                      5.336  
+Path Slack  (Passed)                                                                      5.112  
 
 
 
 
-++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : NES_inst/count_11960_12085__i18/Q  (SLICE_R4C24B)
-Path End         : board_inst/apple_id_i0/D  (SLICE_R5C22B)
+Path Begin       : NES_inst/count_14660_14796__i14/Q  (SLICE_R10C20D)
+Path End         : board_inst/game_State_i0/D  (SLICE_R12C21C)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 6
-Delay Ratio      : 73.5% (route), 26.5% (logic)
+Delay Ratio      : 76.3% (route), 23.7% (logic)
 Clock Skew       : 0.000 ns
 Setup Constraint : 20.833 ns 
-Path Slack       : 6.674 ns  (Passed)
+Path Slack       : 5.152 ns  (Passed)
 
 Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
 ----------------------------------------  -----------------  -------------  -----  ------------  ------  
@@ -844,22 +732,24 @@ NES_inst/CLK                                                 NET DELAY      5.51
 
 
 
-NES_inst/count_11960_12085__i18/CK->NES_inst/count_11960_12085__i18/Q
-                                          SLICE_R4C24B    CLK_TO_Q0_DELAY  1.391         6.901  3       
-NES_inst/NEScount[9]                                      NET DELAY        2.146         9.047  3       
-NES_inst/i2_3_lut_adj_10244/B->NES_inst/i2_3_lut_adj_10244/Z
-                                          SLICE_R5C24A    A0_TO_F0_DELAY   0.477         9.524  1       
-NES_inst/n21                                              NET DELAY        0.305         9.829  1       
-NES_inst/i1_4_lut/A->NES_inst/i1_4_lut/Z  SLICE_R5C24A    C1_TO_F1_DELAY   0.450        10.279  2       
-NES_inst/n86496                                           NET DELAY        2.490        12.769  2       
-NES_inst/i2_3_lut/C->NES_inst/i2_3_lut/Z  SLICE_R5C23B    B0_TO_F0_DELAY   0.450        13.219  6       
-NES_inst/n172705                                          NET DELAY        2.172        15.391  6       
+NES_inst/count_14660_14796__i14/CK->NES_inst/count_14660_14796__i14/Q
+                                          SLICE_R10C20D   CLK_TO_Q0_DELAY  1.391         6.901  3       
+NES_inst/NEScount[5]                                      NET DELAY        2.742         9.643  3       
+NES_inst/i2_3_lut_adj_10113/C->NES_inst/i2_3_lut_adj_10113/Z
+                                          SLICE_R10C22A   A0_TO_F0_DELAY   0.450        10.093  3       
+NES_inst/n28                                              NET DELAY        2.172        12.265  3       
+NES_inst/i2_3_lut_4_lut/C->NES_inst/i2_3_lut_4_lut/Z
+                                          SLICE_R11C21B   D0_TO_F0_DELAY   0.450        12.715  6       
+NES_inst/n153985                                          NET DELAY        2.172        14.887  6       
 NES_inst/digital_7__I_0_i2_3_lut/C->NES_inst/digital_7__I_0_i2_3_lut/Z
-                                          SLICE_R6C23A    D1_TO_F1_DELAY   0.450        15.841  4       
-NES_inst/digital[1]                                       NET DELAY        3.152        18.993  4       
-board_inst/i96288_4_lut/C->board_inst/i96288_4_lut/Z
-                                          SLICE_R5C22B    A1_TO_F1_DELAY   0.477        19.470  1       
-board_inst/n14212[0] ( DI1 )                              NET DELAY        0.000        19.470  1       
+                                          SLICE_R11C22A   D0_TO_F0_DELAY   0.450        15.337  7       
+NES_inst/digital[1]                                       NET DELAY        2.556        17.893  7       
+board_inst/i1_3_lut_4_lut/C->board_inst/i1_3_lut_4_lut/Z
+                                          SLICE_R11C21C   A0_TO_F0_DELAY   0.450        18.343  3       
+board_inst/n81732                                         NET DELAY        2.172        20.515  3       
+board_inst/i71788_3_lut/C->board_inst/i71788_3_lut/Z
+                                          SLICE_R12C21C   D1_TO_F1_DELAY   0.477        20.992  1       
+board_inst/game_State_1__N_57[0] ( DI1 )                  NET DELAY        0.000        20.992  1       
 
 
                                                              CONSTRAINT     0.000        20.833  1       
@@ -869,9 +759,112 @@ NES_inst/CLK ( CLK )                                         NET DELAY      5.51
                                                              Setup time     0.199        26.144  
 ----------------------------------------  -----------------  -------------  -----  ------------  ------  
 Required Time                                                                            26.144  
-Arrival Time                                                                            -19.469  
+Arrival Time                                                                            -20.991  
 ----------------------------------------  -----------------  -------------  -----  ------------  ------  
-Path Slack  (Passed)                                                                      6.674  
+Path Slack  (Passed)                                                                      5.152  
+
+
+
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : NES_inst/count_14660_14796__i14/Q  (SLICE_R10C20D)
+Path End         : board_inst/apple_id_i5/D  (SLICE_R11C20A)
+Source Clock     : CLK (R)
+Destination Clock: CLK (R)
+Logic Level      : 6
+Delay Ratio      : 76.3% (route), 23.7% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 5.152 ns  (Passed)
+
+Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  80      
+NES_inst/CLK                                                 NET DELAY      5.510         5.510  80      
+
+
+
+NES_inst/count_14660_14796__i14/CK->NES_inst/count_14660_14796__i14/Q
+                                          SLICE_R10C20D   CLK_TO_Q0_DELAY  1.391         6.901  3       
+NES_inst/NEScount[5]                                      NET DELAY        2.742         9.643  3       
+NES_inst/i2_3_lut_adj_10113/C->NES_inst/i2_3_lut_adj_10113/Z
+                                          SLICE_R10C22A   A0_TO_F0_DELAY   0.450        10.093  3       
+NES_inst/n28                                              NET DELAY        2.172        12.265  3       
+NES_inst/i2_3_lut_4_lut/C->NES_inst/i2_3_lut_4_lut/Z
+                                          SLICE_R11C21B   D0_TO_F0_DELAY   0.450        12.715  6       
+NES_inst/n153985                                          NET DELAY        2.172        14.887  6       
+NES_inst/digital_7__I_0_i2_3_lut/C->NES_inst/digital_7__I_0_i2_3_lut/Z
+                                          SLICE_R11C22A   D0_TO_F0_DELAY   0.450        15.337  7       
+NES_inst/digital[1]                                       NET DELAY        2.556        17.893  7       
+board_inst/i1_3_lut_4_lut/C->board_inst/i1_3_lut_4_lut/Z
+                                          SLICE_R11C21C   A0_TO_F0_DELAY   0.450        18.343  3       
+board_inst/n81732                                         NET DELAY        2.172        20.515  3       
+i146700_3_lut_3_lut/A->i146700_3_lut_3_lut/Z
+                                          SLICE_R11C20A   D0_TO_F0_DELAY   0.477        20.992  1       
+board_inst/n160756 ( DI0 )                                NET DELAY        0.000        20.992  1       
+
+
+                                                             CONSTRAINT     0.000        20.833  1       
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000        20.833  80      
+NES_inst/CLK ( CLK )                                         NET DELAY      5.510        26.343  80      
+                                                             Uncertainty    0.000        26.343  
+                                                             Setup time     0.199        26.144  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Required Time                                                                            26.144  
+Arrival Time                                                                            -20.991  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                      5.152  
+
+
+
+
+++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : NES_inst/count_14660_14796__i14/Q  (SLICE_R10C20D)
+Path End         : board_inst/game_State_i0/SP  (SLICE_R12C21C)
+Source Clock     : CLK (R)
+Destination Clock: CLK (R)
+Logic Level      : 5
+Delay Ratio      : 78.0% (route), 22.0% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 6.025 ns  (Passed)
+
+Name                                      Cell/Site Name     Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000         0.000  80      
+NES_inst/CLK                                                 NET DELAY      5.510         5.510  80      
+
+
+
+NES_inst/count_14660_14796__i14/CK->NES_inst/count_14660_14796__i14/Q
+                                          SLICE_R10C20D   CLK_TO_Q0_DELAY  1.391         6.901  3       
+NES_inst/NEScount[5]                                      NET DELAY        2.742         9.643  3       
+NES_inst/i2_3_lut_adj_10113/C->NES_inst/i2_3_lut_adj_10113/Z
+                                          SLICE_R10C22A   A0_TO_F0_DELAY   0.450        10.093  3       
+NES_inst/n28                                              NET DELAY        2.172        12.265  3       
+NES_inst/i2_3_lut_4_lut/C->NES_inst/i2_3_lut_4_lut/Z
+                                          SLICE_R11C21B   D0_TO_F0_DELAY   0.450        12.715  6       
+NES_inst/n153985                                          NET DELAY        2.172        14.887  6       
+NES_inst/digital_7__I_0_i5_3_lut/C->NES_inst/digital_7__I_0_i5_3_lut/Z
+                                          SLICE_R12C21B   D1_TO_F1_DELAY   0.477        15.364  3       
+NES_inst/digital[4]                                       NET DELAY        0.305        15.669  3       
+board_inst/i1_2_lut/A->board_inst/i1_2_lut/Z
+                                          SLICE_R12C21C   C0_TO_F0_DELAY   0.450        16.119  1       
+board_inst/n82028 ( CE )                                  NET DELAY        4.000        20.119  1       
+
+
+                                                             CONSTRAINT     0.000        20.833  1       
+HSOSC_inst/CLKHF                          HFOSC_HFOSC_R1C32  CLOCK LATENCY  0.000        20.833  80      
+NES_inst/CLK ( CLK )                                         NET DELAY      5.510        26.343  80      
+                                                             Uncertainty    0.000        26.343  
+                                                             Setup time     0.199        26.144  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Required Time                                                                            26.144  
+Arrival Time                                                                            -20.118  
+----------------------------------------  -----------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                      6.025  
 
 
 
@@ -898,8 +891,8 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 ++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : board_inst/snakePos_inst/counter_11961_12084__i14/Q  (SLICE_R18C22D)
-Path End         : board_inst/snakePos_inst/counter_11961_12084__i14/D  (SLICE_R18C22D)
+Path Begin       : board_inst/snakePos_inst/counter_14661_14787__i14/Q  (SLICE_R13C4D)
+Path End         : board_inst/snakePos_inst/counter_14661_14787__i14/D  (SLICE_R13C4D)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 2
@@ -915,13 +908,12 @@ NES_inst/CLK ( CLK )                                         NET DELAY      3.04
 
 
 
-board_inst/snakePos_inst/counter_11961_12084__i14/CK->board_inst/snakePos_inst/counter_11961_12084__i14/Q
-                                          SLICE_R18C22D   CLK_TO_Q0_DELAY  0.768         3.809  1       
-board_inst/snakePos_inst/n11_adj_20931                    NET DELAY        0.870         4.679  1       
-board_inst/snakePos_inst/counter_11961_12084_add_4_15/C0->board_inst/snakePos_inst/counter_11961_12084_add_4_15/S0
-                                          SLICE_R18C22D   C0_TO_F0_DELAY   0.249         4.928  1       
-board_inst/snakePos_inst/n101[13] ( DI0 )
-                                                          NET DELAY        0.000         4.928  1       
+board_inst/snakePos_inst/counter_14661_14787__i14/CK->board_inst/snakePos_inst/counter_14661_14787__i14/Q
+                                          SLICE_R13C4D    CLK_TO_Q0_DELAY  0.768         3.809  1       
+board_inst/snakePos_inst/n10                              NET DELAY        0.870         4.679  1       
+board_inst/snakePos_inst/counter_14661_14787_add_4_15/C0->board_inst/snakePos_inst/counter_14661_14787_add_4_15/S0
+                                          SLICE_R13C4D    C0_TO_F0_DELAY   0.249         4.928  1       
+board_inst/snakePos_inst/n97[13] ( DI0 )                  NET DELAY        0.000         4.928  1       
 
 
                                                              CONSTRAINT     0.000         0.000  1       
@@ -940,8 +932,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : board_inst/snakePos_inst/counter_11961_12084__i15/Q  (SLICE_R18C22D)
-Path End         : board_inst/snakePos_inst/counter_11961_12084__i15/D  (SLICE_R18C22D)
+Path Begin       : board_inst/snakePos_inst/counter_14661_14787__i15/Q  (SLICE_R13C4D)
+Path End         : board_inst/snakePos_inst/counter_14661_14787__i15/D  (SLICE_R13C4D)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 2
@@ -957,13 +949,12 @@ NES_inst/CLK ( CLK )                                         NET DELAY      3.04
 
 
 
-board_inst/snakePos_inst/counter_11961_12084__i15/CK->board_inst/snakePos_inst/counter_11961_12084__i15/Q
-                                          SLICE_R18C22D   CLK_TO_Q1_DELAY  0.768         3.809  1       
-board_inst/snakePos_inst/n10_adj_20932                    NET DELAY        0.870         4.679  1       
-board_inst/snakePos_inst/counter_11961_12084_add_4_15/C1->board_inst/snakePos_inst/counter_11961_12084_add_4_15/S1
-                                          SLICE_R18C22D   C1_TO_F1_DELAY   0.249         4.928  1       
-board_inst/snakePos_inst/n101[14] ( DI1 )
-                                                          NET DELAY        0.000         4.928  1       
+board_inst/snakePos_inst/counter_14661_14787__i15/CK->board_inst/snakePos_inst/counter_14661_14787__i15/Q
+                                          SLICE_R13C4D    CLK_TO_Q1_DELAY  0.768         3.809  1       
+board_inst/snakePos_inst/n9_adj_21189                     NET DELAY        0.870         4.679  1       
+board_inst/snakePos_inst/counter_14661_14787_add_4_15/C1->board_inst/snakePos_inst/counter_14661_14787_add_4_15/S1
+                                          SLICE_R13C4D    C1_TO_F1_DELAY   0.249         4.928  1       
+board_inst/snakePos_inst/n97[14] ( DI1 )                  NET DELAY        0.000         4.928  1       
 
 
                                                              CONSTRAINT     0.000         0.000  1       
@@ -982,8 +973,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : board_inst/snakePos_inst/counter_11961_12084__i16/Q  (SLICE_R18C23A)
-Path End         : board_inst/snakePos_inst/counter_11961_12084__i16/D  (SLICE_R18C23A)
+Path Begin       : board_inst/snakePos_inst/counter_14661_14787__i16/Q  (SLICE_R13C5A)
+Path End         : board_inst/snakePos_inst/counter_14661_14787__i16/D  (SLICE_R13C5A)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 2
@@ -999,13 +990,12 @@ NES_inst/CLK ( CLK )                                         NET DELAY      3.04
 
 
 
-board_inst/snakePos_inst/counter_11961_12084__i16/CK->board_inst/snakePos_inst/counter_11961_12084__i16/Q
-                                          SLICE_R18C23A   CLK_TO_Q0_DELAY  0.768         3.809  1       
-board_inst/snakePos_inst/n9_adj_20930                     NET DELAY        0.870         4.679  1       
-board_inst/snakePos_inst/counter_11961_12084_add_4_17/C0->board_inst/snakePos_inst/counter_11961_12084_add_4_17/S0
-                                          SLICE_R18C23A   C0_TO_F0_DELAY   0.249         4.928  1       
-board_inst/snakePos_inst/n101[15] ( DI0 )
-                                                          NET DELAY        0.000         4.928  1       
+board_inst/snakePos_inst/counter_14661_14787__i16/CK->board_inst/snakePos_inst/counter_14661_14787__i16/Q
+                                          SLICE_R13C5A    CLK_TO_Q0_DELAY  0.768         3.809  1       
+board_inst/snakePos_inst/n8                               NET DELAY        0.870         4.679  1       
+board_inst/snakePos_inst/counter_14661_14787_add_4_17/C0->board_inst/snakePos_inst/counter_14661_14787_add_4_17/S0
+                                          SLICE_R13C5A    C0_TO_F0_DELAY   0.249         4.928  1       
+board_inst/snakePos_inst/n97[15] ( DI0 )                  NET DELAY        0.000         4.928  1       
 
 
                                                              CONSTRAINT     0.000         0.000  1       
@@ -1024,8 +1014,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : board_inst/snakePos_inst/counter_11961_12084__i17/Q  (SLICE_R18C23A)
-Path End         : board_inst/snakePos_inst/counter_11961_12084__i17/D  (SLICE_R18C23A)
+Path Begin       : board_inst/snakePos_inst/counter_14661_14787__i17/Q  (SLICE_R13C5A)
+Path End         : board_inst/snakePos_inst/counter_14661_14787__i17/D  (SLICE_R13C5A)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 2
@@ -1041,13 +1031,12 @@ NES_inst/CLK ( CLK )                                         NET DELAY      3.04
 
 
 
-board_inst/snakePos_inst/counter_11961_12084__i17/CK->board_inst/snakePos_inst/counter_11961_12084__i17/Q
-                                          SLICE_R18C23A   CLK_TO_Q1_DELAY  0.768         3.809  1       
-board_inst/snakePos_inst/n8                               NET DELAY        0.870         4.679  1       
-board_inst/snakePos_inst/counter_11961_12084_add_4_17/C1->board_inst/snakePos_inst/counter_11961_12084_add_4_17/S1
-                                          SLICE_R18C23A   C1_TO_F1_DELAY   0.249         4.928  1       
-board_inst/snakePos_inst/n101[16] ( DI1 )
-                                                          NET DELAY        0.000         4.928  1       
+board_inst/snakePos_inst/counter_14661_14787__i17/CK->board_inst/snakePos_inst/counter_14661_14787__i17/Q
+                                          SLICE_R13C5A    CLK_TO_Q1_DELAY  0.768         3.809  1       
+board_inst/snakePos_inst/n7                               NET DELAY        0.870         4.679  1       
+board_inst/snakePos_inst/counter_14661_14787_add_4_17/C1->board_inst/snakePos_inst/counter_14661_14787_add_4_17/S1
+                                          SLICE_R13C5A    C1_TO_F1_DELAY   0.249         4.928  1       
+board_inst/snakePos_inst/n97[16] ( DI1 )                  NET DELAY        0.000         4.928  1       
 
 
                                                              CONSTRAINT     0.000         0.000  1       
@@ -1066,8 +1055,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : board_inst/snakePos_inst/counter_11961_12084__i18/Q  (SLICE_R18C23B)
-Path End         : board_inst/snakePos_inst/counter_11961_12084__i18/D  (SLICE_R18C23B)
+Path Begin       : board_inst/snakePos_inst/counter_14661_14787__i18/Q  (SLICE_R13C5B)
+Path End         : board_inst/snakePos_inst/counter_14661_14787__i18/D  (SLICE_R13C5B)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 2
@@ -1083,13 +1072,12 @@ NES_inst/CLK ( CLK )                                         NET DELAY      3.04
 
 
 
-board_inst/snakePos_inst/counter_11961_12084__i18/CK->board_inst/snakePos_inst/counter_11961_12084__i18/Q
-                                          SLICE_R18C23B   CLK_TO_Q0_DELAY  0.768         3.809  1       
-board_inst/snakePos_inst/n7                               NET DELAY        0.870         4.679  1       
-board_inst/snakePos_inst/counter_11961_12084_add_4_19/C0->board_inst/snakePos_inst/counter_11961_12084_add_4_19/S0
-                                          SLICE_R18C23B   C0_TO_F0_DELAY   0.249         4.928  1       
-board_inst/snakePos_inst/n101[17] ( DI0 )
-                                                          NET DELAY        0.000         4.928  1       
+board_inst/snakePos_inst/counter_14661_14787__i18/CK->board_inst/snakePos_inst/counter_14661_14787__i18/Q
+                                          SLICE_R13C5B    CLK_TO_Q0_DELAY  0.768         3.809  1       
+board_inst/snakePos_inst/n6                               NET DELAY        0.870         4.679  1       
+board_inst/snakePos_inst/counter_14661_14787_add_4_19/C0->board_inst/snakePos_inst/counter_14661_14787_add_4_19/S0
+                                          SLICE_R13C5B    C0_TO_F0_DELAY   0.249         4.928  1       
+board_inst/snakePos_inst/n97[17] ( DI0 )                  NET DELAY        0.000         4.928  1       
 
 
                                                              CONSTRAINT     0.000         0.000  1       
@@ -1108,8 +1096,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : board_inst/snakePos_inst/counter_11961_12084__i19/Q  (SLICE_R18C23B)
-Path End         : board_inst/snakePos_inst/counter_11961_12084__i19/D  (SLICE_R18C23B)
+Path Begin       : board_inst/snakePos_inst/counter_14661_14787__i19/Q  (SLICE_R13C5B)
+Path End         : board_inst/snakePos_inst/counter_14661_14787__i19/D  (SLICE_R13C5B)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 2
@@ -1125,13 +1113,12 @@ NES_inst/CLK ( CLK )                                         NET DELAY      3.04
 
 
 
-board_inst/snakePos_inst/counter_11961_12084__i19/CK->board_inst/snakePos_inst/counter_11961_12084__i19/Q
-                                          SLICE_R18C23B   CLK_TO_Q1_DELAY  0.768         3.809  1       
-board_inst/snakePos_inst/n6                               NET DELAY        0.870         4.679  1       
-board_inst/snakePos_inst/counter_11961_12084_add_4_19/C1->board_inst/snakePos_inst/counter_11961_12084_add_4_19/S1
-                                          SLICE_R18C23B   C1_TO_F1_DELAY   0.249         4.928  1       
-board_inst/snakePos_inst/n101[18] ( DI1 )
-                                                          NET DELAY        0.000         4.928  1       
+board_inst/snakePos_inst/counter_14661_14787__i19/CK->board_inst/snakePos_inst/counter_14661_14787__i19/Q
+                                          SLICE_R13C5B    CLK_TO_Q1_DELAY  0.768         3.809  1       
+board_inst/snakePos_inst/n5                               NET DELAY        0.870         4.679  1       
+board_inst/snakePos_inst/counter_14661_14787_add_4_19/C1->board_inst/snakePos_inst/counter_14661_14787_add_4_19/S1
+                                          SLICE_R13C5B    C1_TO_F1_DELAY   0.249         4.928  1       
+board_inst/snakePos_inst/n97[18] ( DI1 )                  NET DELAY        0.000         4.928  1       
 
 
                                                              CONSTRAINT     0.000         0.000  1       
@@ -1150,8 +1137,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : board_inst/snakePos_inst/counter_11961_12084__i20/Q  (SLICE_R18C23C)
-Path End         : board_inst/snakePos_inst/counter_11961_12084__i20/D  (SLICE_R18C23C)
+Path Begin       : board_inst/snakePos_inst/counter_14661_14787__i20/Q  (SLICE_R13C5C)
+Path End         : board_inst/snakePos_inst/counter_14661_14787__i20/D  (SLICE_R13C5C)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 2
@@ -1167,13 +1154,12 @@ NES_inst/CLK ( CLK )                                         NET DELAY      3.04
 
 
 
-board_inst/snakePos_inst/counter_11961_12084__i20/CK->board_inst/snakePos_inst/counter_11961_12084__i20/Q
-                                          SLICE_R18C23C   CLK_TO_Q0_DELAY  0.768         3.809  1       
-board_inst/snakePos_inst/n5                               NET DELAY        0.870         4.679  1       
-board_inst/snakePos_inst/counter_11961_12084_add_4_21/C0->board_inst/snakePos_inst/counter_11961_12084_add_4_21/S0
-                                          SLICE_R18C23C   C0_TO_F0_DELAY   0.249         4.928  1       
-board_inst/snakePos_inst/n101[19] ( DI0 )
-                                                          NET DELAY        0.000         4.928  1       
+board_inst/snakePos_inst/counter_14661_14787__i20/CK->board_inst/snakePos_inst/counter_14661_14787__i20/Q
+                                          SLICE_R13C5C    CLK_TO_Q0_DELAY  0.768         3.809  1       
+board_inst/snakePos_inst/n4_c                             NET DELAY        0.870         4.679  1       
+board_inst/snakePos_inst/counter_14661_14787_add_4_21/C0->board_inst/snakePos_inst/counter_14661_14787_add_4_21/S0
+                                          SLICE_R13C5C    C0_TO_F0_DELAY   0.249         4.928  1       
+board_inst/snakePos_inst/n97[19] ( DI0 )                  NET DELAY        0.000         4.928  1       
 
 
                                                              CONSTRAINT     0.000         0.000  1       
@@ -1192,8 +1178,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : board_inst/snakePos_inst/counter_11961_12084__i21/Q  (SLICE_R18C23C)
-Path End         : board_inst/snakePos_inst/counter_11961_12084__i21/D  (SLICE_R18C23C)
+Path Begin       : board_inst/snakePos_inst/counter_14661_14787__i21/Q  (SLICE_R13C5C)
+Path End         : board_inst/snakePos_inst/counter_14661_14787__i21/D  (SLICE_R13C5C)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 2
@@ -1209,13 +1195,12 @@ NES_inst/CLK ( CLK )                                         NET DELAY      3.04
 
 
 
-board_inst/snakePos_inst/counter_11961_12084__i21/CK->board_inst/snakePos_inst/counter_11961_12084__i21/Q
-                                          SLICE_R18C23C   CLK_TO_Q1_DELAY  0.768         3.809  1       
-board_inst/snakePos_inst/n4                               NET DELAY        0.870         4.679  1       
-board_inst/snakePos_inst/counter_11961_12084_add_4_21/C1->board_inst/snakePos_inst/counter_11961_12084_add_4_21/S1
-                                          SLICE_R18C23C   C1_TO_F1_DELAY   0.249         4.928  1       
-board_inst/snakePos_inst/n101[20] ( DI1 )
-                                                          NET DELAY        0.000         4.928  1       
+board_inst/snakePos_inst/counter_14661_14787__i21/CK->board_inst/snakePos_inst/counter_14661_14787__i21/Q
+                                          SLICE_R13C5C    CLK_TO_Q1_DELAY  0.768         3.809  1       
+board_inst/snakePos_inst/n3                               NET DELAY        0.870         4.679  1       
+board_inst/snakePos_inst/counter_14661_14787_add_4_21/C1->board_inst/snakePos_inst/counter_14661_14787_add_4_21/S1
+                                          SLICE_R13C5C    C1_TO_F1_DELAY   0.249         4.928  1       
+board_inst/snakePos_inst/n97[20] ( DI1 )                  NET DELAY        0.000         4.928  1       
 
 
                                                              CONSTRAINT     0.000         0.000  1       
@@ -1234,8 +1219,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : board_inst/snakePos_inst/counter_11961_12084__i22/Q  (SLICE_R18C23D)
-Path End         : board_inst/snakePos_inst/counter_11961_12084__i22/D  (SLICE_R18C23D)
+Path Begin       : board_inst/snakePos_inst/counter_14661_14787__i22/Q  (SLICE_R13C5D)
+Path End         : board_inst/snakePos_inst/counter_14661_14787__i22/D  (SLICE_R13C5D)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 2
@@ -1251,13 +1236,12 @@ NES_inst/CLK ( CLK )                                         NET DELAY      3.04
 
 
 
-board_inst/snakePos_inst/counter_11961_12084__i22/CK->board_inst/snakePos_inst/counter_11961_12084__i22/Q
-                                          SLICE_R18C23D   CLK_TO_Q0_DELAY  0.768         3.809  1       
-board_inst/snakePos_inst/n3                               NET DELAY        0.870         4.679  1       
-board_inst/snakePos_inst/counter_11961_12084_add_4_23/C0->board_inst/snakePos_inst/counter_11961_12084_add_4_23/S0
-                                          SLICE_R18C23D   C0_TO_F0_DELAY   0.249         4.928  1       
-board_inst/snakePos_inst/n101[21] ( DI0 )
-                                                          NET DELAY        0.000         4.928  1       
+board_inst/snakePos_inst/counter_14661_14787__i22/CK->board_inst/snakePos_inst/counter_14661_14787__i22/Q
+                                          SLICE_R13C5D    CLK_TO_Q0_DELAY  0.768         3.809  1       
+board_inst/snakePos_inst/n2                               NET DELAY        0.870         4.679  1       
+board_inst/snakePos_inst/counter_14661_14787_add_4_23/C0->board_inst/snakePos_inst/counter_14661_14787_add_4_23/S0
+                                          SLICE_R13C5D    C0_TO_F0_DELAY   0.249         4.928  1       
+board_inst/snakePos_inst/n97[21] ( DI0 )                  NET DELAY        0.000         4.928  1       
 
 
                                                              CONSTRAINT     0.000         0.000  1       
@@ -1276,8 +1260,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : board_inst/snakePos_inst/counter_11961_12084__i23/Q  (SLICE_R18C23D)
-Path End         : board_inst/snakePos_inst/counter_11961_12084__i23/D  (SLICE_R18C23D)
+Path Begin       : board_inst/snakePos_inst/counter_14661_14787__i23/Q  (SLICE_R13C5D)
+Path End         : board_inst/snakePos_inst/counter_14661_14787__i23/D  (SLICE_R13C5D)
 Source Clock     : CLK (R)
 Destination Clock: CLK (R)
 Logic Level      : 2
@@ -1293,13 +1277,12 @@ NES_inst/CLK ( CLK )                                         NET DELAY      3.04
 
 
 
-board_inst/snakePos_inst/counter_11961_12084__i23/CK->board_inst/snakePos_inst/counter_11961_12084__i23/Q
-                                          SLICE_R18C23D   CLK_TO_Q1_DELAY  0.768         3.809  1       
-board_inst/snakePos_inst/n2                               NET DELAY        0.870         4.679  1       
-board_inst/snakePos_inst/counter_11961_12084_add_4_23/C1->board_inst/snakePos_inst/counter_11961_12084_add_4_23/S1
-                                          SLICE_R18C23D   C1_TO_F1_DELAY   0.249         4.928  1       
-board_inst/snakePos_inst/n101[22] ( DI1 )
-                                                          NET DELAY        0.000         4.928  1       
+board_inst/snakePos_inst/counter_14661_14787__i23/CK->board_inst/snakePos_inst/counter_14661_14787__i23/Q
+                                          SLICE_R13C5D    CLK_TO_Q1_DELAY  0.768         3.809  10      
+board_inst/snakePos_inst/snakeCLK                         NET DELAY        0.870         4.679  10      
+board_inst/snakePos_inst/counter_14661_14787_add_4_23/C1->board_inst/snakePos_inst/counter_14661_14787_add_4_23/S1
+                                          SLICE_R13C5D    C1_TO_F1_DELAY   0.249         4.928  1       
+board_inst/snakePos_inst/n97[22] ( DI1 )                  NET DELAY        0.000         4.928  1       
 
 
                                                              CONSTRAINT     0.000         0.000  1       

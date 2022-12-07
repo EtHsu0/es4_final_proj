@@ -93,7 +93,7 @@ begin
             end if;
         end if;
     end process;
-    dir_snake <= dir;
+    -- dir_snake <= dir;
     --reset <= '1' when button = START else '0'
 
     snakePos_inst: snakePos port map

@@ -68,6 +68,8 @@ begin
 				dir_signal <= "10";
 			elsif digital_in(0) = '0' then
 				dir_signal <= "11";
+			else
+				dir_signal <= dir_signal;
 			end if;
 					
 			snake_arr <= (others => '0');
@@ -87,7 +89,7 @@ begin
 			end loop;
         end if;
     end process;
-    snakeCLK <= counter(23);
+    snakeCLK <= counter(22);
 
     process(snakeCLK) is
 
@@ -105,38 +107,49 @@ begin
 			--	dir_arr(2) <= UP;
 			--dir_arr(3) <= LEFT;
 			elsif game_state_in = "01" then
+				
 				if prev_dir(1) /= dir_signal(1) then
 					 prev_dir <= dir_signal;
+				else
+					prev_dir <= prev_dir;
 			    end if;
-				
+				/*
 			    if grow_snake_in = '0' then
 					arr_length <= arr_length - 1;
 				end if;
-				
+				*/
              -- Update snake head coordinate
-/*
-             if dir_signal = "00" then
+
+             if prev_dir = "00" then
                  if snake_head < 10 then
                      snake_dead <= '1';
                  end if;
                  snake_head <= snake_head - 10;
-             elsif dir_signal = "01" then
+				 dir_arr <= (98 downto 0 => dir_arr(99 downto 1));
+				 dir_arr(0) <= DOWN;
+             elsif prev_dir = "01" then
                  if snake_head > 89 then
                      snake_dead <= '1';
                  end if;
                  snake_head <= snake_head + 10;
-             elsif dir_signal = "10" then
+				 dir_arr <= (98 downto 0 => dir_arr(99 downto 1));
+				 dir_arr(0) <= UP;
+             elsif prev_dir = "10" then
                  if snake_head mod 10 = 0 then
                      snake_dead <= '1';
                  end if;
                  snake_head <= snake_head - 1;
-             elsif dir_signal = "11" then
+				 dir_arr <= (98 downto 0 => dir_arr(99 downto 1));
+				 dir_arr(0) <= RIGHT;
+             elsif prev_dir = "11" then
                  if snake_head mod 10 = 9 then
                      snake_dead <= '1';
                  end if;
                  snake_head <= snake_head + 1;
+				 dir_arr <= (98 downto 0 => dir_arr(99 downto 1));
+				 dir_arr(0) <= LEFT;
              end if;
-				*/
+				
 				
 				/*
 				case dir_signal is
