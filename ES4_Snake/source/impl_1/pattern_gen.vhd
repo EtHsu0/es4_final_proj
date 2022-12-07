@@ -65,10 +65,10 @@ begin
 			-- Fill in apple cell
 			if rand_apple(8) = '1' then
 				if (x_pos > 10d"102" + 10d"44" * rand_apple(7 downto 4)) and (x_pos < 10d"99" + 10d"44" + 10d"44" * rand_apple(7 downto 4)) and (y_pos > 10d"21" + 10d"44" * rand_apple(3 downto 0)) and (y_pos < 10d"19" + 10d"44" + 10d"44" * rand_apple(3 downto 0)) then
-					rgb <= "110000"; -- red apple
-				end if;
-				if (x_pos > 10d"102" + 10d"44" + 10d"18"* rand_apple(7 downto 4)) and (x_pos < 10d"99" + 10d"44" + 10d"26" * rand_apple(7 downto 4)) and (y_pos > 10d"21" + 10d"44" * rand_apple(3 downto 0)) and (y_pos < 10d"19" + 10d"44" + 10d"5" * rand_apple(3 downto 0)) then
-					rgb <= "001100"; -- red apple
+					if(x_pos > 10d"102" + 10d"44" + 10d"20" * rand_apple(7 downto 4)) and (x_pos < 10d"99" + 10d"44" + 10d"24" * rand_apple(7 downto 4)) and (y_pos > 10d"21" + 10d"44" * rand_apple(3 downto 0)) and (y_pos < 10d"19" + 10d"44" + 10d"4" * rand_apple(3 downto 0)) then
+						rgb <= "001100" -- Green leaf
+					else
+						rgb <= "110000"; -- red apple
 				end if;
 			end if;
 			
