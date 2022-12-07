@@ -60,6 +60,7 @@ begin
     snakeCLK <= counter(23);
 
     process(snakeCLK) is
+        variable snake_coord: unsigned(6 downto 0);
     begin
         if rising_edge(snakeCLK) then
             -- snake_arr(to_integer(slow_test_counter)) <= '1';
@@ -119,14 +120,7 @@ begin
             
             dir_arr(to_integer(arr_left)) <= snake_dir;
         end if;
-    end process;
-	
-	
-	
-    -- -- Draw the snake onto the 2d array
-    process (snake_head, dir_arr) is
-        variable snake_coord: unsigned(6 downto 0);
-    begin
+
         snake_coord := snake_head;
         snake_arr(to_integer(snake_coord)) <= '1';
 
@@ -141,7 +135,10 @@ begin
         end loop;
         snake_tail <= snake_coord;
     end process;
-
+	
+	
+	
+    -- -- Draw the snake onto the 2d arra
     snake_dead_out <= snake_dead;
 
     snake_head_out <= snake_head;
