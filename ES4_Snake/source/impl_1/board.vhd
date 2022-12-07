@@ -113,7 +113,8 @@ begin
             
         end if;
     end process;
-
+    
+    reset <= '1';
 	
 	snake_arr_out <= snake_arr;
 	apple_out <= apple_id;
@@ -122,7 +123,6 @@ begin
     --        "10" when digital_in(1) = '0' else
     --        "11" when digital_in(0);
 
-    
 
     snakePos_inst: snakePos port map(clk, reset, grow_snake, dir, snake_head, snake_tail, snake_arr, snake_dead);
     --process (snake_head) is begin
