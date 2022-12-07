@@ -57,7 +57,7 @@ begin
             counter <= counter + 1;
         end if;
     end process;
-    snakeCLK <= counter(29);
+    snakeCLK <= counter(10);
 
     process(snakeCLK) is
     begin
