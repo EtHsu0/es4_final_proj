@@ -4,53 +4,52 @@ Report for cell top
                      Cell usage:
                                   cell	      count    Res Usage(%)
                                  IOLGC	       1.00        100.0
-                                  LUT4	        468        100.0
+                                  LUT4	        412        100.0
                                  IOREG	          1        100.0
                                  IOBUF	         16        100.0
-                                PFUREG	         83        100.0
+                                PFUREG	         56        100.0
                                    DSP	          2        100.0
 SUB MODULES
                                   cell	      count    LUT4 Usage(%)
-                                   NES	          1         7.7
-                                 board	          1         7.9
-                               display	          1        67.5
+                                   NES	          1         8.7
+                                 board	          1         2.7
+                               display	          1        71.8
 ---------------------------------------------------
 Report for cell board
    Instance path: top/board_inst
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	         37         7.9
-                                PFUREG	         34        41.0
-SUB MODULES
-                                  cell	      count    LUT4 Usage(%)
-                              snakepos	          1         5.6
+                                  LUT4	         11         2.7
+                                PFUREG	          7        12.5
 ---------------------------------------------------
-Report for cell snakepos
-   Instance path: top/board_inst/snakePos_inst
+Report for cell NES
+   Instance path: top/NES_inst
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	         26         5.6
-                                PFUREG	         27        32.5
+                                 IOLGC	       1.00        100.0
+                                  LUT4	         36         8.7
+                                 IOREG	          1        100.0
+                                PFUREG	         26        46.4
 ---------------------------------------------------
 Report for cell display
    Instance path: top/display_inst
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	        316        67.5
-                                PFUREG	         23        27.7
+                                  LUT4	        296        71.8
+                                PFUREG	         23        41.1
                                    DSP	          2        100.0
 SUB MODULES
                                   cell	      count    LUT4 Usage(%)
                                  mypll	          1         0.0
-                           pattern_gen	          1        57.1
-                                   vga	          1        10.5
+                           pattern_gen	          1        58.0
+                                   vga	          1        13.8
 ---------------------------------------------------
 Report for cell vga
    Instance path: top/display_inst/vga_init
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	         49        10.5
-                                PFUREG	         23        27.7
+                                  LUT4	         57        13.8
+                                PFUREG	         23        41.1
 ---------------------------------------------------
 Report for cell mypll
    Instance path: top/display_inst/pll_init
@@ -69,14 +68,5 @@ Report for cell pattern_gen
    Instance path: top/display_inst/pattern_gen_initial
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	        267        57.1
+                                  LUT4	        239        58.0
                                    DSP	          2        100.0
----------------------------------------------------
-Report for cell NES
-   Instance path: top/NES_inst
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                 IOLGC	       1.00        100.0
-                                  LUT4	         36         7.7
-                                 IOREG	          1        100.0
-                                PFUREG	         26        31.3

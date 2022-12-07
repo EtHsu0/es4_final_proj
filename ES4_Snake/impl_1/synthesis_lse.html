@@ -48,7 +48,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2021 Lattice Semiconductor Corporation,  All rights reserved.
-Wed Dec  7 15:57:03 2022
+Wed Dec  7 16:56:24 2022
 
 
 Command Line:  C:\Program Files\lscc\radiant\3.0\ispfpga\bin\nt64\synthesis.exe -f es4finalproj_impl_1_lattice.synproj -gui -msgset C:/Users/iqin01/Desktop/es4_final_proj-main/ES4_Snake/promote.xml 
@@ -216,7 +216,7 @@ Analyzing VHDL file c:/users/iqin01/desktop/es4_final_proj-main/es4_snake/source
 Analyzing VHDL file c:/users/iqin01/desktop/es4_final_proj-main/es4_snake/source/impl_1/snakepos.vhd
 
 INFO - synthesis: c:/users/iqin01/desktop/es4_final_proj-main/es4_snake/source/impl_1/snakepos.vhd(8): analyzing entity snakepos. VHDL-1012
-INFO - synthesis: c:/users/iqin01/desktop/es4_final_proj-main/es4_snake/source/impl_1/snakepos.vhd(30): analyzing architecture synth. VHDL-1010
+INFO - synthesis: c:/users/iqin01/desktop/es4_final_proj-main/es4_snake/source/impl_1/snakepos.vhd(33): analyzing architecture synth. VHDL-1010
 Analyzing VHDL file c:/users/iqin01/desktop/es4_final_proj-main/es4_snake/source/impl_1/board.vhd. VHDL-1481
 Analyzing VHDL file c:/users/iqin01/desktop/es4_final_proj-main/es4_snake/source/impl_1/board.vhd
 
@@ -357,22 +357,24 @@ WARNING - synthesis: Initial value found on net snake_arr[3] will be ignored due
 WARNING - synthesis: Initial value found on net snake_arr[2] will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net snake_arr[1] will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net snake_arr[0] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net dir_in[1] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net dir_in[0] will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net pwr_2 will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net gnd_2 will be ignored due to unrecognized driver type
+WARNING - synthesis: Bit 1 of Register dir_arr[0] is stuck at One
+WARNING - synthesis: Bit 0 of Register dir_arr[0] is stuck at Zero
+WARNING - synthesis: Bit 44 of Register snake_arr is stuck at One
 WARNING - synthesis: I/O Port delete_me[2] 's net has no driver and is unused.
 WARNING - synthesis: I/O Port delete_me[1] 's net has no driver and is unused.
 WARNING - synthesis: I/O Port delete_me[0] 's net has no driver and is unused.
-WARNING - synthesis: c:/users/iqin01/desktop/es4_final_proj-main/es4_snake/source/impl_1/snakepos.vhd(16): net \board_inst/snakePos_inst/dir_in[1] does not have a driver. VDB-1002
 WARNING - synthesis: c:/users/iqin01/desktop/es4_final_proj-main/es4_snake/mypll/rtl/mypll.v(139): net \display_inst/pll_init/lscc_pll_inst/sclk_i does not have a driver. VDB-1002
 WARNING - synthesis: c:/users/iqin01/desktop/es4_final_proj-main/es4_snake/mypll/rtl/mypll.v(140): net \display_inst/pll_init/lscc_pll_inst/sdi_i does not have a driver. VDB-1002
 ######## Missing driver on net delete_me[2]. Patching with GND.
 ######## Missing driver on net delete_me[1]. Patching with GND.
 ######## Missing driver on net delete_me[0]. Patching with GND.
-######## Missing driver on net \board_inst/snakePos_inst/dir_in[1]. Patching with GND.
-######## Missing driver on net \board_inst/snakePos_inst/dir_in[0]. Patching with GND.
 ######## Missing driver on net \display_inst/pll_init/lscc_pll_inst/sclk_i. Patching with GND.
 ######## Missing driver on net \display_inst/pll_init/lscc_pll_inst/sdi_i. Patching with GND.
-WARNING - synthesis: c:/users/iqin01/desktop/es4_final_proj-main/es4_snake/source/impl_1/snakepos.vhd(153): Register \board_inst/snakePos_inst/snake_dead is stuck at Zero. VDB-5013
+WARNING - synthesis: c:/users/iqin01/desktop/es4_final_proj-main/es4_snake/source/impl_1/snakepos.vhd(171): Register \board_inst/snakePos_inst/snake_dead is stuck at Zero. VDB-5013
 
 
 
@@ -402,6 +404,9 @@ WARNING - synthesis: Bit 77 of Register \board_inst/snakePos_inst/snake_arr is s
 WARNING - synthesis: Bit 76 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
 WARNING - synthesis: Bit 75 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
 WARNING - synthesis: Bit 74 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
+WARNING - synthesis: Bit 72 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
+WARNING - synthesis: Bit 71 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
+WARNING - synthesis: Bit 70 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
 WARNING - synthesis: Bit 69 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
 WARNING - synthesis: Bit 68 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
 WARNING - synthesis: Bit 67 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
@@ -423,10 +428,9 @@ WARNING - synthesis: Bit 52 of Register \board_inst/snakePos_inst/snake_arr is s
 WARNING - synthesis: Bit 51 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
 WARNING - synthesis: Bit 50 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
 WARNING - synthesis: Bit 49 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
-WARNING - synthesis: Bit 48 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
-WARNING - synthesis: Bit 47 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
 WARNING - synthesis: Bit 46 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
 WARNING - synthesis: Bit 45 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
+WARNING - synthesis: Bit 42 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
 WARNING - synthesis: Bit 41 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
 WARNING - synthesis: Bit 40 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
 WARNING - synthesis: Bit 39 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
@@ -465,16 +469,24 @@ WARNING - synthesis: Bit 7 of Register \board_inst/snakePos_inst/snake_arr is st
 WARNING - synthesis: Bit 6 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
 WARNING - synthesis: Bit 5 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
 WARNING - synthesis: Bit 4 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
+WARNING - synthesis: Bit 3 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
+WARNING - synthesis: Bit 2 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
+WARNING - synthesis: Bit 1 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
+WARNING - synthesis: Bit 0 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
+WARNING - synthesis: Bit 73 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
+WARNING - synthesis: Bit 48 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
+WARNING - synthesis: Bit 47 of Register \board_inst/snakePos_inst/snake_arr is stuck at Zero
+WARNING - synthesis: Bit 43 of Register \board_inst/snakePos_inst/snake_arr is stuck at One
 Mapped 2 multiplier(s)
 
 
-######## Missing driver on net n1468. Patching with GND.
-######## Missing driver on net n1465. Patching with GND.
-######## Missing driver on net n1462. Patching with GND.
-######## Missing driver on net n1459. Patching with GND.
-######## Missing driver on net n1477. Patching with GND.
-######## Missing driver on net n1474. Patching with GND.
-######## Missing driver on net n1471. Patching with GND.
+######## Missing driver on net n1549. Patching with GND.
+######## Missing driver on net n1555. Patching with GND.
+######## Missing driver on net n1546. Patching with GND.
+######## Missing driver on net n1543. Patching with GND.
+######## Missing driver on net n1540. Patching with GND.
+######## Missing driver on net n1537. Patching with GND.
+######## Missing driver on net n1552. Patching with GND.
 Combinational loop found : 1
 
 	Net digital[4] 
@@ -511,15 +523,7 @@ Combinational loop found : 6
 
 	Instance \NES_inst/digital_7__I_0_i1 
 
-WARNING - synthesis: c:/users/iqin01/desktop/es4_final_proj-main/es4_snake/source/impl_1/board.vhd(90): Register \board_inst/game_State_i1 is stuck at Zero. VDB-5013
-Duplicate register/latch removal. \board_inst/snakePos_inst/snake_arr_i1 is a one-to-one match with \board_inst/snakePos_inst/snake_arr_i2.
-Duplicate register/latch removal. \board_inst/snakePos_inst/snake_arr_i11 is a one-to-one match with \board_inst/snakePos_inst/snake_arr_i8.
-Duplicate register/latch removal. \board_inst/snakePos_inst/snake_arr_i10 is a one-to-one match with \board_inst/snakePos_inst/snake_arr_i9.
-Duplicate register/latch removal. \board_inst/snakePos_inst/snake_arr_i4 is a one-to-one match with \board_inst/snakePos_inst/snake_arr_i3.
-Duplicate register/latch removal. \board_inst/snakePos_inst/snake_arr_i1 is a one-to-one match with \board_inst/snakePos_inst/snake_arr_i4.
-Duplicate register/latch removal. \board_inst/snakePos_inst/snake_arr_i11 is a one-to-one match with \board_inst/snakePos_inst/snake_arr_i10.
-Duplicate register/latch removal. \board_inst/snakePos_inst/snake_arr_i7 is a one-to-one match with \board_inst/snakePos_inst/snake_arr_i6.
-Duplicate register/latch removal. \board_inst/snakePos_inst/snake_arr_i7 is a one-to-one match with \board_inst/snakePos_inst/snake_arr_i5.
+WARNING - synthesis: c:/users/iqin01/desktop/es4_final_proj-main/es4_snake/source/impl_1/board.vhd(94): Register \board_inst/apple_id_i3 is stuck at Zero. VDB-5013
 WARNING - synthesis: Initial value found on instance \board_inst/game_State_i0 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/apple_id_i4 will be ignored.
 INFO - synthesis: Special Primitives IFD1P3AZ and OFD1P3AZ for ThunderPlus are synthesized using IOL_B.
@@ -528,19 +532,19 @@ INFO - synthesis: Special Primitives IFD1P3AZ and OFD1P3AZ for ThunderPlus are s
 <A name="lse_area"></A><B><U><big>Area Report</big></U></B>
 
 ################### Begin Area Report (top)######################
-Number of register bits => 83 of 5280 (1 % )
-CCU2 => 101
-FD1P3XZ => 83
+Number of register bits => 56 of 5280 (1 % )
+CCU2 => 88
+FD1P3XZ => 56
 HSOSC_CORE => 1
 IB => 2
 IOL_B => 1
-LUT4 => 255
+LUT4 => 228
 MAC16 => 2
 OB => 14
 PLL_B => 1
 ################### End Area Report ##################
 Number of odd-length carry chains : 2
-Number of even-length carry chains : 16
+Number of even-length carry chains : 15
 
 
 <A name="lse_clock"></A><B><U><big>Clock Report</big></U></B>
@@ -556,19 +560,19 @@ Clock Enable Nets
 Number of Clock Enables: 0
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : display_inst/vga_init/n4142, loads : 21
-  Net : display_inst/vga_init/column_cnt[8], loads : 17
-  Net : display_inst/vga_init/column_cnt[9], loads : 16
-  Net : display_inst/vga_init/column_cnt[4], loads : 16
-  Net : display_inst/vga_init/row_cnt[9], loads : 14
-  Net : display_inst/vga_init/column_cnt[7], loads : 13
-  Net : display_inst/vga_init/column_cnt[6], loads : 13
-  Net : display_inst/vga_init/column_cnt[5], loads : 13
-  Net : display_inst/vga_init/row_cnt[4], loads : 12
-  Net : display_inst/vga_init/row_cnt[3], loads : 12
+  Net : display_inst/vga_init/n4260, loads : 21
+  Net : display_inst/vga_init/column_cnt[8], loads : 12
+  Net : display_inst/vga_init/column_cnt[7], loads : 12
+  Net : display_inst/vga_init/row_cnt[9], loads : 11
+  Net : display_inst/vga_init/row_cnt[4], loads : 11
+  Net : display_inst/vga_init/column_cnt[9], loads : 11
+  Net : display_inst/vga_init/column_cnt[6], loads : 11
+  Net : display_inst/vga_init/column_cnt[5], loads : 11
+  Net : display_inst/vga_init/column_cnt[4], loads : 11
+  Net : display_inst/vga_init/n4396, loads : 10
 ################### End Clock Report ##################
 
-Peak Memory Usage: 139 MB
+Peak Memory Usage: 142 MB
 
 --------------------------------------------------------------
 Total CPU Time: 4 secs 

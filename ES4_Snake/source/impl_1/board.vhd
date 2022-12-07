@@ -21,7 +21,9 @@ architecture synth of board is
     component snakePos is
         port (
             clk: in std_logic;
-			game_state_in: in unsigned(1 downto 0);			grow_snake_in: in std_logic;
+			digital_in: in unsigned(7 downto 0);
+			game_state_in: in unsigned(1 downto 0);			
+			grow_snake_in: in std_logic;
 			dir_in: in unsigned(1 downto 0); 
 			snake_head_out: out unsigned(6 downto 0);
 			snake_tail_out: out unsigned(6 downto 0);
@@ -42,6 +44,8 @@ architecture synth of board is
     signal button: buttons;
 
     signal dir: unsigned(1 to 0);
+	
+	signal dir_snake: unsigned(1 to 0);
     -- I need to convert button to dir;
     signal snake_dead: std_logic;
 
@@ -56,7 +60,6 @@ begin
         if rising_edge(clk) then
 		    if game_state = "00" then
 				apple_id <= 9b"1_0111_0100";
-				reset <= '1';
                 if digital_in(4) = '0' then
                     game_state <= "01";
                 end if;
@@ -64,37 +67,39 @@ begin
 			    reset <= '0';	
 				-- RIGHT
 				if digital_in(0) = '0' then
-					 apple_id <= 9b"1_0100_0100";
-					dir <= "11";
+					apple_id <= 9b"1_0100_0100";
+					--dir <= 2b"11";
 				-- LEFT
 				elsif digital_in(1) = '0' then
 					apple_id <= 9b"1_0101_0101";
-					dir <= "10";
+					--dir <= 2b"10";
 				-- DOWN
 				elsif digital_in(2) = '0' then
 					apple_id <= 9b"1_0101_0100";
-					dir <= "01";
+					--dir <= 2b"01";
 				-- UP
 				elsif digital_in(3) = '0' then
 					apple_id <= 9b"1_0100_0101";
-                     dir <= "00";
+                     -- dir <= 2b"00";
 				-- B
 				elsif digital_in(6) = '0' then
 					game_state <= "00";	
 				else
 					apple_id <= apple_id;
+					--dir <= dir;
 				end if;
 				
 				
             end if;
         end if;
     end process;
-    
+    dir_snake <= dir;
     --reset <= '1' when button = START else '0'
 
     snakePos_inst: snakePos port map
         (
             clk => clk, 
+			digital_in => digital_in,
             game_state_in => game_state, 
             grow_snake_in => grow_snake,
             dir_in => dir,
