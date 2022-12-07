@@ -77,17 +77,23 @@ begin
                                 --     snake_arr(i) <= '0';
                 -- end loop;
         -- Check direction is valid
-        --     if prev_dir(1) /= dir_in(1) then
-        --         prev_dir <= dir_in;
-        --     end if;
+            if prev_dir(1) /= dir_in(1) then
+                prev_dir <= dir_in;
+            end if;
         --     -- Convert to type
-        --     case prev_dir is
-        --         when "00" => snake_dir <= UP;
-        --         when "01" => snake_dir <= DOWN;
-        --         when "10" => snake_dir <= LEFT;
-        --         when "11" => snake_dir <= RIGHT;
-        --     end case;
+            case prev_dir is
+                when "00" => snake_dir <= UP;
+                when "01" => snake_dir <= DOWN;
+                when "10" => snake_dir <= LEFT;
+                when "11" => snake_dir <= RIGHT;
+            end case;
 
+            case snake_dir is
+                when UP => snake_arr <= (3 downto 0 => '1', others => '0');
+                when DOWN => snake_arr <= (13 downto 10 => '1', others => '0');
+                when LEFT => snake_arr <= (23 downto 20 => '1', others => '0');
+                when RIGHT => snake_arr <= (33 downto 30 => '1', others => '0');
+            end case;
         --     -- Remove / update tail if we are not growing
         --     if grow_snake_in = '0' then
         --         arr_right <= arr_right - 1;
