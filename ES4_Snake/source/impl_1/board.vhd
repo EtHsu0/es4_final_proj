@@ -76,6 +76,9 @@ begin
                 -- SEL
                 elsif digital_in(5) = '0' then
                     --game_state <= "10";
+                -- B
+                elsif digital_in(6) = '0' then
+                    game_state <= "00";
                 -- A
                 elsif digital_in(7) = '0' then
                     snake_len <= snake_len + 1;
