@@ -40,7 +40,7 @@ architecture synth of board is
     signal snake_tail: unsigned (6 downto 0) := 7d"0";
     signal snake_arr: std_logic_vector(99 downto 0) := 100d"0"; -- := (40 => '1', 41 => '1', 42 => '1'),(others => '0'); -- TODO: Fix Syntax Error!
 
-    signal snake_len: unsigned(6 downto 0) := 7d"4";
+    signal snake_len: unsigned(6 downto 0) := 7d"1";
     
     signal snake_dead: std_logic := '0';
 
@@ -56,7 +56,7 @@ begin
             if game_state = "00" then
                -- apple_id <= 9b"1_0111_0100";
                apple_coord <= 48;
-               snake_len <= 7d"4";
+               snake_len <= 7d"1";
                 if digital_in(4) = '0' then
                     game_state <= "01";
                 end if;
@@ -65,15 +65,13 @@ begin
                     snake_len <= snake_len + 1;
                     apple_coord <= to_integer(snake_tail);
                 end if;
-                --B
-                if digital_in(6) = '0' then
-                    apple_coord <= 66;
-                end if;
-                
                 if digital_in(7) = '0' then
                     game_state <= "10";
                 end if;
-            elsif game_state <= "10" then
+                if snake_dead = '1' then
+                    game_state <= "10";
+                end if;
+            elsif game_state = "10" then
                 apple_coord <= 99;
                 if digital_in(5) = '0' then
                     game_state <= "00";
@@ -87,9 +85,11 @@ begin
     end process;
 
     apple_x <= (apple_coord mod 4d"10");
-    --apple_y_inter <= (apple_coord * 7d"52")
-    apple_y <= (apple_coord / 4d"10");--apple_y_inter(12 downto 9);
-    apple_id <= '1' & apple_x & apple_y;
+    apple_y_inter <= (apple_coord * 7d"52");
+    apple_y <= apple_y_inter(12 downto 9);--apple_y_inter / 4d"10"; --apple_y_inter(12 downto 9);
+    -- apple_coord / 4d"10";--apple_y_inter(12 downto 9);
+   -- apple_id <= '1' & apple_x & apple_y;
+   apple_id <= '1' & (apple_coord mod 4d"10") & (apple_coord / 4d"10");
 
     snakePos_inst: snakePos port map
         (
@@ -105,9 +105,11 @@ begin
    
 
     game_state_out <= game_state;
-    scores_out <= "0";
+    scores_out <= 6d"0";
     snake_head_out <= snake_head;
     snake_arr_out <= snake_arr;
     apple_out <= apple_id;
 
 end;
+
+
