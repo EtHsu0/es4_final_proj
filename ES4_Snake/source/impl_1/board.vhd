@@ -62,7 +62,7 @@ begin
             elsif game_state = "01" then
                 if snake_head = to_unsigned(apple_coord, 7) then
                     snake_len <= snake_len + 1;
-                    apple_coord <= snake_tail;
+                    apple_coord <= to_integer(snake_tail);
                 end if;
                 --B
                 if digital_in(6) = '0' then
