@@ -27,6 +27,10 @@ entity pattern_gen is
 		
 		
 		rgb : out unsigned(5 downto 0)
+
+        snake_head: in unsigned(6 downto 0);
+        scores: in unsigned(6 downto 0);
+        game_state: in unsigned(1 downto 0)
 		
 
 	);
@@ -35,6 +39,8 @@ end pattern_gen;
 architecture synth of pattern_gen is
 
 signal intermed_rgb : unsigned(5 downto 0);
+signal head_x : unsigned(4 downto 0) := snake_head mod 4d"10";
+signal head_y : unsigned(4 downto 0) := snake_head * 10d"52" / 10d"512";
 begin
 	--intermed_rgb <= "001100" when (x_pos mod 10d"5" = 10d"0") else "110000";
 	--rgb <= 6d"0" when valid='0' else intermed_rgb;
@@ -79,7 +85,13 @@ begin
 				end if;
 			end loop;
 			
-		
+			--Fill in snake head
+			if (x_pos > 10d"102" + 10d"44" * head_x) and (x_pos < 10d"99" + 10d"44" + 10d"44" * head_x) and (y_pos > 10d"21" + 10d"44" * head_y) and (y_pos < 10d"19" + 10d"44" + 10d"44" * head_y) then
+				if(x_pos > 10d"106" + 10d"44" * head_x) and (x_pos < 10d"139" + 10d"44" * head_x) and (y_pos > 10d"25" + 10d"44" * head_y) and (y_pos < 10d"59" + 10d"44" * head_y) then
+					rgb <= "010011";
+				end if;
+			end if;
+
 		else -- if valid is 0, then set rgb to low
 			rgb <= 6d"0";
 		end if;
