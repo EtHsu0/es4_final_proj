@@ -133,7 +133,7 @@ begin
                         snake_dead <= '1';
                     end if;
                     snake_head <= snake_head - 10;
-                    for i in 0 to 98 loop
+                    for i in 0 to 29 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= DOWN;
@@ -142,7 +142,7 @@ begin
                         snake_dead <= '1';
                     end if;
                     snake_head <= snake_head + 10;
-                    for i in 0 to 98 loop
+                    for i in 0 to 30 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= UP;
@@ -151,7 +151,7 @@ begin
                             snake_dead <= '1';
                     end if;
                     snake_head <= snake_head - 1;
-                    for i in 0 to 98 loop
+                    for i in 0 to 30 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= RIGHT;
@@ -160,11 +160,12 @@ begin
                         snake_dead <= '1';
                     end if;
                     snake_head <= snake_head + 1;
-                    for i in 0 to 98 loop
+                    for i in 0 to 30 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= LEFT;
                 end if;
+                
                 snake_dir_arr(to_integer(snake_len_in)) <= NONE;
                 /*
                 case dir_signal is
