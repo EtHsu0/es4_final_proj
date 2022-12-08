@@ -33,7 +33,7 @@ entity pattern_gen is
 
 		rgb : out unsigned(5 downto 0);
 
-        snake_head: in unsigned(6 downto 0);
+        snake_head: in unsigned(6 downto 0) := "0010000";
         scores: in unsigned(6 downto 0);
         game_state: in unsigned(1 downto 0)
 		
