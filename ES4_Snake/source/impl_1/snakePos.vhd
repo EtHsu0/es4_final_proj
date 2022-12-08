@@ -141,7 +141,10 @@ begin
                     snake_dir_arr(0) <= LEFT;
                 end if;
                 snake_dir_arr(to_integer(snake_len_in)) <= NONE;
-                -- snake 
+                if snake_arr(to_integer(snake_head)) = '1':
+                    snake_dead <= '1';
+                    reset <= '1';
+                end if;
             end if;
         end if;
     end process;
