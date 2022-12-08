@@ -41,7 +41,7 @@ architecture synth of board is
 
     signal snake_len: unsigned(6 downto 0) := 7d"2";
     
-    signal snake_dead: std_logic;
+    signal snake_dead: std_logic := '0';
 
     signal game_State : unsigned(1 downto 0) := "00";
     --signal game_state: unsigned(1 downto 0);
@@ -75,7 +75,7 @@ begin
                      -- dir <= 2b"00";
                 -- SEL
                 elsif digital_in(5) = '0' then
-                    game_state <= "10";
+                    --game_state <= "10";
                 -- A
                 elsif digital_in(7) = '0' then
                     snake_len <= snake_len + 1;
