@@ -66,7 +66,7 @@ begin
                 if digital_in(6) = '0' then
                     apple_coord <= 7d"66";
                 end if;
-                -A
+                --A
                 if digital_in(7) = '0' then
                     game_state <= "10";
                 end if;
@@ -76,9 +76,9 @@ begin
                     game_state <= "00";
                 end if;
             end if;
+            apple_id <= '1' & (apple_coord mod 4d"10") & (apple_coord / 4d"10");
         end if;
     end process;
-    apple_id <= '1' & (apple_coord mod 4d"10") & (apple_coord / 4d"10");
     snakePos_inst: snakePos port map
         (
             clk => clk, 
@@ -90,21 +90,8 @@ begin
             snake_arr_out => snake_arr,
             snake_dead_out => snake_dead
 		);
-    --process (snake_head) is begin
-        -- If snake head is on apple's coordinate
-        --if snake_head_out = apple_out then
-            -- Create artifical rising edge for enable signal
-            --enable <= '0';
-            --wait for 5 ns;
-            --enable <= '1';
-            -- Create this signal until we generate a valid apple id (apple can not spawn on snake)
-            --while (snake(apple_out) = '1' or apple_out = snake_head_out) loop
-                --enable <= '0';
-                --wait for 5 ns;
-                --enable <= '1';
-            --end loop;
-        --end if;
-   -- end process;
+   
+
     game_state_out <= game_state;
     scores_out <= "0";
     snake_head_out <= snake_head;
