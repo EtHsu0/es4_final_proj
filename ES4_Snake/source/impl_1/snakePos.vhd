@@ -13,7 +13,7 @@ entity snakepos is
         
         game_state_in: in unsigned(1 downto 0);
 
-        snake_len_in: in unsigned(6 downto 0) := 7d"3";
+        snake_len_in: in unsigned(6 downto 0) := 7d"1";
 
         snake_head_out: out unsigned(6 downto 0);
         snake_tail_out: out unsigned(6 downto 0);
@@ -26,7 +26,7 @@ end snakepos;
 architecture synth of snakepos is
 
 signal snake_head: unsigned(6 downto 0) := 7d"44";
-signal snake_tail: unsigned(6 downto 0) := 7d"42";
+signal snake_tail: unsigned(6 downto 0) := 7d"43";
 
 TYPE DirType is (UP, DOWN, LEFT, RIGHT, NONE);
 TYPE DirArray is ARRAY (0 to 99) of DirType;
@@ -35,7 +35,7 @@ signal prev_dir: unsigned(1 downto 0) := "11";
 signal snake_dir: unsigned(1 downto 0);
 
 -- From left to right, direction from head to tails
-signal snake_dir_arr: DirArray := (99 downto 3 => NONE, 2 downto 0 => LEFT); -- Errors! Fix Type Declarations
+signal snake_dir_arr: DirArray := (99 downto 1 => NONE, 0 downto 0 => LEFT); -- Errors! Fix Type Declarations
 signal snake_arr: std_logic_vector(99 downto 0) := 100d"0";
 
 signal snake_dead: std_logic := '0';
@@ -92,7 +92,7 @@ begin
             if game_state_in = "00" or game_state_in = "10" then
                 snake_dead <= '0';
                 snake_head <= 7d"44";
-                snake_dir_arr <= (99 downto 3 => NONE, 2 downto 0 => LEFT);
+                snake_dir_arr <=  (99 downto 1 => NONE, 0 downto 0 => LEFT);
             elsif game_state_in = "01" then
                 prev_dir <= snake_dir;
 
