@@ -62,26 +62,34 @@ begin
                     apple_id <= 9b"1_0100_0100";
                     --dir <= 2b"11";
                 -- LEFT
-                elsif digital_in(1) = '0' then
+                end if;
+                if digital_in(1) = '0' then
                     apple_id <= 9b"1_0101_0101";
                     --dir <= 2b"10";
                 -- DOWN
-                elsif digital_in(2) = '0' then
+                end if;
+                if digital_in(2) = '0' then
                     apple_id <= 9b"1_0101_0100";
                     --dir <= 2b"01";
                 -- UP
-                elsif digital_in(3) = '0' then
+                end if;
+                if digital_in(3) = '0' then
                     apple_id <= 9b"1_0100_0101";
                      -- dir <= 2b"00";
                 -- SEL
-                elsif digital_in(5) = '0' then
+                end if;
+                if digital_in(5) = '0' then
                     --game_state <= "10";
                 -- B
-                elsif digital_in(6) = '0' then
-                    game_state <= "00";
+                end if;
+                if digital_in(6) = '0' then
+                    --game_state <= "00";
+                    apple_id <= 9b"1_1001_0000";
+                    
                 -- A
-                elsif digital_in(7) = '0' then
-                    snake_len <= snake_len + 1;
+                end if;
+                if digital_in(7) = '0' then
+                    --snake_len <= snake_len + 1;
                     apple_id <= 9b"1_1001_0000";
                 else
                     apple_id <= apple_id;
