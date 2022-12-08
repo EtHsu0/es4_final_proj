@@ -60,11 +60,13 @@ begin
             elsif game_state = "01" then
                 if snake_head = apple_coord then
                     snake_len <= snake_len + 1;
+                    apple_coord <= snake_tail;
                 end if;
-                --b
+                --B
                 if digital_in(6) = '0' then
-                    apple_coord <= 6d"66";
+                    apple_coord <= 7d"66";
                 end if;
+                -A
                 if digital_in(7) = '0' then
                     game_state <= "10";
                 end if;
