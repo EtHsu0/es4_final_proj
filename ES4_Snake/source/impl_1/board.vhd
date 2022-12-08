@@ -63,7 +63,7 @@ begin
     begin
         if rising_edge(clk) then
             if game_state = "00" then
-                apple_id <= 9b"1_0111_0100";
+               apple_id <= 9b"1_0111_0100";
                 if digital_in(4) = '0' then
                     game_state <= "01";
                 end if;
@@ -86,11 +86,11 @@ begin
                     apple_id <= 9b"1_0100_0101";
                      -- dir <= 2b"00";
                 -- B
-                elsif digital_in(6) = '0' then
+                elsif digital_in(5) = '0' then
                     game_state <= "00";
                 -- A
                 elsif digital_in(7) = '0' then
-                    snake_len <= snake_len + 1;
+                    --snake_len <= snake_len + 1;
                     apple_id <= 9b"1_1001_0000";
                 else
                     apple_id <= apple_id;

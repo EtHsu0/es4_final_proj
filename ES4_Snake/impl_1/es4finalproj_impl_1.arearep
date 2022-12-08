@@ -1,15 +1,15 @@
 ----------------------------------------------------------------------
 Report for cell top.TECH
-Register bits:  400 of 5280 (7.576%)
+Register bits:  195 of 5280 (3.693%)
 I/O cells:      16
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               CCU2      1304          100.0
-                            FD1P3XZ       400          100.0
+                               CCU2       112          100.0
+                            FD1P3XZ       195          100.0
                          HSOSC_CORE         1          100.0
                                  IB         2          100.0
                               IOL_B         1          100.0
-                               LUT4     23647          100.0
+                               LUT4       626          100.0
                               MAC16         2          100.0
                                  OB        14          100.0
                               PLL_B         1          100.0
@@ -22,45 +22,35 @@ mypll_ipgen_lscc_pll(DIVR="0",DIVF="66",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_
                         pattern_gen         1
                            snakepos         1
                                 vga         1
-                              TOTAL     25380
-----------------------------------------------------------------------
-Report for cell NES.v1
-Instance Path : NES_inst
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                                FA2        11            0.8
-                            FD1P3XZ        27            6.8
-                              IOL_B         1          100.0
-                               LUT4        17            0.1
-                              TOTAL        56
+                              TOTAL       962
 ----------------------------------------------------------------------
 Report for cell board.v1
 Instance Path : board_inst
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2      1216           93.3
-                            FD1P3XZ       350           87.5
-                               LUT4     23278           98.4
+                                FA2        24           21.4
+                            FD1P3XZ       145           74.4
+                               LUT4       262           41.9
 SUB MODULES
                            snakepos         1
-                              TOTAL     24845
+                              TOTAL       432
 ----------------------------------------------------------------------
 Report for cell snakepos.v1
 Instance Path : board_inst.snakePos_inst
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2      1212           92.9
-                            FD1P3XZ       335           83.8
-                               LUT4     23269           98.4
-                              TOTAL     24816
+                                FA2        24           21.4
+                            FD1P3XZ       137           70.3
+                               LUT4       252           40.3
+                              TOTAL       413
 ----------------------------------------------------------------------
 Report for cell display.v1
 Instance Path : display_inst
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2        77            5.9
-                            FD1P3XZ        23            5.8
-                               LUT4       293            1.2
+                                FA2        77           68.8
+                            FD1P3XZ        23           11.8
+                               LUT4       286           45.7
                               MAC16         2          100.0
                               PLL_B         1          100.0
 SUB MODULES
@@ -68,16 +58,16 @@ SUB MODULES
 mypll_ipgen_lscc_pll(DIVR="0",DIVF="66",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",FREQUENCY_PIN_REFERENCECLK="12.000000")         1
                         pattern_gen         1
                                 vga         1
-                              TOTAL       400
+                              TOTAL       393
 ----------------------------------------------------------------------
 Report for cell vga.v1
 Instance Path : display_inst.vga_init
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2        12            0.9
-                            FD1P3XZ        23            5.8
-                               LUT4        97            0.4
-                              TOTAL       132
+                                FA2        12           10.7
+                            FD1P3XZ        23           11.8
+                               LUT4        69           11.0
+                              TOTAL       104
 ----------------------------------------------------------------------
 Report for cell mypll.v1
 Instance Path : display_inst.pll_init
@@ -99,7 +89,17 @@ Report for cell pattern_gen.v1
 Instance Path : display_inst.pattern_gen_initial
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2        65            5.0
-                               LUT4       196            0.8
+                                FA2        65           58.0
+                               LUT4       217           34.7
                               MAC16         2          100.0
-                              TOTAL       263
+                              TOTAL       284
+----------------------------------------------------------------------
+Report for cell NES.v1
+Instance Path : NES_inst
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        11            9.8
+                            FD1P3XZ        27           13.8
+                              IOL_B         1          100.0
+                               LUT4        18            2.9
+                              TOTAL        57
