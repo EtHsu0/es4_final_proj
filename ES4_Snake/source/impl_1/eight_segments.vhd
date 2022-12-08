@@ -12,10 +12,10 @@ entity eight_segments is
 end eight_segments;
 
 architecture synth of eight_segments is
-    signal addr : std_logic_vector(13 downto 0);
+    signal addr : unsigned(13 downto 0);
 
     begin
-        addr <= std_logic_vector(row(7 downto 0)) & std_logic_vector(col(7 downto 0));
+        addr <= unsigned(row(7 downto 0)) & unsigned(col(7 downto 0));
         process(clk) is begin
             if rising_edge(clk) then 
                 case addr is 
