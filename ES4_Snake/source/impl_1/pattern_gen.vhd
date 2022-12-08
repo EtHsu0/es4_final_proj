@@ -38,7 +38,12 @@ end pattern_gen;
 
 architecture synth of pattern_gen is
 
-signal intermed_rgb : unsigned(5 downto 0);
+signal score_tens_place : unsigned(5 downto 0);
+signal score_ones_place : unsigned(5 downto 0);
+signal segments_tens : std_logic_vector(6 downto 0);
+signal segments_ones : std_logic_vector(6 downto 0);
+
+--signal intermed_rgb : unsigned(5 downto 0);
 begin
 	--intermed_rgb <= "001100" when (x_pos mod 10d"5" = 10d"0") else "110000";
 	--rgb <= 6d"0" when valid='0' else intermed_rgb;
@@ -82,6 +87,98 @@ begin
 					end if;
 				end if;
 			end loop;
+
+        score_tens_place <= score / 6d"10";
+        score_ones_place <= score mod 6d"10";
+
+        
+        -- Draw Score
+        segments_tens<="0000001" when score_tens_place = 6d"0" else
+        "1001111" when score_tens_place = 6d"1" else
+        "0010010" when score_tens_place = 6d"2" else
+        "0000110" when score_tens_place = 6d"3" else
+        "1001100" when score_tens_place = 6d"4" else
+        "0100100" when score_tens_place = 6d"5" else
+        "0100000" when score_tens_place = 6d"6" else
+        "0001111" when score_tens_place = 6d"7" else
+        "0000000" when score_tens_place = 6d"8" else
+        "0001100" when score_tens_place = 6d"9" else
+        "0111000";
+
+        if (segments_tens(6) = '0') then
+            if (x_pos > 10d"0" + 10d"10" and x_pos < 10d"35" + 10d"10") and (y_pos = 10d"50") then
+                rgb <= "000011";
+            end if;
+        elsif (segments_tens(5) = '0') then
+            if (x_pos = 10d"35" + 10d"10") and (y_pos > 10d"50" and y_pos < 10d"50" + 10d"35") then
+                rgb <= "000011"; 
+            end if; 
+        elsif (segments_tens(4) = '0') then 
+            if (x_pos = 10d"35" + 10d"10") and (y_pos > 10d"50" + 10d"35" and y_pos < 10d"50" + 10d"70") then
+                rgb <= "000011";
+            end if;
+        elsif (segments_tens(3) = '0') then 
+            if (x_pos > 10d"0" + 10d"10" and x_pos < 10d"35" + 10d"10") and (y_pos = 10d"50" + 10d"70") then
+                rgb <= "000011";
+            end if;
+        elsif (segments_tens(2) = '0') then 
+            if (x_pos = 10d"10") and (y_pos > 10d"50" + 10d"35" and y_pos < 10d"50" + 10d"70") then
+                rgb <= "000011";
+            end if;
+        elsif (segments_tens(1) = '0') then
+            if (x_pos = 10d"10") and (y_pos > 10d"50" and y_pos < 10d"50" + 10d"35") then
+                rgb <= "000011"; 
+            end if; 
+        else -- segments_tens(0) = '0'
+            if (x_pos > 10d"0" + 10d"10" and x_pos < 10d"35" + 10d"10") and (y_pos = 10d"50" + 10d"35") then
+                rgb <= "000011";
+            end if;
+        end if;
+
+/*
+        segments_ones<="0000001" when score_ones_place = 6d"0" else
+        "1001111" when score_ones_place = 6d"1" else
+        "0010010" when score_ones_place = 6d"2" else
+        "0000110" when score_ones_place = 6d"3" else
+        "1001100" when score_ones_place = 6d"4" else
+        "0100100" when score_ones_place = 6d"5" else
+        "0100000" when score_ones_place = 6d"6" else
+        "0001111" when score_ones_place = 6d"7" else
+        "0000000" when score_ones_place = 6d"8" else
+        "0001100" when score_ones_place = 6d"9" else
+        "0111000";
+        end;
+
+        if (segments_ones(6) = '0') then
+            if (x_pos > 10d"0" + 10d"10" and x_pos < 10d"35" + 10d"10") and (y_pos = 10d"50") then
+                rgb <= "000011";
+            end if;
+        elsif (segments_ones(5) = '0') then
+            if (x_pos = 10d"35" + 10d"10") and (y_pos > 10d"50" and y_pos < 10d"50" + 10d"35") then
+                rgb <= "000011"; 
+            end if; 
+        elsif (segments_ones(4) = '0') then 
+            if (x_pos = 10d"35" + 10d"10") and (y_pos > 10d"50" + 10d"35" and y_pos < 10d"50" + 10d"70") then
+                rgb <= "000011";
+            end if;
+        elsif (segments_ones(3) = '0') then 
+            if (x_pos > 10d"0" + 10d"10" and x_pos < 10d"35" + 10d"10") and (y_pos = 10d"50" + 10d"70") then
+                rgb <= "000011";
+            end if;
+        elsif (segments_ones(2) = '0') then 
+            if (x_pos = 10d"10") and (y_pos > 10d"50" + 10d"35" and y_pos < 10d"50" + 10d"70") then
+                rgb <= "000011";
+            end if;
+        elsif (segments_ones(1) = '0') then
+            if (x_pos = 10d"10") and (y_pos > 10d"50" and y_pos < 10d"50" + 10d"35") then
+                rgb <= "000011"; 
+            end if; 
+        else -- segments_ones(0) = '0'
+            if (x_pos > 10d"0" + 10d"10" and x_pos < 10d"35" + 10d"10") and (y_pos = 10d"50" + 10d"35") then
+                rgb <= "000011";
+            end if;
+        end if;
+*/
 			
 		
 		else -- if valid is 0, then set rgb to low
