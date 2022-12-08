@@ -13,7 +13,7 @@ entity snakepos is
         
         game_state_in: in unsigned(1 downto 0);
 
-        snake_len_in: in unsigned(6 downto 0) := 7d"2";
+        snake_len_in: in unsigned(6 downto 0) := 7d"3";
 
         snake_head_out: out unsigned(6 downto 0);
         snake_tail_out: out unsigned(6 downto 0);
@@ -90,17 +90,10 @@ begin
     begin
         if rising_edge(snakeCLK) then
             if game_state_in = "00" or game_state_in = "10" then
-                -- snake_arr <= (44 downto 42 => '1', others => '0');
                 snake_dead <= '0';
-                -- snake_arr_len </= 6d"6";
                 snake_head <= 7d"44";
                 snake_dir_arr <= (99 downto 3 => NONE, 2 downto 0 => LEFT);
             elsif game_state_in = "01" then
-                -- if prev_dir(1) /= dir_signal(1) then
-                    -- prev_dir <= dir_signal;
-                -- else
-                    -- prev_dir <= prev_dir;
-                -- end if;
                 prev_dir <= snake_dir;
 
                 -- Update snake head coordinate
