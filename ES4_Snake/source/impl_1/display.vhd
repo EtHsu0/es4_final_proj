@@ -69,9 +69,6 @@ architecture synth of display is
     
     signal valid : std_logic;
 
-    -- snake testing
-    signal snake_loc : std_logic_vector(99 downto 0);
-    
     begin
         pll_init: mypll port map(ref_clk_i => pll_in_clock, rst_n_i => '1', outcore_o => pll_outcore_o, outglobal_o => clk);
         -- vga_initial vga port map(clk <= clk);
