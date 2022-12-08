@@ -64,7 +64,7 @@ begin
                     game_state <= "01";
                 end if;
             elsif game_state = "01" then
-                reset <= '0';	
+                reset <= '0';
                 -- RIGHT
                 if digital_in(0) = '0' then
                     apple_id <= 9b"1_0100_0100";
@@ -83,7 +83,7 @@ begin
                      -- dir <= 2b"00";
                 -- B
                 elsif digital_in(6) = '0' then
-                    game_state <= "00";	
+                    game_state <= "00";
                 else
                     apple_id <= apple_id;
                     --dir <= dir;
