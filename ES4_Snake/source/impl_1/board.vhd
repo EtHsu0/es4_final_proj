@@ -104,7 +104,7 @@ begin
                     game_state <= "10";
                 end if;
             elsif game_state <= "10" then
-                apple_id <= 9b"1_1001_1001";
+                -- apple_id <= 9b"1_1001_1001";
                 if digital_in(5) = '0' then
                     game_state <= "00";
                 end if;
