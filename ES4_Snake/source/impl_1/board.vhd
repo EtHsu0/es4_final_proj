@@ -55,7 +55,7 @@ begin
             if game_state = "00" then
                -- apple_id <= 9b"1_0111_0100";
                apple_coord <= 48;
-               snake_len <=
+               snake_len <= 7d"4";
                 if digital_in(4) = '0' then
                     game_state <= "01";
                 end if;
@@ -78,8 +78,8 @@ begin
                     game_state <= "00";
                 end if;
             end if;
-           - apple_x <= 
-           - apple_y <= 
+           -- apple_x <= 
+           -- apple_y <= 
 
             apple_id <= '1' & (apple_coord mod 4d"10") & (apple_coord / 4d"10");
         end if;
