@@ -48,7 +48,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Wed Dec  7 18:30:21 2022
+Wed Dec  7 20:04:09 2022
 
 
 Command Line:  C:\lscc\radiant\3.2\ispfpga\bin\nt64\synthesis.exe -f es4finalproj_impl_1_lattice.synproj -gui -msgset C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/promote.xml 
@@ -374,14 +374,14 @@ WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/
 Mapped 2 multiplier(s)
 
 
-######## Missing driver on net n19321. Patching with GND.
-######## Missing driver on net n19324. Patching with GND.
-######## Missing driver on net n19339. Patching with GND.
-######## Missing driver on net n19336. Patching with GND.
-######## Missing driver on net n19333. Patching with GND.
-######## Missing driver on net n19330. Patching with GND.
-######## Missing driver on net n19327. Patching with GND.
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(199): Register \board_inst/snakePos_inst/dir_arr[1]_i0 is stuck at Zero. VDB-5013
+######## Missing driver on net n20409. Patching with GND.
+######## Missing driver on net n20406. Patching with GND.
+######## Missing driver on net n20391. Patching with GND.
+######## Missing driver on net n20394. Patching with GND.
+######## Missing driver on net n20403. Patching with GND.
+######## Missing driver on net n20400. Patching with GND.
+######## Missing driver on net n20397. Patching with GND.
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(208): Register \board_inst/snakePos_inst/arr_length_i0 is stuck at Zero. VDB-5013
 Combinational loop found : 1
 
 	Net digital[4] 
@@ -418,7 +418,7 @@ Combinational loop found : 6
 
 	Instance \NES_inst/digital_7__I_0_i1 
 
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(94): Register \board_inst/game_State_i1 is stuck at Zero. VDB-5013
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(100): Register \board_inst/game_State_i1 is stuck at Zero. VDB-5013
 WARNING - synthesis: Initial value found on instance \board_inst/game_State_i0 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/apple_id_i4 will be ignored.
 INFO - synthesis: Special Primitives IFD1P3AZ and OFD1P3AZ for ThunderPlus are synthesized using IOL_B.
@@ -427,19 +427,19 @@ INFO - synthesis: Special Primitives IFD1P3AZ and OFD1P3AZ for ThunderPlus are s
 <A name="lse_area"></A><B><U><big>Area Report</big></U></B>
 
 ################### Begin Area Report (top)######################
-Number of register bits => 194 of 5280 (3 % )
-CCU2 => 120
-FD1P3XZ => 194
+Number of register bits => 205 of 5280 (3 % )
+CCU2 => 172
+FD1P3XZ => 205
 HSOSC_CORE => 1
 IB => 2
 IOL_B => 1
-LUT4 => 662
+LUT4 => 1684
 MAC16 => 2
 OB => 14
 PLL_B => 1
 ################### End Area Report ##################
-Number of odd-length carry chains : 103
-Number of even-length carry chains : 114
+Number of odd-length carry chains : 104
+Number of even-length carry chains : 214
 
 
 <A name="lse_clock"></A><B><U><big>Clock Report</big></U></B>
@@ -455,23 +455,23 @@ Clock Enable Nets
 Number of Clock Enables: 0
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : board_inst/snakePos_inst/arr_length[1], loads : 99
-  Net : board_inst/game_State[0], loads : 27
-  Net : display_inst/vga_init/column_cnt[4], loads : 24
-  Net : display_inst/vga_init/row_cnt[4], loads : 21
-  Net : display_inst/vga_init/row_cnt[6], loads : 20
-  Net : display_inst/vga_init/column_cnt[6], loads : 20
-  Net : display_inst/vga_init/column_cnt[5], loads : 20
-  Net : display_inst/pattern_gen_initial/n82061, loads : 20
-  Net : display_inst/vga_init/row_cnt[5], loads : 18
-  Net : display_inst/vga_init/row_cnt[3], loads : 18
+  Net : board_inst/snakePos_inst/arr_length[2], loads : 302
+  Net : board_inst/snakePos_inst/arr_length[1], loads : 102
+  Net : board_inst/snakePos_inst/n35_adj_21359, loads : 100
+  Net : board_inst/snakePos_inst/n63, loads : 100
+  Net : board_inst/snakePos_inst/snake_arr_out_99__N_20745, loads : 100
+  Net : board_inst/snakePos_inst/n989, loads : 82
+  Net : board_inst/snakePos_inst/n988, loads : 82
+  Net : board_inst/snakePos_inst/n221, loads : 82
+  Net : board_inst/snakePos_inst/n220, loads : 82
+  Net : board_inst/snakePos_inst/snake_head[5], loads : 75
 ################### End Clock Report ##################
 
-Peak Memory Usage: 393 MB
+Peak Memory Usage: 388 MB
 
 --------------------------------------------------------------
-Total CPU Time: 1 mins 36 secs 
-Total REAL Time: 1 mins 44 secs 
+Total CPU Time: 1 mins 5 secs 
+Total REAL Time: 1 mins 6 secs 
 --------------------------------------------------------------
 
 

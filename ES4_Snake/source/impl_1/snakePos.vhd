@@ -169,8 +169,8 @@ begin
                     when "11" => snake_arr <= (33 downto 30 => '1', others => '0');
                 end case;
                 */
-            else
-                snake_arr <= (73 downto 70 => '1', others => '0');
+            --else
+                --snake_arr <= (73 downto 70 => '1', others => '0');
             end if;
         
         
