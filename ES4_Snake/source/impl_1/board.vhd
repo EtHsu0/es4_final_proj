@@ -49,6 +49,8 @@ architecture synth of board is
     signal apple_x: unsigned(3 downto 0);
     signal apple_y: unsigned(3 downto 0); 
     signal apple_y_inter: unsigned (12 downto 0);
+
+    -- signal addr;
 begin
     process(clk) is
     begin
