@@ -67,8 +67,8 @@ begin
             snake_coord := snake_head;
             snake_arr(to_integer(snake_coord)) <= '1';
 
-            for i in 0 to to_integer(snake_len_in) loop
-            --   exit when i = to_integer(snake_len_in);
+            for i in 0 to 50 loop
+              exit when i = to_integer(snake_len_in);
                 case snake_dir_arr(i) is
                     when UP => snake_coord := snake_coord - 10;
                     when DOWN => snake_coord := snake_coord + 10;
@@ -96,11 +96,6 @@ begin
                 
                 snake_dir_arr <= (others => LEFT);
             elsif game_state_in = "01" then
-                -- if prev_dir(1) /= dir_signal(1) then
-                    -- prev_dir <= dir_signal;
-                -- else
-                    -- prev_dir <= prev_dir;
-                -- end if;
                 prev_dir <= snake_dir;
 
                 -- Update snake head coordinate
@@ -109,7 +104,7 @@ begin
                         --snake_dead <= '1';
                     end if;
                     snake_head <= snake_head - 10;
-                    for i in 0 to 11 loop
+                    for i in 0 to 13 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= DOWN;
@@ -118,7 +113,7 @@ begin
                         --snake_dead <= '1';
                     end if;
                     snake_head <= snake_head + 10;
-                    for i in 0 to 11 loop
+                    for i in 0 to 13 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= UP;
@@ -127,7 +122,7 @@ begin
                             --snake_dead <= '1';
                     end if;
                     snake_head <= snake_head - 1;
-                    for i in 0 to 11 loop
+                    for i in 0 to 13 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= RIGHT;
@@ -136,7 +131,7 @@ begin
                         --snake_dead <= '1';
                     end if;
                     snake_head <= snake_head + 1;
-                    for i in 0 to 11 loop
+                    for i in 0 to 13 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= LEFT;
