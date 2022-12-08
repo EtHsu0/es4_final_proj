@@ -80,8 +80,8 @@ begin
                     game_state <= "00";
                 end if;
             end if;
-           apple_y <= (apple_coord mod 4d"10")
-           apple_x <= (apple_coord / 4d"10")
+           apple_y <= (apple_coord mod 4d"10");
+           apple_x <= (apple_coord / 4d"10");
 
             apple_id <= '1' & apple_x & apple_y;
         end if;
