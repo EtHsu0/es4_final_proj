@@ -170,7 +170,7 @@ begin
                 end case;
                 */
             else
-                --snake_arr <= (73 downto 70 => '1', others => '0');
+                snake_arr <= (73 downto 70 => '1', others => '0');
             end if;
         
         
