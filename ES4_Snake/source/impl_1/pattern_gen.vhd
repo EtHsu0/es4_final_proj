@@ -85,8 +85,9 @@ begin
 
 			-- Fill in apple cell
 			if rand_apple(8) = '1' then
-            
-
+				if (x_pos > apple_cox and x_pos < apple_cox + 10d"44" and y_pos > apple_coy and y_pos < apple_coy + 10d"44") then
+					
+				end if;
             end if;
 
 			
