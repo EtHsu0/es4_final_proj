@@ -111,7 +111,8 @@ begin
                     snake_dir_arr(0) <= DOWN;
                 elsif snake_dir = "01" then
                     if snake_head > 89 then
-                        --snake_dead <= '1';
+                        snake_dead <= '1';
+                        reset <= '1';
                     end if;
                     snake_head <= snake_head + 10;
                     for i in 0 to 6 loop
@@ -129,7 +130,8 @@ begin
                     snake_dir_arr(0) <= RIGHT;
                 elsif snake_dir = "11" then
                     if snake_head mod 10 = 9 then
-                        --snake_dead <= '1';
+                        snake_dead <= '1';
+                        reset <= '1';
                     end if;
                     snake_head <= snake_head + 1;
                     for i in 0 to 6 loop
