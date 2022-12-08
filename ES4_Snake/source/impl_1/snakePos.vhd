@@ -8,16 +8,16 @@ use IEEE.numeric_std.all;
 entity snakepos is
     port (
         clk: in std_logic;
-		
-		digital_in: in unsigned(7 downto 0);
-		
+        
+        digital_in: in unsigned(7 downto 0);
+        
         game_state_in: in unsigned(1 downto 0);
 
         grow_snake_in: in std_logic;
 
         -- Direction should be 0-3 (Up, Down, Left, Right)
         dir_in: in unsigned(1 downto 0) := "11"; 
-		-- Gabriel Note: dirtype is not defined, need to fix dirtype declaration or remove entirely
+        -- Gabriel Note: dirtype is not defined, need to fix dirtype declaration or remove entirely
         -- 00 = up
         -- 01 = down
         -- 10 = left
@@ -55,30 +55,30 @@ signal slow_test_counter: unsigned(6 downto 0) := 7d"0";
 
 signal dir_signal: unsigned(1 downto 0);
 begin
+
     process(clk) is
-		variable snake_coord: unsigned(6 downto 0);
+        variable snake_coord: unsigned(6 downto 0);
     begin
         if rising_edge(clk) then
             counter <= counter + 1;
-			if digital_in(3) = '0' and dir_signal(1) = '1' then 
-				dir_signal <= "00";
-			elsif digital_in(2) = '0' and dir_signal(1) = '1' then
-				dir_signal <= "01";
-			elsif digital_in(1) = '0' and dir_signal(1) = '0' then
-				dir_signal <= "10";
-			elsif digital_in(0) = '0' and dir_signal(1) = '0' then
-				dir_signal <= "11";
-			else
-				dir_signal <= dir_signal;
-			end if;
+            if digital_in(3) = '0' then 
+                dir_signal <= "00";
+            elsif digital_in(2) = '0' then
+                dir_signal <= "01";
+            elsif digital_in(1) = '0' then
+                dir_signal <= "10";
+            elsif digital_in(0) = '0' then
+                dir_signal <= "11";
+            else
+                dir_signal <= dir_signal;
+            end if;
 
-			snake_arr <= (others => '0');
-			
-			snake_coord := snake_head;
+            snake_arr <= (others => '0');
+            snake_coord := snake_head;
             snake_arr(to_integer(snake_coord)) <= '1';
 
-			for i in 0 to 99 loop
-			  exit when i = arr_length;
+            for i in 0 to 99 loop
+              exit when i = arr_length;
               case snake_dir_arr(i) is
                  when UP => snake_coord := snake_coord - 10;
                  when DOWN => snake_coord := snake_coord + 10;
@@ -86,97 +86,138 @@ begin
                  when RIGHT => snake_coord := snake_coord + 1;
               end case;
               snake_arr(to_integer(snake_coord)) <= '1';
-			end loop;
+            end loop;
+
+            snake_dir <= 
         end if;
     end process;
     snakeCLK <= counter(22);
 
     process(snakeCLK) is
 
-	begin
-
+    begin
         if rising_edge(snakeCLK) then
-		  if game_state_in = "00" then
-				-- snake_arr <= (44 downto 42 => '1', others => '0');
-				snake_dead <= '0';
-				arr_length <= 6;
-				snake_head <= 8d"44";
-				snake_dir_arr <= (others => LEFT);
-				--snake_dir_arr(0) <= RIGHT;
-			--	snake_dir_arr(1) <= UP;
-			--	snake_dir_arr(2) <= UP;
-			--snake_dir_arr(3) <= LEFT;
-			elsif game_state_in = "01" then
-				
-				if prev_dir(1) /= dir_signal(1) then
-					prev_dir <= dir_signal;
-				else
-					prev_dir <= prev_dir;
-			    end if;
-				/*
-			    if grow_snake_in = '0' then
-					arr_length <= arr_length - 1;
-				end if;
-				*/
-             -- Update snake head coordinate
-
-             if dir_signal = "00" then
-                 if snake_head < 10 then
-                     snake_dead <= '1';
-                 end if;
-                 snake_head <= snake_head - 10;
-				 -- snake_dir_arr <= (98 downto 0 => snake_dir_arr(99 downto 1));
-                for i in 0 to 98 loop
-                    snake_dir_arr(i + 1) <= snake_dir_arr(i);
-                end loop;
-				snake_dir_arr(0) <= DOWN;
-             elsif dir_signal = "01" then
-                 if snake_head > 89 then
-                     snake_dead <= '1';
-                 end if;
-                 snake_head <= snake_head + 10;
-				 --snake_dir_arr <= (98 downto 0 => snake_dir_arr(99 downto 1));
-                for i in 0 to 98 loop
-                    snake_dir_arr(i + 1) <= snake_dir_arr(i);
-                end loop;
-                snake_dir_arr(0) <= UP;
-            elsif dir_signal = "10" then
-                if snake_head mod 10 = 0 then
-                     snake_dead <= '1';
+          if game_state_in = "00" then
+                -- snake_arr <= (44 downto 42 => '1', others => '0');
+            snake_dead <= '0';
+            arr_length <= 6;
+            snake_head <= 8d"44";
+            snake_dir_arr <= (others => LEFT);
+            --snake_dir_arr(0) <= RIGHT;
+            --	snake_dir_arr(1) <= UP;
+            --	snake_dir_arr(2) <= UP;
+            --snake_dir_arr(3) <= LEFT;
+        elsif game_state_in = "01" then
+            if prev_dir(1) /= dir_signal(1) then
+                prev_dir <= dir_signal;
+            else
+                prev_dir <= prev_dir;
+            end if;
+            /*
+            if grow_snake_in = '0' then
+                arr_length <= arr_length - 1;
+            end if;
+            */
+            -- Update snake head coordinate
+            case snake_dir is
+                when UP => 
+                    if snake_head < 10 then
+                        snake_dead <= '1';
+                    end if;
+                    snake_head <= snake_head - 10;
+                    for i in 0 to 98 loop
+                        snake_dir_arr(i + 1) <= snake_dir_arr(i);
+                    end loop;
+                    snake_dir_arr(0) <= DOWN;
+                when DOWN => 
+                    if snake_head > 89 then
+                        snake_dead <= '1';
+                    end if;
+                    snake_head <= snake_head + 10;
+                        --snake_dir_arr <= (98 downto 0 => snake_dir_arr(99 downto 1));
+                    for i in 0 to 98 loop
+                        snake_dir_arr(i + 1) <= snake_dir_arr(i);
+                    end loop;
+                    snake_dir_arr(0) <= UP;
+                when LEFT => 
+                    if snake_head mod 10 = 0 then
+                            snake_dead <= '1';
+                    end if;
+                    snake_head <= snake_head - 1;
+                    --snake_dir_arr <= (98 downto 0 => snake_dir_arr(99 downto 1));
+                    for i in 0 to 98 loop
+                        snake_dir_arr(i + 1) <= snake_dir_arr(i);
+                    end loop;
+                    snake_dir_arr(0) <= RIGHT;
+                when RIGHT => 
+                    if snake_head mod 10 = 9 then
+                        snake_dead <= '1';
+                    end if;
+                    snake_head <= snake_head + 1;
+                --snake_dir_arr <= (98 downto 0 => snake_dir_arr(99 downto 1));
+                    for i in 0 to 98 loop
+                        snake_dir_arr(i + 1) <= snake_dir_arr(i);
+                    end loop;
+                    snake_dir_arr(0) <= LEFT;
+            end case;
+/*
+            if dir_signal = "00" then
+                if snake_head < 10 then
+                    snake_dead <= '1';
                 end if;
-                snake_head <= snake_head - 1;
-				--snake_dir_arr <= (98 downto 0 => snake_dir_arr(99 downto 1));
+                snake_head <= snake_head - 10;
+                -- snake_dir_arr <= (98 downto 0 => snake_dir_arr(99 downto 1));
                 for i in 0 to 98 loop
                     snake_dir_arr(i + 1) <= snake_dir_arr(i);
                 end loop;
-                snake_dir_arr(0) <= RIGHT;
-             elsif dir_signal = "11" then
-                 if snake_head mod 10 = 9 then
-                     snake_dead <= '1';
-                 end if;
-                 snake_head <= snake_head + 1;
-				--snake_dir_arr <= (98 downto 0 => snake_dir_arr(99 downto 1));
-                for i in 0 to 98 loop
-                    snake_dir_arr(i + 1) <= snake_dir_arr(i);
-                end loop;
-                snake_dir_arr(0) <= LEFT;
-             end if;
-				
-				
-				/*
-				case dir_signal is
-					when "00" => snake_arr <= (3 downto 0 => '1', others => '0');
-					when "01" => snake_arr <= (13 downto 10 => '1', others => '0');
-					when "10" => snake_arr <= (23 downto 20 => '1', others => '0');
-					when "11" => snake_arr <= (33 downto 30 => '1', others => '0');
-				end case;
-				*/
-			else
-				--snake_arr <= (73 downto 70 => '1', others => '0');
-			end if;
-			
-		
-			
+                snake_dir_arr(0) <= DOWN;
+            elsif dir_signal = "01" then
+                if snake_head > 89 then
+                    snake_dead <= '1';
+                end if;
+                snake_head <= snake_head + 10;
+                --snake_dir_arr <= (98 downto 0 => snake_dir_arr(99 downto 1));
+            for i in 0 to 98 loop
+                snake_dir_arr(i + 1) <= snake_dir_arr(i);
+            end loop;
+            snake_dir_arr(0) <= UP;
+        elsif dir_signal = "10" then
+            if snake_head mod 10 = 0 then
+                    snake_dead <= '1';
+            end if;
+            snake_head <= snake_head - 1;
+            --snake_dir_arr <= (98 downto 0 => snake_dir_arr(99 downto 1));
+            for i in 0 to 98 loop
+                snake_dir_arr(i + 1) <= snake_dir_arr(i);
+            end loop;
+            snake_dir_arr(0) <= RIGHT;
+            elsif dir_signal = "11" then
+                if snake_head mod 10 = 9 then
+                    snake_dead <= '1';
+                end if;
+                snake_head <= snake_head + 1;
+            --snake_dir_arr <= (98 downto 0 => snake_dir_arr(99 downto 1));
+            for i in 0 to 98 loop
+                snake_dir_arr(i + 1) <= snake_dir_arr(i);
+            end loop;
+            snake_dir_arr(0) <= LEFT;
+            end if;
+            */
+            
+            /*
+            case dir_signal is
+                when "00" => snake_arr <= (3 downto 0 => '1', others => '0');
+                when "01" => snake_arr <= (13 downto 10 => '1', others => '0');
+                when "10" => snake_arr <= (23 downto 20 => '1', others => '0');
+                when "11" => snake_arr <= (33 downto 30 => '1', others => '0');
+            end case;
+            */
+        else
+            --snake_arr <= (73 downto 70 => '1', others => '0');
+        end if;
+        
+        
+            
 
         -- snake_tail <= snake_coord;
             -- snake_arr(to_integer(slow_test_counter)) <= '1';
@@ -210,9 +251,9 @@ begin
         -- snake_tail <= snake_coord;
         end if;
     end process;
-	
-	
-	
+    
+    
+    
     -- -- Draw the snake onto the 2d arra
     snake_dead_out <= snake_dead;
 

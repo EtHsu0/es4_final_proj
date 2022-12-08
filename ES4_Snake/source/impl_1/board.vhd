@@ -21,21 +21,21 @@ architecture synth of board is
     component snakePos is
         port (
             clk: in std_logic;
-			digital_in: in unsigned(7 downto 0);
-			game_state_in: in unsigned(1 downto 0);			
-			grow_snake_in: in std_logic;
-			dir_in: in unsigned(1 downto 0); 
-			snake_head_out: out unsigned(6 downto 0);
-			snake_tail_out: out unsigned(6 downto 0);
-			snake_arr_out: out std_logic_vector(99 downto 0) := 100b"0";
-			
-			snake_dead_out: out std_logic := '0'
+            digital_in: in unsigned(7 downto 0);
+            game_state_in: in unsigned(1 downto 0);			
+            grow_snake_in: in std_logic;
+            dir_in: in unsigned(1 downto 0); 
+            snake_head_out: out unsigned(6 downto 0);
+            snake_tail_out: out unsigned(6 downto 0);
+            snake_arr_out: out std_logic_vector(99 downto 0) := 100b"0";
+            
+            snake_dead_out: out std_logic := '0'
         );
     end component;
 
     signal apple_id: unsigned (8 downto 0) := 9d"0";
     signal snake_head: unsigned (6 downto 0) := 7d"44";
-	signal snake_tail: unsigned (6 downto 0) := 7d"0";
+    signal snake_tail: unsigned (6 downto 0) := 7d"0";
     signal snake_arr: std_logic_vector(99 downto 0) := 100d"0"; -- := (40 => '1', 41 => '1', 42 => '1'),(others => '0'); -- TODO: Fix Syntax Error!
     signal reset: std_logic := '1';
     signal grow_snake: std_logic := '0';
@@ -44,8 +44,8 @@ architecture synth of board is
     signal button: buttons;
 
     signal dir: unsigned(1 to 0);
-	
-	signal dir_snake: unsigned(1 to 0);
+    
+    signal dir_snake: unsigned(1 to 0);
     -- I need to convert button to dir;
     signal snake_dead: std_logic;
 
@@ -58,38 +58,45 @@ begin
     process(clk) is
     begin
         if rising_edge(clk) then
-		    if game_state = "00" then
-				apple_id <= 9b"1_0111_0100";
+            if game_state = "00" then
+                apple_id <= 9b"1_0111_0100";
                 if digital_in(4) = '0' then
                     game_state <= "01";
                 end if;
-			elsif game_state = "01" then
-			    reset <= '0';	
-				-- RIGHT
-				if digital_in(0) = '0' then
-					apple_id <= 9b"1_0100_0100";
-					--dir <= 2b"11";
-				-- LEFT
-				elsif digital_in(1) = '0' then
-					apple_id <= 9b"1_0101_0101";
-					--dir <= 2b"10";
-				-- DOWN
-				elsif digital_in(2) = '0' then
-					apple_id <= 9b"1_0101_0100";
-					--dir <= 2b"01";
-				-- UP
-				elsif digital_in(3) = '0' then
-					apple_id <= 9b"1_0100_0101";
+            elsif game_state = "01" then
+                reset <= '0';	
+                -- RIGHT
+                if digital_in(0) = '0' then
+                    apple_id <= 9b"1_0100_0100";
+                    --dir <= 2b"11";
+                -- LEFT
+                elsif digital_in(1) = '0' then
+                    apple_id <= 9b"1_0101_0101";
+                    --dir <= 2b"10";
+                -- DOWN
+                elsif digital_in(2) = '0' then
+                    apple_id <= 9b"1_0101_0100";
+                    --dir <= 2b"01";
+                -- UP
+                elsif digital_in(3) = '0' then
+                    apple_id <= 9b"1_0100_0101";
                      -- dir <= 2b"00";
-				-- B
-				elsif digital_in(6) = '0' then
-					game_state <= "00";	
-				else
-					apple_id <= apple_id;
-					--dir <= dir;
-				end if;
-				
-				
+                -- B
+                elsif digital_in(6) = '0' then
+                    game_state <= "00";	
+                else
+                    apple_id <= apple_id;
+                    --dir <= dir;
+                end if;
+                
+                if snake_dead <= '1' then
+                    game_state <= "10";
+                end if;
+            elsif game_state = "10" then
+                apple_id <= 9b"1_1001_1001";
+                if digital_in(6) = '0' then
+                    game_state <= "00";
+                end if;
             end if;
         end if;
     end process;
@@ -99,7 +106,7 @@ begin
     snakePos_inst: snakePos port map
         (
             clk => clk, 
-			digital_in => digital_in,
+            digital_in => digital_in,
             game_state_in => game_state, 
             grow_snake_in => grow_snake,
             dir_in => dir,
@@ -126,6 +133,6 @@ begin
     scores_out <= "0";
     snake_head_out <= snake_head;
     snake_arr_out <= snake_arr;
-	apple_out <= apple_id;
+    apple_out <= apple_id;
 
 end;
