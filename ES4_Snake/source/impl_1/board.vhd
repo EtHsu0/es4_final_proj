@@ -66,7 +66,7 @@ begin
                 if digital_in(6) = '0' then
                     apple_coord <= 7d"66";
                 end if;
-                --A
+                
                 if digital_in(7) = '0' then
                     game_state <= "10";
                 end if;

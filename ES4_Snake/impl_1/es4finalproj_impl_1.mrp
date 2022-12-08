@@ -5,7 +5,7 @@ Target Device:        iCE40UP5KSG48
 Target Performance:   High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 3.2.1.217.3
-Mapped on: Thu Dec  8 01:00:42 2022
+Mapped on: Thu Dec  8 01:09:49 2022
 
 Design Information
 ------------------
@@ -19,10 +19,10 @@ Design Summary
 
    Number of slice registers: 189 out of  5280 (4%)
    Number of I/O registers:      1 out of   117 (1%)
-   Number of LUT4s:           862 out of  5280 (16%)
-      Number of logic LUT4s:             627
+   Number of LUT4s:           745 out of  5280 (14%)
+      Number of logic LUT4s:             568
       Number of inserted feedthru LUT4s:  11
-      Number of ripple logic:            112 (224 LUT4s)
+      Number of ripple logic:             83 (166 LUT4s)
    Number of IO sites used:   16 out of 39 (41%)
       Number of IO sites used for general PIO: 16
       Number of IO sites used for I3C: 0 out of 2 (0%)
@@ -32,7 +32,7 @@ Design Summary
       (note: If RGB LED drivers are not used, sites can be used as OD outputs,
        see TN1288 iCE40 LED Driver Usage Guide)
       Number of IO sites used for PIO+I3C+OD+RGB: 16 out of 39 (41%)
-   Number of DSPs:             1 out of 8 (12%)
+   Number of DSPs:             0 out of 8 (0%)
    Number of I2Cs:             0 out of 2 (0%)
    Number of High Speed OSCs:  1 out of 1 (100%)
    Number of Low Speed OSCs:   0 out of 1 (0%)
@@ -47,19 +47,19 @@ Design Summary
    Number of Clocks:  5
       Net CLK: 129 loads, 129 rising, 0 falling (Driver: Pin HSOSC_inst/CLKHF)
       Net board_inst.snakePos_inst.snakeCLK: 10 loads, 10 rising, 0 falling
-     (Driver: Pin board_inst.snakePos_inst.counter_1491_1667__i23/Q)
+     (Driver: Pin board_inst.snakePos_inst.counter_1437_1605__i23/Q)
       Net display_inst.clk: 15 loads, 15 rising, 0 falling (Driver: Pin
      display_inst.pll_init.lscc_pll_inst.u_PLL_B/OUTGLOBAL)
       Net pll_in_clock_c: 1 loads, 1 rising, 0 falling (Driver: Port
      pll_in_clock)
       Net NES_inst.NESclk: 8 loads, 8 rising, 0 falling (Driver: Pin
-     NES_inst.count_1490_1580__i8/Q)
+     NES_inst.count_1436_1603__i8/Q)
    Number of Clock Enables:  9
-      Net board_inst.game_State_1__N_54[1]: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n5743: 6 loads, 6 SLICEs
-      Net snake_dir_1__N_460: 2 loads, 2 SLICEs
-      Net board_inst.snakePos_inst.n8570: 1 loads, 1 SLICEs
+      Net board_inst.game_State_1__N_52[1]: 1 loads, 1 SLICEs
       Net VCC_net: 1 loads, 0 SLICEs
+      Net board_inst.snakePos_inst.n5517: 6 loads, 6 SLICEs
+      Net board_inst.snakePos_inst.n12160: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.snake_dir_1__N_456: 2 loads, 2 SLICEs
 
                                     Page 1
 
@@ -69,63 +69,63 @@ Design Summary
 
 Design Summary (cont)
 ---------------------
-      Net board_inst.snakePos_inst.n13479: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13010: 1 loads, 1 SLICEs
-      Net display_inst.vga_init.n5765: 6 loads, 6 SLICEs
+      Net board_inst.snakePos_inst.n11854: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n12242: 1 loads, 1 SLICEs
+      Net display_inst.vga_init.n5506: 6 loads, 6 SLICEs
       Net NES_inst.output_7__N_34: 8 loads, 7 SLICEs
    Number of LSRs:  107
       Net board_inst.n1: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_753: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_754: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_755: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_756: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_757: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_758: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_759: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_760: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_761: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_762: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_763: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_764: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_765: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_766: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_767: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_768: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_769: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_770: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_771: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_772: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_773: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_774: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_775: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_776: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_777: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_778: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_779: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_780: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_781: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_782: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_783: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_784: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_785: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_786: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_787: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_788: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_789: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_790: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_791: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_792: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_793: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_794: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_795: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_796: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_797: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_798: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_799: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_800: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_801: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_802: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_803: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_672: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_673: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_674: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_675: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_676: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_677: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_679: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_680: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_681: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_682: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_683: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_684: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_685: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_686: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_687: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_688: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_689: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_690: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_691: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_692: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_693: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_694: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_695: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_696: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_697: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_698: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_699: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_700: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_701: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_702: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_703: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_704: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_705: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_706: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_707: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_708: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_709: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_710: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_711: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_712: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_713: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_714: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_715: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_716: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_717: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_718: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_719: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_720: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_721: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_722: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_723: 1 loads, 1 SLICEs
 
                                     Page 2
 
@@ -135,63 +135,63 @@ Design Summary (cont)
 
 Design Summary (cont)
 ---------------------
-      Net board_inst.snakePos_inst.n13_adj_804: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_805: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_806: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_807: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_808: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_809: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_810: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_811: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_812: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_813: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_814: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_815: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_816: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_817: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_818: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_819: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_820: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_821: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_822: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_823: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_824: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_825: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_826: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_827: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_828: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_829: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_830: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_841: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13401: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_843: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_845: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_849: 1 loads, 1 SLICEs
-      Net n5760: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_858: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_860: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_859: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_862: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_863: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_865: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_864: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_871: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_875: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_874: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_876: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_877: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_878: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_879: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_880: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_882: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n13_adj_881: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_724: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_725: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_726: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_727: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_728: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_729: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_730: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_731: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_732: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_733: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_734: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_735: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_736: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_737: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_738: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_739: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_741: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_742: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_743: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_744: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_745: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_746: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_747: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_748: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_749: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_750: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n12158: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_751: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_752: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_753: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_754: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_774: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_762: 1 loads, 1 SLICEs
       Net board_inst.snakePos_inst.n13: 1 loads, 1 SLICEs
-      Net display_inst.vga_init.VSYNC_N_527: 1 loads, 1 SLICEs
-      Net display_inst.vga_init.n5765: 6 loads, 6 SLICEs
-      Net display_inst.vga_init.n5984: 6 loads, 6 SLICEs
-      Net display_inst.vga_init.HSYNC_N_524: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_775: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_776: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_792: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_783: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_784: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_785: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_786: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_788: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_789: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_790: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_793: 1 loads, 1 SLICEs
+      Net n5528: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_794: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_795: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_796: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_797: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n13_adj_798: 1 loads, 1 SLICEs
+      Net display_inst.vga_init.VSYNC_N_523: 1 loads, 1 SLICEs
+      Net display_inst.vga_init.n5506: 6 loads, 6 SLICEs
+      Net display_inst.vga_init.n5717: 6 loads, 6 SLICEs
+      Net display_inst.vga_init.HSYNC_N_520: 1 loads, 1 SLICEs
    Top 10 highest fanout non-clock nets:
-      Net board_inst.snakePos_inst.snake_tail_6__N_382[5]: 79 loads
+      Net board_inst.snakePos_inst.snake_head[5]: 66 loads
 
                                     Page 3
 
@@ -201,15 +201,15 @@ Design Summary (cont)
 
 Design Summary (cont)
 ---------------------
-      Net board_inst.snakePos_inst.snake_tail_6__N_382[6]: 79 loads
-      Net VCC_net: 78 loads
-      Net board_inst.snakePos_inst.snake_head[5]: 61 loads
-      Net board_inst.snakePos_inst.snake_head[6]: 61 loads
-      Net board_inst.snakePos_inst.snake_head[1]: 59 loads
-      Net board_inst.snakePos_inst.snake_head[2]: 59 loads
-      Net board_inst.snakePos_inst.snake_head[0]: 58 loads
-      Net board_inst.snakePos_inst.snake_tail_6__N_382[0]: 32 loads
-      Net board_inst.snakePos_inst.snake_tail_6__N_382[1]: 32 loads
+      Net board_inst.snakePos_inst.snake_head[6]: 66 loads
+      Net board_inst.snakePos_inst.snake_tail_6__N_378[5]: 63 loads
+      Net board_inst.snakePos_inst.snake_tail_6__N_378[6]: 63 loads
+      Net VCC_net: 55 loads
+      Net board_inst.snakePos_inst.snake_head[3]: 32 loads
+      Net board_inst.snakePos_inst.snake_head[4]: 32 loads
+      Net board_inst.snakePos_inst.snake_tail_6__N_378[3]: 29 loads
+      Net board_inst.snakePos_inst.snake_tail_6__N_378[4]: 29 loads
+      Net board_inst.snakePos_inst.n10_adj_777: 28 loads
 
 
 
@@ -236,8 +236,6 @@ IO (PIO) Attributes
 | IO Name             | Direction | Levelmode |  IO   |  IO   | Special   |
 |                     |           |  IO_TYPE  |  REG  |  DDR  | IO Buffer |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| VSYNC               | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
 | HSYNC               | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | pll_outcore_o       | OUTPUT    |           |       |       |           |
@@ -258,6 +256,8 @@ IO (PIO) Attributes
 +---------------------+-----------+-----------+-------+-------+-----------+
 | rgb[3]              | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
+| rgb[4]              | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
 
                                     Page 4
 
@@ -267,8 +267,6 @@ IO (PIO) Attributes
 
 IO (PIO) Attributes (cont)
 --------------------------
-| rgb[4]              | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
 | rgb[5]              | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | delete_me[0]        | OUTPUT    |           |       |       |           |
@@ -277,11 +275,8 @@ IO (PIO) Attributes (cont)
 +---------------------+-----------+-----------+-------+-------+-----------+
 | delete_me[2]        | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-
-Removed logic
--------------
-
-Block i1 was optimized away.
+| VSYNC               | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
 
 PLL/DLL Summary
 ---------------
@@ -324,6 +319,11 @@ OSC Summary
 
 OSC 1:                                 Pin/Node Value
   OSC Instance Name:                            HSOSC_inst
+  Power UP:                            NODE     VCC_net
+  Enable Signal:                       NODE     VCC_net
+  OSC Output:                          NODE     CLK
+  DIV Setting:                                  00
+
 
                                     Page 5
 
@@ -331,31 +331,31 @@ OSC 1:                                 Pin/Node Value
 
 
 
-OSC Summary (cont)
-------------------
-  Power UP:                            NODE     VCC_net
-  Enable Signal:                       NODE     VCC_net
-  OSC Output:                          NODE     CLK
-  DIV Setting:                                  00
-
 ASIC Components
 ---------------
 
-Instance Name: HSOSC_inst
-         Type: HFOSC
 Instance Name: display_inst/pll_init/lscc_pll_inst/u_PLL_B
          Type: PLL
-Instance Name: display_inst/pattern_gen_initial/mult_10
-         Type: DSP
 Instance Name: NES_inst/output_i0_i0
          Type: IOLOGIC
+Instance Name: HSOSC_inst
+         Type: HFOSC
 
 Run Time and Memory Usage
 -------------------------
 
    Total CPU Time: 1 secs
    Total REAL Time: 0 secs
-   Peak Memory Usage: 71 MB
+   Peak Memory Usage: 69 MB
+
+
+
+
+
+
+
+
+
 
 
 
