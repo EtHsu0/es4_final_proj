@@ -5,7 +5,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Thu Dec  8 03:46:33 2022
+Thu Dec  8 04:25:56 2022
 
 
 Command Line:  C:\lscc\radiant\3.2\ispfpga\bin\nt64\synthesis.exe -f es4finalproj_impl_1_lattice.synproj -gui -msgset C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/promote.xml 
@@ -453,6 +453,7 @@ WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/
 
 WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(86): input port 'game_state[0]' is not connected on this instance
 
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd(59): net apple_addr[13] does not have a driver. VDB-1002
 WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nine_segments.vhd(15): net addr[13] does not have a driver. VDB-1002
 WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(102): input port 'game_score[5]' is not connected on this instance
 
@@ -468,6 +469,20 @@ WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/
 
 WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/mypll/rtl/mypll.v(139): net \display_inst/pll_init/lscc_pll_inst/sclk_i does not have a driver. VDB-1002
 WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/mypll/rtl/mypll.v(140): net \display_inst/pll_init/lscc_pll_inst/sdi_i does not have a driver. VDB-1002
+######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[13]. Patching with GND.
+######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[12]. Patching with GND.
+######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[11]. Patching with GND.
+######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[10]. Patching with GND.
+######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[9]. Patching with GND.
+######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[8]. Patching with GND.
+######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[7]. Patching with GND.
+######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[6]. Patching with GND.
+######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[5]. Patching with GND.
+######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[4]. Patching with GND.
+######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[3]. Patching with GND.
+######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[2]. Patching with GND.
+######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[1]. Patching with GND.
+######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[0]. Patching with GND.
 ######## Missing driver on net \display_inst/segments/addr[13]. Patching with GND.
 ######## Missing driver on net \display_inst/segments/addr[12]. Patching with GND.
 ######## Missing driver on net \display_inst/segments/addr[11]. Patching with GND.
@@ -493,16 +508,6 @@ WARNING - synthesis: Bit 3 of Register \display_inst/segments/rgb is stuck at Ze
 WARNING - synthesis: Bit 2 of Register \display_inst/segments/rgb is stuck at Zero
 WARNING - synthesis: Bit 1 of Register \display_inst/segments/rgb is stuck at One
 WARNING - synthesis: Bit 0 of Register \display_inst/segments/rgb is stuck at One
-Mapped 2 multiplier(s)
-
-
-######## Missing driver on net n4656. Patching with GND.
-######## Missing driver on net n4653. Patching with GND.
-######## Missing driver on net n4665. Patching with GND.
-######## Missing driver on net n4662. Patching with GND.
-######## Missing driver on net n4659. Patching with GND.
-######## Missing driver on net n4668. Patching with GND.
-######## Missing driver on net n4650. Patching with GND.
 Combinational loop found : 1
 
 	Net digital[4] 
@@ -655,18 +660,17 @@ INFO - synthesis: Special Primitives IFD1P3AZ and OFD1P3AZ for ThunderPlus are s
 
 ################### Begin Area Report (top)######################
 Number of register bits => 231 of 5280 (4 % )
-CCU2 => 140
+CCU2 => 75
 FD1P3XZ => 231
 HSOSC_CORE => 1
 IB => 2
 IOL_B => 1
-LUT4 => 1344
-MAC16 => 2
+LUT4 => 1162
 OB => 14
 PLL_B => 1
 ################### End Area Report ##################
-Number of odd-length carry chains : 12
-Number of even-length carry chains : 16
+Number of odd-length carry chains : 10
+Number of even-length carry chains : 4
 
 ################### Begin Clock Report ######################
 Clock Nets
@@ -679,21 +683,21 @@ Clock Enable Nets
 Number of Clock Enables: 0
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : board_inst/snakePos_inst/snake_arr_out_99__N_1660[6], loads : 86
-  Net : board_inst/snakePos_inst/snake_arr_out_99__N_1660[5], loads : 86
-  Net : board_inst/snakePos_inst/snake_arr_out_99__N_1660[0], loads : 86
-  Net : board_inst/snakePos_inst/snake_arr_out_99__N_1667[6], loads : 86
-  Net : board_inst/snakePos_inst/snake_arr_out_99__N_1667[5], loads : 86
-  Net : board_inst/snakePos_inst/snake_arr_out_99__N_1667[0], loads : 86
   Net : board_inst/snakePos_inst/snakeCLK, loads : 32
+  Net : board_inst/snakePos_inst/snake_arr_out_99__N_1660[0], loads : 30
   Net : board_inst/snakePos_inst/snake_head_6__N_1724, loads : 28
-  Net : display_inst/vga_init/column_cnt[4], loads : 27
-  Net : board_inst/snakePos_inst/snake_head[4], loads : 27
+  Net : board_inst/snakePos_inst/snake_arr_out_99__N_1667[4], loads : 25
+  Net : board_inst/snakePos_inst/snake_arr_out_99__N_1667[3], loads : 25
+  Net : board_inst/snakePos_inst/snake_arr_out_99__N_1667[1], loads : 25
+  Net : board_inst/snakePos_inst/snake_arr_out_99__N_1667[2], loads : 25
+  Net : board_inst/snakePos_inst/snake_head[4], loads : 24
+  Net : board_inst/snakePos_inst/snake_head[2], loads : 24
+  Net : board_inst/snakePos_inst/snake_head[3], loads : 23
 ################### End Clock Report ##################
 
-Peak Memory Usage: 332 MB
+Peak Memory Usage: 372 MB
 
 --------------------------------------------------------------
-Total CPU Time: 13 secs 
-Total REAL Time: 14 secs 
+Total CPU Time: 20 secs 
+Total REAL Time: 21 secs 
 --------------------------------------------------------------

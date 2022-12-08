@@ -52,17 +52,17 @@ signal score_ones_place : unsigned(5 downto 0);
 signal segments_tens : std_logic_vector(6 downto 0);
 signal segments_ones : std_logic_vector(6 downto 0);
 
-signal apple_y: in unsigned(3 downto 0);
-signal apple_x: in unsigned(3 downto 0);
-signal apple_coy: in unsigned(6 downto 0);
-signal apple_cox: in unsigned(6 downto 0);
-signal apple_addr: in unsigned(13 downto 0);
+signal apple_y: unsigned(3 downto 0);
+signal apple_x:  unsigned(3 downto 0);
+signal apple_coy: unsigned(6 downto 0);
+signal apple_cox: unsigned(6 downto 0);
+signal apple_addr: unsigned(13 downto 0);
 begin
     apple_x <= rand_apple(7 downto 4);
     apple_y <= rand_apple(3 downto 0);
-    apple_cox = x_pos - 10d"102" + 10d"44" * apple_x;
-    apple_coy = y_pos - 10d"21" + 10d"44" * apple_y;
-    apple_addr = apple_coy & apple_cox
+    apple_cox <= x_pos - 10d"102" + 10d"44" * apple_x;
+    apple_coy <= y_pos - 10d"21" + 10d"44" * apple_y;
+    apple_addr <= apple_coy & apple_cox;
 	--intermed_rgb <= "001100" when (x_pos mod 10d"5" = 10d"0") else "110000";
 	--rgb <= 6d"0" when valid='0' else intermed_rgb;
 	head_x <= snake_head mod 4d"10";
