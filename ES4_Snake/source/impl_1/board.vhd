@@ -68,7 +68,10 @@ begin
                 if digital_in(7) = '0' then
                     game_state <= "10";
                 end if;
-            elsif game_state <= "10" then
+                if snake_dead = '1' then
+                    game_state <= "10";
+                end if;
+            elsif game_state = "10" then
                 apple_coord <= 99;
                 if digital_in(5) = '0' then
                     game_state <= "00";

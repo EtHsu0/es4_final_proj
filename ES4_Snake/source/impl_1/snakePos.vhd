@@ -43,6 +43,7 @@ signal snake_dead: std_logic := '0';
 signal counter: unsigned(29 downto 0) := 30d"0";
 signal snakeCLK: std_logic;
 
+signal reset: std_logic := '0';
 signal dir_signal: unsigned(1 downto 0);
 begin
     --arr_length <= snake_arr_len;
@@ -89,10 +90,11 @@ begin
     process(snakeCLK) is
     begin
         if rising_edge(snakeCLK) then
-            if game_state_in = "00" or game_state_in = "10" then
+            if game_state_in = "00" or game_state_in = "10" or reset = '1' then
                 snake_dead <= '0';
                 snake_head <= 7d"44";
                 snake_dir_arr <=  (99 downto 1 => NONE, 0 downto 0 => LEFT);
+                reset <= '0';
             elsif game_state_in = "01" then
                 prev_dir <= snake_dir;
 
@@ -100,6 +102,7 @@ begin
                 if snake_dir = "00" then
                     if snake_head < 10 then
                         snake_dead <= '1';
+                        reset <= '1';
                     end if;
                     snake_head <= snake_head - 10;
                     for i in 0 to 6 loop
