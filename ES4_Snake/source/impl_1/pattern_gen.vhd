@@ -71,7 +71,7 @@ signal apple_addr: unsigned(13 downto 0);
 signal appleRGB : unsigned(5 downto 0);
 
 begin
-    apple_x <= rand_apple(7 downto 4);
+    /*apple_x <= rand_apple(7 downto 4);
     apple_y <= rand_apple(3 downto 0);
     apple_cox <= x_pos - 10d"102" + 10d"44" * apple_x;
     apple_coy <= y_pos - 10d"21" + 10d"44" * apple_y;
@@ -81,6 +81,7 @@ begin
         col => apple_cox, 
         clk => pll_in_clock, 
         rgb => appleRGB);
+    */
 
 	--intermed_rgb <= "001100" when (x_pos mod 10d"5" = 10d"0") else "110000";
 	--rgb <= 6d"0" when valid='0' else intermed_rgb;
@@ -109,15 +110,13 @@ begin
 			--	end if;
             --end if;
             
-			if rand_apple(8) = '1' then
-				if (x_pos > 10d"102" + 10d"44" * apple_x and x_pos < 10d"99" + 10d"44" + 10d"44" * apple_x  and y_pos > 10d"21" + 10d"44" * apple_y and y_pos < 10d"19" + 10d"44" + 10d"44" * apple_y) then
-					if (x_pos > 10d"115" + 10d"44" * apple_x and x_pos < 10d"130" + 10d"44" * apple_x  and y_pos > 10d"21" + 10d"44" * apple_y and y_pos < 10d"25" + 10d"44" * apple_y) then
+				if (x_pos > 10d"102" + 10d"44" * (rand_apple mod 10d"10") and x_pos < 10d"99" + 10d"44" + 10d"44" * (rand_apple mod 10d"10")  and y_pos > 10d"21" + 10d"44" * (rand_apple / 10d"10") and y_pos < 10d"19" + 10d"44" + 10d"44" * (rand_apple / 10d"10")) then
+					if (x_pos > 10d"115" + 10d"44" * (rand_apple mod 10d"10") and x_pos < 10d"130" + 10d"44" * (rand_apple mod 10d"10")  and y_pos > 10d"21" + 10d"44" * (rand_apple / 10d"10") and y_pos < 10d"25" + 10d"44" * (rand_apple / 10d"10")) then
                         rgb <= "001100";
                     else
                         rgb <= "110000";
                     end if;
 				end if;
-            end if;
 
 			
 			-- Fill in snake cells
