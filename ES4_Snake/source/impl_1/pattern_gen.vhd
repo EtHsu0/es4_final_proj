@@ -21,6 +21,10 @@ entity pattern_gen is
 		snake_location : in std_logic_vector(99 downto 0);
 		
 		
+        -- Score 
+        score : in unsigned(5 downto 0);
+
+
 		-- To be implemented
 		-- display score with rom, start/end game screen, snake head
 		
