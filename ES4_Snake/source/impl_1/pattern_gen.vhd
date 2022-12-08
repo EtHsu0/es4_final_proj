@@ -75,7 +75,7 @@ begin
     apple_y <= rand_apple(3 downto 0);
     apple_cox <= x_pos - 10d"102" + 10d"44" * apple_x;
     apple_coy <= y_pos - 10d"21" + 10d"44" * apple_y;
-    apple_addr <= '1' & apple_coy & apple_cox;
+    apple_addr <= apple_coy & apple_cox;
 	gapple_init: gapple port map(
         row => apple_coy, 
         col => apple_cox, 
@@ -189,5 +189,3 @@ begin
 	end process;
 
 end;
-
-
