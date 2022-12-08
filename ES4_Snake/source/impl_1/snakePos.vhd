@@ -95,10 +95,6 @@ begin
                 -- snake_arr_len </= 6d"6";
                 snake_head <= 7d"44";
                 snake_dir_arr <= (99 downto 2 => NONE, 1 downto 0 => LEFT);
-            --snake_dir_arr(0) <= RIGHT;
-            --	snake_dir_arr(1) <= UP;
-            --	snake_dir_arr(2) <= UP;
-            --snake_dir_arr(3) <= LEFT;
             elsif game_state_in = "01" then
                 -- if prev_dir(1) /= dir_signal(1) then
                     -- prev_dir <= dir_signal;
@@ -110,7 +106,7 @@ begin
                 -- Update snake head coordinate
                 if snake_dir = "00" then
                     if snake_head < 10 then
-                        snake_dead <= '1';
+                        --snake_dead <= '1';
                     end if;
                     snake_head <= snake_head - 10;
                     for i in 0 to 6 loop
@@ -119,7 +115,7 @@ begin
                     snake_dir_arr(0) <= DOWN;
                 elsif snake_dir = "01" then
                     if snake_head > 89 then
-                        snake_dead <= '1';
+                        --snake_dead <= '1';
                     end if;
                     snake_head <= snake_head + 10;
                     for i in 0 to 6 loop
@@ -128,7 +124,7 @@ begin
                     snake_dir_arr(0) <= UP;
                 elsif snake_dir = "10" then
                     if snake_head mod 10 = 0 then
-                            snake_dead <= '1';
+                            --snake_dead <= '1';
                     end if;
                     snake_head <= snake_head - 1;
                     for i in 0 to 6 loop
@@ -137,7 +133,7 @@ begin
                     snake_dir_arr(0) <= RIGHT;
                 elsif snake_dir = "11" then
                     if snake_head mod 10 = 9 then
-                        snake_dead <= '1';
+                        --snake_dead <= '1';
                     end if;
                     snake_head <= snake_head + 1;
                     for i in 0 to 6 loop
