@@ -80,7 +80,7 @@ begin
             snake_coord := snake_head;
             snake_arr(to_integer(snake_coord)) <= '1';
 
-            for i in 0 to 99 loop
+            for i in 0 to 30 loop
             --   exit when i = to_integer(snake_len_in);
                 case snake_dir_arr(i) is
                     when UP => snake_coord := snake_coord - 10;
@@ -108,7 +108,7 @@ begin
                 snake_dead <= '0';
                 -- snake_arr_len </= 6d"6";
                 snake_head <= 7d"44";
-                snake_dir_arr <= (others => LEFT);
+                snake_dir_arr <= (99 downto 2 => NONE, 1 downto 0 => LEFT);
             --snake_dir_arr(0) <= RIGHT;
             --	snake_dir_arr(1) <= UP;
             --	snake_dir_arr(2) <= UP;
@@ -165,7 +165,7 @@ begin
                     end loop;
                     snake_dir_arr(0) <= LEFT;
                 end if;
-                --snake_dir_arr(to_integer(snake_len_in)) <= NONE;
+                snake_dir_arr(to_integer(snake_len_in)) <= NONE;
                 /*
                 case dir_signal is
                     when "00" => snake_arr <= (3 downto 0 => '1', others => '0');
