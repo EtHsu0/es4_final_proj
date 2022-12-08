@@ -40,7 +40,7 @@ architecture synth of board is
     signal snake_tail: unsigned (6 downto 0) := 7d"0";
     signal snake_arr: std_logic_vector(99 downto 0) := 100d"0"; -- := (40 => '1', 41 => '1', 42 => '1'),(others => '0'); -- TODO: Fix Syntax Error!
 
-    signal snake_len: unsigned(6 downto 0) := 7d"2";
+    signal snake_len: unsigned(6 downto 0) := 7d"4";
     
     signal snake_dead: std_logic := '0';
 
