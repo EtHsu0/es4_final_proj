@@ -13,8 +13,6 @@ entity snakepos is
         
         game_state_in: in unsigned(1 downto 0);
 
-        grow_snake_in: in std_logic;
-
         snake_len_in: in unsigned(6 downto 0) := 7d"2";
 
         snake_head_out: out unsigned(6 downto 0);
@@ -80,7 +78,7 @@ begin
                 end case;
                 snake_arr(to_integer(snake_coord)) <= '1';
             end loop;
-
+            snake_tail <= snake_coord;
             if prev_dir(1) /= dir_signal(1) then
                 snake_dir <= dir_signal;
             end if;
@@ -91,7 +89,7 @@ begin
     process(snakeCLK) is
     begin
         if rising_edge(snakeCLK) then
-            if game_state_in = "00" then
+            if game_state_in = "00" or game_state_in = "10" then
                 -- snake_arr <= (44 downto 42 => '1', others => '0');
                 snake_dead <= '0';
                 -- snake_arr_len </= 6d"6";
