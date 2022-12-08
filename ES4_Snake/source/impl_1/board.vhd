@@ -62,16 +62,18 @@ begin
             elsif game_state = "01" then
                 if snake_head = to_unsigned(apple_coord, 7) then
                     snake_len <= snake_len + 1;
-                    apple_coord <= to_integer(snake_tail);
+                    -- apple_coord <= to_integer(snake_tail);
                 end if;
                 --B
                 if digital_in(6) = '0' then
-                    apple_coord <= 66;
+                    -- apple_coord <= 66;
                 end if;
                 
                 if digital_in(7) = '0' then
-                    game_state <= "10";
+                    -- game_state <= "10";
                 end if;
+                apple_coord <= 0;
+
             elsif game_state <= "10" then
                 apple_coord <= 99;
                 if digital_in(5) = '0' then
