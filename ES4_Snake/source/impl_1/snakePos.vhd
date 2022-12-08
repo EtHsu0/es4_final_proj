@@ -35,7 +35,7 @@ signal prev_dir: unsigned(1 downto 0) := "11";
 signal snake_dir: unsigned(1 downto 0);
 
 -- From left to right, direction from head to tails
-signal snake_dir_arr: DirArray := (99 downto 2 => NONE, 1 downto 0 => LEFT); -- Errors! Fix Type Declarations
+signal snake_dir_arr: DirArray := (99 downto 3 => NONE, 2 downto 0 => LEFT); -- Errors! Fix Type Declarations
 signal snake_arr: std_logic_vector(99 downto 0) := 100d"0";
 
 signal snake_dead: std_logic := '0';
@@ -94,7 +94,7 @@ begin
                 snake_dead <= '0';
                 -- snake_arr_len </= 6d"6";
                 snake_head <= 7d"44";
-                snake_dir_arr <= (99 downto 2 => NONE, 1 downto 0 => LEFT);
+                snake_dir_arr <= (99 downto 3 => NONE, 2 downto 0 => LEFT);
             elsif game_state_in = "01" then
                 -- if prev_dir(1) /= dir_signal(1) then
                     -- prev_dir <= dir_signal;
