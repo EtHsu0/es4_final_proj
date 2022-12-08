@@ -22,8 +22,10 @@ architecture synth of board is
         port (
             clk: in std_logic;
             digital_in: in unsigned(7 downto 0);
-            game_state_in: in unsigned(1 downto 0);			
+            game_state_in: in unsigned(1 downto 0);
             grow_snake_in: in std_logic;
+            snake_len_in: in unsigned(6 downto 0);
+
             --dir_in: in unsigned(1 downto 0); 
             snake_head_out: out unsigned(6 downto 0);
             snake_tail_out: out unsigned(6 downto 0);
@@ -39,6 +41,8 @@ architecture synth of board is
     signal snake_arr: std_logic_vector(99 downto 0) := 100d"0"; -- := (40 => '1', 41 => '1', 42 => '1'),(others => '0'); -- TODO: Fix Syntax Error!
     signal reset: std_logic := '1';
     signal grow_snake: std_logic := '0';
+
+    signal snake_len: unsigned(6 downto 0) := 7d"2";
 
     TYPE buttons is (A, B, START, SEL, UP, DOWN, LEFT, RIGHT, NONE);
     signal button: buttons;
@@ -108,7 +112,7 @@ begin
             digital_in => digital_in,
             game_state_in => game_state, 
             grow_snake_in => grow_snake,
-            
+            snake_len_in => snake_len,
             snake_head_out => snake_head,
             snake_tail_out => snake_tail,
             snake_arr_out => snake_arr,
