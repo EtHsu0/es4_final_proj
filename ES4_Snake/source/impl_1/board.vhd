@@ -35,7 +35,7 @@ architecture synth of board is
     end component;
 
     signal apple_id: unsigned (8 downto 0) := 9d"0";
-    signal apple_coord: integer := 48;
+    signal apple_coord: integer range 0 to 99:= 48;
     signal snake_head: unsigned (6 downto 0) := 7d"44";
     signal snake_tail: unsigned (6 downto 0) := 7d"0";
     signal snake_arr: std_logic_vector(99 downto 0) := 100d"0"; -- := (40 => '1', 41 => '1', 42 => '1'),(others => '0'); -- TODO: Fix Syntax Error!
@@ -78,10 +78,10 @@ begin
                     game_state <= "00";
                 end if;
             end if;
-           -- apple_x <= 
-           -- apple_y <= 
+           apple_y <= (apple_coord mod 4d"10")
+           apple_x <= (apple_coord / 4d"10")
 
-            apple_id <= '1' & (apple_coord mod 4d"10") & (apple_coord / 4d"10");
+            apple_id <= '1' & apple_x & apple_y;
         end if;
     end process;
     snakePos_inst: snakePos port map
