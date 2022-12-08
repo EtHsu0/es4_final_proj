@@ -16,7 +16,7 @@ entity snakepos is
         grow_snake_in: in std_logic;
 
         -- Direction should be 0-3 (Up, Down, Left, Right)
-        dir_in: in unsigned(1 downto 0) := "11"; 
+        --dir_in: in unsigned(1 downto 0) := "11"; 
         -- Gabriel Note: dirtype is not defined, need to fix dirtype declaration or remove entirely
         -- 00 = up
         -- 01 = down
@@ -119,7 +119,8 @@ begin
                 if grow_snake_in = '0' then
                     arr_length <= arr_length + 1;
                 end if;
-                */
+				*/
+                
                 prev_dir <= snake_dir;
 
                 -- Update snake head coordinate

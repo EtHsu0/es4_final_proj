@@ -101,7 +101,7 @@ begin
 
     display_inst: display port map (pll_in_clock, pll_outcore_o, HSYNC, VSYNC, rgb, apple, snake_head, snake_arr, scores, game_state);
 
-	delete_me <= apple(8 downto 7);
+	delete_me <= digital(2 downto 0);
 end;
 
 

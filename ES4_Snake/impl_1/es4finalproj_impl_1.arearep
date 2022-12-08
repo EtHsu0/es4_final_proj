@@ -1,15 +1,15 @@
 ----------------------------------------------------------------------
 Report for cell top.TECH
-Register bits:  205 of 5280 (3.883%)
+Register bits:  423 of 5280 (8.011%)
 I/O cells:      16
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               CCU2       172          100.0
-                            FD1P3XZ       205          100.0
+                               CCU2      1317          100.0
+                            FD1P3XZ       423          100.0
                          HSOSC_CORE         1          100.0
                                  IB         2          100.0
                               IOL_B         1          100.0
-                               LUT4      1684          100.0
+                               LUT4     24127          100.0
                               MAC16         2          100.0
                                  OB        14          100.0
                               PLL_B         1          100.0
@@ -22,45 +22,45 @@ mypll_ipgen_lscc_pll(DIVR="0",DIVF="66",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_
                         pattern_gen         1
                            snakepos         1
                                 vga         1
-                              TOTAL      2090
+                              TOTAL     25896
 ----------------------------------------------------------------------
 Report for cell board.v1
 Instance Path : board_inst
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2        84           48.8
-                            FD1P3XZ       156           76.1
-                               LUT4      1322           78.5
+                                FA2      1229           93.3
+                            FD1P3XZ       374           88.4
+                               LUT4     23766           98.5
 SUB MODULES
                            snakepos         1
-                              TOTAL      1563
+                              TOTAL     25370
 ----------------------------------------------------------------------
 Report for cell snakepos.v1
 Instance Path : board_inst.snakePos_inst
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2        84           48.8
-                            FD1P3XZ       149           72.7
-                               LUT4      1305           77.5
-                              TOTAL      1538
+                                FA2      1229           93.3
+                            FD1P3XZ       367           86.8
+                               LUT4     23746           98.4
+                              TOTAL     25342
 ----------------------------------------------------------------------
 Report for cell NES.v1
 Instance Path : NES_inst
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2        11            6.4
-                            FD1P3XZ        26           12.7
+                                FA2        11            0.8
+                            FD1P3XZ        26            6.1
                               IOL_B         1          100.0
-                               LUT4        15            0.9
+                               LUT4        15            0.1
                               TOTAL        53
 ----------------------------------------------------------------------
 Report for cell display.v1
 Instance Path : display_inst
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2        77           44.8
-                            FD1P3XZ        23           11.2
-                               LUT4       290           17.2
+                                FA2        77            5.8
+                            FD1P3XZ        23            5.4
+                               LUT4       291            1.2
                               MAC16         2          100.0
                               PLL_B         1          100.0
 SUB MODULES
@@ -68,16 +68,16 @@ SUB MODULES
 mypll_ipgen_lscc_pll(DIVR="0",DIVF="66",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",FREQUENCY_PIN_REFERENCECLK="12.000000")         1
                         pattern_gen         1
                                 vga         1
-                              TOTAL       397
+                              TOTAL       398
 ----------------------------------------------------------------------
 Report for cell vga.v1
 Instance Path : display_inst.vga_init
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2        12            7.0
-                            FD1P3XZ        23           11.2
-                               LUT4        52            3.1
-                              TOTAL        87
+                                FA2        12            0.9
+                            FD1P3XZ        23            5.4
+                               LUT4        64            0.3
+                              TOTAL        99
 ----------------------------------------------------------------------
 Report for cell mypll.v1
 Instance Path : display_inst.pll_init
@@ -99,7 +99,7 @@ Report for cell pattern_gen.v1
 Instance Path : display_inst.pattern_gen_initial
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2        65           37.8
-                               LUT4       238           14.1
+                                FA2        65            4.9
+                               LUT4       227            0.9
                               MAC16         2          100.0
-                              TOTAL       305
+                              TOTAL       294

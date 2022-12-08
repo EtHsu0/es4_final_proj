@@ -24,7 +24,7 @@ architecture synth of board is
             digital_in: in unsigned(7 downto 0);
             game_state_in: in unsigned(1 downto 0);			
             grow_snake_in: in std_logic;
-            dir_in: in unsigned(1 downto 0); 
+            --dir_in: in unsigned(1 downto 0); 
             snake_head_out: out unsigned(6 downto 0);
             snake_tail_out: out unsigned(6 downto 0);
             snake_arr_out: out std_logic_vector(99 downto 0) := 100b"0";
@@ -108,11 +108,12 @@ begin
             digital_in => digital_in,
             game_state_in => game_state, 
             grow_snake_in => grow_snake,
-            dir_in => dir,
+            
             snake_head_out => snake_head,
             snake_tail_out => snake_tail,
             snake_arr_out => snake_arr,
-            snake_dead_out => snake_dead);
+            snake_dead_out => snake_dead
+		);
     --process (snake_head) is begin
         -- If snake head is on apple's coordinate
         --if snake_head_out = apple_out then

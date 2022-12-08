@@ -1,15 +1,3 @@
-synthesis:  version Radiant Software (64-bit) 3.2.1.217.3
-
-Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
-Copyright (c) 1995 AT&T Corp.   All rights reserved.
-Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
-Copyright (c) 2001 Agere Systems   All rights reserved.
-Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Wed Dec  7 20:32:18 2022
-
-
-Command Line:  C:\lscc\radiant\3.2\ispfpga\bin\nt64\synthesis.exe -f es4finalproj_impl_1_lattice.synproj -gui -msgset C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/promote.xml 
-
 Synthesis options:
 The -a option is iCE40UP.
 The -t option is SG48.
@@ -151,7 +139,7 @@ Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/s
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd
 
 INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd(6): analyzing entity pattern_gen. VHDL-1012
-INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd(35): analyzing architecture synth. VHDL-1010
+INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd(39): analyzing architecture synth. VHDL-1010
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/randompos.vhd. VHDL-1481
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/randompos.vhd
 
@@ -313,114 +301,11 @@ WARNING - synthesis: Initial value found on net snake_arr[3] will be ignored due
 WARNING - synthesis: Initial value found on net snake_arr[2] will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net snake_arr[1] will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net snake_arr[0] will be ignored due to unrecognized driver type
-WARNING - synthesis: Initial value found on net dir_in[1] will be ignored due to unrecognized driver type
-WARNING - synthesis: Initial value found on net dir_in[0] will be ignored due to unrecognized driver type
-WARNING - synthesis: I/O Port delete_me[2] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port delete_me[1] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port delete_me[0] 's net has no driver and is unused.
 WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/mypll/rtl/mypll.v(139): net \display_inst/pll_init/lscc_pll_inst/sclk_i does not have a driver. VDB-1002
 WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/mypll/rtl/mypll.v(140): net \display_inst/pll_init/lscc_pll_inst/sdi_i does not have a driver. VDB-1002
-######## Missing driver on net delete_me[2]. Patching with GND.
-######## Missing driver on net delete_me[1]. Patching with GND.
-######## Missing driver on net delete_me[0]. Patching with GND.
 ######## Missing driver on net \display_inst/pll_init/lscc_pll_inst/sclk_i. Patching with GND.
 ######## Missing driver on net \display_inst/pll_init/lscc_pll_inst/sdi_i. Patching with GND.
+Software Tool error
 
+Please contact Lattice Semiconductor Corporation
 
-
-Mapped 2 multiplier(s)
-
-
-######## Missing driver on net n20409. Patching with GND.
-######## Missing driver on net n20406. Patching with GND.
-######## Missing driver on net n20391. Patching with GND.
-######## Missing driver on net n20394. Patching with GND.
-######## Missing driver on net n20403. Patching with GND.
-######## Missing driver on net n20400. Patching with GND.
-######## Missing driver on net n20397. Patching with GND.
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(208): Register \board_inst/snakePos_inst/arr_length_i0 is stuck at Zero. VDB-5013
-Combinational loop found : 1
-
-	Net digital[4] 
-
-	Instance \NES_inst/digital_7__I_0_i5 
-
-Combinational loop found : 2
-
-	Net digital[6] 
-
-	Instance \NES_inst/digital_7__I_0_i7 
-
-Combinational loop found : 3
-
-	Net digital[3] 
-
-	Instance \NES_inst/digital_7__I_0_i4 
-
-Combinational loop found : 4
-
-	Net digital[2] 
-
-	Instance \NES_inst/digital_7__I_0_i3 
-
-Combinational loop found : 5
-
-	Net digital[1] 
-
-	Instance \NES_inst/digital_7__I_0_i2 
-
-Combinational loop found : 6
-
-	Net digital[0] 
-
-	Instance \NES_inst/digital_7__I_0_i1 
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(100): Register \board_inst/game_State_i1 is stuck at Zero. VDB-5013
-WARNING - synthesis: Initial value found on instance \board_inst/game_State_i0 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/apple_id_i4 will be ignored.
-INFO - synthesis: Special Primitives IFD1P3AZ and OFD1P3AZ for ThunderPlus are synthesized using IOL_B.
-
-################### Begin Area Report (top)######################
-Number of register bits => 205 of 5280 (3 % )
-CCU2 => 172
-FD1P3XZ => 205
-HSOSC_CORE => 1
-IB => 2
-IOL_B => 1
-LUT4 => 1684
-MAC16 => 2
-OB => 14
-PLL_B => 1
-################### End Area Report ##################
-Number of odd-length carry chains : 104
-Number of even-length carry chains : 214
-
-################### Begin Clock Report ######################
-Clock Nets
-Number of Clocks: 4
-  Net : CLK, loads : 0
-  Net : pll_in_clock_c, loads : 1
-  Net : display_inst/pll_init/lscc_pll_inst/pll_outcore_o_c, loads : 1
-  Net : display_inst/pll_init/lscc_pll_inst/clk, loads : 0
-Clock Enable Nets
-Number of Clock Enables: 0
-Highest fanout non-clock nets
-Top 10 highest fanout non-clock nets:
-  Net : board_inst/snakePos_inst/arr_length[2], loads : 302
-  Net : board_inst/snakePos_inst/arr_length[1], loads : 102
-  Net : board_inst/snakePos_inst/n35_adj_21359, loads : 100
-  Net : board_inst/snakePos_inst/n63, loads : 100
-  Net : board_inst/snakePos_inst/snake_arr_out_99__N_20745, loads : 100
-  Net : board_inst/snakePos_inst/n989, loads : 82
-  Net : board_inst/snakePos_inst/n988, loads : 82
-  Net : board_inst/snakePos_inst/n221, loads : 82
-  Net : board_inst/snakePos_inst/n220, loads : 82
-  Net : board_inst/snakePos_inst/snake_head[5], loads : 75
-################### End Clock Report ##################
-
-Peak Memory Usage: 388 MB
-
---------------------------------------------------------------
-Total CPU Time: 1 mins 4 secs 
-Total REAL Time: 1 mins 6 secs 
---------------------------------------------------------------
