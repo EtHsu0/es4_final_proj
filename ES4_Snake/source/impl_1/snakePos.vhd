@@ -42,7 +42,8 @@ signal prev_dir: unsigned(1 downto 0) := "11";
 signal snake_dir: unsigned(1 downto 0);
 
 
-signal arr_length: integer := 2;
+signal arr_length: unsigned (6 downto 0) := 6d"2";
+signal snake_arr_len: unsigned(6 downto 0) := 6d"2";
 -- From left to right, direction from head to tails
 signal snake_dir_arr: DirArray := (others => LEFT); -- Errors! Fix Type Declarations
 signal snake_arr: std_logic_vector(99 downto 0) := 100d"0";
@@ -55,7 +56,7 @@ signal slow_test_counter: unsigned(6 downto 0) := 7d"0";
 
 signal dir_signal: unsigned(1 downto 0);
 begin
-
+    arr_length <= snake_arr_len;
     process(clk) is
         variable snake_coord: unsigned(6 downto 0);
     begin
@@ -78,7 +79,7 @@ begin
             snake_arr(to_integer(snake_coord)) <= '1';
 
             for i in 0 to 99 loop
-              exit when i = arr_length;
+              exit when i = to_integer(arr_length);
               case snake_dir_arr(i) is
                  when UP => snake_coord := snake_coord - 10;
                  when DOWN => snake_coord := snake_coord + 10;
@@ -96,13 +97,13 @@ begin
     snakeCLK <= counter(22);
 
     process(snakeCLK) is
-
+    
     begin
         if rising_edge(snakeCLK) then
             if game_state_in = "00" then
                 -- snake_arr <= (44 downto 42 => '1', others => '0');
                 snake_dead <= '0';
-                arr_length <= 6;
+                snake_arr_len <= 6d"6";
                 snake_head <= 7d"44";
                 snake_dir_arr <= (others => LEFT);
             --snake_dir_arr(0) <= RIGHT;
@@ -117,7 +118,7 @@ begin
                 -- end if;
                 /*
                 if grow_snake_in = '0' then
-                    arr_length <= arr_length + 1;
+                    snake_arr_length <= snake_arr_length + 1;
                 end if;
 				*/
                 
