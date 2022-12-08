@@ -7,7 +7,7 @@ entity gapple is
         row : in unsigned (6 downto 0);
         col : in unsigned (6 downto 0);
         clk : in std_logic;
-        rgb : out std_logic_vector(5 downto 0)
+        rgb : out unsigned(5 downto 0)
     );
 end gapple;
 
