@@ -95,6 +95,7 @@ begin
                 snake_head <= 7d"44";
                 snake_dir_arr <=  (99 downto 1 => NONE, 0 downto 0 => LEFT);
                 reset <= '0';
+                prev_dir <= "11";
             elsif game_state_in = "01" then
                 prev_dir <= snake_dir;
 
