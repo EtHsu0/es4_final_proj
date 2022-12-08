@@ -96,9 +96,10 @@ begin
                     apple_id <= apple_id;
                     --dir <= dir;
                 end if;
-                -- if snake_dead <= '1' then
-                --     game_state <= "10";
-                -- end if;
+
+                if snake_dead <= '1' then
+                    game_state <= "10";
+                end if;
             elsif game_state = "10" then
                 apple_id <= 9b"1_1001_1001";
                 if digital_in(6) = '0' then

@@ -87,7 +87,7 @@ begin
                     when DOWN => snake_coord := snake_coord + 10;
                     when LEFT => snake_coord := snake_coord - 1;
                     when RIGHT => snake_coord := snake_coord + 1;
-                    when NONE => snake_coord := snake_coord;
+                    --when NONE => snake_coord := snake_coord;
                 end case;
                 snake_arr(to_integer(snake_coord)) <= '1';
             end loop;
@@ -100,7 +100,6 @@ begin
     snakeCLK <= counter(22);
 
     process(snakeCLK) is
-    
     begin
         if rising_edge(snakeCLK) then
             if game_state_in = "00" then
@@ -168,32 +167,11 @@ begin
                 
                 snake_dir_arr(to_integer(snake_len_in)) <= NONE;
             end if;
-        
-
-            
-            
-        --     snake_dir_arr(to_integer(arr_left)) <= snake_dir;
-        -- end if;
-
-        -- snake_coord := snake_head;
-        -- snake_arr(to_integer(snake_coord)) <= '1';
-
-        -- for i in to_integer(arr_left) to to_integer(arr_right) loop
-        --     case snake_dir_arr(i) is
-        --         when UP => snake_coord := snake_coord - 10;
-        --         when DOWN => snake_coord := snake_coord + 10;
-        --         when LEFT => snake_coord := snake_coord - 1;
-        --         when RIGHT => snake_coord := snake_coord + 1;
-        --     end case;
-        --     snake_arr(to_integer(snake_coord)) <= '1';
-        -- end loop;
-        -- snake_tail <= snake_coord;
         end if;
     end process;
     
     
     
-    -- -- Draw the snake onto the 2d arra
     snake_dead_out <= snake_dead;
 
     snake_head_out <= snake_head;
