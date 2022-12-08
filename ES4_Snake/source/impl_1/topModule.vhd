@@ -16,7 +16,6 @@ entity top is
         HSYNC : out std_logic; -- pin 46
         VSYNC : out std_logic; -- pin 2
         
-		delete_me: out unsigned(2 downto 0);
         rgb : out unsigned(5 downto 0) -- pins 47, 45, 48, 3, 4, 44
 
         --pll_outcore_o : out std_logic -- for testing purposes (pin 2)
@@ -97,9 +96,16 @@ begin
                                 apple_out => apple,
                                 snake_arr_out => snake_arr);
 
-    display_inst: display port map (pll_in_clock, pll_outcore_o, HSYNC, VSYNC, rgb, apple, snake_head, snake_arr);
+    display_inst: display port map 
+        (pll_in_clock => pll_in_clock, 
+        pll_outcore_o => pll_outcore_o, 
+        HSYNC => HSYNC, 
+        VSYNC => VSYNC, 
+        rgb => rgb,
+        apple => apple, 
+        snake_head => snake_head,
+        snake => snake_arr);
 
-	delete_me <= digital(7 downto 5);
 end;
 
 

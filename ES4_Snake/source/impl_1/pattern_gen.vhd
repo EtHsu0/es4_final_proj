@@ -67,8 +67,8 @@ begin
             --end if;
             
 			if rand_apple(8) = '1' then
-				if (x_pos > 10d"102" + 10d"44" * apple_x and x_pos < 10d"99" + 10d"44" + 10d"44" * apple_x  and y_pos > 10d"21" + 10d"44" * apple_y and y_pos < 10d"19" + 10d"44" + 10d"44" * apple_y) then
-					if (x_pos > 10d"115" + 10d"44" * apple_x and x_pos < 10d"130" + 10d"44" * apple_x  and y_pos > 10d"21" + 10d"44" * apple_y and y_pos < 10d"25" + 10d"44" * apple_y) then
+				if (x_pos > 10d"102" + 10d"44" * rand_apple(7 downto 4) and x_pos < 10d"99" + 10d"44" + 10d"44" * rand_apple(7 downto 4)  and y_pos > 10d"21" + 10d"44" * rand_apple(3 downto 0) and y_pos < 10d"19" + 10d"44" + 10d"44" * rand_apple(3 downto 0)) then
+					if (x_pos > 10d"115" + 10d"44" * rand_apple(7 downto 4) and x_pos < 10d"130" + 10d"44" * rand_apple(7 downto 4)  and y_pos > 10d"21" + 10d"44" * rand_apple(3 downto 0) and y_pos < 10d"30" + 10d"44" * rand_apple(3 downto 0)) then
                         rgb <= "001100";
                     else
                         rgb <= "110000";
