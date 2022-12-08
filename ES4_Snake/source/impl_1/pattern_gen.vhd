@@ -101,45 +101,6 @@ begin
         score_tens_place <= score / 6d"10";
         score_ones_place <= score mod 6d"10";
 
-/*    
-        -- Draw Score
-        if (score_tens_place = 6d"0") then 
-            segments_tens<="0000001";
-        elsif (score_tens_place = 6d"1") then 
-            segments_tens<="1001111";
-        elsif (score_tens_place = 6d"2") then 
-            segments_tens<="0010010";
-        elsif (score_tens_place = 6d"3") then
-            segments_tens<="0000110"; 
-        elsif (score_tens_place = 6d"4") then
-            segments_tens<="1001100"; 
-        elsif (score_tens_place = 6d"5") then
-            segments_tens<="0100100"; 
-        elsif (score_tens_place = 6d"6") then
-            segments_tens<="0100000"; 
-        elsif (score_tens_place = 6d"7") then
-            segments_tens<="0001111"; 
-        elsif (score_tens_place = 6d"8") then
-            segments_tens<="0000000"; 
-        else -- score_tens_place is 6d"9"
-            segments_tens<="0001100"; 
-        end if;
-*/
-
-
-/*
-        segments_tens<="0000001" when score_tens_place = 6d"0" else
-        "1001111" when score_tens_place = 6d"1" else
-        "0010010" when score_tens_place = 6d"2" else
-        "0000110" when score_tens_place = 6d"3" else
-        "1001100" when score_tens_place = 6d"4" else
-        "0100100" when score_tens_place = 6d"5" else
-        "0100000" when score_tens_place = 6d"6" else
-        "0001111" when score_tens_place = 6d"7" else
-        "0000000" when score_tens_place = 6d"8" else
-        "0001100" when score_tens_place = 6d"9" else
-        "0111000";
-*/
 
         if (segments_tens(6) = '0') then
             if (x_pos > 10d"0" + 10d"10" and x_pos < 10d"35" + 10d"10") and (y_pos = 10d"50") then
@@ -176,53 +137,6 @@ begin
                 rgb <= "000011";
             end if;
         end if;
-
-
-/*
-        segments_ones<="0000001" when score_ones_place = 6d"0" else
-        "1001111" when score_ones_place = 6d"1" else
-        "0010010" when score_ones_place = 6d"2" else
-        "0000110" when score_ones_place = 6d"3" else
-        "1001100" when score_ones_place = 6d"4" else
-        "0100100" when score_ones_place = 6d"5" else
-        "0100000" when score_ones_place = 6d"6" else
-        "0001111" when score_ones_place = 6d"7" else
-        "0000000" when score_ones_place = 6d"8" else
-        "0001100" when score_ones_place = 6d"9" else
-        "0111000";
-        end;
-
-        if (segments_ones(6) = '0') then
-            if (x_pos > 10d"0" + 10d"10" and x_pos < 10d"35" + 10d"10") and (y_pos = 10d"50") then
-                rgb <= "000011";
-            end if;
-        elsif (segments_ones(5) = '0') then
-            if (x_pos = 10d"35" + 10d"10") and (y_pos > 10d"50" and y_pos < 10d"50" + 10d"35") then
-                rgb <= "000011"; 
-            end if; 
-        elsif (segments_ones(4) = '0') then 
-            if (x_pos = 10d"35" + 10d"10") and (y_pos > 10d"50" + 10d"35" and y_pos < 10d"50" + 10d"70") then
-                rgb <= "000011";
-            end if;
-        elsif (segments_ones(3) = '0') then 
-            if (x_pos > 10d"0" + 10d"10" and x_pos < 10d"35" + 10d"10") and (y_pos = 10d"50" + 10d"70") then
-                rgb <= "000011";
-            end if;
-        elsif (segments_ones(2) = '0') then 
-            if (x_pos = 10d"10") and (y_pos > 10d"50" + 10d"35" and y_pos < 10d"50" + 10d"70") then
-                rgb <= "000011";
-            end if;
-        elsif (segments_ones(1) = '0') then
-            if (x_pos = 10d"10") and (y_pos > 10d"50" and y_pos < 10d"50" + 10d"35") then
-                rgb <= "000011"; 
-            end if; 
-        else -- segments_ones(0) = '0'
-            if (x_pos > 10d"0" + 10d"10" and x_pos < 10d"35" + 10d"10") and (y_pos = 10d"50" + 10d"35") then
-                rgb <= "000011";
-            end if;
-        end if;
-*/
-			
 		
 		else -- if valid is 0, then set rgb to low
 			rgb <= 6d"0";
