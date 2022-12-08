@@ -85,9 +85,9 @@ begin
                 elsif digital_in(3) = '0' then
                     apple_id <= 9b"1_0100_0101";
                      -- dir <= 2b"00";
-                -- B
+                -- SEL
                 elsif digital_in(5) = '0' then
-                    game_state <= "00";
+                    game_state <= "10";
                 -- A
                 elsif digital_in(7) = '0' then
                     --snake_len <= snake_len + 1;
