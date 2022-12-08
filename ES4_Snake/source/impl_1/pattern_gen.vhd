@@ -35,6 +35,7 @@ entity pattern_gen is
 
         snake_head: in unsigned(6 downto 0) := "0010000";
         scores: in unsigned(6 downto 0);
+		pll_in_clock : in std_logic;
         game_state: in unsigned(1 downto 0)
 		
 
@@ -42,6 +43,15 @@ entity pattern_gen is
 end pattern_gen;
 
 architecture synth of pattern_gen is
+
+component gapple is
+    port (
+        row : in unsigned (9 downto 0);
+        col : in unsigned (9 downto 0);
+        clk : in std_logic;
+        rgb : out std_logic_vector(5 downto 0)
+    );
+end component;
 
 signal intermed_rgb : unsigned(5 downto 0);
 signal head_x : unsigned(4 downto 0);
@@ -57,12 +67,17 @@ signal apple_x:  unsigned(3 downto 0);
 signal apple_coy: unsigned(6 downto 0);
 signal apple_cox: unsigned(6 downto 0);
 signal apple_addr: unsigned(13 downto 0);
+
+signal appleRGB : unsigned(5 downto 0);
+
 begin
     apple_x <= rand_apple(7 downto 4);
     apple_y <= rand_apple(3 downto 0);
     apple_cox <= x_pos - 10d"102" + 10d"44" * apple_x;
     apple_coy <= y_pos - 10d"21" + 10d"44" * apple_y;
     apple_addr <= apple_coy & apple_cox;
+	gapple_init: gapple port map(apple_coy, apple_cox, pll_in_clock, appleRGB);
+
 	--intermed_rgb <= "001100" when (x_pos mod 10d"5" = 10d"0") else "110000";
 	--rgb <= 6d"0" when valid='0' else intermed_rgb;
 	--head_x <= snake_head mod 4d"10";
@@ -85,8 +100,8 @@ begin
 
 			-- Fill in apple cell
 			if rand_apple(8) = '1' then
-				if (x_pos > apple_cox and x_pos < apple_cox + 10d"44" and y_pos > apple_coy and y_pos < apple_coy + 10d"44") then
-					
+				if (x_pos > 10d"102" + 10d"44" * apple_x and x_pos < 10d"99" + 10d"44" + 10d"44" * apple_x  and y_pos > 10d"21" + 10d"44" * apple_y and y_pos < 10d"19" + 10d"44" + 10d"44" * apple_y) then
+					rgb <= appleRGB;
 				end if;
             end if;
 

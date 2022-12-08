@@ -53,6 +53,7 @@ component pattern_gen is
 		rgb : out unsigned(5 downto 0);
         snake_head: in unsigned(6 downto 0) := "0010000";
         scores: in unsigned(6 downto 0);
+        pll_in_clock : in std_logic;
         game_state: in unsigned(1 downto 0)
 	);
 end component;
@@ -96,6 +97,7 @@ begin
         score => scores, 
         rgb => intermed_rgb,
         snake_head => snake_head,
+        pll_in_clock => pll_in_clock,
         game_state => game_state);
     
     
