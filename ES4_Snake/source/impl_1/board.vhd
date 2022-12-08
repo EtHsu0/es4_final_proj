@@ -58,53 +58,18 @@ begin
                     game_state <= "01";
                 end if;
             elsif game_state = "01" then
-                -- if digital_in(0) = '0' then
-                --     apple_id <= 9b"1_0100_0100";
-                --     --dir <= 2b"11";
-                -- -- LEFT
-                -- end if;
-                -- if digital_in(1) = '0' then
-                --     apple_id <= 9b"1_0101_0101";
-                --     --dir <= 2b"10";
-                -- -- DOWN
-                -- end if;
-                -- if digital_in(2) = '0' then
-                --     apple_id <= 9b"1_0101_0100";
-                --     --dir <= 2b"01";
-                -- -- UP
-                -- end if;
-                -- if digital_in(3) = '0' then
-                --     apple_id <= 9b"1_0100_0101";
-                --      -- dir <= 2b"00";
-                -- -- SEL
-                -- end if;
-                -- if digital_in(5) = '0' then
-                --     --game_state <= "10";
-                -- -- B
-                -- end if;
-                -- if digital_in(6) = '0' then
-                --     --game_state <= "00";
-                --     apple_id <= 9b"1_1001_0000";
-                    
-                -- -- A
-                -- end if;
-
-                -- else
-                --     apple_id <= apple_id;
-                --     --dir <= dir;
-                -- end if;
-
-                -- -- if snake_dead <= '1' then
-                -- --     game_state <= "10";
-                -- -- end if;
                 if snake_head = apple_coord then
                     snake_len <= snake_len + 1;
+                end if;
+                --b
+                if digital_in(6) = '0' then
+                    apple_coord <= 6d"66";
                 end if;
                 if digital_in(7) = '0' then
                     game_state <= "10";
                 end if;
             elsif game_state <= "10" then
-                -- apple_id <= 9b"1_1001_1001";
+                apple_coord <= 9d"99";
                 if digital_in(5) = '0' then
                     game_state <= "00";
                 end if;
