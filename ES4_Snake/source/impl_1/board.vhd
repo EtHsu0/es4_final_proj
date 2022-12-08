@@ -47,7 +47,8 @@ architecture synth of board is
     signal game_State : unsigned(1 downto 0) := "00";
     --signal game_state: unsigned(1 downto 0);
     signal apple_x: unsigned(3 downto 0);
-    signal apple_y: unsigned(12 downto 0); 
+    signal apple_y: unsigned(3 downto 0); 
+    signal apple_y_inter: unsigned (12 downto 0);
 begin
     process(clk) is
     begin
@@ -86,9 +87,9 @@ begin
     end process;
 
     apple_x <= (apple_coord mod 4d"10");
-    apple_y <= (apple_coord * 7d"52");
-
-    apple_id <= '1' & apple_x & apple_y(12 downto 9);
+    apple_y_inter <= (apple_coord * 7d"52")
+    apple_y <= apple_y_inter(12 downto 9);
+    apple_id <= '1' & apple_x & apple_y;
 
     snakePos_inst: snakePos port map
         (
