@@ -111,7 +111,7 @@ begin
             end if;
         end if;
     end process;
-    apple_id <= 1 & (apple_coord mod 4d"10") & (apple_coord / 4d"10");
+    apple_id <= '1' & (apple_coord mod 4d"10") & (apple_coord / 4d"10");
     snakePos_inst: snakePos port map
         (
             clk => clk, 

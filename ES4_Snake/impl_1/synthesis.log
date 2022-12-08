@@ -5,7 +5,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Thu Dec  8 00:05:37 2022
+Thu Dec  8 01:00:35 2022
 
 
 Command Line:  C:\lscc\radiant\3.2\ispfpga\bin\nt64\synthesis.exe -f es4finalproj_impl_1_lattice.synproj -gui -msgset C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/promote.xml 
@@ -313,6 +313,8 @@ WARNING - synthesis: Initial value found on net snake_arr[3] will be ignored due
 WARNING - synthesis: Initial value found on net snake_arr[2] will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net snake_arr[1] will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net snake_arr[0] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net pwr will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net gnd will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net snake_len_in[6] will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net snake_len_in[5] will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net snake_len_in[4] will be ignored due to unrecognized driver type
@@ -349,19 +351,29 @@ WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/
 WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/mypll/rtl/mypll.v(140): net \display_inst/pll_init/lscc_pll_inst/sdi_i does not have a driver. VDB-1002
 ######## Missing driver on net \display_inst/pll_init/lscc_pll_inst/sclk_i. Patching with GND.
 ######## Missing driver on net \display_inst/pll_init/lscc_pll_inst/sdi_i. Patching with GND.
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(149): Register \board_inst/snakePos_inst/snake_dead is stuck at Zero. VDB-5013
 
 
 
-Mapped 2 multiplier(s)
+WARNING - synthesis: Bit 8 of Register \board_inst/apple_id is stuck at One
+WARNING - synthesis: Bit 7 of Register \board_inst/apple_id is stuck at One
+WARNING - synthesis: Bit 6 of Register \board_inst/apple_id is stuck at Zero
+WARNING - synthesis: Bit 5 of Register \board_inst/apple_id is stuck at Zero
+WARNING - synthesis: Bit 4 of Register \board_inst/apple_id is stuck at One
+WARNING - synthesis: Bit 3 of Register \board_inst/apple_id is stuck at One
+WARNING - synthesis: Bit 2 of Register \board_inst/apple_id is stuck at Zero
+WARNING - synthesis: Bit 1 of Register \board_inst/apple_id is stuck at Zero
+WARNING - synthesis: Bit 0 of Register \board_inst/apple_id is stuck at One
+Mapped 1 multiplier(s)
 
 
-######## Missing driver on net n4545. Patching with GND.
-######## Missing driver on net n4542. Patching with GND.
-######## Missing driver on net n4539. Patching with GND.
-######## Missing driver on net n4551. Patching with GND.
-######## Missing driver on net n4548. Patching with GND.
-######## Missing driver on net n4557. Patching with GND.
-######## Missing driver on net n4554. Patching with GND.
+######## Missing driver on net n1961. Patching with GND.
+######## Missing driver on net n1958. Patching with GND.
+######## Missing driver on net n1949. Patching with GND.
+######## Missing driver on net n1955. Patching with GND.
+######## Missing driver on net n1946. Patching with GND.
+######## Missing driver on net n1943. Patching with GND.
+######## Missing driver on net n1952. Patching with GND.
 Combinational loop found : 1
 
 	Net digital[4] 
@@ -370,27 +382,27 @@ Combinational loop found : 1
 
 Combinational loop found : 2
 
-	Net delete_me_c_1 
-
-	Instance \NES_inst/digital_7__I_0_i7 
-
-Combinational loop found : 3
-
 	Net delete_me_c_2 
 
 	Instance \NES_inst/digital_7__I_0_i8 
 
+Combinational loop found : 3
+
+	Net delete_me_c_1 
+
+	Instance \NES_inst/digital_7__I_0_i7 
+
 Combinational loop found : 4
 
-	Net delete_me_c_0 
+	Net digital[0] 
 
-	Instance \NES_inst/digital_7__I_0_i6 
+	Instance \NES_inst/digital_7__I_0_i1 
 
 Combinational loop found : 5
 
-	Net digital[3] 
+	Net digital[1] 
 
-	Instance \NES_inst/digital_7__I_0_i4 
+	Instance \NES_inst/digital_7__I_0_i2 
 
 Combinational loop found : 6
 
@@ -400,18 +412,19 @@ Combinational loop found : 6
 
 Combinational loop found : 7
 
-	Net digital[1] 
+	Net digital[3] 
 
-	Instance \NES_inst/digital_7__I_0_i2 
+	Instance \NES_inst/digital_7__I_0_i4 
 
 Combinational loop found : 8
 
-	Net digital[0] 
+	Net delete_me_c_0 
 
-	Instance \NES_inst/digital_7__I_0_i1 
+	Instance \NES_inst/digital_7__I_0_i6 
 
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(97): Register \board_inst/apple_id_i1 is stuck at Zero. VDB-5013
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i0 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i5 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i6 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i99 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i98 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i97 will be ignored.
@@ -459,7 +472,11 @@ WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/s
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i55 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i54 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i53 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i7 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i1 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i52 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i4 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i3 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i51 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i50 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i49 will be ignored.
@@ -484,6 +501,7 @@ WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/s
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i30 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i29 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i28 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i8 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i27 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i26 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i25 will be ignored.
@@ -496,36 +514,29 @@ WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/s
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i18 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i17 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i16 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i9 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i15 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i14 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i13 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i12 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i11 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i10 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i9 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i8 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i7 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i6 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i5 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i4 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i3 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i2 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i1 will be ignored.
 INFO - synthesis: Special Primitives IFD1P3AZ and OFD1P3AZ for ThunderPlus are synthesized using IOL_B.
 
 ################### Begin Area Report (top)######################
-Number of register bits => 223 of 5280 (4 % )
-CCU2 => 140
-FD1P3XZ => 223
+Number of register bits => 189 of 5280 (3 % )
+CCU2 => 112
+FD1P3XZ => 189
 HSOSC_CORE => 1
 IB => 2
 IOL_B => 1
-LUT4 => 1297
-MAC16 => 2
+LUT4 => 626
+MAC16 => 1
 OB => 14
 PLL_B => 1
 ################### End Area Report ##################
-Number of odd-length carry chains : 12
+Number of odd-length carry chains : 5
 Number of even-length carry chains : 16
 
 ################### Begin Clock Report ######################
@@ -539,21 +550,21 @@ Clock Enable Nets
 Number of Clock Enables: 0
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : board_inst/snakePos_inst/snake_arr_out_99__N_1671[0], loads : 71
-  Net : board_inst/snakePos_inst/snake_arr_out_99__N_1664[0], loads : 71
-  Net : board_inst/snakePos_inst/snake_arr_out_99__N_1671[6], loads : 41
-  Net : board_inst/snakePos_inst/snake_arr_out_99__N_1671[5], loads : 41
-  Net : board_inst/snakePos_inst/n16551, loads : 33
-  Net : board_inst/snakePos_inst/snakeCLK, loads : 30
-  Net : board_inst/snakePos_inst/snake_arr_out_99__N_1664[6], loads : 29
-  Net : board_inst/snakePos_inst/snake_arr_out_99__N_1664[5], loads : 29
-  Net : display_inst/vga_init/column_cnt[8], loads : 27
-  Net : board_inst/game_State[0], loads : 26
+  Net : board_inst/snakePos_inst/snake_tail_6__N_382[5], loads : 79
+  Net : board_inst/snakePos_inst/snake_tail_6__N_382[6], loads : 79
+  Net : board_inst/snakePos_inst/snake_head[5], loads : 61
+  Net : board_inst/snakePos_inst/snake_head[6], loads : 61
+  Net : display_inst/vga_init/row_cnt[4], loads : 24
+  Net : board_inst/snakePos_inst/n8635, loads : 24
+  Net : display_inst/vga_init/row_cnt[6], loads : 22
+  Net : display_inst/vga_init/row_cnt[5], loads : 21
+  Net : display_inst/vga_init/column_cnt[8], loads : 21
+  Net : display_inst/vga_init/n5765, loads : 21
 ################### End Clock Report ##################
 
-Peak Memory Usage: 150 MB
+Peak Memory Usage: 146 MB
 
 --------------------------------------------------------------
-Total CPU Time: 15 secs 
-Total REAL Time: 17 secs 
+Total CPU Time: 5 secs 
+Total REAL Time: 6 secs 
 --------------------------------------------------------------
