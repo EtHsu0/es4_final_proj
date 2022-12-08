@@ -48,7 +48,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Thu Dec  8 04:25:56 2022
+Thu Dec  8 04:32:33 2022
 
 
 Command Line:  C:\lscc\radiant\3.2\ispfpga\bin\nt64\synthesis.exe -f es4finalproj_impl_1_lattice.synproj -gui -msgset C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/promote.xml 
@@ -303,6 +303,7 @@ INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/sou
 WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nine_segments.vhd(14): overwriting existing secondary unit synth. VHDL-1178
 INFO - synthesis: The default VHDL library search path is now "C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/impl_1". VHDL-1504
 Top module language type = VHDL.
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd(88): case statement does not cover all choices. 'others' clause is needed. VHDL-1037
 Top module name (VHDL, mixed language): top
                                                          
 
@@ -477,6 +478,18 @@ WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/
 WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(102): input port 'game_score[1]' is not connected on this instance
 
 WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(102): input port 'game_score[0]' is not connected on this instance
+
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(86): input port 'score[5]' is not connected on this instance
+
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(86): input port 'score[4]' is not connected on this instance
+
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(86): input port 'score[3]' is not connected on this instance
+
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(86): input port 'score[2]' is not connected on this instance
+
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(86): input port 'score[1]' is not connected on this instance
+
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(86): input port 'score[0]' is not connected on this instance
 
 WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(86): input port 'scores[6]' is not connected on this instance
 
@@ -711,7 +724,7 @@ FD1P3XZ => 231
 HSOSC_CORE => 1
 IB => 2
 IOL_B => 1
-LUT4 => 1162
+LUT4 => 1241
 OB => 14
 PLL_B => 1
 ################### End Area Report ##################
@@ -732,19 +745,19 @@ Clock Enable Nets
 Number of Clock Enables: 0
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
+  Net : board_inst/snakePos_inst/snake_head[1], loads : 73
+  Net : board_inst/snakePos_inst/snake_head[3], loads : 36
+  Net : board_inst/snakePos_inst/snake_head[0], loads : 36
+  Net : board_inst/snakePos_inst/snake_head[2], loads : 33
   Net : board_inst/snakePos_inst/snakeCLK, loads : 32
-  Net : board_inst/snakePos_inst/snake_arr_out_99__N_1660[0], loads : 30
-  Net : board_inst/snakePos_inst/snake_head_6__N_1724, loads : 28
-  Net : board_inst/snakePos_inst/snake_arr_out_99__N_1667[4], loads : 25
-  Net : board_inst/snakePos_inst/snake_arr_out_99__N_1667[3], loads : 25
-  Net : board_inst/snakePos_inst/snake_arr_out_99__N_1667[1], loads : 25
-  Net : board_inst/snakePos_inst/snake_arr_out_99__N_1667[2], loads : 25
-  Net : board_inst/snakePos_inst/snake_head[4], loads : 24
-  Net : board_inst/snakePos_inst/snake_head[2], loads : 24
-  Net : board_inst/snakePos_inst/snake_head[3], loads : 23
+  Net : board_inst/snakePos_inst/snake_head[4], loads : 27
+  Net : board_inst/snakePos_inst/n7297, loads : 27
+  Net : board_inst/snakePos_inst/snake_head_6__N_1724, loads : 25
+  Net : board_inst/snakePos_inst/snake_arr_99__N_1667[2], loads : 25
+  Net : board_inst/snakePos_inst/snake_arr_99__N_1667[1], loads : 25
 ################### End Clock Report ##################
 
-Peak Memory Usage: 372 MB
+Peak Memory Usage: 368 MB
 
 --------------------------------------------------------------
 Total CPU Time: 20 secs 
