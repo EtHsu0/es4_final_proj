@@ -118,7 +118,7 @@ begin
                 -- end if;
                 /*
                 if grow_snake_in = '0' then
-                    snake_arr_length <= snake_arr_length + 1;
+                    snake_arr_len <= snake_arr_len + 1;
                 end if;
 				*/
                 
