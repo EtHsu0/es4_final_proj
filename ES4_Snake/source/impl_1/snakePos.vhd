@@ -80,15 +80,17 @@ begin
             snake_coord := snake_head;
             snake_arr(to_integer(snake_coord)) <= '1';
 
-            for i in 0 to to_integer(snake_len_in) loop
+            for i in 0 to 99 loop
             --   exit when i = to_integer(snake_len_in);
-              case snake_dir_arr(i) is
-                 when UP => snake_coord := snake_coord - 10;
-                 when DOWN => snake_coord := snake_coord + 10;
-                 when LEFT => snake_coord := snake_coord - 1;
-                 when RIGHT => snake_coord := snake_coord + 1;
-              end case;
-              snake_arr(to_integer(snake_coord)) <= '1';
+                if i < snake_len_in then
+                    case snake_dir_arr(i) is
+                        when UP => snake_coord := snake_coord - 10;
+                        when DOWN => snake_coord := snake_coord + 10;
+                        when LEFT => snake_coord := snake_coord - 1;
+                        when RIGHT => snake_coord := snake_coord + 1;
+                    end case;
+                    snake_arr(to_integer(snake_coord)) <= '1';
+                end if;
             end loop;
 
             if prev_dir(1) /= dir_signal(1) then
