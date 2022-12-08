@@ -15,6 +15,8 @@ entity snakepos is
 
         grow_snake_in: in std_logic;
 
+        snake_len_in: in unsigned(6 downto 0) := 7d"2";
+
         -- Direction should be 0-3 (Up, Down, Left, Right)
         --dir_in: in unsigned(1 downto 0) := "11"; 
         -- Gabriel Note: dirtype is not defined, need to fix dirtype declaration or remove entirely
@@ -56,7 +58,7 @@ signal slow_test_counter: unsigned(6 downto 0) := 7d"0";
 
 signal dir_signal: unsigned(1 downto 0);
 begin
-    arr_length <= snake_arr_len;
+    --arr_length <= snake_arr_len;
     process(clk) is
         variable snake_coord: unsigned(6 downto 0);
     begin
@@ -79,7 +81,7 @@ begin
             snake_arr(to_integer(snake_coord)) <= '1';
 
             for i in 0 to 99 loop
-              exit when i = to_integer(arr_length);
+              exit when i = to_integer(snake_len_in m);
               case snake_dir_arr(i) is
                  when UP => snake_coord := snake_coord - 10;
                  when DOWN => snake_coord := snake_coord + 10;
@@ -118,7 +120,7 @@ begin
                 -- end if;
                 /*
                 if grow_snake_in = '0' then
-                    snake_arr_length <= snake_arr_length + 1;
+                    snake_arr_len <= snake_arr_len + 1;
                 end if;
 				*/
                 
