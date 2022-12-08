@@ -5,7 +5,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Thu Dec  8 04:32:33 2022
+Thu Dec  8 04:53:29 2022
 
 
 Command Line:  C:\lscc\radiant\3.2\ispfpga\bin\nt64\synthesis.exe -f es4finalproj_impl_1_lattice.synproj -gui -msgset C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/promote.xml 
@@ -115,6 +115,8 @@ VHDL library = work
 VHDL design file = C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/source/impl_1/eight_segments.vhd
 VHDL library = work
 VHDL design file = C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/source/impl_1/nine_segments.vhd
+VHDL library = work
+VHDL design file = C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/source/impl_1/gapple.vhd
 The -r option is OFF. [ Remove LOC Properties is OFF. ]
 Compile design.
 Compile Design Begin
@@ -161,7 +163,9 @@ Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/s
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd
 
 INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(5): analyzing entity display. VHDL-1012
-INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(23): analyzing architecture synth. VHDL-1010
+INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(24): analyzing architecture synth. VHDL-1010
+INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(99): input pin scores has no actual or default value. VHDL-9000
+INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(55): scores is declared here. VHDL-1259
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd. VHDL-1481
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd
 
@@ -258,9 +262,14 @@ Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/s
 INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nine_segments.vhd(5): analyzing entity eight_segments. VHDL-1012
 INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nine_segments.vhd(14): analyzing architecture synth. VHDL-1010
 WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nine_segments.vhd(14): overwriting existing secondary unit synth. VHDL-1178
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/gapple.vhd. VHDL-1481
+Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/gapple.vhd
+
+INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/gapple.vhd(5): analyzing entity eight_segments. VHDL-1012
+INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/gapple.vhd(14): analyzing architecture synth. VHDL-1010
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/gapple.vhd(14): overwriting existing secondary unit synth. VHDL-1178
 INFO - synthesis: The default VHDL library search path is now "C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/impl_1". VHDL-1504
 Top module language type = VHDL.
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd(88): case statement does not cover all choices. 'others' clause is needed. VHDL-1037
 Top module name (VHDL, mixed language): top
                                                          
 
@@ -286,6 +295,15 @@ Top module name (VHDL, mixed language): top
                                                          
 
 
+WARNING - synthesis: Initial value found on net game_state[1] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net game_state[0] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net scores[6] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net scores[5] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net scores[4] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net scores[3] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net scores[2] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net scores[1] will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net scores[0] will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net pwr will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net apple_id[7] will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net apple_id[6] will be ignored due to unrecognized driver type
@@ -424,78 +442,35 @@ WARNING - synthesis: Initial value found on net snake_head[3] will be ignored du
 WARNING - synthesis: Initial value found on net snake_head[2] will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net snake_head[1] will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net snake_head[0] will be ignored due to unrecognized driver type
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(102): input port 'game_score[5]' is not connected on this instance
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(90): input port 'score[5]' is not connected on this instance
 
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(102): input port 'game_score[4]' is not connected on this instance
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(90): input port 'score[4]' is not connected on this instance
 
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(102): input port 'game_score[3]' is not connected on this instance
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(90): input port 'score[3]' is not connected on this instance
 
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(102): input port 'game_score[2]' is not connected on this instance
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(90): input port 'score[2]' is not connected on this instance
 
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(102): input port 'game_score[1]' is not connected on this instance
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(90): input port 'score[1]' is not connected on this instance
 
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(102): input port 'game_score[0]' is not connected on this instance
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(90): input port 'score[0]' is not connected on this instance
 
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(86): input port 'score[5]' is not connected on this instance
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(90): input port 'scores[6]' is not connected on this instance
 
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(86): input port 'score[4]' is not connected on this instance
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(90): input port 'scores[5]' is not connected on this instance
 
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(86): input port 'score[3]' is not connected on this instance
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(90): input port 'scores[4]' is not connected on this instance
 
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(86): input port 'score[2]' is not connected on this instance
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(90): input port 'scores[3]' is not connected on this instance
 
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(86): input port 'score[1]' is not connected on this instance
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(90): input port 'scores[2]' is not connected on this instance
 
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(86): input port 'score[0]' is not connected on this instance
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(90): input port 'scores[1]' is not connected on this instance
 
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(86): input port 'scores[6]' is not connected on this instance
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(90): input port 'scores[0]' is not connected on this instance
 
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(86): input port 'scores[5]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(86): input port 'scores[4]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(86): input port 'scores[3]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(86): input port 'scores[2]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(86): input port 'scores[1]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(86): input port 'scores[0]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(86): input port 'game_state[1]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(86): input port 'game_state[0]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd(59): net apple_addr[13] does not have a driver. VDB-1002
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nine_segments.vhd(15): net addr[13] does not have a driver. VDB-1002
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(102): input port 'game_score[5]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(102): input port 'game_score[4]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(102): input port 'game_score[3]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(102): input port 'game_score[2]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(102): input port 'game_score[1]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(102): input port 'game_score[0]' is not connected on this instance
-
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/gapple.vhd(15): net addr[13] does not have a driver. VDB-1002
 WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/mypll/rtl/mypll.v(139): net \display_inst/pll_init/lscc_pll_inst/sclk_i does not have a driver. VDB-1002
 WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/mypll/rtl/mypll.v(140): net \display_inst/pll_init/lscc_pll_inst/sdi_i does not have a driver. VDB-1002
-######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[13]. Patching with GND.
-######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[12]. Patching with GND.
-######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[11]. Patching with GND.
-######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[10]. Patching with GND.
-######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[9]. Patching with GND.
-######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[8]. Patching with GND.
-######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[7]. Patching with GND.
-######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[6]. Patching with GND.
-######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[5]. Patching with GND.
-######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[4]. Patching with GND.
-######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[3]. Patching with GND.
-######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[2]. Patching with GND.
-######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[1]. Patching with GND.
-######## Missing driver on net \display_inst/pattern_gen_initial/apple_addr[0]. Patching with GND.
 ######## Missing driver on net \display_inst/segments/addr[13]. Patching with GND.
 ######## Missing driver on net \display_inst/segments/addr[12]. Patching with GND.
 ######## Missing driver on net \display_inst/segments/addr[11]. Patching with GND.
@@ -516,11 +491,9 @@ WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/
 
 
 WARNING - synthesis: Bit 5 of Register \display_inst/segments/rgb is stuck at Zero
-WARNING - synthesis: Bit 4 of Register \display_inst/segments/rgb is stuck at Zero
-WARNING - synthesis: Bit 3 of Register \display_inst/segments/rgb is stuck at Zero
-WARNING - synthesis: Bit 2 of Register \display_inst/segments/rgb is stuck at Zero
-WARNING - synthesis: Bit 1 of Register \display_inst/segments/rgb is stuck at One
-WARNING - synthesis: Bit 0 of Register \display_inst/segments/rgb is stuck at One
+Mapped 2 multiplier(s)
+
+
 Combinational loop found : 1
 
 	Net digital[4] 
@@ -602,36 +575,58 @@ WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/s
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i70 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i69 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i68 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i1 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i67 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i2 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i66 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i3 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i65 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i4 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i64 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i63 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i5 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i62 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i6 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i61 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i7 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i60 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i8 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i59 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i58 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i57 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i9 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i56 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i10 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i55 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i54 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i11 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i53 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i12 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i52 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i13 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i51 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i50 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i49 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i48 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i14 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i47 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i46 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i15 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i45 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i16 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i44 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i17 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i43 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i18 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i42 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i19 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i41 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i40 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i20 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i39 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i21 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i38 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i22 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i37 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i36 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i35 will be ignored.
@@ -643,47 +638,26 @@ WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/s
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i29 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i28 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i27 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i26 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i25 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i24 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i25 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i23 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i22 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i21 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i20 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i19 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i18 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i17 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i16 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i15 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i14 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i13 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i12 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i11 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i10 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i9 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i8 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i7 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i6 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i5 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i4 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i3 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i2 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i1 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i26 will be ignored.
 INFO - synthesis: Special Primitives IFD1P3AZ and OFD1P3AZ for ThunderPlus are synthesized using IOL_B.
 
 ################### Begin Area Report (top)######################
 Number of register bits => 231 of 5280 (4 % )
-CCU2 => 75
+CCU2 => 137
 FD1P3XZ => 231
 HSOSC_CORE => 1
 IB => 2
 IOL_B => 1
-LUT4 => 1241
+LUT4 => 1267
+MAC16 => 2
 OB => 14
 PLL_B => 1
 ################### End Area Report ##################
-Number of odd-length carry chains : 10
-Number of even-length carry chains : 4
+Number of odd-length carry chains : 16
+Number of even-length carry chains : 11
 
 ################### Begin Clock Report ######################
 Clock Nets
@@ -696,21 +670,21 @@ Clock Enable Nets
 Number of Clock Enables: 0
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : board_inst/snakePos_inst/snake_head[1], loads : 73
-  Net : board_inst/snakePos_inst/snake_head[3], loads : 36
-  Net : board_inst/snakePos_inst/snake_head[0], loads : 36
-  Net : board_inst/snakePos_inst/snake_head[2], loads : 33
+  Net : board_inst/snakePos_inst/snake_arr_99__N_1481[0], loads : 99
+  Net : board_inst/snakePos_inst/snake_arr_99__N_1467[6], loads : 86
+  Net : board_inst/snakePos_inst/snake_arr_99__N_1467[5], loads : 86
+  Net : board_inst/snakePos_inst/snake_arr_99__N_1467[0], loads : 86
+  Net : board_inst/snakePos_inst/snake_head[1], loads : 60
   Net : board_inst/snakePos_inst/snakeCLK, loads : 32
-  Net : board_inst/snakePos_inst/snake_head[4], loads : 27
-  Net : board_inst/snakePos_inst/n7297, loads : 27
-  Net : board_inst/snakePos_inst/snake_head_6__N_1724, loads : 25
-  Net : board_inst/snakePos_inst/snake_arr_99__N_1667[2], loads : 25
-  Net : board_inst/snakePos_inst/snake_arr_99__N_1667[1], loads : 25
+  Net : board_inst/snakePos_inst/n8_adj_3873, loads : 32
+  Net : board_inst/snakePos_inst/n13730, loads : 32
+  Net : board_inst/snakePos_inst/n8_adj_4224, loads : 32
+  Net : board_inst/snakePos_inst/snake_head[0], loads : 30
 ################### End Clock Report ##################
 
-Peak Memory Usage: 368 MB
+Peak Memory Usage: 187 MB
 
 --------------------------------------------------------------
-Total CPU Time: 20 secs 
-Total REAL Time: 21 secs 
+Total CPU Time: 13 secs 
+Total REAL Time: 13 secs 
 --------------------------------------------------------------
