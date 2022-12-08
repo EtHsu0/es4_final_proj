@@ -55,7 +55,7 @@ architecture synth of display is
             snake: in std_logic_vector(99 downto 0);
             snake_head: in unsigned(6 downto 0);
             scores: in unsigned(6 downto 0);
-            game_state: in unsigned(1 downto 0)
+            game_state: in unsigned(1 downto 0);
             
             
             
