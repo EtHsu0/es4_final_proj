@@ -60,13 +60,13 @@ begin
     begin
         if rising_edge(clk) then
             counter <= counter + 1;
-			if digital_in(3) = '0' then 
+			if digital_in(3) = '0' and dir_signal(1) = '1' then 
 				dir_signal <= "00";
-			elsif digital_in(2) = '0' then
+			elsif digital_in(2) = '0' and dir_signal(1) = '1' then
 				dir_signal <= "01";
-			elsif digital_in(1) = '0' then
+			elsif digital_in(1) = '0' and dir_signal(1) = '0' then
 				dir_signal <= "10";
-			elsif digital_in(0) = '0' then
+			elsif digital_in(0) = '0' and dir_signal(1) = '0' then
 				dir_signal <= "11";
 			else
 				dir_signal <= dir_signal;
@@ -99,7 +99,7 @@ begin
 		  if game_state_in = "00" then
 				-- snake_arr <= (44 downto 42 => '1', others => '0');
 				snake_dead <= '0';
-				arr_length <= 2;
+				arr_length <= 6;
 				snake_head <= 8d"44";
 				snake_dir_arr <= (others => LEFT);
 				--snake_dir_arr(0) <= RIGHT;
