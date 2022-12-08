@@ -94,7 +94,7 @@ begin
                 snake_dead <= '0';
                 -- snake_arr_len </= 6d"6";
                 snake_head <= 7d"44";
-                snake_dir_arr <= (99 downto 2 => NONE, 1 downto 0 => LEFT);
+                snake_dir_arr <= (others => LEFT);
             elsif game_state_in = "01" then
                 -- if prev_dir(1) /= dir_signal(1) then
                     -- prev_dir <= dir_signal;
@@ -109,7 +109,7 @@ begin
                         --snake_dead <= '1';
                     end if;
                     snake_head <= snake_head - 10;
-                    for i in 0 to 6 loop
+                    for i in 0 to 11 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= DOWN;
@@ -118,7 +118,7 @@ begin
                         --snake_dead <= '1';
                     end if;
                     snake_head <= snake_head + 10;
-                    for i in 0 to 6 loop
+                    for i in 0 to 11 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= UP;
@@ -127,7 +127,7 @@ begin
                             --snake_dead <= '1';
                     end if;
                     snake_head <= snake_head - 1;
-                    for i in 0 to 6 loop
+                    for i in 0 to 11 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= RIGHT;
@@ -136,7 +136,7 @@ begin
                         --snake_dead <= '1';
                     end if;
                     snake_head <= snake_head + 1;
-                    for i in 0 to 6 loop
+                    for i in 0 to 11 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= LEFT;
