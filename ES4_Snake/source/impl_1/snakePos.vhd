@@ -37,7 +37,7 @@ architecture synth of snakepos is
 signal snake_head: unsigned(6 downto 0) := 7d"44";
 signal snake_tail: unsigned(6 downto 0) := 7d"42";
 
-TYPE DirType is (UP, DOWN, LEFT, RIGHT);
+TYPE DirType is (UP, DOWN, LEFT, RIGHT, NONE);
 TYPE DirArray is ARRAY (0 to 99) of DirType;
 
 signal prev_dir: unsigned(1 downto 0) := "11";
@@ -47,7 +47,7 @@ signal snake_dir: unsigned(1 downto 0);
 signal arr_length: unsigned (6 downto 0) := 6d"2";
 signal snake_arr_len: unsigned(6 downto 0) := 6d"2";
 -- From left to right, direction from head to tails
-signal snake_dir_arr: DirArray := (others => LEFT); -- Errors! Fix Type Declarations
+signal snake_dir_arr: DirArray := (1 downto 0 => LEFT, (others => NONE)); -- Errors! Fix Type Declarations
 signal snake_arr: std_logic_vector(99 downto 0) := 100d"0";
 
 signal snake_dead: std_logic := '0';
@@ -82,15 +82,14 @@ begin
 
             for i in 0 to 99 loop
             --   exit when i = to_integer(snake_len_in);
-                if i < snake_len_in then
-                    case snake_dir_arr(i) is
-                        when UP => snake_coord := snake_coord - 10;
-                        when DOWN => snake_coord := snake_coord + 10;
-                        when LEFT => snake_coord := snake_coord - 1;
-                        when RIGHT => snake_coord := snake_coord + 1;
-                    end case;
-                    snake_arr(to_integer(snake_coord)) <= '1';
-                end if;
+                case snake_dir_arr(i) is
+                    when UP => snake_coord := snake_coord - 10;
+                    when DOWN => snake_coord := snake_coord + 10;
+                    when LEFT => snake_coord := snake_coord - 1;
+                    when RIGHT => snake_coord := snake_coord + 1;
+                    when NONE => snake_coord := snake_coord;
+                end case;
+                snake_arr(to_integer(snake_coord)) <= '1';
             end loop;
 
             if prev_dir(1) /= dir_signal(1) then
@@ -166,7 +165,7 @@ begin
                     end loop;
                     snake_dir_arr(0) <= LEFT;
                 end if;
-                
+                snake_dir_arr(to_integer(snake_len_in)) <= NONE;
                 /*
                 case dir_signal is
                     when "00" => snake_arr <= (3 downto 0 => '1', others => '0');
