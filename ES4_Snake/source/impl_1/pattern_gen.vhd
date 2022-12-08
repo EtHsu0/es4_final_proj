@@ -91,7 +91,7 @@ begin
         score_tens_place <= score / 6d"10";
         score_ones_place <= score mod 6d"10";
 
-        
+/*    
         -- Draw Score
         if (score_tens_place = 6d"0") then 
             segments_tens<="0000001";
@@ -114,7 +114,7 @@ begin
         else -- score_tens_place is 6d"9"
             segments_tens<="0001100"; 
         end if;
-
+*/
 
 
 /*
