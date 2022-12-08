@@ -26,7 +26,7 @@ entity pattern_gen is
 		
 		
 		
-		rgb : out unsigned(5 downto 0)
+		rgb : out unsigned(5 downto 0);
 
         snake_head: in unsigned(6 downto 0);
         scores: in unsigned(6 downto 0);
@@ -39,12 +39,13 @@ end pattern_gen;
 architecture synth of pattern_gen is
 
 signal intermed_rgb : unsigned(5 downto 0);
-signal head_x : unsigned(4 downto 0) := snake_head mod 4d"10";
-signal head_y : unsigned(4 downto 0) := snake_head * 10d"52" / 10d"512";
+signal head_x : unsigned(4 downto 0);
+signal head_y : unsigned(4 downto 0);
 begin
 	--intermed_rgb <= "001100" when (x_pos mod 10d"5" = 10d"0") else "110000";
 	--rgb <= 6d"0" when valid='0' else intermed_rgb;
-	
+	head_x <= snake_head mod 4d"10";
+	head_y <= snake_head * 10d"52" / 10d"512";
 	process(valid) begin
 		if valid = '1' then
 			-- Snake grid 
