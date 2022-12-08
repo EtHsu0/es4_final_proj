@@ -87,7 +87,7 @@ begin
 					end if;
 				end if;
 			end loop;
-
+/*
         score_tens_place <= score / 6d"10";
         score_ones_place <= score mod 6d"10";
 
@@ -140,6 +140,7 @@ begin
                 rgb <= "000011";
             end if;
         end if;
+*/
 
 /*
         segments_ones<="0000001" when score_ones_place = 6d"0" else
