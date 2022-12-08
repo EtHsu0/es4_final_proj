@@ -58,7 +58,7 @@ port (
     row : in unsigned (9 downto 0);
     col : in unsigned (9 downto 0);
     clk : in std_logic;
-    rgb : out std_logic_vector(5 downto 0)
+    rgb : out unsigned(5 downto 0)
 );
 end component;
 -- internal variables
@@ -84,8 +84,7 @@ begin
     --snake_loc <= ("0000000000000000001000000000100000000010111111111010000000000000000000000000000000000000000000000000"); 
     --pattern_gen_init: pattern_gen port map(valid, row_cnt, column_cnt, 9B"1_1000_0111", snake_loc, rgb);
     pattern_gen_initial: pattern_gen port map(valid, row_cnt, column_cnt, apple, snake, "000010", intermed_rgb);
-
-    eight_segments(row_cnt, col_cnt, cnt, score_rgb);
+    segments: eight_segments port map(row_cnt, column_cnt, clk, score_rgb);
 
     rgb <= intermed_rgb when (column_cnt > 100 and valid = '1') else 
     score_rgb when (column_cnt < 100 and valid = '1') else 
