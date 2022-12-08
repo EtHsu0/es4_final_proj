@@ -35,6 +35,7 @@ architecture synth of board is
     end component;
 
     signal apple_id: unsigned (8 downto 0) := 9d"0";
+    signal apple_coord: unsigned (6 downto 0) := 7d"48";
     signal snake_head: unsigned (6 downto 0) := 7d"44";
     signal snake_tail: unsigned (6 downto 0) := 7d"0";
     signal snake_arr: std_logic_vector(99 downto 0) := 100d"0"; -- := (40 => '1', 41 => '1', 42 => '1'),(others => '0'); -- TODO: Fix Syntax Error!
@@ -51,55 +52,58 @@ begin
     begin
         if rising_edge(clk) then
             if game_state = "00" then
-               apple_id <= 9b"1_0111_0100";
+               -- apple_id <= 9b"1_0111_0100";
+               apple_coord <= 6d"48";
                 if digital_in(4) = '0' then
                     game_state <= "01";
                 end if;
             elsif game_state = "01" then
-                --reset <= '0';
-                -- RIGHT
-                if digital_in(0) = '0' then
-                    apple_id <= 9b"1_0100_0100";
-                    --dir <= 2b"11";
-                -- LEFT
-                end if;
-                if digital_in(1) = '0' then
-                    apple_id <= 9b"1_0101_0101";
-                    --dir <= 2b"10";
-                -- DOWN
-                end if;
-                if digital_in(2) = '0' then
-                    apple_id <= 9b"1_0101_0100";
-                    --dir <= 2b"01";
-                -- UP
-                end if;
-                if digital_in(3) = '0' then
-                    apple_id <= 9b"1_0100_0101";
-                     -- dir <= 2b"00";
-                -- SEL
-                end if;
-                if digital_in(5) = '0' then
-                    --game_state <= "10";
-                -- B
-                end if;
-                if digital_in(6) = '0' then
-                    --game_state <= "00";
-                    apple_id <= 9b"1_1001_0000";
+                -- if digital_in(0) = '0' then
+                --     apple_id <= 9b"1_0100_0100";
+                --     --dir <= 2b"11";
+                -- -- LEFT
+                -- end if;
+                -- if digital_in(1) = '0' then
+                --     apple_id <= 9b"1_0101_0101";
+                --     --dir <= 2b"10";
+                -- -- DOWN
+                -- end if;
+                -- if digital_in(2) = '0' then
+                --     apple_id <= 9b"1_0101_0100";
+                --     --dir <= 2b"01";
+                -- -- UP
+                -- end if;
+                -- if digital_in(3) = '0' then
+                --     apple_id <= 9b"1_0100_0101";
+                --      -- dir <= 2b"00";
+                -- -- SEL
+                -- end if;
+                -- if digital_in(5) = '0' then
+                --     --game_state <= "10";
+                -- -- B
+                -- end if;
+                -- if digital_in(6) = '0' then
+                --     --game_state <= "00";
+                --     apple_id <= 9b"1_1001_0000";
                     
-                -- A
+                -- -- A
+                -- end if;
+
+                -- else
+                --     apple_id <= apple_id;
+                --     --dir <= dir;
+                -- end if;
+
+                -- -- if snake_dead <= '1' then
+                -- --     game_state <= "10";
+                -- -- end if;
+                if snake_head = apple_coord then
+                    snake_len <= snake_len + 1;
                 end if;
                 if digital_in(7) = '0' then
-                    --snake_len <= snake_len + 1;
-                    apple_id <= 9b"1_1001_0000";
-                else
-                    apple_id <= apple_id;
-                    --dir <= dir;
+                    game_state <= "10";
                 end if;
-
-                -- if snake_dead <= '1' then
-                --     game_state <= "10";
-                -- end if;
-            elsif game_state = "10" then
+            elsif game_state <= "10" then
                 apple_id <= 9b"1_1001_1001";
                 if digital_in(6) = '0' then
                     game_state <= "00";
@@ -107,7 +111,7 @@ begin
             end if;
         end if;
     end process;
-
+    apple_id <= 1 & (apple_coord mod 4d"10") & (apple_coord / 4d"10");
     snakePos_inst: snakePos port map
         (
             clk => clk, 
