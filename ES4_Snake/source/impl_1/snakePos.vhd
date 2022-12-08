@@ -140,10 +140,8 @@ begin
                     end loop;
                     snake_dir_arr(0) <= LEFT;
                 end if;
-                
                 snake_dir_arr(to_integer(snake_len_in)) <= NONE;
-				else 
-					snake_head <= 6d"0";
+                -- snake 
             end if;
         end if;
     end process;

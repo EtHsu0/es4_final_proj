@@ -2022,7 +2022,7 @@ begin
                     when "01010110101001" => rgb <= "000000";
                     when "01010110101010" => rgb <= "000000";
                     when "01010110101011" => rgb <= "000000";
-                    when others => rgb <= "111111";
+                    -- when others => rgb <= "111111";
                    end case;
 			end if;
 

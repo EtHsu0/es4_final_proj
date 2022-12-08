@@ -90,4 +90,6 @@ begin
     score_rgb when (column_cnt < 50 and valid = '1') else 
     "000000";
 
+    
+
 end;
