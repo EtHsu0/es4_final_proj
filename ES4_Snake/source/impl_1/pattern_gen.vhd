@@ -35,10 +35,6 @@ end pattern_gen;
 architecture synth of pattern_gen is
 
 signal intermed_rgb : unsigned(5 downto 0);
-signal colL : unsigned(3 downto 0);
-signal colR : unsigned(3 downto 0);
-signal rowB : unsigned(3 downto 0);
-signal rowT : unsigned(3 downto 0);
 begin
 	--intermed_rgb <= "001100" when (x_pos mod 10d"5" = 10d"0") else "110000";
 	--rgb <= 6d"0" when valid='0' else intermed_rgb;
