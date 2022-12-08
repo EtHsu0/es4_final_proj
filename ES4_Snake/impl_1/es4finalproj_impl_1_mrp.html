@@ -47,7 +47,7 @@ Target Device:        iCE40UP5KSG48
 Target Performance:   High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 3.2.1.217.3
-Mapped on: Wed Dec  7 22:48:25 2022
+Mapped on: Wed Dec  7 22:56:04 2022
 
 
 <A name="mrp_di"></A><B><U><big>Design Information</big></U></B>
@@ -57,13 +57,13 @@ Command line:   map -i es4finalproj_impl_1_syn.udb -pdc
      es4finalproj_impl_1_map.udb -mp es4finalproj_impl_1.mrp -hierrpt -gui
 
 <A name="mrp_ds"></A><B><U><big>Design Summary</big></U></B>
-   Number of slice registers: 395 out of  5280 (7%)
+   Number of slice registers: 295 out of  5280 (6%)
    Number of I/O registers:      1 out of   117 (1%)
-   Number of LUT4s:           10845 out of  5280 (205%)
-      Number of logic LUT4s:             9619
-      Number of inserted feedthru LUT4s: 209
+   Number of LUT4s:           4260 out of  5280 (81%)
+      Number of logic LUT4s:             3777
+      Number of inserted feedthru LUT4s:  10
       Number of replicated LUT4s:          1
-      Number of ripple logic:            508 (1016 LUT4s)
+      Number of ripple logic:            236 (472 LUT4s)
    Number of IO sites used:   16 out of 39 (41%)
       Number of IO sites used for general PIO: 16
       Number of IO sites used for I3C: 0 out of 2 (0%)
@@ -86,158 +86,186 @@ Command line:   map -i es4finalproj_impl_1_syn.udb -pdc
    Number of EBRs:             0 out of 30 (0%)
    Number of PLLs:             1 out of 1 (100%)
    Number of Clocks:  5
-      Net CLK: 137 loads, 137 rising, 0 falling (Driver: Pin HSOSC_inst/CLKHF)
-      Net board_inst.snakePos_inst.snakeCLK: 208 loads, 208 rising, 0 falling
-     (Driver: Pin board_inst.snakePos_inst.counter_27291_27786__i23/Q)
+      Net CLK: 141 loads, 141 rising, 0 falling (Driver: Pin HSOSC_inst/CLKHF)
+      Net board_inst.snakePos_inst.snakeCLK: 101 loads, 101 rising, 0 falling
+     (Driver: Pin board_inst.snakePos_inst.counter_9708_9972__i23/Q)
       Net NES_inst.NESclk: 8 loads, 8 rising, 0 falling (Driver: Pin
-     NES_inst.count_27290_27782__i8/Q)
+     NES_inst.count_9707_9982__i8/Q)
       Net display_inst.clk: 15 loads, 15 rising, 0 falling (Driver: Pin
      display_inst.pll_init.lscc_pll_inst.u_PLL_B/OUTGLOBAL)
       Net pll_in_clock_c: 1 loads, 1 rising, 0 falling (Driver: Port
      pll_in_clock)
    Number of Clock Enables:  10
-      Net n94390: 205 loads, 205 SLICEs
-      Net board_inst.n93904: 3 loads, 3 SLICEs
-      Net n81009: 1 loads, 1 SLICEs
+      Net n33141: 6 loads, 6 SLICEs
+      Net n33609: 93 loads, 93 SLICEs
       Net board_inst.apple_id_8__N_54[3]: 1 loads, 1 SLICEs
+      Net board_inst.n33157: 3 loads, 3 SLICEs
 
-      Net board_inst.n93917: 1 loads, 1 SLICEs
+      Net n68: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33076: 6 loads, 6 SLICEs
+      Net board_inst.snakePos_inst.snake_dir_1__N_6732: 2 loads, 2 SLICEs
       Net VCC_net: 1 loads, 0 SLICEs
-      Net board_inst.snakePos_inst.snake_dir_1__N_21222: 2 loads, 2 SLICEs
-      Net board_inst.snakePos_inst.n216420: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n78962: 1 loads, 1 SLICEs
       Net NES_inst.output_7__N_34: 8 loads, 7 SLICEs
-      Net display_inst.n93888: 6 loads, 6 SLICEs
-   Number of LSRs:  108
-      Net board_inst.n80055: 1 loads, 1 SLICEs
-      Net board_inst.snake_head_6__N_21230: 199 loads, 199 SLICEs
-      Net board_inst.n220168: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205598: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233777: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205687: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205689: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205688: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205686: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233776: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205680: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233775: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233774: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205673: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205672: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205671: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205670: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233773: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205597: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205604: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233772: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233771: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205637: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205596: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233794: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205594: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233793: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233792: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205514: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205623: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205516: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205517: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233791: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205626: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233790: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205636: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233789: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205622: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205642: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205643: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233770: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205648: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233769: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205621: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233768: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205611: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205605: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205620: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205606: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205619: 1 loads, 1 SLICEs
+   Number of LSRs:  136
+      Net n33141: 6 loads, 6 SLICEs
+      Net snake_head_6__N_6740: 64 loads, 64 SLICEs
+      Net board_inst.digital_in_3__N_6514: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75823: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75897: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75865: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75854: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75898: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n83692: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75787: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75860: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n83691: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75857: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75858: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75792: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75856: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n83690: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75899: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75818: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33516: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75828: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75824: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75862: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75864: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75855: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n83689: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75819: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75825: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33514: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33512: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33510: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33508: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33506: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33504: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33502: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33500: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33498: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33496: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33494: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33492: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33490: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33488: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33486: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33484: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33482: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33480: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33478: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33476: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33474: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33472: 1 loads, 1 SLICEs
 
-      Net board_inst.snakePos_inst.n205674: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233767: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233788: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205778: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233766: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205617: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233787: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233765: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233786: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205748: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205769: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205747: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205746: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205767: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205745: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233785: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205739: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233784: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205766: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233783: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205728: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205765: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233764: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205759: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233763: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233762: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205581: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205727: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205612: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205616: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205777: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205726: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205580: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233782: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233761: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205720: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205763: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233781: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233780: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205709: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205708: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233760: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205707: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205706: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233779: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233759: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205700: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205784: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233778: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205599: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205774: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n205770: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n233758: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n94171: 1 loads, 1 SLICEs
-      Net display_inst.vga_init.HSYNC_N_21603: 1 loads, 1 SLICEs
-      Net display_inst.n93888: 6 loads, 6 SLICEs
-      Net display_inst.vga_init.n94274: 6 loads, 6 SLICEs
+      Net board_inst.snakePos_inst.n33470: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33468: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33466: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33464: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33462: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75861: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n83688: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n83687: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75786: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75853: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75850: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75851: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n83701: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75846: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75847: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75849: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75842: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75843: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75844: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75845: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n83700: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75841: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75848: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75924: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75838: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75839: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75840: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75921: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n83699: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75923: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75917: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75918: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75852: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75837: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75920: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75914: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75915: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n83698: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75911: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75912: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75913: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75836: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75870: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75871: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75872: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n83697: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75869: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75874: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75875: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33460: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75876: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75877: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75878: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75879: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n83696: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75882: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75883: 1 loads, 1 SLICEs
 
-      Net display_inst.vga_init.VSYNC_N_21606: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75884: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75885: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75886: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75887: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75880: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n33456: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n83695: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75889: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75890: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75900: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75903: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75905: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75907: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75908: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n83694: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75910: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n83686: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75868: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75896: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75895: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n83693: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75893: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75892: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75891: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75835: 1 loads, 1 SLICEs
+      Net board_inst.snakePos_inst.n75859: 1 loads, 1 SLICEs
+      Net display_inst.vga_init.VSYNC_N_6909: 1 loads, 1 SLICEs
+      Net display_inst.vga_init.n33519: 6 loads, 6 SLICEs
+      Net display_inst.vga_init.HSYNC_N_6906: 1 loads, 1 SLICEs
    Top 10 highest fanout non-clock nets:
-      Net board_inst.snake_head_6__N_21230: 207 loads
-      Net n94390: 205 loads
+      Net board_inst.snakePos_inst.snake_head[1]: 104 loads
+      Net board_inst.snakePos_inst.snake_head[2]: 104 loads
+      Net board_inst.snakePos_inst.snake_head[0]: 102 loads
+      Net n33609: 93 loads
+      Net snake_head_6__N_6740: 89 loads
+      Net board_inst.snakePos_inst.snake_arr_out_99__N_6564[0]: 87 loads
+      Net board_inst.snakePos_inst.snake_arr_out_99__N_6564[1]: 87 loads
+      Net board_inst.snakePos_inst.snake_arr_out_99__N_6564[2]: 87 loads
       Net VCC_net: 79 loads
-      Net board_inst.snakePos_inst.snake_head[5]: 75 loads
-      Net board_inst.snakePos_inst.snake_head[6]: 75 loads
-      Net board_inst.snakePos_inst.snake_arr_out_99__N_20977[0]: 67 loads
-      Net board_inst.snakePos_inst.snake_arr_out_99__N_20977[1]: 67 loads
-      Net board_inst.snakePos_inst.snake_arr_out_99__N_20977[2]: 67 loads
-      Net board_inst.snakePos_inst.snake_arr_out_99__N_20795[0]: 43 loads
-      Net board_inst.snakePos_inst.snake_arr_out_99__N_20795[1]: 43 loads
+      Net board_inst.snake_len[4]: 67 loads
 
 
 
 
    Number of warnings:  4
-   Number of errors:    1
+   Number of errors:    0
 
    Number of warnings:  4
-   Number of errors:    1
+   Number of errors:    0
 
 
 
@@ -250,35 +278,129 @@ WARNING - map: No port matched &apos;delete_me&apos;.
 WARNING - map: Can&apos;t resolve object &apos;delete_me&apos; in constraint &apos;ldc_set_location
      -site {37} [get_ports delete_me]&apos;.
 WARNING - map: Remove invalid constraint &apos;ldc_set_location -site {37} [get_ports
+
      delete_me]&apos;.
-ERROR - map: Design doesn&apos;t fit into device specified, refer to the Map report
-     for more details.
+
+
+
+<A name="mrp_ioa"></A><B><U><big>IO (PIO) Attributes</big></U></B>
+
++---------------------+-----------+-----------+-------+-------+-----------+
+| IO Name             | Direction | Levelmode |  IO   |  IO   | Special   |
+|                     |           |  IO_TYPE  |  REG  |  DDR  | IO Buffer |
++---------------------+-----------+-----------+-------+-------+-----------+
+| VSYNC               | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| HSYNC               | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| pll_outcore_o       | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| continCLK           | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| delete_me[2]        | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| pll_in_clock        | INPUT     |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| data                | INPUT     |           | I     |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| rgb[0]              | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| rgb[1]              | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| rgb[2]              | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| rgb[3]              | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| rgb[4]              | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| rgb[5]              | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| delete_me[0]        | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| delete_me[1]        | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| latch               | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+
+
+
+<A name="mrp_rm"></A><B><U><big>Removed logic</big></U></B>
+
+Block i1 was optimized away.
+
+
+
+<A name="mrp_pll"></A><B><U><big>PLL/DLL Summary</big></U></B>
+---------------
+
+PLL 1:                                 Pin/Node Value
+  PLL Instance Name:
+       display_inst/pll_init/lscc_pll_inst/u_PLL_B
+  Input Reference Clock:               PIN      pll_in_clock_c
+  Output Clock(CoreA):                 PIN      pll_outcore_o_c
+  Output Clock(GlobalA):               NODE     display_inst.clk
+  Output Clock(CoreB):                          NONE
+
+  Output Clock(GlobalB):                        NONE
+  Feedback input:                      NODE
+       display_inst.pll_init.lscc_pll_inst.feedback_w
+  Internal Feedback output:            NODE
+       display_inst.pll_init.lscc_pll_inst.feedback_w
+  BYPASS signal:                                GND
+  LATCH signal:                                 GND
+  Lock Signal:                                  NONE
+  Input Clock Frequency (MHz):                  NA
+  Reference Divider:                            0
+  Feedback Divider:                             66
+  VCO Divider:                                  5
+  ENABLE_ICEGATE_PORTA:                         0
+  ENABLE_ICEGATE_PORTB:                         0
+  PLLOUT_SELECT_PORTA:                          GENCLK
+  PLLOUT_SELECT_PORTB:                          GENCLK
+  SHIFTREG_DIV_MODE:                            0
+  DELAY_ADJUSTMENT_MODE_RELATIVE:               FIXED
+  FDA_RELATIVE:                                 0
+  FEEDBACK_PATH:                                SIMPLE
+  DELAY_ADJUSTMENT_MODE_FEEDBACK:               FIXED
+  FDA_FEEDBACK:                                 0
+  FILTER_RANGE:                                 1
+  EXTERNAL_DIVIDE_FACTOR:                       NONE
+  TEST Mode:                                    0
+
+OSC Summary
+-----------
+
+OSC 1:                                 Pin/Node Value
+  OSC Instance Name:                            HSOSC_inst
+  Power UP:                            NODE     VCC_net
+  Enable Signal:                       NODE     VCC_net
+  OSC Output:                          NODE     CLK
+  DIV Setting:                                  00
+
+
+
+<A name="mrp_asic"></A><B><U><big>ASIC Components</big></U></B>
+---------------
+
+Instance Name: HSOSC_inst
+         Type: HFOSC
+Instance Name: NES_inst/output_i0_i0
+         Type: IOLOGIC
+Instance Name: display_inst/pll_init/lscc_pll_inst/u_PLL_B
+         Type: PLL
+Instance Name: display_inst/pattern_gen_initial/mult_10
+         Type: DSP
+Instance Name: display_inst/pattern_gen_initial/mult_9
+         Type: DSP
 
 
 
 <A name="mrp_runtime"></A><B><U><big>Run Time and Memory Usage</big></U></B>
 -------------------------
 
-   Total CPU Time: 12 secs
-   Total REAL Time: 13 secs
-   Peak Memory Usage: 143 MB
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   Total CPU Time: 5 secs
+   Total REAL Time: 6 secs
+   Peak Memory Usage: 115 MB
 
 
 
@@ -352,6 +474,10 @@ Copyright (c) 2002-2022 Lattice Semiconductor
 <LI><A href=#mrp_di>Design Information</A></LI>
 <LI><A href=#mrp_ds>Design Summary</A></LI>
 <LI><A href=#mrp_dwe>Design Errors/Warnings</A></LI>
+<LI><A href=#mrp_ioa>IO (PIO) Attributes</A></LI>
+<LI><A href=#mrp_rm>Removed logic</A></LI>
+<LI><A href=#mrp_pll>PLL/DLL Summary</A></LI>
+<LI><A href=#mrp_asic>ASIC Components</A></LI>
 <LI><A href=#mrp_runtime>Run Time and Memory Usage</A></LI>
 </UL>
 </DIV>
