@@ -87,7 +87,7 @@ begin
     segments: eight_segments port map(row_cnt, column_cnt, clk, score_rgb);
 
     rgb <= intermed_rgb when (column_cnt > 100 and valid = '1') else 
-    score_rgb when (column_cnt < 100 and valid = '1') else 
+    score_rgb when (column_cnt < 50 and valid = '1') else 
     "000000";
 
 end;
