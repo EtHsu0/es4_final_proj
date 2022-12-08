@@ -71,7 +71,7 @@ begin
 				--rgb <= "001110";
 			else
 				rgb <= 6d"0";
-			end if;
+			end if; 
 			
 
 			-- Fill in apple cell
