@@ -13,7 +13,7 @@ entity display is
         rgb : out unsigned(5 downto 0); -- pins 47, 45, 48, 3, 4, 44
 
         -- Game logic
-        apple: in unsigned(6 downto 0);
+        apple: in unsigned(8 downto 0);
         snake_head: in unsigned(6 downto 0);
         snake: in std_logic_vector(99 downto 0);
         scores: in unsigned(6 downto 0);
@@ -47,7 +47,7 @@ component pattern_gen is
 		valid : in std_logic; -- when valid is 0, all RGB output must be low
 		y_pos : in unsigned(9 downto 0); -- current y position (row) of the pixel that the VGA is drawing
 		x_pos : in unsigned(9 downto 0); -- current x position (column) of the pixel that the VGA is drawing
-		rand_apple : in unsigned(6 downto 0);
+		rand_apple : in unsigned(8 downto 0);
 		snake_location : in std_logic_vector(99 downto 0);
         score : in unsigned(5 downto 0);
 		rgb : out unsigned(5 downto 0);
