@@ -87,8 +87,8 @@ begin
     end process;
 
     apple_x <= (apple_coord mod 4d"10");
-    apple_y_inter <= (apple_coord * 7d"52")
-    apple_y <= apple_y_inter(12 downto 9);
+    --apple_y_inter <= (apple_coord * 7d"52")
+    apple_y <= (apple_coord / 4d"10");--apple_y_inter(12 downto 9);
     apple_id <= '1' & apple_x & apple_y;
 
     snakePos_inst: snakePos port map
