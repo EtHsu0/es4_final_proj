@@ -39,7 +39,7 @@ TYPE DirType is (UP, DOWN, LEFT, RIGHT);
 TYPE DirArray is ARRAY (0 to 99) of DirType;
 
 signal prev_dir: unsigned(1 downto 0) := "11";
-signal snake_dir: DirType;
+signal snake_dir: unsigned(1 downto 0);
 
 
 signal arr_length: integer := 2;
@@ -89,7 +89,8 @@ begin
             end loop;
 
             if prev_dir(1) /= dir_signal(1) then
-                snake_dir = 
+                snake_dir <= dir_signal;
+            end if;
         end if;
     end process;
     snakeCLK <= counter(22);
@@ -122,7 +123,7 @@ begin
                 prev_dir <= snake_dir;
 
                 -- Update snake head coordinate
-                if dir_signal = "00" then
+                if snake_dir = "00" then
                     if snake_head < 10 then
                         snake_dead <= '1';
                     end if;
@@ -131,7 +132,7 @@ begin
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= DOWN;
-                elsif dir_signal = "01" then
+                elsif snake_dir = "01" then
                     if snake_head > 89 then
                         snake_dead <= '1';
                     end if;
@@ -140,7 +141,7 @@ begin
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= UP;
-                elsif dir_signal = "10" then
+                elsif snake_dir = "10" then
                     if snake_head mod 10 = 0 then
                             snake_dead <= '1';
                     end if;
@@ -149,7 +150,7 @@ begin
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= RIGHT;
-                elsif dir_signal = "11" then
+                elsif snake_dir = "11" then
                     if snake_head mod 10 = 9 then
                         snake_dead <= '1';
                     end if;
@@ -157,7 +158,7 @@ begin
                     for i in 0 to 98 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
-                    nake_dir_arr(0) <= LEFT;
+                    snake_dir_arr(0) <= LEFT;
                 end if;
                 
                 /*
