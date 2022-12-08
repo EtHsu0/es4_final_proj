@@ -88,6 +88,9 @@ begin
                 -- B
                 elsif digital_in(6) = '0' then
                     game_state <= "00";
+                -- A
+                elsif digital_in(7) = '0' then
+                    snake_len <= snake_len + 1;
                 else
                     apple_id <= apple_id;
                     --dir <= dir;
