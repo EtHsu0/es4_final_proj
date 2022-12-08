@@ -9,7 +9,7 @@ I/O cells:      16
                          HSOSC_CORE         1          100.0
                                  IB         2          100.0
                               IOL_B         1          100.0
-                               LUT4      1267          100.0
+                               LUT4      1263          100.0
                               MAC16         2          100.0
                                  OB        14          100.0
                               PLL_B         1          100.0
@@ -22,7 +22,7 @@ mypll_ipgen_lscc_pll(DIVR="0",DIVF="66",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_
                         pattern_gen         1
                            snakepos         1
                                 vga         1
-                              TOTAL      1664
+                              TOTAL      1660
 ----------------------------------------------------------------------
 Report for cell board.v1
 Instance Path : board_inst
@@ -30,10 +30,10 @@ Instance Path : board_inst
                                cell     count   Res Usage(%)
                                 FA2        52           38.0
                             FD1P3XZ       181           78.4
-                               LUT4       894           70.6
+                               LUT4       893           70.7
 SUB MODULES
                            snakepos         1
-                              TOTAL      1128
+                              TOTAL      1127
 ----------------------------------------------------------------------
 Report for cell snakepos.v1
 Instance Path : board_inst.snakePos_inst
@@ -41,8 +41,8 @@ Instance Path : board_inst.snakePos_inst
                                cell     count   Res Usage(%)
                                 FA2        48           35.0
                             FD1P3XZ       165           71.4
-                               LUT4       872           68.8
-                              TOTAL      1085
+                               LUT4       870           68.9
+                              TOTAL      1083
 ----------------------------------------------------------------------
 Report for cell NES.v1
 Instance Path : NES_inst
@@ -60,7 +60,7 @@ Instance Path : display_inst
                                cell     count   Res Usage(%)
                                 FA2        74           54.0
                             FD1P3XZ        23           10.0
-                               LUT4       312           24.6
+                               LUT4       310           24.5
                               MAC16         2          100.0
                               PLL_B         1          100.0
 SUB MODULES
@@ -68,7 +68,7 @@ SUB MODULES
 mypll_ipgen_lscc_pll(DIVR="0",DIVF="66",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",FREQUENCY_PIN_REFERENCECLK="12.000000")         1
                         pattern_gen         1
                                 vga         1
-                              TOTAL       416
+                              TOTAL       414
 ----------------------------------------------------------------------
 Report for cell vga.v1
 Instance Path : display_inst.vga_init
@@ -76,8 +76,8 @@ Instance Path : display_inst.vga_init
                                cell     count   Res Usage(%)
                                 FA2        12            8.8
                             FD1P3XZ        23           10.0
-                               LUT4        30            2.4
-                              TOTAL        65
+                               LUT4        35            2.8
+                              TOTAL        70
 ----------------------------------------------------------------------
 Report for cell mypll.v1
 Instance Path : display_inst.pll_init
@@ -100,6 +100,6 @@ Instance Path : display_inst.pattern_gen_initial
                                   Cell usage:
                                cell     count   Res Usage(%)
                                 FA2        62           45.3
-                               LUT4       272           21.5
+                               LUT4       267           21.1
                               MAC16         2          100.0
-                              TOTAL       336
+                              TOTAL       331
