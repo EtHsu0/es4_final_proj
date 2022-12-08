@@ -1,0 +1,5715 @@
+<HTML>
+<HEAD>
+<TITLE>Timing Report</TITLE>
+<link href="file:///C:/lscc/radiant/3.2/data/theme/css/light/report.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="file:///C:/lscc/radiant/3.2/data/theme/css/print/report.css" rel="stylesheet" type="text/css" media="print"/>
+<style type="text/css">
+#toc {
+  position: fixed;
+  right: 2px;
+  top: 2px;
+  padding: 2px 5px 2px 5px;
+  background-color:rgba(210,210,210,0.1);
+  border-style: solid;
+  border-color: rgba(192,192,192,0.8);
+  border-width:1px;
+}
+#toc_list {
+  display: none;
+  }
+tapath {
+  display: none;
+}
+</style>
+
+<script type="text/javascript">
+<!--
+function showTocList() {
+var a = document.getElementById("toc_list");
+a.style.display = "block";
+}
+
+function hideTocList() {
+var a = document.getElementById("toc_list");
+if (a)
+    a.style.display = "none";
+}
+
+//-->
+</script>
+
+</HEAD>
+
+<BODY>
+
+<DIV id="content" class="Child" onclick="hideTocList()"><PRE>
+<A name="timing_rpt_top">Timing Report</A><B><U><big></big></U></B>
+Lattice Timing Report -  Setup  and Hold, Version Radiant Software (64-bit) 3.0.0.24.1
+
+Wed Dec  7 18:19:00 2022
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2021 Lattice Semiconductor Corporation,  All rights reserved.
+
+Command line:    timing -sethld -sp High-Performance_1.2V -hsp m -v 10 -u 10 -endpoints 10 -nperend 1 -html -rpt es4finalproj_impl_1.tw1 es4finalproj_impl_1_map.udb -gui
+
+-----------------------------------------
+Design:          top
+Family:          iCE40UP
+Device:          iCE40UP5K
+Package:         SG48
+Performance:     High-Performance_1.2V
+Package Status:                     Preliminary    Version 1.5
+*Performance Hardware Data Status :   Advanced Version 1.0
+-----------------------------------------
+
+
+=====================================================================
+                    Table of Contents
+=====================================================================
+<LI>    <A href=#Timing_rpt_DesignChecking>1  DESIGN CHECKING</A></LI>
+<LI>        <A href=#Timing_rpt_SDCConstraints>1.1  SDC Constraints</A></LI>
+<LI>        <A href=#Timing_rpt_CombinationalLoop>1.2  Combinational Loop</A></LI>
+<LI>    <A href=#Timing_rpt_ClockSummary>2  CLOCK SUMMARY</A></LI>
+<LI>        <A href=#Timing_rpt_Clk_1>2.1  Clock display_inst/clk</A></LI>
+<LI>        <A href=#Timing_rpt_Clk_2>2.2  Clock pll_outcore_o_c</A></LI>
+<LI>        <A href=#Timing_rpt_Clk_3>2.3  Clock CLK</A></LI>
+<LI>    <A href=#Timing_rpt_AnalysisSummary>3  TIMING ANALYSIS SUMMARY</A></LI>
+<LI>        <A href=#Timing_rpt_Overall>3.1  Overall (Setup and Hold)</A></LI>
+<LI>            <A href=#Timing_rpt_ConstraintCoverage>3.1.1  Constraint Coverage</A></LI>
+<LI>            <A href=#Timing_rpt_Errors>3.1.2  Timing Errors</A></LI>
+<LI>            <A href=#Timing_rpt_TotalScore>3.1.3  Total Timing Score</A></LI>
+<LI>        <A href=#Timing_rpt_SetupSummary>3.2  Setup Summary Report</A></LI>
+<LI>        <A href=#Timing_rpt_HoldSummary>3.3  Hold Summary Report</A></LI>
+<LI>        <A href=#Timing_rpt_UnconstrainedReport>3.4  Unconstrained Report</A></LI>
+<LI>            <A href=#Timing_rpt_UnconstrainedEndpoints>3.4.1  Unconstrained Start/End Points</A></LI>
+<LI>            <A href=#Timing_rpt_StartEndPointsWithoutTimingConstraints>3.4.2  Start/End Points Without Timing Constraints</A></LI>
+<LI>    <A href=#Timing_rpt_DetailedReport>4  DETAILED REPORT</A></LI>
+<LI>        <A href=#Timing_rpt_SetupDetailedReport>4.1  Setup Detailed Report</A></LI>
+<LI>        <A href=#Timing_rpt_HoldDetailedReport>4.2  Hold Detailed Report</A></LI>
+
+=====================================================================
+                    End of Table of Contents
+=====================================================================
+
+
+<A name="Timing_rpt_DesignChecking"></A><B><U><big>1  DESIGN CHECKING</big></U></B>
+
+<A name="Timing_rpt_SDCConstraints"></A><B><U><big>1.1  SDC Constraints</big></U></B>
+
+create_clock -name {CLK} -period 20.8333 [get_pins {HSOSC_inst/CLKHF }] 
+[IGNORED:]create_generated_clock -name {pll_outcore_o_c} -source [get_pins display_inst.pll_init.lscc_pll_inst.u_PLL_B/REFERENCECLK] -divide_by 32 -multiply_by 67 [get_pins display_inst.pll_init.lscc_pll_inst.u_PLL_B/OUTCORE]
+[IGNORED:]create_generated_clock -name {display_inst/clk} -source [get_pins display_inst.pll_init.lscc_pll_inst.u_PLL_B/REFERENCECLK] -divide_by 32 -multiply_by 67 [get_pins display_inst.pll_init.lscc_pll_inst.u_PLL_B/OUTGLOBAL]
+
+Operating conditions:
+--------------------
+    Temperature: 85C
+    Core voltage: 1.14 V
+
+<A name="Timing_rpt_CombinationalLoop"></A><B><U><big>1.2  Combinational Loop</big></U></B>
+
+Combinational Loops
+-------------------
+++++ Loop1
+NES_inst/digital_7__I_0_i2_3_lut/A	->	NES_inst/digital_7__I_0_i2_3_lut/Z
+
+++++ Loop2
+NES_inst/digital_7__I_0_i5_3_lut/A	->	NES_inst/digital_7__I_0_i5_3_lut/Z
+
+++++ Loop3
+NES_inst/digital_7__I_0_i1_3_lut/A	->	NES_inst/digital_7__I_0_i1_3_lut/Z
+
+++++ Loop4
+NES_inst/digital_7__I_0_i3_3_lut/A	->	NES_inst/digital_7__I_0_i3_3_lut/Z
+
+++++ Loop5
+NES_inst/digital_7__I_0_i4_3_lut/A	->	NES_inst/digital_7__I_0_i4_3_lut/Z
+
+++++ Loop6
+NES_inst/digital_7__I_0_i7_3_lut/A	->	NES_inst/digital_7__I_0_i7_3_lut/Z
+
+
+<A name="Timing_rpt_ClockSummary"></A><B><U><big>2  CLOCK SUMMARY</big></U></B>
+
+<A name="Timing_rpt_Clk_1"></A><B><U><big>2.1 Clock "display_inst/clk"</big></U></B>
+
+create_generated_clock -name {display_inst/clk} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTGLOBAL }] 
+
+Single Clock Domain
+-------------------------------------------------------------------------------------------------------
+         Clock display_inst/clk         |                    |       Period       |     Frequency      
+-------------------------------------------------------------------------------------------------------
+ From display_inst/clk                  |             Target |               +INF |          0.000 MHz 
+                                        | Actual (all paths) |               ---- |               ---- 
+-------------------------------------------------------------------------------------------------------
+
+Clock Domain Crossing
+------------------------------------------------------------------------------------------------------
+         Clock display_inst/clk         |   Worst Time Between Edges   |           Comment            
+------------------------------------------------------------------------------------------------------
+ From pll_outcore_o_c                   |                         ---- |                      No path 
+ From CLK                               |                         ---- |                      No path 
+------------------------------------------------------------------------------------------------------
+<A name="Timing_rpt_Clk_2"></A><B><U><big>2.2 Clock "pll_outcore_o_c"</big></U></B>
+
+create_generated_clock -name {pll_outcore_o_c} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTCORE }] 
+
+Single Clock Domain
+-------------------------------------------------------------------------------------------------------
+         Clock pll_outcore_o_c          |                    |       Period       |     Frequency      
+-------------------------------------------------------------------------------------------------------
+ From pll_outcore_o_c                   |             Target |               +INF |          0.000 MHz 
+                                        | Actual (all paths) |               ---- |               ---- 
+-------------------------------------------------------------------------------------------------------
+
+Clock Domain Crossing
+------------------------------------------------------------------------------------------------------
+         Clock pll_outcore_o_c          |   Worst Time Between Edges   |           Comment            
+------------------------------------------------------------------------------------------------------
+ From display_inst/clk                  |                         ---- |                      No path 
+ From CLK                               |                         ---- |                      No path 
+------------------------------------------------------------------------------------------------------
+<A name="Timing_rpt_Clk_3"></A><B><U><big>2.3 Clock "CLK"</big></U></B>
+
+create_clock -name {CLK} -period 20.8333 [get_pins {HSOSC_inst/CLKHF }] 
+
+Single Clock Domain
+-------------------------------------------------------------------------------------------------------
+               Clock CLK                |                    |       Period       |     Frequency      
+-------------------------------------------------------------------------------------------------------
+ From CLK                               |             Target |          20.833 ns |         48.000 MHz 
+                                        | Actual (all paths) |          20.830 ns |         48.008 MHz 
+HSOSC_inst/CLKHF (MPW)                  |   (50% duty cycle) |          20.830 ns |         48.008 MHz 
+-------------------------------------------------------------------------------------------------------
+
+Clock Domain Crossing
+------------------------------------------------------------------------------------------------------
+               Clock CLK                |   Worst Time Between Edges   |           Comment            
+------------------------------------------------------------------------------------------------------
+ From display_inst/clk                  |                         ---- |                      No path 
+ From pll_outcore_o_c                   |                         ---- |                      No path 
+------------------------------------------------------------------------------------------------------
+
+
+<A name="Timing_rpt_AnalysisSummary"></A><B><U><big>3  TIMING ANALYSIS SUMMARY</big></U></B>
+
+<A name="Timing_rpt_Overall"></A><B><U><big>3.1  Overall (Setup and Hold)</big></U></B>
+
+<A name="Timing_rpt_ConstraintCoverage"></A><B><U><big>3.1.1  Constraint Coverage</big></U></B>
+
+Constraint Coverage: 8.04207%
+
+<A name="Timing_rpt_Errors"></A><B><U><big>3.1.2  Timing Errors</big></U></B>
+
+Timing Errors: 0 endpoints (setup), 0 endpoints (hold)
+
+<A name="Timing_rpt_TotalScore"></A><B><U><big>3.1.3  Total Timing Score</big></U></B>
+
+Total Negative Slack: 0.000 ns (setup), 0.000 ns (hold)
+
+<A name="Timing_rpt_SetupSummary"></A><B><U><big>3.2  Setup Summary Report</big></U></B>
+
+-------------------------------------------------------
+          Listing 10 End Points          |    Slack    
+-------------------------------------------------------
+board_inst/apple_id_i0/SP                |    1.856 ns 
+board_inst/apple_id_i4/SP                |    1.856 ns 
+board_inst/snakePos_inst/dir_signal__i1/D|    3.931 ns 
+board_inst/apple_id_i8/D                 |    3.931 ns 
+board_inst/apple_id_i6/D                 |    3.931 ns 
+board_inst/apple_id_i5/D                 |    3.931 ns 
+board_inst/apple_id_i2/D                 |    3.931 ns 
+board_inst/game_State_i0/D               |    3.931 ns 
+board_inst/snakePos_inst/dir_signal__i0/SR              
+                                         |    4.104 ns 
+board_inst/game_State_i0/SR              |    4.104 ns 
+-------------------------------------------------------
+                                         |             
+Setup # of endpoints with negative slack:|           0 
+                                         |             
+-------------------------------------------------------
+
+<A name="Timing_rpt_HoldSummary"></A><B><U><big>3.3  Hold Summary Report</big></U></B>
+
+-------------------------------------------------------
+          Listing 10 End Points          |    Slack    
+-------------------------------------------------------
+board_inst/snakePos_inst/counter_14661_14787__i14/D              
+                                         |    3.092 ns 
+board_inst/snakePos_inst/counter_14661_14787__i15/D              
+                                         |    3.092 ns 
+board_inst/snakePos_inst/counter_14661_14787__i16/D              
+                                         |    3.092 ns 
+board_inst/snakePos_inst/counter_14661_14787__i17/D              
+                                         |    3.092 ns 
+board_inst/snakePos_inst/counter_14661_14787__i18/D              
+                                         |    3.092 ns 
+board_inst/snakePos_inst/counter_14661_14787__i19/D              
+                                         |    3.092 ns 
+board_inst/snakePos_inst/counter_14661_14787__i20/D              
+                                         |    3.092 ns 
+board_inst/snakePos_inst/counter_14661_14787__i21/D              
+                                         |    3.092 ns 
+board_inst/snakePos_inst/counter_14661_14787__i22/D              
+                                         |    3.092 ns 
+board_inst/snakePos_inst/counter_14661_14787__i23/D              
+                                         |    3.092 ns 
+-------------------------------------------------------
+                                         |             
+Hold # of endpoints with negative slack: |           0 
+                                         |             
+-------------------------------------------------------
+
+<A name="Timing_rpt_UnconstrainedReport"></A><B><U><big>3.4  Unconstrained Report</big></U></B>
+
+<A name="Timing_rpt_UnconstrainedEndpoints"></A><B><U><big>3.4.1  Unconstrained Start/End Points</big></U></B>
+
+Clocked but unconstrained timing start points
+-------------------------------------------------------------------
+        Listing 10 Start Points         |           Type           
+-------------------------------------------------------------------
+board_inst/apple_id_i4/Q                |          No required time
+board_inst/snakePos_inst/dir_signal__i0/Q                           
+                                        |          No required time
+board_inst/snakePos_inst/snake_arr_i99/Q|          No required time
+board_inst/snakePos_inst/snake_arr_i98/Q|          No required time
+board_inst/snakePos_inst/snake_arr_i97/Q|          No required time
+board_inst/snakePos_inst/snake_arr_i96/Q|          No required time
+board_inst/snakePos_inst/snake_arr_i95/Q|          No required time
+board_inst/snakePos_inst/snake_arr_i94/Q|          No required time
+board_inst/snakePos_inst/snake_arr_i93/Q|          No required time
+board_inst/snakePos_inst/snake_arr_i92/Q|          No required time
+-------------------------------------------------------------------
+                                        |                          
+Number of unconstrained timing start po |                          
+ints                                    |                       103
+                                        |                          
+-------------------------------------------------------------------
+
+Clocked but unconstrained timing end points
+-------------------------------------------------------------------
+         Listing 10 End Points          |           Type           
+-------------------------------------------------------------------
+display_inst/vga_init/x_pos_14663__i9/D |    No arrival or required
+display_inst/vga_init/x_pos_14663__i9/SR|    No arrival or required
+display_inst/vga_init/x_pos_14663__i8/D |    No arrival or required
+display_inst/vga_init/x_pos_14663__i7/D |    No arrival or required
+{display_inst/vga_init/x_pos_14663__i7/SR   display_inst/vga_init/x_pos_14663__i8/SR}                           
+                                        |    No arrival or required
+display_inst/vga_init/x_pos_14663__i6/D |    No arrival or required
+display_inst/vga_init/x_pos_14663__i5/D |    No arrival or required
+{display_inst/vga_init/x_pos_14663__i5/SR   display_inst/vga_init/x_pos_14663__i6/SR}                           
+                                        |    No arrival or required
+display_inst/vga_init/x_pos_14663__i4/D |    No arrival or required
+display_inst/vga_init/x_pos_14663__i3/D |    No arrival or required
+-------------------------------------------------------------------
+                                        |                          
+Number of unconstrained timing end poin |                          
+ts                                      |                       143
+                                        |                          
+-------------------------------------------------------------------
+
+<A name="Timing_rpt_StartEndPointsWithoutTimingConstraints"></A><B><U><big>3.4.2  Start/End Points Without Timing Constraints</big></U></B>
+
+I/O ports without constraint
+----------------------------
+Possible constraints to use on I/O ports are:
+set_input_delay,
+set_output_delay,
+set_max_delay,
+create_clock,
+create_generated_clock,
+...
+
+-------------------------------------------------------------------
+     Listing 10 Start or End Points     |           Type           
+-------------------------------------------------------------------
+pll_in_clock                            |                     input
+data                                    |                     input
+VSYNC                                   |                    output
+HSYNC                                   |                    output
+continCLK                               |                    output
+latch                                   |                    output
+rgb[0]                                  |                    output
+rgb[1]                                  |                    output
+rgb[2]                                  |                    output
+rgb[3]                                  |                    output
+-------------------------------------------------------------------
+                                        |                          
+Number of I/O ports without constraint  |                        12
+                                        |                          
+-------------------------------------------------------------------
+
+Registers without clock definition
+Define the clock for these registers.
+-------------------------------------------------------------------
+         Listing 10 Instance(s)         |           Type           
+-------------------------------------------------------------------
+board_inst/snakePos_inst/snake_head_i0  |                  No Clock
+board_inst/snakePos_inst/snake_head_i4  |                  No Clock
+board_inst/snakePos_inst/snake_head_i5  |                  No Clock
+board_inst/snakePos_inst/snake_head_i1  |                  No Clock
+board_inst/snakePos_inst/snake_head_i6  |                  No Clock
+board_inst/snakePos_inst/snake_head_i3  |                  No Clock
+board_inst/snakePos_inst/dir_arr[0]_i0  |                  No Clock
+board_inst/snakePos_inst/snake_head_i2  |                  No Clock
+board_inst/snakePos_inst/dir_arr[1]_i1  |                  No Clock
+board_inst/snakePos_inst/dir_arr[0]_i1  |                  No Clock
+-------------------------------------------------------------------
+                                        |                          
+Number of registers without clock defin |                          
+ition                                   |                        55
+                                        |                          
+-------------------------------------------------------------------
+
+<A name="Timing_rpt_DetailedReport"></A><B><U><big>4  DETAILED REPORT</big></U></B>
+<A name="Timing_rpt_SetupDetailedReport"></A><B><U><big>4.1  Setup Detailed Report</big></U></B>
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Detail report of critical paths
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+                    Detailed Report for timing paths 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : NES_inst/count_14660_14796__i19/Q  (SLICE)
+Path End         : board_inst/apple_id_i0/SP  (SLICE)
+Source Clock     : CLK (R)
+Destination Clock: CLK (R)
+Logic Level      : 7
+Delay Ratio      : 77.4% (route), 22.6% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 1.856 ns  (Passed)
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"NES_inst/count_14660_14796__i18/CK",
+        "phy_name":"NES_inst.SLICE_119/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  133     
+NES_inst/CLK                                              NET DELAY      6.225         6.225  133     
+
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"NES_inst/count_14660_14796__i19/Q",
+        "phy_name":"NES_inst.SLICE_119/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/apple_id_i0/SP",
+        "phy_name":"board_inst.SLICE_240/CE"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/count_14660_14796__i19/CK",
+            "phy_name":"NES_inst.SLICE_119/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/count_14660_14796__i19/Q",
+            "phy_name":"NES_inst.SLICE_119/Q1"
+        },
+        "arrive":7.616,
+        "delay":1.391
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/NEScount[10]",
+            "phy_name":"NES_inst.NEScount[10]"
+        },
+        "arrive":9.691,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i146838_2_lut_4_lut/C",
+            "phy_name":"NES_inst.SLICE_620/C0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i146838_2_lut_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_620/F0"
+        },
+        "arrive":10.168,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n160897",
+            "phy_name":"NES_inst.n160897"
+        },
+        "arrive":12.243,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i3_4_lut/D",
+            "phy_name":"NES_inst.SLICE_621/D0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i3_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_621/F0"
+        },
+        "arrive":12.720,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n92792",
+            "phy_name":"NES_inst.n92792"
+        },
+        "arrive":14.795,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i2_3_lut_4_lut/D",
+            "phy_name":"NES_inst.SLICE_616/D0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i2_3_lut_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_616/F0"
+        },
+        "arrive":15.272,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n153985",
+            "phy_name":"NES_inst.n153985"
+        },
+        "arrive":17.347,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/digital_7__I_0_i4_3_lut/C",
+            "phy_name":"NES_inst.SLICE_265/C0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/digital_7__I_0_i4_3_lut/Z",
+            "phy_name":"NES_inst.SLICE_265/F0"
+        },
+        "arrive":17.824,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/digital[3]",
+            "phy_name":"digital[3]"
+        },
+        "arrive":19.899,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/i1_3_lut_4_lut/A",
+            "phy_name":"board_inst.SLICE_256/A0"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/i1_3_lut_4_lut/Z",
+            "phy_name":"board_inst.SLICE_256/F0"
+        },
+        "arrive":20.376,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/n81732",
+            "phy_name":"n81732"
+        },
+        "arrive":22.451,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/i170362_2_lut/A",
+            "phy_name":"board_inst.SLICE_691/A0"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/i170362_2_lut/Z",
+            "phy_name":"board_inst.SLICE_691/F0"
+        },
+        "arrive":22.928,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/n117044",
+            "phy_name":"board_inst.n117044"
+        },
+        "arrive":25.003,
+        "delay":2.075
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+NES_inst/count_14660_14796__i19/CK->NES_inst/count_14660_14796__i19/Q
+                                          SLICE           CLK_TO_Q1_DELAY  1.391         7.616  3       
+NES_inst/NEScount[10]                                     NET DELAY        2.075         9.691  3       
+NES_inst/i146838_2_lut_4_lut/C->NES_inst/i146838_2_lut_4_lut/Z
+                                          SLICE           C0_TO_F0_DELAY   0.477        10.168  1       
+NES_inst/n160897                                          NET DELAY        2.075        12.243  1       
+NES_inst/i3_4_lut/D->NES_inst/i3_4_lut/Z  SLICE           D0_TO_F0_DELAY   0.477        12.720  2       
+NES_inst/n92792                                           NET DELAY        2.075        14.795  2       
+NES_inst/i2_3_lut_4_lut/D->NES_inst/i2_3_lut_4_lut/Z
+                                          SLICE           D0_TO_F0_DELAY   0.477        15.272  6       
+NES_inst/n153985                                          NET DELAY        2.075        17.347  6       
+NES_inst/digital_7__I_0_i4_3_lut/C->NES_inst/digital_7__I_0_i4_3_lut/Z
+                                          SLICE           C0_TO_F0_DELAY   0.477        17.824  7       
+NES_inst/digital[3]                                       NET DELAY        2.075        19.899  7       
+board_inst/i1_3_lut_4_lut/A->board_inst/i1_3_lut_4_lut/Z
+                                          SLICE           A0_TO_F0_DELAY   0.477        20.376  3       
+board_inst/n81732                                         NET DELAY        2.075        22.451  3       
+board_inst/i170362_2_lut/A->board_inst/i170362_2_lut/Z
+                                          SLICE           A0_TO_F0_DELAY   0.477        22.928  2       
+board_inst/n117044 ( CE )                                 NET DELAY        2.075        25.003  2       
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/apple_id_i0/CK",
+        "phy_name":"board_inst.SLICE_240/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":20.833,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":27.058,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+                                                          CONSTRAINT     0.000        20.833  1       
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000        20.833  133     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225        27.058  133     
+                                                          Uncertainty    0.000        27.058  
+                                                          Setup time     0.199        26.859  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         26.859  
+Arrival Time                                                                         -25.002  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   1.856  
+
+
+
+
+++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : NES_inst/count_14660_14796__i19/Q  (SLICE)
+Path End         : board_inst/apple_id_i4/SP  (SLICE)
+Source Clock     : CLK (R)
+Destination Clock: CLK (R)
+Logic Level      : 7
+Delay Ratio      : 77.4% (route), 22.6% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 1.856 ns  (Passed)
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"NES_inst/count_14660_14796__i18/CK",
+        "phy_name":"NES_inst.SLICE_119/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  133     
+NES_inst/CLK                                              NET DELAY      6.225         6.225  133     
+
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"NES_inst/count_14660_14796__i19/Q",
+        "phy_name":"NES_inst.SLICE_119/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/apple_id_i4/SP",
+        "phy_name":"board_inst.SLICE_120/CE"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/count_14660_14796__i19/CK",
+            "phy_name":"NES_inst.SLICE_119/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/count_14660_14796__i19/Q",
+            "phy_name":"NES_inst.SLICE_119/Q1"
+        },
+        "arrive":7.616,
+        "delay":1.391
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/NEScount[10]",
+            "phy_name":"NES_inst.NEScount[10]"
+        },
+        "arrive":9.691,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i146838_2_lut_4_lut/C",
+            "phy_name":"NES_inst.SLICE_620/C0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i146838_2_lut_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_620/F0"
+        },
+        "arrive":10.168,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n160897",
+            "phy_name":"NES_inst.n160897"
+        },
+        "arrive":12.243,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i3_4_lut/D",
+            "phy_name":"NES_inst.SLICE_621/D0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i3_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_621/F0"
+        },
+        "arrive":12.720,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n92792",
+            "phy_name":"NES_inst.n92792"
+        },
+        "arrive":14.795,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i2_3_lut_4_lut/D",
+            "phy_name":"NES_inst.SLICE_616/D0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i2_3_lut_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_616/F0"
+        },
+        "arrive":15.272,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n153985",
+            "phy_name":"NES_inst.n153985"
+        },
+        "arrive":17.347,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/digital_7__I_0_i4_3_lut/C",
+            "phy_name":"NES_inst.SLICE_265/C0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/digital_7__I_0_i4_3_lut/Z",
+            "phy_name":"NES_inst.SLICE_265/F0"
+        },
+        "arrive":17.824,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/digital[3]",
+            "phy_name":"digital[3]"
+        },
+        "arrive":19.899,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/i1_3_lut_4_lut/A",
+            "phy_name":"board_inst.SLICE_256/A0"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/i1_3_lut_4_lut/Z",
+            "phy_name":"board_inst.SLICE_256/F0"
+        },
+        "arrive":20.376,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/n81732",
+            "phy_name":"n81732"
+        },
+        "arrive":22.451,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/i170362_2_lut/A",
+            "phy_name":"board_inst.SLICE_691/A0"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/i170362_2_lut/Z",
+            "phy_name":"board_inst.SLICE_691/F0"
+        },
+        "arrive":22.928,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/n117044",
+            "phy_name":"board_inst.n117044"
+        },
+        "arrive":25.003,
+        "delay":2.075
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+NES_inst/count_14660_14796__i19/CK->NES_inst/count_14660_14796__i19/Q
+                                          SLICE           CLK_TO_Q1_DELAY  1.391         7.616  3       
+NES_inst/NEScount[10]                                     NET DELAY        2.075         9.691  3       
+NES_inst/i146838_2_lut_4_lut/C->NES_inst/i146838_2_lut_4_lut/Z
+                                          SLICE           C0_TO_F0_DELAY   0.477        10.168  1       
+NES_inst/n160897                                          NET DELAY        2.075        12.243  1       
+NES_inst/i3_4_lut/D->NES_inst/i3_4_lut/Z  SLICE           D0_TO_F0_DELAY   0.477        12.720  2       
+NES_inst/n92792                                           NET DELAY        2.075        14.795  2       
+NES_inst/i2_3_lut_4_lut/D->NES_inst/i2_3_lut_4_lut/Z
+                                          SLICE           D0_TO_F0_DELAY   0.477        15.272  6       
+NES_inst/n153985                                          NET DELAY        2.075        17.347  6       
+NES_inst/digital_7__I_0_i4_3_lut/C->NES_inst/digital_7__I_0_i4_3_lut/Z
+                                          SLICE           C0_TO_F0_DELAY   0.477        17.824  7       
+NES_inst/digital[3]                                       NET DELAY        2.075        19.899  7       
+board_inst/i1_3_lut_4_lut/A->board_inst/i1_3_lut_4_lut/Z
+                                          SLICE           A0_TO_F0_DELAY   0.477        20.376  3       
+board_inst/n81732                                         NET DELAY        2.075        22.451  3       
+board_inst/i170362_2_lut/A->board_inst/i170362_2_lut/Z
+                                          SLICE           A0_TO_F0_DELAY   0.477        22.928  2       
+board_inst/n117044 ( CE )                                 NET DELAY        2.075        25.003  2       
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/apple_id_i4/CK",
+        "phy_name":"board_inst.SLICE_120/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":20.833,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":27.058,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+                                                          CONSTRAINT     0.000        20.833  1       
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000        20.833  133     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225        27.058  133     
+                                                          Uncertainty    0.000        27.058  
+                                                          Setup time     0.199        26.859  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         26.859  
+Arrival Time                                                                         -25.002  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   1.856  
+
+
+
+
+++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : NES_inst/count_14660_14796__i19/Q  (SLICE)
+Path End         : board_inst/snakePos_inst/dir_signal__i1/D  (SLICE)
+Source Clock     : CLK (R)
+Destination Clock: CLK (R)
+Logic Level      : 7
+Delay Ratio      : 74.5% (route), 25.5% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 3.931 ns  (Passed)
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"NES_inst/count_14660_14796__i18/CK",
+        "phy_name":"NES_inst.SLICE_119/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  133     
+NES_inst/CLK                                              NET DELAY      6.225         6.225  133     
+
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"NES_inst/count_14660_14796__i19/Q",
+        "phy_name":"NES_inst.SLICE_119/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/dir_signal__i1/D",
+        "phy_name":"SLICE_139/DI0"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/count_14660_14796__i19/CK",
+            "phy_name":"NES_inst.SLICE_119/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/count_14660_14796__i19/Q",
+            "phy_name":"NES_inst.SLICE_119/Q1"
+        },
+        "arrive":7.616,
+        "delay":1.391
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/NEScount[10]",
+            "phy_name":"NES_inst.NEScount[10]"
+        },
+        "arrive":9.691,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i146838_2_lut_4_lut/C",
+            "phy_name":"NES_inst.SLICE_620/C0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i146838_2_lut_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_620/F0"
+        },
+        "arrive":10.168,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n160897",
+            "phy_name":"NES_inst.n160897"
+        },
+        "arrive":12.243,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i3_4_lut/D",
+            "phy_name":"NES_inst.SLICE_621/D0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i3_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_621/F0"
+        },
+        "arrive":12.720,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n92792",
+            "phy_name":"NES_inst.n92792"
+        },
+        "arrive":14.795,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i2_3_lut_4_lut/D",
+            "phy_name":"NES_inst.SLICE_616/D0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i2_3_lut_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_616/F0"
+        },
+        "arrive":15.272,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n153985",
+            "phy_name":"NES_inst.n153985"
+        },
+        "arrive":17.347,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/digital_7__I_0_i1_3_lut/C",
+            "phy_name":"NES_inst.SLICE_261/C0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/digital_7__I_0_i1_3_lut/Z",
+            "phy_name":"NES_inst.SLICE_261/F0"
+        },
+        "arrive":17.824,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/digital[0]",
+            "phy_name":"digital[0]"
+        },
+        "arrive":19.899,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/i1_2_lut_adj_10245/B",
+            "phy_name":"board_inst.SLICE_260/B0"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/i1_2_lut_adj_10245/Z",
+            "phy_name":"board_inst.SLICE_260/F0"
+        },
+        "arrive":20.376,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n4",
+            "phy_name":"n4"
+        },
+        "arrive":22.451,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"i1_3_lut_4_lut/D",
+            "phy_name":"SLICE_139/D0"
+        },
+        "pin1":
+        {
+            "log_name":"i1_3_lut_4_lut/Z",
+            "phy_name":"SLICE_139/F0"
+        },
+        "arrive":22.928,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n158008",
+            "phy_name":"n158008"
+        },
+        "arrive":22.928,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+NES_inst/count_14660_14796__i19/CK->NES_inst/count_14660_14796__i19/Q
+                                          SLICE           CLK_TO_Q1_DELAY  1.391         7.616  3       
+NES_inst/NEScount[10]                                     NET DELAY        2.075         9.691  3       
+NES_inst/i146838_2_lut_4_lut/C->NES_inst/i146838_2_lut_4_lut/Z
+                                          SLICE           C0_TO_F0_DELAY   0.477        10.168  1       
+NES_inst/n160897                                          NET DELAY        2.075        12.243  1       
+NES_inst/i3_4_lut/D->NES_inst/i3_4_lut/Z  SLICE           D0_TO_F0_DELAY   0.477        12.720  2       
+NES_inst/n92792                                           NET DELAY        2.075        14.795  2       
+NES_inst/i2_3_lut_4_lut/D->NES_inst/i2_3_lut_4_lut/Z
+                                          SLICE           D0_TO_F0_DELAY   0.477        15.272  6       
+NES_inst/n153985                                          NET DELAY        2.075        17.347  6       
+NES_inst/digital_7__I_0_i1_3_lut/C->NES_inst/digital_7__I_0_i1_3_lut/Z
+                                          SLICE           C0_TO_F0_DELAY   0.477        17.824  6       
+NES_inst/digital[0]                                       NET DELAY        2.075        19.899  6       
+board_inst/i1_2_lut_adj_10245/B->board_inst/i1_2_lut_adj_10245/Z
+                                          SLICE           B0_TO_F0_DELAY   0.477        20.376  4       
+board_inst/snakePos_inst/n4                               NET DELAY        2.075        22.451  4       
+i1_3_lut_4_lut/D->i1_3_lut_4_lut/Z        SLICE           D0_TO_F0_DELAY   0.477        22.928  1       
+board_inst/snakePos_inst/n158008 ( DI0 )                  NET DELAY        0.000        22.928  1       
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/dir_signal__i1/CK",
+        "phy_name":"SLICE_139/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":20.833,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":27.058,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+                                                          CONSTRAINT     0.000        20.833  1       
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000        20.833  133     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225        27.058  133     
+                                                          Uncertainty    0.000        27.058  
+                                                          Setup time     0.199        26.859  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         26.859  
+Arrival Time                                                                         -22.927  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   3.931  
+
+
+
+
+++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : NES_inst/count_14660_14796__i19/Q  (SLICE)
+Path End         : board_inst/apple_id_i8/D  (SLICE)
+Source Clock     : CLK (R)
+Destination Clock: CLK (R)
+Logic Level      : 7
+Delay Ratio      : 74.5% (route), 25.5% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 3.931 ns  (Passed)
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"NES_inst/count_14660_14796__i18/CK",
+        "phy_name":"NES_inst.SLICE_119/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  133     
+NES_inst/CLK                                              NET DELAY      6.225         6.225  133     
+
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"NES_inst/count_14660_14796__i19/Q",
+        "phy_name":"NES_inst.SLICE_119/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/apple_id_i8/D",
+        "phy_name":"board_inst.SLICE_125/DI0"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/count_14660_14796__i19/CK",
+            "phy_name":"NES_inst.SLICE_119/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/count_14660_14796__i19/Q",
+            "phy_name":"NES_inst.SLICE_119/Q1"
+        },
+        "arrive":7.616,
+        "delay":1.391
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/NEScount[10]",
+            "phy_name":"NES_inst.NEScount[10]"
+        },
+        "arrive":9.691,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i146838_2_lut_4_lut/C",
+            "phy_name":"NES_inst.SLICE_620/C0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i146838_2_lut_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_620/F0"
+        },
+        "arrive":10.168,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n160897",
+            "phy_name":"NES_inst.n160897"
+        },
+        "arrive":12.243,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i3_4_lut/D",
+            "phy_name":"NES_inst.SLICE_621/D0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i3_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_621/F0"
+        },
+        "arrive":12.720,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n92792",
+            "phy_name":"NES_inst.n92792"
+        },
+        "arrive":14.795,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i2_3_lut_4_lut/D",
+            "phy_name":"NES_inst.SLICE_616/D0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i2_3_lut_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_616/F0"
+        },
+        "arrive":15.272,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n153985",
+            "phy_name":"NES_inst.n153985"
+        },
+        "arrive":17.347,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/digital_7__I_0_i4_3_lut/C",
+            "phy_name":"NES_inst.SLICE_265/C0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/digital_7__I_0_i4_3_lut/Z",
+            "phy_name":"NES_inst.SLICE_265/F0"
+        },
+        "arrive":17.824,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/digital[3]",
+            "phy_name":"digital[3]"
+        },
+        "arrive":19.899,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"i1_2_lut/B",
+            "phy_name":"SLICE_779/B0"
+        },
+        "pin1":
+        {
+            "log_name":"i1_2_lut/Z",
+            "phy_name":"SLICE_779/F0"
+        },
+        "arrive":20.376,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n158007",
+            "phy_name":"n158007"
+        },
+        "arrive":22.451,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/snakePos_inst/i170373_2_lut_4_lut/A",
+            "phy_name":"board_inst.SLICE_125/A0"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/snakePos_inst/i170373_2_lut_4_lut/Z",
+            "phy_name":"board_inst.SLICE_125/F0"
+        },
+        "arrive":22.928,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n157949",
+            "phy_name":"board_inst.n157949"
+        },
+        "arrive":22.928,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+NES_inst/count_14660_14796__i19/CK->NES_inst/count_14660_14796__i19/Q
+                                          SLICE           CLK_TO_Q1_DELAY  1.391         7.616  3       
+NES_inst/NEScount[10]                                     NET DELAY        2.075         9.691  3       
+NES_inst/i146838_2_lut_4_lut/C->NES_inst/i146838_2_lut_4_lut/Z
+                                          SLICE           C0_TO_F0_DELAY   0.477        10.168  1       
+NES_inst/n160897                                          NET DELAY        2.075        12.243  1       
+NES_inst/i3_4_lut/D->NES_inst/i3_4_lut/Z  SLICE           D0_TO_F0_DELAY   0.477        12.720  2       
+NES_inst/n92792                                           NET DELAY        2.075        14.795  2       
+NES_inst/i2_3_lut_4_lut/D->NES_inst/i2_3_lut_4_lut/Z
+                                          SLICE           D0_TO_F0_DELAY   0.477        15.272  6       
+NES_inst/n153985                                          NET DELAY        2.075        17.347  6       
+NES_inst/digital_7__I_0_i4_3_lut/C->NES_inst/digital_7__I_0_i4_3_lut/Z
+                                          SLICE           C0_TO_F0_DELAY   0.477        17.824  7       
+NES_inst/digital[3]                                       NET DELAY        2.075        19.899  7       
+i1_2_lut/B->i1_2_lut/Z                    SLICE           B0_TO_F0_DELAY   0.477        20.376  3       
+board_inst/snakePos_inst/n158007                          NET DELAY        2.075        22.451  3       
+board_inst/snakePos_inst/i170373_2_lut_4_lut/A->board_inst/snakePos_inst/i170373_2_lut_4_lut/Z
+                                          SLICE           A0_TO_F0_DELAY   0.477        22.928  1       
+board_inst/snakePos_inst/n157949 ( DI0 )                  NET DELAY        0.000        22.928  1       
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/apple_id_i8/CK",
+        "phy_name":"board_inst.SLICE_125/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":20.833,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":27.058,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+                                                          CONSTRAINT     0.000        20.833  1       
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000        20.833  133     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225        27.058  133     
+                                                          Uncertainty    0.000        27.058  
+                                                          Setup time     0.199        26.859  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         26.859  
+Arrival Time                                                                         -22.927  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   3.931  
+
+
+
+
+++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : NES_inst/count_14660_14796__i19/Q  (SLICE)
+Path End         : board_inst/apple_id_i6/D  (SLICE)
+Source Clock     : CLK (R)
+Destination Clock: CLK (R)
+Logic Level      : 7
+Delay Ratio      : 74.5% (route), 25.5% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 3.931 ns  (Passed)
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"NES_inst/count_14660_14796__i18/CK",
+        "phy_name":"NES_inst.SLICE_119/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  133     
+NES_inst/CLK                                              NET DELAY      6.225         6.225  133     
+
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"NES_inst/count_14660_14796__i19/Q",
+        "phy_name":"NES_inst.SLICE_119/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/apple_id_i6/D",
+        "phy_name":"board_inst.SLICE_124/DI0"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/count_14660_14796__i19/CK",
+            "phy_name":"NES_inst.SLICE_119/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/count_14660_14796__i19/Q",
+            "phy_name":"NES_inst.SLICE_119/Q1"
+        },
+        "arrive":7.616,
+        "delay":1.391
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/NEScount[10]",
+            "phy_name":"NES_inst.NEScount[10]"
+        },
+        "arrive":9.691,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i146838_2_lut_4_lut/C",
+            "phy_name":"NES_inst.SLICE_620/C0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i146838_2_lut_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_620/F0"
+        },
+        "arrive":10.168,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n160897",
+            "phy_name":"NES_inst.n160897"
+        },
+        "arrive":12.243,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i3_4_lut/D",
+            "phy_name":"NES_inst.SLICE_621/D0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i3_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_621/F0"
+        },
+        "arrive":12.720,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n92792",
+            "phy_name":"NES_inst.n92792"
+        },
+        "arrive":14.795,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i2_3_lut_4_lut/D",
+            "phy_name":"NES_inst.SLICE_616/D0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i2_3_lut_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_616/F0"
+        },
+        "arrive":15.272,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n153985",
+            "phy_name":"NES_inst.n153985"
+        },
+        "arrive":17.347,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/digital_7__I_0_i4_3_lut/C",
+            "phy_name":"NES_inst.SLICE_265/C0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/digital_7__I_0_i4_3_lut/Z",
+            "phy_name":"NES_inst.SLICE_265/F0"
+        },
+        "arrive":17.824,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/digital[3]",
+            "phy_name":"digital[3]"
+        },
+        "arrive":19.899,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"i1_2_lut/B",
+            "phy_name":"SLICE_779/B0"
+        },
+        "pin1":
+        {
+            "log_name":"i1_2_lut/Z",
+            "phy_name":"SLICE_779/F0"
+        },
+        "arrive":20.376,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n158007",
+            "phy_name":"n158007"
+        },
+        "arrive":22.451,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/snakePos_inst/i170377_2_lut_4_lut/A",
+            "phy_name":"board_inst.SLICE_124/A0"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/snakePos_inst/i170377_2_lut_4_lut/Z",
+            "phy_name":"board_inst.SLICE_124/F0"
+        },
+        "arrive":22.928,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n157950",
+            "phy_name":"board_inst.n157950"
+        },
+        "arrive":22.928,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+NES_inst/count_14660_14796__i19/CK->NES_inst/count_14660_14796__i19/Q
+                                          SLICE           CLK_TO_Q1_DELAY  1.391         7.616  3       
+NES_inst/NEScount[10]                                     NET DELAY        2.075         9.691  3       
+NES_inst/i146838_2_lut_4_lut/C->NES_inst/i146838_2_lut_4_lut/Z
+                                          SLICE           C0_TO_F0_DELAY   0.477        10.168  1       
+NES_inst/n160897                                          NET DELAY        2.075        12.243  1       
+NES_inst/i3_4_lut/D->NES_inst/i3_4_lut/Z  SLICE           D0_TO_F0_DELAY   0.477        12.720  2       
+NES_inst/n92792                                           NET DELAY        2.075        14.795  2       
+NES_inst/i2_3_lut_4_lut/D->NES_inst/i2_3_lut_4_lut/Z
+                                          SLICE           D0_TO_F0_DELAY   0.477        15.272  6       
+NES_inst/n153985                                          NET DELAY        2.075        17.347  6       
+NES_inst/digital_7__I_0_i4_3_lut/C->NES_inst/digital_7__I_0_i4_3_lut/Z
+                                          SLICE           C0_TO_F0_DELAY   0.477        17.824  7       
+NES_inst/digital[3]                                       NET DELAY        2.075        19.899  7       
+i1_2_lut/B->i1_2_lut/Z                    SLICE           B0_TO_F0_DELAY   0.477        20.376  3       
+board_inst/snakePos_inst/n158007                          NET DELAY        2.075        22.451  3       
+board_inst/snakePos_inst/i170377_2_lut_4_lut/A->board_inst/snakePos_inst/i170377_2_lut_4_lut/Z
+                                          SLICE           A0_TO_F0_DELAY   0.477        22.928  1       
+board_inst/snakePos_inst/n157950 ( DI0 )                  NET DELAY        0.000        22.928  1       
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/apple_id_i6/CK",
+        "phy_name":"board_inst.SLICE_124/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":20.833,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":27.058,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+                                                          CONSTRAINT     0.000        20.833  1       
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000        20.833  133     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225        27.058  133     
+                                                          Uncertainty    0.000        27.058  
+                                                          Setup time     0.199        26.859  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         26.859  
+Arrival Time                                                                         -22.927  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   3.931  
+
+
+
+
+++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : NES_inst/count_14660_14796__i19/Q  (SLICE)
+Path End         : board_inst/apple_id_i5/D  (SLICE)
+Source Clock     : CLK (R)
+Destination Clock: CLK (R)
+Logic Level      : 7
+Delay Ratio      : 74.5% (route), 25.5% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 3.931 ns  (Passed)
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"NES_inst/count_14660_14796__i18/CK",
+        "phy_name":"NES_inst.SLICE_119/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  133     
+NES_inst/CLK                                              NET DELAY      6.225         6.225  133     
+
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"NES_inst/count_14660_14796__i19/Q",
+        "phy_name":"NES_inst.SLICE_119/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/apple_id_i5/D",
+        "phy_name":"SLICE_123/DI0"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/count_14660_14796__i19/CK",
+            "phy_name":"NES_inst.SLICE_119/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/count_14660_14796__i19/Q",
+            "phy_name":"NES_inst.SLICE_119/Q1"
+        },
+        "arrive":7.616,
+        "delay":1.391
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/NEScount[10]",
+            "phy_name":"NES_inst.NEScount[10]"
+        },
+        "arrive":9.691,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i146838_2_lut_4_lut/C",
+            "phy_name":"NES_inst.SLICE_620/C0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i146838_2_lut_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_620/F0"
+        },
+        "arrive":10.168,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n160897",
+            "phy_name":"NES_inst.n160897"
+        },
+        "arrive":12.243,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i3_4_lut/D",
+            "phy_name":"NES_inst.SLICE_621/D0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i3_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_621/F0"
+        },
+        "arrive":12.720,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n92792",
+            "phy_name":"NES_inst.n92792"
+        },
+        "arrive":14.795,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i2_3_lut_4_lut/D",
+            "phy_name":"NES_inst.SLICE_616/D0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i2_3_lut_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_616/F0"
+        },
+        "arrive":15.272,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n153985",
+            "phy_name":"NES_inst.n153985"
+        },
+        "arrive":17.347,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/digital_7__I_0_i4_3_lut/C",
+            "phy_name":"NES_inst.SLICE_265/C0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/digital_7__I_0_i4_3_lut/Z",
+            "phy_name":"NES_inst.SLICE_265/F0"
+        },
+        "arrive":17.824,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/digital[3]",
+            "phy_name":"digital[3]"
+        },
+        "arrive":19.899,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/i1_3_lut_4_lut/A",
+            "phy_name":"board_inst.SLICE_256/A0"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/i1_3_lut_4_lut/Z",
+            "phy_name":"board_inst.SLICE_256/F0"
+        },
+        "arrive":20.376,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/n81732",
+            "phy_name":"n81732"
+        },
+        "arrive":22.451,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"i146700_3_lut_3_lut/A",
+            "phy_name":"SLICE_123/A0"
+        },
+        "pin1":
+        {
+            "log_name":"i146700_3_lut_3_lut/Z",
+            "phy_name":"SLICE_123/F0"
+        },
+        "arrive":22.928,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/n160756",
+            "phy_name":"n160756"
+        },
+        "arrive":22.928,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+NES_inst/count_14660_14796__i19/CK->NES_inst/count_14660_14796__i19/Q
+                                          SLICE           CLK_TO_Q1_DELAY  1.391         7.616  3       
+NES_inst/NEScount[10]                                     NET DELAY        2.075         9.691  3       
+NES_inst/i146838_2_lut_4_lut/C->NES_inst/i146838_2_lut_4_lut/Z
+                                          SLICE           C0_TO_F0_DELAY   0.477        10.168  1       
+NES_inst/n160897                                          NET DELAY        2.075        12.243  1       
+NES_inst/i3_4_lut/D->NES_inst/i3_4_lut/Z  SLICE           D0_TO_F0_DELAY   0.477        12.720  2       
+NES_inst/n92792                                           NET DELAY        2.075        14.795  2       
+NES_inst/i2_3_lut_4_lut/D->NES_inst/i2_3_lut_4_lut/Z
+                                          SLICE           D0_TO_F0_DELAY   0.477        15.272  6       
+NES_inst/n153985                                          NET DELAY        2.075        17.347  6       
+NES_inst/digital_7__I_0_i4_3_lut/C->NES_inst/digital_7__I_0_i4_3_lut/Z
+                                          SLICE           C0_TO_F0_DELAY   0.477        17.824  7       
+NES_inst/digital[3]                                       NET DELAY        2.075        19.899  7       
+board_inst/i1_3_lut_4_lut/A->board_inst/i1_3_lut_4_lut/Z
+                                          SLICE           A0_TO_F0_DELAY   0.477        20.376  3       
+board_inst/n81732                                         NET DELAY        2.075        22.451  3       
+i146700_3_lut_3_lut/A->i146700_3_lut_3_lut/Z
+                                          SLICE           A0_TO_F0_DELAY   0.477        22.928  1       
+board_inst/n160756 ( DI0 )                                NET DELAY        0.000        22.928  1       
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/apple_id_i5/CK",
+        "phy_name":"SLICE_123/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":20.833,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":27.058,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+                                                          CONSTRAINT     0.000        20.833  1       
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000        20.833  133     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225        27.058  133     
+                                                          Uncertainty    0.000        27.058  
+                                                          Setup time     0.199        26.859  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         26.859  
+Arrival Time                                                                         -22.927  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   3.931  
+
+
+
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : NES_inst/count_14660_14796__i19/Q  (SLICE)
+Path End         : board_inst/apple_id_i2/D  (SLICE)
+Source Clock     : CLK (R)
+Destination Clock: CLK (R)
+Logic Level      : 7
+Delay Ratio      : 74.5% (route), 25.5% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 3.931 ns  (Passed)
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"NES_inst/count_14660_14796__i18/CK",
+        "phy_name":"NES_inst.SLICE_119/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  133     
+NES_inst/CLK                                              NET DELAY      6.225         6.225  133     
+
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"NES_inst/count_14660_14796__i19/Q",
+        "phy_name":"NES_inst.SLICE_119/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/apple_id_i2/D",
+        "phy_name":"board_inst.SLICE_122/DI0"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/count_14660_14796__i19/CK",
+            "phy_name":"NES_inst.SLICE_119/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/count_14660_14796__i19/Q",
+            "phy_name":"NES_inst.SLICE_119/Q1"
+        },
+        "arrive":7.616,
+        "delay":1.391
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/NEScount[10]",
+            "phy_name":"NES_inst.NEScount[10]"
+        },
+        "arrive":9.691,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i146838_2_lut_4_lut/C",
+            "phy_name":"NES_inst.SLICE_620/C0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i146838_2_lut_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_620/F0"
+        },
+        "arrive":10.168,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n160897",
+            "phy_name":"NES_inst.n160897"
+        },
+        "arrive":12.243,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i3_4_lut/D",
+            "phy_name":"NES_inst.SLICE_621/D0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i3_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_621/F0"
+        },
+        "arrive":12.720,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n92792",
+            "phy_name":"NES_inst.n92792"
+        },
+        "arrive":14.795,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i2_3_lut_4_lut/D",
+            "phy_name":"NES_inst.SLICE_616/D0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i2_3_lut_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_616/F0"
+        },
+        "arrive":15.272,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n153985",
+            "phy_name":"NES_inst.n153985"
+        },
+        "arrive":17.347,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/digital_7__I_0_i4_3_lut/C",
+            "phy_name":"NES_inst.SLICE_265/C0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/digital_7__I_0_i4_3_lut/Z",
+            "phy_name":"NES_inst.SLICE_265/F0"
+        },
+        "arrive":17.824,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/digital[3]",
+            "phy_name":"digital[3]"
+        },
+        "arrive":19.899,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"i1_2_lut/B",
+            "phy_name":"SLICE_779/B0"
+        },
+        "pin1":
+        {
+            "log_name":"i1_2_lut/Z",
+            "phy_name":"SLICE_779/F0"
+        },
+        "arrive":20.376,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n158007",
+            "phy_name":"n158007"
+        },
+        "arrive":22.451,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/snakePos_inst/i170375_2_lut_4_lut/A",
+            "phy_name":"board_inst.SLICE_122/A0"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/snakePos_inst/i170375_2_lut_4_lut/Z",
+            "phy_name":"board_inst.SLICE_122/F0"
+        },
+        "arrive":22.928,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n157951",
+            "phy_name":"board_inst.n157951"
+        },
+        "arrive":22.928,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+NES_inst/count_14660_14796__i19/CK->NES_inst/count_14660_14796__i19/Q
+                                          SLICE           CLK_TO_Q1_DELAY  1.391         7.616  3       
+NES_inst/NEScount[10]                                     NET DELAY        2.075         9.691  3       
+NES_inst/i146838_2_lut_4_lut/C->NES_inst/i146838_2_lut_4_lut/Z
+                                          SLICE           C0_TO_F0_DELAY   0.477        10.168  1       
+NES_inst/n160897                                          NET DELAY        2.075        12.243  1       
+NES_inst/i3_4_lut/D->NES_inst/i3_4_lut/Z  SLICE           D0_TO_F0_DELAY   0.477        12.720  2       
+NES_inst/n92792                                           NET DELAY        2.075        14.795  2       
+NES_inst/i2_3_lut_4_lut/D->NES_inst/i2_3_lut_4_lut/Z
+                                          SLICE           D0_TO_F0_DELAY   0.477        15.272  6       
+NES_inst/n153985                                          NET DELAY        2.075        17.347  6       
+NES_inst/digital_7__I_0_i4_3_lut/C->NES_inst/digital_7__I_0_i4_3_lut/Z
+                                          SLICE           C0_TO_F0_DELAY   0.477        17.824  7       
+NES_inst/digital[3]                                       NET DELAY        2.075        19.899  7       
+i1_2_lut/B->i1_2_lut/Z                    SLICE           B0_TO_F0_DELAY   0.477        20.376  3       
+board_inst/snakePos_inst/n158007                          NET DELAY        2.075        22.451  3       
+board_inst/snakePos_inst/i170375_2_lut_4_lut/A->board_inst/snakePos_inst/i170375_2_lut_4_lut/Z
+                                          SLICE           A0_TO_F0_DELAY   0.477        22.928  1       
+board_inst/snakePos_inst/n157951 ( DI0 )                  NET DELAY        0.000        22.928  1       
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/apple_id_i2/CK",
+        "phy_name":"board_inst.SLICE_122/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":20.833,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":27.058,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+                                                          CONSTRAINT     0.000        20.833  1       
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000        20.833  133     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225        27.058  133     
+                                                          Uncertainty    0.000        27.058  
+                                                          Setup time     0.199        26.859  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         26.859  
+Arrival Time                                                                         -22.927  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   3.931  
+
+
+
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : NES_inst/count_14660_14796__i19/Q  (SLICE)
+Path End         : board_inst/game_State_i0/D  (SLICE)
+Source Clock     : CLK (R)
+Destination Clock: CLK (R)
+Logic Level      : 7
+Delay Ratio      : 74.5% (route), 25.5% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 3.931 ns  (Passed)
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"NES_inst/count_14660_14796__i18/CK",
+        "phy_name":"NES_inst.SLICE_119/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  133     
+NES_inst/CLK                                              NET DELAY      6.225         6.225  133     
+
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"NES_inst/count_14660_14796__i19/Q",
+        "phy_name":"NES_inst.SLICE_119/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/game_State_i0/D",
+        "phy_name":"board_inst.SLICE_121/DI0"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/count_14660_14796__i19/CK",
+            "phy_name":"NES_inst.SLICE_119/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/count_14660_14796__i19/Q",
+            "phy_name":"NES_inst.SLICE_119/Q1"
+        },
+        "arrive":7.616,
+        "delay":1.391
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/NEScount[10]",
+            "phy_name":"NES_inst.NEScount[10]"
+        },
+        "arrive":9.691,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i146838_2_lut_4_lut/C",
+            "phy_name":"NES_inst.SLICE_620/C0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i146838_2_lut_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_620/F0"
+        },
+        "arrive":10.168,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n160897",
+            "phy_name":"NES_inst.n160897"
+        },
+        "arrive":12.243,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i3_4_lut/D",
+            "phy_name":"NES_inst.SLICE_621/D0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i3_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_621/F0"
+        },
+        "arrive":12.720,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n92792",
+            "phy_name":"NES_inst.n92792"
+        },
+        "arrive":14.795,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i2_3_lut_4_lut/D",
+            "phy_name":"NES_inst.SLICE_616/D0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i2_3_lut_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_616/F0"
+        },
+        "arrive":15.272,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n153985",
+            "phy_name":"NES_inst.n153985"
+        },
+        "arrive":17.347,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/digital_7__I_0_i4_3_lut/C",
+            "phy_name":"NES_inst.SLICE_265/C0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/digital_7__I_0_i4_3_lut/Z",
+            "phy_name":"NES_inst.SLICE_265/F0"
+        },
+        "arrive":17.824,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/digital[3]",
+            "phy_name":"digital[3]"
+        },
+        "arrive":19.899,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/i1_3_lut_4_lut/A",
+            "phy_name":"board_inst.SLICE_256/A0"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/i1_3_lut_4_lut/Z",
+            "phy_name":"board_inst.SLICE_256/F0"
+        },
+        "arrive":20.376,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/n81732",
+            "phy_name":"n81732"
+        },
+        "arrive":22.451,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/i71788_3_lut/C",
+            "phy_name":"board_inst.SLICE_121/C0"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/i71788_3_lut/Z",
+            "phy_name":"board_inst.SLICE_121/F0"
+        },
+        "arrive":22.928,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/game_State_1__N_57[0]",
+            "phy_name":"board_inst.game_State_1__N_57[0]"
+        },
+        "arrive":22.928,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+NES_inst/count_14660_14796__i19/CK->NES_inst/count_14660_14796__i19/Q
+                                          SLICE           CLK_TO_Q1_DELAY  1.391         7.616  3       
+NES_inst/NEScount[10]                                     NET DELAY        2.075         9.691  3       
+NES_inst/i146838_2_lut_4_lut/C->NES_inst/i146838_2_lut_4_lut/Z
+                                          SLICE           C0_TO_F0_DELAY   0.477        10.168  1       
+NES_inst/n160897                                          NET DELAY        2.075        12.243  1       
+NES_inst/i3_4_lut/D->NES_inst/i3_4_lut/Z  SLICE           D0_TO_F0_DELAY   0.477        12.720  2       
+NES_inst/n92792                                           NET DELAY        2.075        14.795  2       
+NES_inst/i2_3_lut_4_lut/D->NES_inst/i2_3_lut_4_lut/Z
+                                          SLICE           D0_TO_F0_DELAY   0.477        15.272  6       
+NES_inst/n153985                                          NET DELAY        2.075        17.347  6       
+NES_inst/digital_7__I_0_i4_3_lut/C->NES_inst/digital_7__I_0_i4_3_lut/Z
+                                          SLICE           C0_TO_F0_DELAY   0.477        17.824  7       
+NES_inst/digital[3]                                       NET DELAY        2.075        19.899  7       
+board_inst/i1_3_lut_4_lut/A->board_inst/i1_3_lut_4_lut/Z
+                                          SLICE           A0_TO_F0_DELAY   0.477        20.376  3       
+board_inst/n81732                                         NET DELAY        2.075        22.451  3       
+board_inst/i71788_3_lut/C->board_inst/i71788_3_lut/Z
+                                          SLICE           C0_TO_F0_DELAY   0.477        22.928  1       
+board_inst/game_State_1__N_57[0] ( DI0 )                  NET DELAY        0.000        22.928  1       
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/game_State_i0/CK",
+        "phy_name":"board_inst.SLICE_121/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":20.833,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":27.058,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+                                                          CONSTRAINT     0.000        20.833  1       
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000        20.833  133     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225        27.058  133     
+                                                          Uncertainty    0.000        27.058  
+                                                          Setup time     0.199        26.859  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         26.859  
+Arrival Time                                                                         -22.927  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   3.931  
+
+
+
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : NES_inst/count_14660_14796__i19/Q  (SLICE)
+Path End         : board_inst/snakePos_inst/dir_signal__i0/SR  (SLICE)
+Source Clock     : CLK (R)
+Destination Clock: CLK (R)
+Logic Level      : 6
+Delay Ratio      : 76.9% (route), 23.1% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 4.104 ns  (Passed)
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"NES_inst/count_14660_14796__i18/CK",
+        "phy_name":"NES_inst.SLICE_119/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  133     
+NES_inst/CLK                                              NET DELAY      6.225         6.225  133     
+
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"NES_inst/count_14660_14796__i19/Q",
+        "phy_name":"NES_inst.SLICE_119/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/dir_signal__i0/SR",
+        "phy_name":"board_inst.snakePos_inst.SLICE_126/LSR"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/count_14660_14796__i19/CK",
+            "phy_name":"NES_inst.SLICE_119/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/count_14660_14796__i19/Q",
+            "phy_name":"NES_inst.SLICE_119/Q1"
+        },
+        "arrive":7.616,
+        "delay":1.391
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/NEScount[10]",
+            "phy_name":"NES_inst.NEScount[10]"
+        },
+        "arrive":9.691,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i146838_2_lut_4_lut/C",
+            "phy_name":"NES_inst.SLICE_620/C0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i146838_2_lut_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_620/F0"
+        },
+        "arrive":10.168,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n160897",
+            "phy_name":"NES_inst.n160897"
+        },
+        "arrive":12.243,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i3_4_lut/D",
+            "phy_name":"NES_inst.SLICE_621/D0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i3_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_621/F0"
+        },
+        "arrive":12.720,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n92792",
+            "phy_name":"NES_inst.n92792"
+        },
+        "arrive":14.795,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i2_3_lut_4_lut/D",
+            "phy_name":"NES_inst.SLICE_616/D0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i2_3_lut_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_616/F0"
+        },
+        "arrive":15.272,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n153985",
+            "phy_name":"NES_inst.n153985"
+        },
+        "arrive":17.347,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/digital_7__I_0_i4_3_lut/C",
+            "phy_name":"NES_inst.SLICE_265/C0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/digital_7__I_0_i4_3_lut/Z",
+            "phy_name":"NES_inst.SLICE_265/F0"
+        },
+        "arrive":17.824,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/digital[3]",
+            "phy_name":"digital[3]"
+        },
+        "arrive":19.899,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/snakePos_inst/i14_1_lut/A",
+            "phy_name":"board_inst.snakePos_inst.SLICE_264/A0"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/snakePos_inst/i14_1_lut/Z",
+            "phy_name":"board_inst.snakePos_inst.SLICE_264/F0"
+        },
+        "arrive":20.349,
+        "delay":0.450
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/digital_in_3__N_437",
+            "phy_name":"board_inst.snakePos_inst.digital_in_3__N_437"
+        },
+        "arrive":22.424,
+        "delay":2.075
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+NES_inst/count_14660_14796__i19/CK->NES_inst/count_14660_14796__i19/Q
+                                          SLICE           CLK_TO_Q1_DELAY  1.391         7.616  3       
+NES_inst/NEScount[10]                                     NET DELAY        2.075         9.691  3       
+NES_inst/i146838_2_lut_4_lut/C->NES_inst/i146838_2_lut_4_lut/Z
+                                          SLICE           C0_TO_F0_DELAY   0.477        10.168  1       
+NES_inst/n160897                                          NET DELAY        2.075        12.243  1       
+NES_inst/i3_4_lut/D->NES_inst/i3_4_lut/Z  SLICE           D0_TO_F0_DELAY   0.477        12.720  2       
+NES_inst/n92792                                           NET DELAY        2.075        14.795  2       
+NES_inst/i2_3_lut_4_lut/D->NES_inst/i2_3_lut_4_lut/Z
+                                          SLICE           D0_TO_F0_DELAY   0.477        15.272  6       
+NES_inst/n153985                                          NET DELAY        2.075        17.347  6       
+NES_inst/digital_7__I_0_i4_3_lut/C->NES_inst/digital_7__I_0_i4_3_lut/Z
+                                          SLICE           C0_TO_F0_DELAY   0.477        17.824  7       
+NES_inst/digital[3]                                       NET DELAY        2.075        19.899  7       
+board_inst/snakePos_inst/i14_1_lut/A->board_inst/snakePos_inst/i14_1_lut/Z
+                                          SLICE           A0_TO_F0_DELAY   0.450        20.349  1       
+board_inst/snakePos_inst/digital_in_3__N_437 ( LSR )
+                                                          NET DELAY        2.075        22.424  1       
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/dir_signal__i0/CK",
+        "phy_name":"board_inst.snakePos_inst.SLICE_126/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":20.833,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":27.058,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+                                                          CONSTRAINT     0.000        20.833  1       
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000        20.833  133     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225        27.058  133     
+                                                          Uncertainty    0.000        27.058  
+                                                          Setup time     0.530        26.528  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         26.528  
+Arrival Time                                                                         -22.423  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   4.104  
+
+
+
+
+++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : NES_inst/count_14660_14796__i19/Q  (SLICE)
+Path End         : board_inst/game_State_i0/SR  (SLICE)
+Source Clock     : CLK (R)
+Destination Clock: CLK (R)
+Logic Level      : 6
+Delay Ratio      : 76.9% (route), 23.1% (logic)
+Clock Skew       : 0.000 ns
+Setup Constraint : 20.833 ns 
+Path Slack       : 4.104 ns  (Passed)
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"NES_inst/count_14660_14796__i18/CK",
+        "phy_name":"NES_inst.SLICE_119/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  133     
+NES_inst/CLK                                              NET DELAY      6.225         6.225  133     
+
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"NES_inst/count_14660_14796__i19/Q",
+        "phy_name":"NES_inst.SLICE_119/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/game_State_i0/SR",
+        "phy_name":"board_inst.SLICE_121/LSR"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/count_14660_14796__i19/CK",
+            "phy_name":"NES_inst.SLICE_119/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/count_14660_14796__i19/Q",
+            "phy_name":"NES_inst.SLICE_119/Q1"
+        },
+        "arrive":7.616,
+        "delay":1.391
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/NEScount[10]",
+            "phy_name":"NES_inst.NEScount[10]"
+        },
+        "arrive":9.691,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i146838_2_lut_4_lut/C",
+            "phy_name":"NES_inst.SLICE_620/C0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i146838_2_lut_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_620/F0"
+        },
+        "arrive":10.168,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n160897",
+            "phy_name":"NES_inst.n160897"
+        },
+        "arrive":12.243,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i3_4_lut/D",
+            "phy_name":"NES_inst.SLICE_621/D0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i3_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_621/F0"
+        },
+        "arrive":12.720,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n92792",
+            "phy_name":"NES_inst.n92792"
+        },
+        "arrive":14.795,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/i2_3_lut_4_lut/D",
+            "phy_name":"NES_inst.SLICE_616/D0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/i2_3_lut_4_lut/Z",
+            "phy_name":"NES_inst.SLICE_616/F0"
+        },
+        "arrive":15.272,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/n153985",
+            "phy_name":"NES_inst.n153985"
+        },
+        "arrive":17.347,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"NES_inst/digital_7__I_0_i5_3_lut/C",
+            "phy_name":"NES_inst.SLICE_259/C0"
+        },
+        "pin1":
+        {
+            "log_name":"NES_inst/digital_7__I_0_i5_3_lut/Z",
+            "phy_name":"NES_inst.SLICE_259/F0"
+        },
+        "arrive":17.824,
+        "delay":0.477
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/digital[4]",
+            "phy_name":"digital[4]"
+        },
+        "arrive":19.899,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/i170368_2_lut/A",
+            "phy_name":"board_inst.SLICE_258/A0"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/i170368_2_lut/Z",
+            "phy_name":"board_inst.SLICE_258/F0"
+        },
+        "arrive":20.349,
+        "delay":0.450
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/n160759",
+            "phy_name":"board_inst.n160759"
+        },
+        "arrive":22.424,
+        "delay":2.075
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+NES_inst/count_14660_14796__i19/CK->NES_inst/count_14660_14796__i19/Q
+                                          SLICE           CLK_TO_Q1_DELAY  1.391         7.616  3       
+NES_inst/NEScount[10]                                     NET DELAY        2.075         9.691  3       
+NES_inst/i146838_2_lut_4_lut/C->NES_inst/i146838_2_lut_4_lut/Z
+                                          SLICE           C0_TO_F0_DELAY   0.477        10.168  1       
+NES_inst/n160897                                          NET DELAY        2.075        12.243  1       
+NES_inst/i3_4_lut/D->NES_inst/i3_4_lut/Z  SLICE           D0_TO_F0_DELAY   0.477        12.720  2       
+NES_inst/n92792                                           NET DELAY        2.075        14.795  2       
+NES_inst/i2_3_lut_4_lut/D->NES_inst/i2_3_lut_4_lut/Z
+                                          SLICE           D0_TO_F0_DELAY   0.477        15.272  6       
+NES_inst/n153985                                          NET DELAY        2.075        17.347  6       
+NES_inst/digital_7__I_0_i5_3_lut/C->NES_inst/digital_7__I_0_i5_3_lut/Z
+                                          SLICE           C0_TO_F0_DELAY   0.477        17.824  3       
+NES_inst/digital[4]                                       NET DELAY        2.075        19.899  3       
+board_inst/i170368_2_lut/A->board_inst/i170368_2_lut/Z
+                                          SLICE           A0_TO_F0_DELAY   0.450        20.349  1       
+board_inst/n160759 ( LSR )                                NET DELAY        2.075        22.424  1       
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/game_State_i0/CK",
+        "phy_name":"board_inst.SLICE_121/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":20.833,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":27.058,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+                                                          CONSTRAINT     0.000        20.833  1       
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000        20.833  133     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225        27.058  133     
+                                                          Uncertainty    0.000        27.058  
+                                                          Setup time     0.530        26.528  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         26.528  
+Arrival Time                                                                         -22.423  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   4.104  
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+                    End of Detailed Report for timing paths 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+
+##########################################################
+
+<A name="Timing_rpt_HoldDetailedReport"></A><B><U><big>4.2  Hold Detailed Report</big></U></B>
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Detail report of critical paths
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+                    Detailed Report for timing paths 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : board_inst/snakePos_inst/counter_14661_14787__i14/Q  (SLICE)
+Path End         : board_inst/snakePos_inst/counter_14661_14787__i14/D  (SLICE)
+Source Clock     : CLK (R)
+Destination Clock: CLK (R)
+Logic Level      : 2
+Delay Ratio      : 67.1% (route), 32.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 3.092 ns  (Passed)
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i14/CK",
+        "phy_name":"board_inst.snakePos_inst.SLICE_16/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  134     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225         6.225  134     
+
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i14/Q",
+        "phy_name":"board_inst.snakePos_inst.SLICE_16/Q0"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i14/D",
+        "phy_name":"board_inst.snakePos_inst.SLICE_16/DI0"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787__i14/CK",
+            "phy_name":"board_inst.snakePos_inst.SLICE_16/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787__i14/Q",
+            "phy_name":"board_inst.snakePos_inst.SLICE_16/Q0"
+        },
+        "arrive":6.993,
+        "delay":0.768
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n10",
+            "phy_name":"board_inst.snakePos_inst.n10"
+        },
+        "arrive":9.068,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787_add_4_15/C0",
+            "phy_name":"board_inst.snakePos_inst.SLICE_16/C0"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787_add_4_15/S0",
+            "phy_name":"board_inst.snakePos_inst.SLICE_16/F0"
+        },
+        "arrive":9.317,
+        "delay":0.249
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n97[13]",
+            "phy_name":"board_inst.snakePos_inst.n97[13]"
+        },
+        "arrive":9.317,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+board_inst/snakePos_inst/counter_14661_14787__i14/CK->board_inst/snakePos_inst/counter_14661_14787__i14/Q
+                                          SLICE           CLK_TO_Q0_DELAY  0.768         6.993  1       
+board_inst/snakePos_inst/n10                              NET DELAY        2.075         9.068  1       
+board_inst/snakePos_inst/counter_14661_14787_add_4_15/C0->board_inst/snakePos_inst/counter_14661_14787_add_4_15/S0
+                                          SLICE           C0_TO_F0_DELAY   0.249         9.317  1       
+board_inst/snakePos_inst/n97[13] ( DI0 )                  NET DELAY        0.000         9.317  1       
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i14/CK",
+        "phy_name":"board_inst.snakePos_inst.SLICE_16/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":0.000,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+                                                          CONSTRAINT     0.000         0.000  1       
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  134     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225         6.225  134     
+                                                          Uncertainty    0.000         6.225  
+                                                          Hold time      0.000         6.225  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -6.225  
+Arrival Time                                                                           9.317  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   3.092  
+
+
+
+
+++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : board_inst/snakePos_inst/counter_14661_14787__i15/Q  (SLICE)
+Path End         : board_inst/snakePos_inst/counter_14661_14787__i15/D  (SLICE)
+Source Clock     : CLK (R)
+Destination Clock: CLK (R)
+Logic Level      : 2
+Delay Ratio      : 67.1% (route), 32.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 3.092 ns  (Passed)
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i14/CK",
+        "phy_name":"board_inst.snakePos_inst.SLICE_16/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  134     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225         6.225  134     
+
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i15/Q",
+        "phy_name":"board_inst.snakePos_inst.SLICE_16/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i15/D",
+        "phy_name":"board_inst.snakePos_inst.SLICE_16/DI1"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787__i15/CK",
+            "phy_name":"board_inst.snakePos_inst.SLICE_16/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787__i15/Q",
+            "phy_name":"board_inst.snakePos_inst.SLICE_16/Q1"
+        },
+        "arrive":6.993,
+        "delay":0.768
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n9_adj_21189",
+            "phy_name":"board_inst.snakePos_inst.n9_adj_21189"
+        },
+        "arrive":9.068,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787_add_4_15/C1",
+            "phy_name":"board_inst.snakePos_inst.SLICE_16/C1"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787_add_4_15/S1",
+            "phy_name":"board_inst.snakePos_inst.SLICE_16/F1"
+        },
+        "arrive":9.317,
+        "delay":0.249
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n97[14]",
+            "phy_name":"board_inst.snakePos_inst.n97[14]"
+        },
+        "arrive":9.317,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+board_inst/snakePos_inst/counter_14661_14787__i15/CK->board_inst/snakePos_inst/counter_14661_14787__i15/Q
+                                          SLICE           CLK_TO_Q1_DELAY  0.768         6.993  1       
+board_inst/snakePos_inst/n9_adj_21189                     NET DELAY        2.075         9.068  1       
+board_inst/snakePos_inst/counter_14661_14787_add_4_15/C1->board_inst/snakePos_inst/counter_14661_14787_add_4_15/S1
+                                          SLICE           C1_TO_F1_DELAY   0.249         9.317  1       
+board_inst/snakePos_inst/n97[14] ( DI1 )                  NET DELAY        0.000         9.317  1       
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i14/CK",
+        "phy_name":"board_inst.snakePos_inst.SLICE_16/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":0.000,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+                                                          CONSTRAINT     0.000         0.000  1       
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  134     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225         6.225  134     
+                                                          Uncertainty    0.000         6.225  
+                                                          Hold time      0.000         6.225  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -6.225  
+Arrival Time                                                                           9.317  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   3.092  
+
+
+
+
+++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : board_inst/snakePos_inst/counter_14661_14787__i16/Q  (SLICE)
+Path End         : board_inst/snakePos_inst/counter_14661_14787__i16/D  (SLICE)
+Source Clock     : CLK (R)
+Destination Clock: CLK (R)
+Logic Level      : 2
+Delay Ratio      : 67.1% (route), 32.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 3.092 ns  (Passed)
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i16/CK",
+        "phy_name":"board_inst.snakePos_inst.SLICE_9/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  134     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225         6.225  134     
+
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i16/Q",
+        "phy_name":"board_inst.snakePos_inst.SLICE_9/Q0"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i16/D",
+        "phy_name":"board_inst.snakePos_inst.SLICE_9/DI0"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787__i16/CK",
+            "phy_name":"board_inst.snakePos_inst.SLICE_9/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787__i16/Q",
+            "phy_name":"board_inst.snakePos_inst.SLICE_9/Q0"
+        },
+        "arrive":6.993,
+        "delay":0.768
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n8",
+            "phy_name":"board_inst.snakePos_inst.n8"
+        },
+        "arrive":9.068,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787_add_4_17/C0",
+            "phy_name":"board_inst.snakePos_inst.SLICE_9/C0"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787_add_4_17/S0",
+            "phy_name":"board_inst.snakePos_inst.SLICE_9/F0"
+        },
+        "arrive":9.317,
+        "delay":0.249
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n97[15]",
+            "phy_name":"board_inst.snakePos_inst.n97[15]"
+        },
+        "arrive":9.317,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+board_inst/snakePos_inst/counter_14661_14787__i16/CK->board_inst/snakePos_inst/counter_14661_14787__i16/Q
+                                          SLICE           CLK_TO_Q0_DELAY  0.768         6.993  1       
+board_inst/snakePos_inst/n8                               NET DELAY        2.075         9.068  1       
+board_inst/snakePos_inst/counter_14661_14787_add_4_17/C0->board_inst/snakePos_inst/counter_14661_14787_add_4_17/S0
+                                          SLICE           C0_TO_F0_DELAY   0.249         9.317  1       
+board_inst/snakePos_inst/n97[15] ( DI0 )                  NET DELAY        0.000         9.317  1       
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i16/CK",
+        "phy_name":"board_inst.snakePos_inst.SLICE_9/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":0.000,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+                                                          CONSTRAINT     0.000         0.000  1       
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  134     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225         6.225  134     
+                                                          Uncertainty    0.000         6.225  
+                                                          Hold time      0.000         6.225  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -6.225  
+Arrival Time                                                                           9.317  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   3.092  
+
+
+
+
+++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : board_inst/snakePos_inst/counter_14661_14787__i17/Q  (SLICE)
+Path End         : board_inst/snakePos_inst/counter_14661_14787__i17/D  (SLICE)
+Source Clock     : CLK (R)
+Destination Clock: CLK (R)
+Logic Level      : 2
+Delay Ratio      : 67.1% (route), 32.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 3.092 ns  (Passed)
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i16/CK",
+        "phy_name":"board_inst.snakePos_inst.SLICE_9/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  134     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225         6.225  134     
+
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i17/Q",
+        "phy_name":"board_inst.snakePos_inst.SLICE_9/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i17/D",
+        "phy_name":"board_inst.snakePos_inst.SLICE_9/DI1"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787__i17/CK",
+            "phy_name":"board_inst.snakePos_inst.SLICE_9/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787__i17/Q",
+            "phy_name":"board_inst.snakePos_inst.SLICE_9/Q1"
+        },
+        "arrive":6.993,
+        "delay":0.768
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n7",
+            "phy_name":"board_inst.snakePos_inst.n7"
+        },
+        "arrive":9.068,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787_add_4_17/C1",
+            "phy_name":"board_inst.snakePos_inst.SLICE_9/C1"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787_add_4_17/S1",
+            "phy_name":"board_inst.snakePos_inst.SLICE_9/F1"
+        },
+        "arrive":9.317,
+        "delay":0.249
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n97[16]",
+            "phy_name":"board_inst.snakePos_inst.n97[16]"
+        },
+        "arrive":9.317,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+board_inst/snakePos_inst/counter_14661_14787__i17/CK->board_inst/snakePos_inst/counter_14661_14787__i17/Q
+                                          SLICE           CLK_TO_Q1_DELAY  0.768         6.993  1       
+board_inst/snakePos_inst/n7                               NET DELAY        2.075         9.068  1       
+board_inst/snakePos_inst/counter_14661_14787_add_4_17/C1->board_inst/snakePos_inst/counter_14661_14787_add_4_17/S1
+                                          SLICE           C1_TO_F1_DELAY   0.249         9.317  1       
+board_inst/snakePos_inst/n97[16] ( DI1 )                  NET DELAY        0.000         9.317  1       
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i16/CK",
+        "phy_name":"board_inst.snakePos_inst.SLICE_9/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":0.000,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+                                                          CONSTRAINT     0.000         0.000  1       
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  134     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225         6.225  134     
+                                                          Uncertainty    0.000         6.225  
+                                                          Hold time      0.000         6.225  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -6.225  
+Arrival Time                                                                           9.317  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   3.092  
+
+
+
+
+++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : board_inst/snakePos_inst/counter_14661_14787__i18/Q  (SLICE)
+Path End         : board_inst/snakePos_inst/counter_14661_14787__i18/D  (SLICE)
+Source Clock     : CLK (R)
+Destination Clock: CLK (R)
+Logic Level      : 2
+Delay Ratio      : 67.1% (route), 32.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 3.092 ns  (Passed)
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i18/CK",
+        "phy_name":"board_inst.snakePos_inst.SLICE_7/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  134     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225         6.225  134     
+
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i18/Q",
+        "phy_name":"board_inst.snakePos_inst.SLICE_7/Q0"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i18/D",
+        "phy_name":"board_inst.snakePos_inst.SLICE_7/DI0"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787__i18/CK",
+            "phy_name":"board_inst.snakePos_inst.SLICE_7/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787__i18/Q",
+            "phy_name":"board_inst.snakePos_inst.SLICE_7/Q0"
+        },
+        "arrive":6.993,
+        "delay":0.768
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n6",
+            "phy_name":"board_inst.snakePos_inst.n6"
+        },
+        "arrive":9.068,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787_add_4_19/C0",
+            "phy_name":"board_inst.snakePos_inst.SLICE_7/C0"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787_add_4_19/S0",
+            "phy_name":"board_inst.snakePos_inst.SLICE_7/F0"
+        },
+        "arrive":9.317,
+        "delay":0.249
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n97[17]",
+            "phy_name":"board_inst.snakePos_inst.n97[17]"
+        },
+        "arrive":9.317,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+board_inst/snakePos_inst/counter_14661_14787__i18/CK->board_inst/snakePos_inst/counter_14661_14787__i18/Q
+                                          SLICE           CLK_TO_Q0_DELAY  0.768         6.993  1       
+board_inst/snakePos_inst/n6                               NET DELAY        2.075         9.068  1       
+board_inst/snakePos_inst/counter_14661_14787_add_4_19/C0->board_inst/snakePos_inst/counter_14661_14787_add_4_19/S0
+                                          SLICE           C0_TO_F0_DELAY   0.249         9.317  1       
+board_inst/snakePos_inst/n97[17] ( DI0 )                  NET DELAY        0.000         9.317  1       
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i18/CK",
+        "phy_name":"board_inst.snakePos_inst.SLICE_7/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":0.000,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+                                                          CONSTRAINT     0.000         0.000  1       
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  134     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225         6.225  134     
+                                                          Uncertainty    0.000         6.225  
+                                                          Hold time      0.000         6.225  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -6.225  
+Arrival Time                                                                           9.317  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   3.092  
+
+
+
+
+++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : board_inst/snakePos_inst/counter_14661_14787__i19/Q  (SLICE)
+Path End         : board_inst/snakePos_inst/counter_14661_14787__i19/D  (SLICE)
+Source Clock     : CLK (R)
+Destination Clock: CLK (R)
+Logic Level      : 2
+Delay Ratio      : 67.1% (route), 32.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 3.092 ns  (Passed)
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i18/CK",
+        "phy_name":"board_inst.snakePos_inst.SLICE_7/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  134     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225         6.225  134     
+
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i19/Q",
+        "phy_name":"board_inst.snakePos_inst.SLICE_7/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i19/D",
+        "phy_name":"board_inst.snakePos_inst.SLICE_7/DI1"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787__i19/CK",
+            "phy_name":"board_inst.snakePos_inst.SLICE_7/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787__i19/Q",
+            "phy_name":"board_inst.snakePos_inst.SLICE_7/Q1"
+        },
+        "arrive":6.993,
+        "delay":0.768
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n5",
+            "phy_name":"board_inst.snakePos_inst.n5"
+        },
+        "arrive":9.068,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787_add_4_19/C1",
+            "phy_name":"board_inst.snakePos_inst.SLICE_7/C1"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787_add_4_19/S1",
+            "phy_name":"board_inst.snakePos_inst.SLICE_7/F1"
+        },
+        "arrive":9.317,
+        "delay":0.249
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n97[18]",
+            "phy_name":"board_inst.snakePos_inst.n97[18]"
+        },
+        "arrive":9.317,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+board_inst/snakePos_inst/counter_14661_14787__i19/CK->board_inst/snakePos_inst/counter_14661_14787__i19/Q
+                                          SLICE           CLK_TO_Q1_DELAY  0.768         6.993  1       
+board_inst/snakePos_inst/n5                               NET DELAY        2.075         9.068  1       
+board_inst/snakePos_inst/counter_14661_14787_add_4_19/C1->board_inst/snakePos_inst/counter_14661_14787_add_4_19/S1
+                                          SLICE           C1_TO_F1_DELAY   0.249         9.317  1       
+board_inst/snakePos_inst/n97[18] ( DI1 )                  NET DELAY        0.000         9.317  1       
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i18/CK",
+        "phy_name":"board_inst.snakePos_inst.SLICE_7/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":0.000,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+                                                          CONSTRAINT     0.000         0.000  1       
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  134     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225         6.225  134     
+                                                          Uncertainty    0.000         6.225  
+                                                          Hold time      0.000         6.225  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -6.225  
+Arrival Time                                                                           9.317  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   3.092  
+
+
+
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : board_inst/snakePos_inst/counter_14661_14787__i20/Q  (SLICE)
+Path End         : board_inst/snakePos_inst/counter_14661_14787__i20/D  (SLICE)
+Source Clock     : CLK (R)
+Destination Clock: CLK (R)
+Logic Level      : 2
+Delay Ratio      : 67.1% (route), 32.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 3.092 ns  (Passed)
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i20/CK",
+        "phy_name":"board_inst.snakePos_inst.SLICE_5/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  134     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225         6.225  134     
+
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i20/Q",
+        "phy_name":"board_inst.snakePos_inst.SLICE_5/Q0"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i20/D",
+        "phy_name":"board_inst.snakePos_inst.SLICE_5/DI0"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787__i20/CK",
+            "phy_name":"board_inst.snakePos_inst.SLICE_5/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787__i20/Q",
+            "phy_name":"board_inst.snakePos_inst.SLICE_5/Q0"
+        },
+        "arrive":6.993,
+        "delay":0.768
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n4_c",
+            "phy_name":"board_inst.snakePos_inst.n4_c"
+        },
+        "arrive":9.068,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787_add_4_21/C0",
+            "phy_name":"board_inst.snakePos_inst.SLICE_5/C0"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787_add_4_21/S0",
+            "phy_name":"board_inst.snakePos_inst.SLICE_5/F0"
+        },
+        "arrive":9.317,
+        "delay":0.249
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n97[19]",
+            "phy_name":"board_inst.snakePos_inst.n97[19]"
+        },
+        "arrive":9.317,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+board_inst/snakePos_inst/counter_14661_14787__i20/CK->board_inst/snakePos_inst/counter_14661_14787__i20/Q
+                                          SLICE           CLK_TO_Q0_DELAY  0.768         6.993  1       
+board_inst/snakePos_inst/n4_c                             NET DELAY        2.075         9.068  1       
+board_inst/snakePos_inst/counter_14661_14787_add_4_21/C0->board_inst/snakePos_inst/counter_14661_14787_add_4_21/S0
+                                          SLICE           C0_TO_F0_DELAY   0.249         9.317  1       
+board_inst/snakePos_inst/n97[19] ( DI0 )                  NET DELAY        0.000         9.317  1       
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i20/CK",
+        "phy_name":"board_inst.snakePos_inst.SLICE_5/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":0.000,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+                                                          CONSTRAINT     0.000         0.000  1       
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  134     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225         6.225  134     
+                                                          Uncertainty    0.000         6.225  
+                                                          Hold time      0.000         6.225  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -6.225  
+Arrival Time                                                                           9.317  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   3.092  
+
+
+
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : board_inst/snakePos_inst/counter_14661_14787__i21/Q  (SLICE)
+Path End         : board_inst/snakePos_inst/counter_14661_14787__i21/D  (SLICE)
+Source Clock     : CLK (R)
+Destination Clock: CLK (R)
+Logic Level      : 2
+Delay Ratio      : 67.1% (route), 32.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 3.092 ns  (Passed)
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i20/CK",
+        "phy_name":"board_inst.snakePos_inst.SLICE_5/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  134     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225         6.225  134     
+
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i21/Q",
+        "phy_name":"board_inst.snakePos_inst.SLICE_5/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i21/D",
+        "phy_name":"board_inst.snakePos_inst.SLICE_5/DI1"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787__i21/CK",
+            "phy_name":"board_inst.snakePos_inst.SLICE_5/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787__i21/Q",
+            "phy_name":"board_inst.snakePos_inst.SLICE_5/Q1"
+        },
+        "arrive":6.993,
+        "delay":0.768
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n3",
+            "phy_name":"board_inst.snakePos_inst.n3"
+        },
+        "arrive":9.068,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787_add_4_21/C1",
+            "phy_name":"board_inst.snakePos_inst.SLICE_5/C1"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787_add_4_21/S1",
+            "phy_name":"board_inst.snakePos_inst.SLICE_5/F1"
+        },
+        "arrive":9.317,
+        "delay":0.249
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n97[20]",
+            "phy_name":"board_inst.snakePos_inst.n97[20]"
+        },
+        "arrive":9.317,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+board_inst/snakePos_inst/counter_14661_14787__i21/CK->board_inst/snakePos_inst/counter_14661_14787__i21/Q
+                                          SLICE           CLK_TO_Q1_DELAY  0.768         6.993  1       
+board_inst/snakePos_inst/n3                               NET DELAY        2.075         9.068  1       
+board_inst/snakePos_inst/counter_14661_14787_add_4_21/C1->board_inst/snakePos_inst/counter_14661_14787_add_4_21/S1
+                                          SLICE           C1_TO_F1_DELAY   0.249         9.317  1       
+board_inst/snakePos_inst/n97[20] ( DI1 )                  NET DELAY        0.000         9.317  1       
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i20/CK",
+        "phy_name":"board_inst.snakePos_inst.SLICE_5/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":0.000,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+                                                          CONSTRAINT     0.000         0.000  1       
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  134     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225         6.225  134     
+                                                          Uncertainty    0.000         6.225  
+                                                          Hold time      0.000         6.225  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -6.225  
+Arrival Time                                                                           9.317  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   3.092  
+
+
+
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : board_inst/snakePos_inst/counter_14661_14787__i22/Q  (SLICE)
+Path End         : board_inst/snakePos_inst/counter_14661_14787__i22/D  (SLICE)
+Source Clock     : CLK (R)
+Destination Clock: CLK (R)
+Logic Level      : 2
+Delay Ratio      : 67.1% (route), 32.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 3.092 ns  (Passed)
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i22/CK",
+        "phy_name":"board_inst.snakePos_inst.SLICE_3/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  134     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225         6.225  134     
+
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i22/Q",
+        "phy_name":"board_inst.snakePos_inst.SLICE_3/Q0"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i22/D",
+        "phy_name":"board_inst.snakePos_inst.SLICE_3/DI0"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787__i22/CK",
+            "phy_name":"board_inst.snakePos_inst.SLICE_3/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787__i22/Q",
+            "phy_name":"board_inst.snakePos_inst.SLICE_3/Q0"
+        },
+        "arrive":6.993,
+        "delay":0.768
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n2",
+            "phy_name":"board_inst.snakePos_inst.n2"
+        },
+        "arrive":9.068,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787_add_4_23/C0",
+            "phy_name":"board_inst.snakePos_inst.SLICE_3/C0"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787_add_4_23/S0",
+            "phy_name":"board_inst.snakePos_inst.SLICE_3/F0"
+        },
+        "arrive":9.317,
+        "delay":0.249
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n97[21]",
+            "phy_name":"board_inst.snakePos_inst.n97[21]"
+        },
+        "arrive":9.317,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+board_inst/snakePos_inst/counter_14661_14787__i22/CK->board_inst/snakePos_inst/counter_14661_14787__i22/Q
+                                          SLICE           CLK_TO_Q0_DELAY  0.768         6.993  1       
+board_inst/snakePos_inst/n2                               NET DELAY        2.075         9.068  1       
+board_inst/snakePos_inst/counter_14661_14787_add_4_23/C0->board_inst/snakePos_inst/counter_14661_14787_add_4_23/S0
+                                          SLICE           C0_TO_F0_DELAY   0.249         9.317  1       
+board_inst/snakePos_inst/n97[21] ( DI0 )                  NET DELAY        0.000         9.317  1       
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i22/CK",
+        "phy_name":"board_inst.snakePos_inst.SLICE_3/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":0.000,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+                                                          CONSTRAINT     0.000         0.000  1       
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  134     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225         6.225  134     
+                                                          Uncertainty    0.000         6.225  
+                                                          Hold time      0.000         6.225  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -6.225  
+Arrival Time                                                                           9.317  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   3.092  
+
+
+
+
+++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : board_inst/snakePos_inst/counter_14661_14787__i23/Q  (SLICE)
+Path End         : board_inst/snakePos_inst/counter_14661_14787__i23/D  (SLICE)
+Source Clock     : CLK (R)
+Destination Clock: CLK (R)
+Logic Level      : 2
+Delay Ratio      : 67.1% (route), 32.9% (logic)
+Clock Skew       : 0.000 ns
+Hold Constraint  : 0.000 ns 
+Path Slack       : 3.092 ns  (Passed)
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i22/CK",
+        "phy_name":"board_inst.snakePos_inst.SLICE_3/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+Name                                      Cell/Site Name  Delay Name     Delay  Arrival Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  134     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225         6.225  134     
+
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i23/Q",
+        "phy_name":"board_inst.snakePos_inst.SLICE_3/Q1"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i23/D",
+        "phy_name":"board_inst.snakePos_inst.SLICE_3/DI1"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787__i23/CK",
+            "phy_name":"board_inst.snakePos_inst.SLICE_3/CLK"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787__i23/Q",
+            "phy_name":"board_inst.snakePos_inst.SLICE_3/Q1"
+        },
+        "arrive":6.993,
+        "delay":0.768
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/snakeCLK",
+            "phy_name":"board_inst.snakePos_inst.snakeCLK"
+        },
+        "arrive":9.068,
+        "delay":2.075
+    },
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787_add_4_23/C1",
+            "phy_name":"board_inst.snakePos_inst.SLICE_3/C1"
+        },
+        "pin1":
+        {
+            "log_name":"board_inst/snakePos_inst/counter_14661_14787_add_4_23/S1",
+            "phy_name":"board_inst.snakePos_inst.SLICE_3/F1"
+        },
+        "arrive":9.317,
+        "delay":0.249
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"board_inst/snakePos_inst/n97[22]",
+            "phy_name":"board_inst.snakePos_inst.n97[22]"
+        },
+        "arrive":9.317,
+        "delay":0.000
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+board_inst/snakePos_inst/counter_14661_14787__i23/CK->board_inst/snakePos_inst/counter_14661_14787__i23/Q
+                                          SLICE           CLK_TO_Q1_DELAY  0.768         6.993  14      
+board_inst/snakePos_inst/snakeCLK                         NET DELAY        2.075         9.068  14      
+board_inst/snakePos_inst/counter_14661_14787_add_4_23/C1->board_inst/snakePos_inst/counter_14661_14787_add_4_23/S1
+                                          SLICE           C1_TO_F1_DELAY   0.249         9.317  1       
+board_inst/snakePos_inst/n97[22] ( DI1 )                  NET DELAY        0.000         9.317  1       
+
+<tapath class="path_info">
+<xmp>
+{
+    "path_begin":
+    {
+        "type":"pin",
+        "log_name":"HSOSC_inst/CLKHF",
+        "phy_name":"HSOSC_inst/CLKHF"
+    },
+    "path_end":
+    {
+        "type":"pin",
+        "log_name":"board_inst/snakePos_inst/counter_14661_14787__i22/CK",
+        "phy_name":"board_inst.snakePos_inst.SLICE_3/CLK"
+    },
+    "path_sections":[
+    {
+        "type":"site_delay",
+        "pin0":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "pin1":
+        {
+            "log_name":"",
+            "phy_name":""
+        },
+        "arrive":0.000,
+        "delay":0.000
+    },
+    {
+        "type":"net_delay",
+        "net":
+        {
+            "log_name":"NES_inst/CLK",
+            "phy_name":"CLK"
+        },
+        "arrive":6.225,
+        "delay":6.225
+    }
+    ]
+}
+</xmp>
+</tapath>
+
+                                                          CONSTRAINT     0.000         0.000  1       
+HSOSC_inst/CLKHF                          HFOSC           CLOCK LATENCY  0.000         0.000  134     
+NES_inst/CLK ( CLK )                                      NET DELAY      6.225         6.225  134     
+                                                          Uncertainty    0.000         6.225  
+                                                          Hold time      0.000         6.225  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Required Time                                                                         -6.225  
+Arrival Time                                                                           9.317  
+----------------------------------------  --------------  -------------  -----  ------------  ------  
+Path Slack  (Passed)                                                                   3.092  
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+                    End of Detailed Report for timing paths 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+
+##########################################################
+
+
+
+
+
+
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+</PRE></DIV>
+
+<DIV id="toc" class="radiant"<span onmousemove="showTocList()">Contents</span>
+<UL id="toc_list">
+<LI><A href=#timing_rpt_top>Timing Report</A></LI>
+<LI><A href=#Timing_rpt_DesignChecking>1  DESIGN CHECKING</A></LI>
+<UL>
+<LI><A href=#Timing_rpt_SDCConstraints>1.1  SDC Constraints</A></LI>
+<LI><A href=#Timing_rpt_CombinationalLoop>1.2  Combinational Loop</A></LI>
+</UL>
+<LI><A href=#Timing_rpt_ClockSummary>2  CLOCK SUMMARY</A></LI>
+<LI><A href=#Timing_rpt_AnalysisSummary>3  TIMING ANALYSIS SUMMARY</A></LI>
+<UL>
+<LI><A href=#Timing_rpt_Overall>3.1  Overall (Setup and Hold)</A></LI>
+<LI><A href=#Timing_rpt_SetupSummary>3.2  Setup Summary Report</A></LI>
+<LI><A href=#Timing_rpt_HoldSummary>3.3  Hold Summary Report</A></LI>
+<LI><A href=#Timing_rpt_UnconstrainedReport>3.4  Unconstrained Report</A></LI>
+</UL>
+<LI><A href=#Timing_rpt_DetailedReport>4  DETAILED REPORT</A></LI>
+<UL>
+<LI><A href=#Timing_rpt_SetupDetailedReport>4.1  Setup Detailed Report</A></LI>
+<LI><A href=#Timing_rpt_HoldDetailedReport>4.2  Hold Detailed Report</A></LI>
+</UL>
+</UL>
+</DIV>
+
+<button id="back_to_top" class="radiant" onclick="scrollToTop()">&lt;</button>
+<script type="text/javascript">
+<!--
+var scrollStep = 0;
+function scrollToTop(){
+   var funScroll = function() {
+      var top = document.body.scrollTop;
+      if (top == 0) {
+         scrollStep = 0;
+         return;
+      }
+      if (scrollStep == 0)
+         scrollStep = top/20 + 1;
+      top -= scrollStep;
+      if (top < 0)
+         top = 0;
+      document.body.scrollTop = top;
+      requestAnimationFrame(funScroll);
+   };
+   funScroll();
+}
+
+window.addEventListener('scroll', function(e) {
+   var backToTop = document.getElementById('back_to_top')
+   if (document.body.scrollTop > 0) {
+      backToTop.style.display = 'block';
+   } else {	backToTop.style.display = 'none'  }});
+
+//-->
+</script>
+
+<style type="text/css">
+#back_to_top {
+   bottom:20px; right:20px;
+   width:30px; height:30px;
+   font-size: 20px;
+   padding: 2px 5px 2px 5px;
+   position:fixed;
+   background-color:rgba(210,210,210,0.1);
+   border-style: solid;
+   border-color: rgba(192,192,192,0.8);
+   border-width:1px;
+   display:none;
+   -webkit-transform: rotate(90deg);
+   -webkit-transform-origin:50% 50%;
+}
+#back_to_top:focus {
+   outline-width:0px;
+}
+</style>
+
+<style type='text/css'>
+pre {
+  margin-left: 2em;
+}
+tapath {
+  display: none;
+}
+.tools {
+  font-family: arial;
+  font-size: 0.8em;
+  text-align: center;
+  display: inline-block;
+}
+.tools:before{
+  content: "Shown in: ";
+  color: #1c79ec;
+  text-align: center;
+  padding-left: 0.5em;
+}
+.tools a {
+  color: rgb(192, 192, 192);
+  cursor: pointer;
+}
+.tools a:link {
+  text-decoration: none;
+}
+.tools a:hover {
+  color: #1c79ec;
+}
+.tools a:before {
+  content: " ";
+  width: 20px;
+  display: inline-block;
+  text-align: center;
+  padding-right: 5px;
+  padding-left: 2px;
+}
+.tools a:after {
+  text-align: center;
+  padding-right: 5px;
+}
+.na:before {
+  background: url("qrc:///report-view-html/images/netlist_analyzer_16.png") no-repeat center;
+}
+.na:after {
+  content: "Netlist Analyzer";
+}
+.fp:before {
+  background: url("qrc:///report-view-html/images/floorplanview_16.png") no-repeat center;
+}
+.fp:after {
+  content: "Physical Designer Placement Mode";
+}
+.phv:before {
+  background: url("qrc:///report-view-html/images/epic_16.png") no-repeat center;
+}
+.phv:after {
+  content: "Physical Designer Routing Mode";
+}
+</style>
+<script type='text/javascript'>
+<!--
+var show_log = 1; var show_phy = 0;
+function createTool(cls, path_obj) {
+  var tool = document.createElement('a');
+  tool.className = cls;
+  tool.onclick = (function(tool, path) {
+    return function() {
+      var tool_name;
+      var logical = false;
+      if (typeof path !== 'string' || path === null || path.length == 0)
+        return;
+      switch (cls) {
+        case 'na':
+          tool_name = 'SCHEMATIC_VIEW';
+          logical = true;
+          break;
+        case 'fp':
+          tool_name = 'FLOORPLANNER';
+          break;
+        case 'phv':
+          tool_name = 'PHYSICAL_VIEW';
+          break;
+      }
+      var url = 'NGView://' + tool_name + '/tapath?' + (logical?'view_type=tech&':'') + 'path=' +
+                encodeURIComponent(path);
+      this.href = url;
+    }
+  })(cls, path_obj).bind(tool);
+  return tool;
+}
+function createTools(path_element) {
+  var tools = document.createElement('span');
+  tools.className = 'tools';
+  var path = path_element.textContent;
+  if (show_log) 
+    tools.appendChild(createTool('na', path));
+  if (show_phy) {
+    tools.appendChild(createTool('fp', path));
+    tools.appendChild(createTool('phv', path));
+  }
+  var p = path_element.parentNode;
+  p.insertBefore(tools, path_element);
+}
+function handleLeftpaths(left_paths, index) {
+    if (left_paths.length > index) {
+      setTimeout(function(paths, i) {
+        return function() {
+          var path = paths[i];
+          createTools(path);
+          handleLeftpaths(paths, i+1);
+        }
+      }(left_paths, index));
+    }
+}
+window.onload = function() {
+  if (!show_log && !show_phy) return; 
+  if (typeof window._$radiant !== 'undefined') {
+    var all_paths = document.getElementsByTagName('tapath');
+    handleLeftpaths(all_paths, 0);
+  }
+}
+//-->
+</script>
+</BODY>
+
