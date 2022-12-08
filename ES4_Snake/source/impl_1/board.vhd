@@ -65,8 +65,6 @@ begin
                     snake_len <= snake_len + 1;
                     apple_coord <= to_integer(snake_tail);
                 end if;
-
-                
                 if digital_in(7) = '0' then
                     game_state <= "10";
                 end if;

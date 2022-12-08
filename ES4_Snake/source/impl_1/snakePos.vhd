@@ -99,7 +99,7 @@ begin
                 -- Update snake head coordinate
                 if snake_dir = "00" then
                     if snake_head < 10 then
-                        --snake_dead <= '1';
+                        snake_dead <= '1';
                     end if;
                     snake_head <= snake_head - 10;
                     for i in 0 to 6 loop
