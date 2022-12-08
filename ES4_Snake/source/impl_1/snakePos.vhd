@@ -28,14 +28,14 @@ architecture synth of snakepos is
 signal snake_head: unsigned(6 downto 0) := 7d"44";
 signal snake_tail: unsigned(6 downto 0) := 7d"42";
 
-TYPE DirType is (UP, DOWN, LEFT, RIGHT, NONE);
+TYPE DirType is (UP, DOWN, LEFT, RIGHT);
 TYPE DirArray is ARRAY (0 to 99) of DirType;
 
 signal prev_dir: unsigned(1 downto 0) := "11";
 signal snake_dir: unsigned(1 downto 0);
 
 -- From left to right, direction from head to tails
-signal snake_dir_arr: DirArray := (99 downto 2 => NONE, 1 downto 0 => LEFT); -- Errors! Fix Type Declarations
+signal snake_dir_arr: DirArray := (others => LEFT); -- Errors! Fix Type Declarations
 signal snake_arr: std_logic_vector(99 downto 0) := 100d"0";
 
 signal snake_dead: std_logic := '0';
@@ -74,7 +74,6 @@ begin
                     when DOWN => snake_coord := snake_coord + 10;
                     when LEFT => snake_coord := snake_coord - 1;
                     when RIGHT => snake_coord := snake_coord + 1;
-                    when NONE => snake_coord := snake_coord;
                 end case;
                 snake_arr(to_integer(snake_coord)) <= '1';
             end loop;
@@ -142,7 +141,7 @@ begin
                     snake_dir_arr(0) <= LEFT;
                 end if;
                 
-                -- snake_dir_arr(to_integer(snake_len_in)) <= NONE;
+                -- snake_dir_arr(to_integer(snake_len_in)) <;
 				else 
 					snake_head <= 6d"0";
             end if;
