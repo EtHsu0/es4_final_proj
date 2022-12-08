@@ -66,7 +66,7 @@ begin
 
             snake_arr <= (others => '0');
             snake_coord := snake_head;
-            snake_arr(to_integer(snake_coord)) <= '1';
+            --snake_arr(to_integer(snake_coord)) <= '1';
 
             for i in 0 to 6 loop
             --   exit when i = to_integer(snake_len_in);
