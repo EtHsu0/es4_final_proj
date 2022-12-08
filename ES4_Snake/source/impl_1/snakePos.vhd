@@ -117,7 +117,7 @@ begin
                 -- end if;
                 /*
                 if grow_snake_in = '0' then
-                    arr_length <= arr_length - 1;
+                    arr_length <= arr_length + 1;
                 end if;
                 */
                 prev_dir <= snake_dir;

@@ -26,7 +26,7 @@ entity pattern_gen is
 		
 		
 		
-		rgb : out unsigned(5 downto 0)
+		rgb : out unsigned(5 downto 0);
 
         snake_head: in unsigned(6 downto 0);
         scores: in unsigned(6 downto 0);
