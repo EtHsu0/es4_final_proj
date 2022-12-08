@@ -35,6 +35,7 @@ architecture synth of board is
     end component;
 
     signal apple_id: unsigned (6 downto 0) := 9d"0";
+    signal apple_coord: integer range 0 to 99:= 48;
     signal snake_head: unsigned (6 downto 0) := 7d"44";
     signal snake_tail: unsigned (6 downto 0) := 7d"0";
     signal snake_arr: std_logic_vector(99 downto 0) := 100d"0"; -- := (40 => '1', 41 => '1', 42 => '1'),(others => '0'); -- TODO: Fix Syntax Error!
@@ -44,20 +45,24 @@ architecture synth of board is
     signal snake_dead: std_logic := '0';
 
     signal game_State : unsigned(1 downto 0) := "00";
+    --signal game_state: unsigned(1 downto 0);
+    signal apple_x: unsigned(3 downto 0);
+    signal apple_y: unsigned(3 downto 0); 
+    signal apple_y_inter: unsigned (12 downto 0);
 begin
     process(clk) is
     begin
         if rising_edge(clk) then
             if game_state = "00" then
-               apple_id <= 7d"48";
+               apple_coord <= 48;
                snake_len <= 7d"1";
                 if digital_in(4) = '0' then
                     game_state <= "01";
                 end if;
             elsif game_state = "01" then
-                if snake_head = apple_id then
+                if snake_head = to_unsigned(apple_coord, 7) then
                     snake_len <= snake_len + 1;
-                    apple_id <= snake_tail;
+                    apple_coord <= to_integer(snake_tail);
                 end if;
                 if digital_in(7) = '0' then
                     game_state <= "10";
@@ -66,6 +71,7 @@ begin
                     game_state <= "10";
                 end if;
             elsif game_state = "10" then
+                apple_coord <= 99;
                 if digital_in(5) = '0' then
                     game_state <= "00";
                 end if;
@@ -91,6 +97,6 @@ begin
     scores_out <= 6d"0";
     snake_head_out <= snake_head;
     snake_arr_out <= snake_arr;
-    apple_out <= apple_id;
+    apple_out <= to_unsigned(apple_coord, 7);
 
 end;

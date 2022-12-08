@@ -2,16 +2,16 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity eight_segments is
+entity one_segments is
     port (
         row : in unsigned (9 downto 0);
         col : in unsigned (9 downto 0);
         clk : in std_logic;
         rgb : out std_logic_vector(5 downto 0)
     );
-end eight_segments;
+end one_segments;
 
-architecture synth of eight_segments is
+architecture synth of one_segments is
     signal addr : std_logic_vector(13 downto 0);
 
     begin
