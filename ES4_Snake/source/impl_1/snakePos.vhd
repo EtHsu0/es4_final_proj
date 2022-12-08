@@ -13,7 +13,7 @@ entity snakepos is
         
         game_state_in: in unsigned(1 downto 0);
 
-        snake_len_in: in unsigned(6 downto 0) := 7d"2";
+        snake_len_in: in unsigned(6 downto 0) := 7d"4";
 
         snake_head_out: out unsigned(6 downto 0);
         snake_tail_out: out unsigned(6 downto 0);
