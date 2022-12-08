@@ -46,8 +46,8 @@ architecture synth of pattern_gen is
 
 component gapple is
     port (
-        row : in unsigned (9 downto 0);
-        col : in unsigned (9 downto 0);
+        row : in unsigned (6 downto 0);
+        col : in unsigned (6 downto 0);
         clk : in std_logic;
         rgb : out std_logic_vector(5 downto 0)
     );
@@ -76,7 +76,11 @@ begin
     apple_cox <= x_pos - 10d"102" + 10d"44" * apple_x;
     apple_coy <= y_pos - 10d"21" + 10d"44" * apple_y;
     apple_addr <= apple_coy & apple_cox;
-	gapple_init: gapple port map(apple_coy, apple_cox, pll_in_clock, appleRGB);
+	gapple_init: gapple port map(
+        row => apple_coy, 
+        col => apple_cox, 
+        clk => pll_in_clock, 
+        rgb => appleRGB);
 
 	--intermed_rgb <= "001100" when (x_pos mod 10d"5" = 10d"0") else "110000";
 	--rgb <= 6d"0" when valid='0' else intermed_rgb;
