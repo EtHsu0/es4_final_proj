@@ -80,7 +80,7 @@ begin
             snake_coord := snake_head;
             -- snake_arr(to_integer(snake_coord)) <= '1';
 
-            for i in 0 to 30 loop
+            for i in 0 to 10 loop
             --   exit when i = to_integer(snake_len_in);
                 case snake_dir_arr(i) is
                     when UP => snake_coord := snake_coord - 10;
@@ -133,7 +133,7 @@ begin
                         snake_dead <= '1';
                     end if;
                     snake_head <= snake_head - 10;
-                    for i in 0 to 29 loop
+                    for i in 0 to 10 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= DOWN;
@@ -142,7 +142,7 @@ begin
                         snake_dead <= '1';
                     end if;
                     snake_head <= snake_head + 10;
-                    for i in 0 to 30 loop
+                    for i in 0 to 10 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= UP;
@@ -151,7 +151,7 @@ begin
                             snake_dead <= '1';
                     end if;
                     snake_head <= snake_head - 1;
-                    for i in 0 to 30 loop
+                    for i in 0 to 10 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= RIGHT;
@@ -160,38 +160,15 @@ begin
                         snake_dead <= '1';
                     end if;
                     snake_head <= snake_head + 1;
-                    for i in 0 to 30 loop
+                    for i in 0 to 10 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= LEFT;
                 end if;
                 
                 snake_dir_arr(to_integer(snake_len_in)) <= NONE;
-                /*
-                case dir_signal is
-                    when "00" => snake_arr <= (3 downto 0 => '1', others => '0');
-                    when "01" => snake_arr <= (13 downto 10 => '1', others => '0');
-                    when "10" => snake_arr <= (23 downto 20 => '1', others => '0');
-                    when "11" => snake_arr <= (33 downto 30 => '1', others => '0');
-                end case;
-                */
-            --else
-                --snake_arr <= (73 downto 70 => '1', others => '0');
             end if;
         
-        
-            
-        -- snake_tail <= snake_coord;
-            -- snake_arr(to_integer(slow_test_counter)) <= '1';
-            -- slow_test_counter <= slow_test_counter + 1;
-        -- Check direction is valid
-        --
-        --     -- Convert to type
-
-        --     -- Remove / update tail if we are not growing
-        --     if grow_snake_in = '0' then
-        --         arr_right <= arr_right - 1;
-        --     end if;
 
             
             
