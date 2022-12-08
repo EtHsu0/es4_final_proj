@@ -50,8 +50,12 @@ architecture synth of display is
             y_pos : in unsigned(9 downto 0); -- the current y position (row count) of pixel that the VGA is drawing
             x_pos : in unsigned(9 downto 0); -- the current x position (column count) of pixel that the VGA is drawing
             
-            rand_apple : in unsigned(8 downto 0);
-            snake_location : in std_logic_vector(99 downto 0);
+            apple: in unsigned(8 downto 0);
+
+            snake: in std_logic_vector(99 downto 0);
+            snake_head: in unsigned(6 downto 0);
+            scores: in unsigned(6 downto 0);
+            game_state: in unsigned(1 downto 0)
             
             
             
