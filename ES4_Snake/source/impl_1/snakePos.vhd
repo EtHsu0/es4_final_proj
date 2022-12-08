@@ -45,7 +45,7 @@ signal snake_dir: unsigned(1 downto 0);
 signal arr_length: integer := 2;
 -- From left to right, direction from head to tails
 signal snake_dir_arr: DirArray := (others => LEFT); -- Errors! Fix Type Declarations
-signal snake_arr: std_logic_vector(99 downto 0) := 99d"0";
+signal snake_arr: std_logic_vector(99 downto 0) := 100d"0";
 
 signal snake_dead: std_logic := '0';
 -- signal snake_coord: unsigned(7 downto 0);
@@ -103,7 +103,7 @@ begin
                 -- snake_arr <= (44 downto 42 => '1', others => '0');
                 snake_dead <= '0';
                 arr_length <= 6;
-                snake_head <= 8d"44";
+                snake_head <= 7d"44";
                 snake_dir_arr <= (others => LEFT);
             --snake_dir_arr(0) <= RIGHT;
             --	snake_dir_arr(1) <= UP;
