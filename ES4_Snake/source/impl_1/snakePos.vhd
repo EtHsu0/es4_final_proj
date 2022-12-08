@@ -17,13 +17,6 @@ entity snakepos is
 
         snake_len_in: in unsigned(6 downto 0) := 7d"2";
 
-        -- Direction should be 0-3 (Up, Down, Left, Right)
-        --dir_in: in unsigned(1 downto 0) := "11"; 
-        -- Gabriel Note: dirtype is not defined, need to fix dirtype declaration or remove entirely
-        -- 00 = up
-        -- 01 = down
-        -- 10 = left
-        -- 11 = right
         snake_head_out: out unsigned(6 downto 0);
         snake_tail_out: out unsigned(6 downto 0);
         snake_arr_out: out std_logic_vector(99 downto 0) := 100b"0";
@@ -43,9 +36,6 @@ TYPE DirArray is ARRAY (0 to 99) of DirType;
 signal prev_dir: unsigned(1 downto 0) := "11";
 signal snake_dir: unsigned(1 downto 0);
 
-
-signal arr_length: unsigned (6 downto 0) := 6d"2";
-signal snake_arr_len: unsigned(6 downto 0) := 6d"2";
 -- From left to right, direction from head to tails
 signal snake_dir_arr: DirArray := (99 downto 2 => NONE, 1 downto 0 => LEFT); -- Errors! Fix Type Declarations
 signal snake_arr: std_logic_vector(99 downto 0) := 100d"0";
@@ -54,7 +44,6 @@ signal snake_dead: std_logic := '0';
 -- signal snake_coord: unsigned(7 downto 0);
 signal counter: unsigned(29 downto 0) := 30d"0";
 signal snakeCLK: std_logic;
-signal slow_test_counter: unsigned(6 downto 0) := 7d"0";
 
 signal dir_signal: unsigned(1 downto 0);
 begin
@@ -80,7 +69,7 @@ begin
             snake_coord := snake_head;
             -- snake_arr(to_integer(snake_coord)) <= '1';
 
-            for i in 0 to 10 loop
+            for i in 0 to 6 loop
             --   exit when i = to_integer(snake_len_in);
                 case snake_dir_arr(i) is
                     when UP => snake_coord := snake_coord - 10;
@@ -118,12 +107,6 @@ begin
                 -- else
                     -- prev_dir <= prev_dir;
                 -- end if;
-                /*
-                if grow_snake_in = '0' then
-                    snake_arr_len <= snake_arr_len + 1;
-                end if;
-				*/
-                
                 prev_dir <= snake_dir;
 
                 -- Update snake head coordinate
@@ -132,7 +115,7 @@ begin
                         snake_dead <= '1';
                     end if;
                     snake_head <= snake_head - 10;
-                    for i in 0 to 10 loop
+                    for i in 0 to 6 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= DOWN;
@@ -141,7 +124,7 @@ begin
                         snake_dead <= '1';
                     end if;
                     snake_head <= snake_head + 10;
-                    for i in 0 to 10 loop
+                    for i in 0 to 6 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= UP;
@@ -150,7 +133,7 @@ begin
                             snake_dead <= '1';
                     end if;
                     snake_head <= snake_head - 1;
-                    for i in 0 to 10 loop
+                    for i in 0 to 6 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= RIGHT;
@@ -159,7 +142,7 @@ begin
                         snake_dead <= '1';
                     end if;
                     snake_head <= snake_head + 1;
-                    for i in 0 to 10 loop
+                    for i in 0 to 6 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= LEFT;
