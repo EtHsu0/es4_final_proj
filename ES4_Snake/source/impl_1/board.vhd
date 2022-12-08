@@ -90,7 +90,7 @@ begin
                     game_state <= "00";
                 -- A
                 elsif digital_in(7) = '0' then
-                    --snake_len <= snake_len + 1;
+                    snake_len <= snake_len + 1;
                     apple_id <= 9b"1_1001_0000";
                 else
                     apple_id <= apple_id;
