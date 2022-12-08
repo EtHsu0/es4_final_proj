@@ -13,7 +13,7 @@ entity snakepos is
         
         game_state_in: in unsigned(1 downto 0);
 
-        snake_len_in: in unsigned(6 downto 0) := 7d"4";
+        snake_len_in: in unsigned(6 downto 0) := 7d"2";
 
         snake_head_out: out unsigned(6 downto 0);
         snake_tail_out: out unsigned(6 downto 0);
@@ -28,14 +28,14 @@ architecture synth of snakepos is
 signal snake_head: unsigned(6 downto 0) := 7d"44";
 signal snake_tail: unsigned(6 downto 0) := 7d"42";
 
-TYPE DirType is (UP, DOWN, LEFT, RIGHT);
+TYPE DirType is (UP, DOWN, LEFT, RIGHT, NONE);
 TYPE DirArray is ARRAY (0 to 99) of DirType;
 
 signal prev_dir: unsigned(1 downto 0) := "11";
 signal snake_dir: unsigned(1 downto 0);
 
 -- From left to right, direction from head to tails
-signal snake_dir_arr: DirArray := (others => LEFT); -- Errors! Fix Type Declarations
+signal snake_dir_arr: DirArray := (99 downto 2 => NONE, 1 downto 0 => LEFT); -- Errors! Fix Type Declarations
 signal snake_arr: std_logic_vector(99 downto 0) := 100d"0";
 
 signal snake_dead: std_logic := '0';
@@ -67,13 +67,14 @@ begin
             snake_coord := snake_head;
             snake_arr(to_integer(snake_coord)) <= '1';
 
-            for i in 0 to to_integer(snake_len_in) loop
+            for i in 0 to 30 loop
             --   exit when i = to_integer(snake_len_in);
                 case snake_dir_arr(i) is
                     when UP => snake_coord := snake_coord - 10;
                     when DOWN => snake_coord := snake_coord + 10;
                     when LEFT => snake_coord := snake_coord - 1;
                     when RIGHT => snake_coord := snake_coord + 1;
+                    when NONE => snake_coord := snake_coord;
                 end case;
                 snake_arr(to_integer(snake_coord)) <= '1';
             end loop;
@@ -93,9 +94,13 @@ begin
                 snake_dead <= '0';
                 -- snake_arr_len </= 6d"6";
                 snake_head <= 7d"44";
-                
-                snake_dir_arr <= (others => LEFT);
+                snake_dir_arr <= (99 downto 2 => NONE, 1 downto 0 => LEFT);
             elsif game_state_in = "01" then
+                -- if prev_dir(1) /= dir_signal(1) then
+                    -- prev_dir <= dir_signal;
+                -- else
+                    -- prev_dir <= prev_dir;
+                -- end if;
                 prev_dir <= snake_dir;
 
                 -- Update snake head coordinate
@@ -104,7 +109,7 @@ begin
                         --snake_dead <= '1';
                     end if;
                     snake_head <= snake_head - 10;
-                    for i in 0 to 13 loop
+                    for i in 0 to 6 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= DOWN;
@@ -113,7 +118,7 @@ begin
                         --snake_dead <= '1';
                     end if;
                     snake_head <= snake_head + 10;
-                    for i in 0 to 13 loop
+                    for i in 0 to 6 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= UP;
@@ -122,7 +127,7 @@ begin
                             --snake_dead <= '1';
                     end if;
                     snake_head <= snake_head - 1;
-                    for i in 0 to 13 loop
+                    for i in 0 to 6 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= RIGHT;
@@ -131,13 +136,13 @@ begin
                         --snake_dead <= '1';
                     end if;
                     snake_head <= snake_head + 1;
-                    for i in 0 to 13 loop
+                    for i in 0 to 6 loop
                         snake_dir_arr(i + 1) <= snake_dir_arr(i);
                     end loop;
                     snake_dir_arr(0) <= LEFT;
                 end if;
                 
-                -- snake_dir_arr(to_integer(snake_len_in)) <;
+                snake_dir_arr(to_integer(snake_len_in)) <= NONE;
 				else 
 					snake_head <= 6d"0";
             end if;
