@@ -109,27 +109,33 @@ begin
             if (x_pos > 10d"0" + 10d"10" and x_pos < 10d"35" + 10d"10") and (y_pos = 10d"50") then
                 rgb <= "000011";
             end if;
-        elsif (segments_tens(5) = '0') then
+        end if;
+        if (segments_tens(5) = '0') then
             if (x_pos = 10d"35" + 10d"10") and (y_pos > 10d"50" and y_pos < 10d"50" + 10d"35") then
                 rgb <= "000011"; 
-            end if; 
-        elsif (segments_tens(4) = '0') then 
+            end if;
+        end if;
+        if (segments_tens(4) = '0') then 
             if (x_pos = 10d"35" + 10d"10") and (y_pos > 10d"50" + 10d"35" and y_pos < 10d"50" + 10d"70") then
                 rgb <= "000011";
             end if;
-        elsif (segments_tens(3) = '0') then 
+        end if;
+        if (segments_tens(3) = '0') then 
             if (x_pos > 10d"0" + 10d"10" and x_pos < 10d"35" + 10d"10") and (y_pos = 10d"50" + 10d"70") then
                 rgb <= "000011";
             end if;
-        elsif (segments_tens(2) = '0') then 
+        end if;
+        if (segments_tens(2) = '0') then 
             if (x_pos = 10d"10") and (y_pos > 10d"50" + 10d"35" and y_pos < 10d"50" + 10d"70") then
                 rgb <= "000011";
             end if;
-        elsif (segments_tens(1) = '0') then
+        end if;
+        if (segments_tens(1) = '0') then
             if (x_pos = 10d"10") and (y_pos > 10d"50" and y_pos < 10d"50" + 10d"35") then
                 rgb <= "000011"; 
             end if; 
-        else -- segments_tens(0) = '0'
+        end if;
+        if (segments_tens(0) = '0') then -- segments_tens(0) = '0'
             if (x_pos > 10d"0" + 10d"10" and x_pos < 10d"35" + 10d"10") and (y_pos = 10d"50" + 10d"35") then
                 rgb <= "000011";
             end if;
