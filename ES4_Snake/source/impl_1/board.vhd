@@ -21,32 +21,39 @@ architecture synth of board is
     component snakePos is
         port (
             clk: in std_logic;
-			reset_in: in std_logic;
-			grow_snake_in: in std_logic;
-			dir_in: in unsigned(1 downto 0); 
-			snake_head_out: out unsigned(6 downto 0);
-			snake_tail_out: out unsigned(6 downto 0);
-			snake_arr_out: out std_logic_vector(99 downto 0) := 100b"0";
-			
-			snake_dead_out: out std_logic := '0'
+            digital_in: in unsigned(7 downto 0);
+            game_state_in: in unsigned(1 downto 0);
+            grow_snake_in: in std_logic;
+            snake_len_in: in unsigned(6 downto 0);
+
+            --dir_in: in unsigned(1 downto 0); 
+            snake_head_out: out unsigned(6 downto 0);
+            snake_tail_out: out unsigned(6 downto 0);
+            snake_arr_out: out std_logic_vector(99 downto 0) := 100b"0";
+            
+            snake_dead_out: out std_logic := '0'
         );
     end component;
 
     signal apple_id: unsigned (8 downto 0) := 9d"0";
     signal snake_head: unsigned (6 downto 0) := 7d"44";
-	signal snake_tail: unsigned (6 downto 0) := 7d"0";
+    signal snake_tail: unsigned (6 downto 0) := 7d"0";
     signal snake_arr: std_logic_vector(99 downto 0) := 100d"0"; -- := (40 => '1', 41 => '1', 42 => '1'),(others => '0'); -- TODO: Fix Syntax Error!
     signal reset: std_logic := '1';
     signal grow_snake: std_logic := '0';
+
+    signal snake_len: unsigned(6 downto 0) := 7d"2";
 
     TYPE buttons is (A, B, START, SEL, UP, DOWN, LEFT, RIGHT, NONE);
     signal button: buttons;
 
     signal dir: unsigned(1 to 0);
+    
+    signal dir_snake: unsigned(1 to 0);
     -- I need to convert button to dir;
     signal snake_dead: std_logic;
 
-    signal game_State : unsigned(1 downto 0) := "01";
+    signal game_State : unsigned(1 downto 0) := "00";
     --signal game_state: unsigned(1 downto 0);
 
     signal enable: std_logic := '0';
@@ -55,45 +62,66 @@ begin
     process(clk) is
     begin
         if rising_edge(clk) then
-		    if game_state = "00" then
-				apple_id <= 9b"1_0111_0100";
-				reset <= '1';
-                if button = START then
+            if game_state = "00" then
+               apple_id <= 9b"1_0111_0100";
+                if digital_in(4) = '0' then
                     game_state <= "01";
                 end if;
-			elsif game_state = "01" then
-			    reset <= '0';
-                case button is
-                    -- when START => game_state <= "01";
-                    when UP => apple_id <= 9b"1_0101_0100";
-                                dir <= "00";
-                    when DOWN => apple_id <= 9b"1_0100_0101";
-                                dir <= "01";
-                    when LEFT => apple_id <= 9b"1_0101_0101";
-                                dir <= "10";
-                    when RIGHT => apple_id <= 9b"1_0100_0100";
-                                dir <= "11";
-                    when B => game_state <= "00";
-                end case;
+            elsif game_state = "01" then
+                reset <= '0';
+                -- RIGHT
+                if digital_in(0) = '0' then
+                    apple_id <= 9b"1_0100_0100";
+                    --dir <= 2b"11";
+                -- LEFT
+                elsif digital_in(1) = '0' then
+                    apple_id <= 9b"1_0101_0101";
+                    --dir <= 2b"10";
+                -- DOWN
+                elsif digital_in(2) = '0' then
+                    apple_id <= 9b"1_0101_0100";
+                    --dir <= 2b"01";
+                -- UP
+                elsif digital_in(3) = '0' then
+                    apple_id <= 9b"1_0100_0101";
+                     -- dir <= 2b"00";
+                -- B
+                elsif digital_in(5) = '0' then
+                    game_state <= "00";
+                -- A
+                elsif digital_in(7) = '0' then
+                    --snake_len <= snake_len + 1;
+                    apple_id <= 9b"1_1001_0000";
+                else
+                    apple_id <= apple_id;
+                    --dir <= dir;
+                end if;
+                -- if snake_dead <= '1' then
+                --     game_state <= "10";
+                -- end if;
+            elsif game_state = "10" then
+                apple_id <= 9b"1_1001_1001";
+                if digital_in(6) = '0' then
+                    game_state <= "00";
+                end if;
             end if;
         end if;
     end process;
-    
-    --reset <= '1' when button = START else '0';
-    button <= RIGHT when digital_in(0) = '0' else
-            LEFT when digital_in(2) = '0' else
-            DOWN when digital_in(3) = '0' else
-            UP when digital_in(4) = '0' else
-            START when digital_in(5) = '0' else
-            SEL when digital_in(6) = '0' else
-            B when digital_in(7) = '0' else
-            A when digital_in(8) = '0' else
-            NONE;
-	snake_arr_out <= snake_arr;
-	apple_out <= apple_id;
+    -- dir_snake <= dir;
+    --reset <= '1' when button = START else '0'
 
-
-    snakePos_inst: snakePos port map(clk, reset, grow_snake, dir, snake_head, snake_tail, snake_arr, snake_dead);
+    snakePos_inst: snakePos port map
+        (
+            clk => clk, 
+            digital_in => digital_in,
+            game_state_in => game_state, 
+            grow_snake_in => grow_snake,
+            snake_len_in => snake_len,
+            snake_head_out => snake_head,
+            snake_tail_out => snake_tail,
+            snake_arr_out => snake_arr,
+            snake_dead_out => snake_dead
+		);
     --process (snake_head) is begin
         -- If snake head is on apple's coordinate
         --if snake_head_out = apple_out then
@@ -113,5 +141,6 @@ begin
     scores_out <= "0";
     snake_head_out <= snake_head;
     snake_arr_out <= snake_arr;
+    apple_out <= apple_id;
 
 end;

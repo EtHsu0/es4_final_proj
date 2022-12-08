@@ -14,11 +14,7 @@ entity display is
 
         -- Game logic
         apple: in unsigned(8 downto 0);
-
-        snake: in std_logic_vector(99 downto 0);
-        snake_head: in unsigned(6 downto 0);
-        scores: in unsigned(6 downto 0);
-        game_state: in unsigned(1 downto 0)
+        snake: in std_logic_vector(99 downto 0)
     );
 end display;
 
@@ -50,12 +46,10 @@ architecture synth of display is
             y_pos : in unsigned(9 downto 0); -- the current y position (row count) of pixel that the VGA is drawing
             x_pos : in unsigned(9 downto 0); -- the current x position (column count) of pixel that the VGA is drawing
             
-            apple: in unsigned(8 downto 0);
-
-            snake: in std_logic_vector(99 downto 0);
-            snake_head: in unsigned(6 downto 0);
-            scores: in unsigned(6 downto 0);
-            game_state: in unsigned(1 downto 0)
+            rand_apple : in unsigned(8 downto 0);
+            snake_location : in std_logic_vector(99 downto 0);
+            
+            score : in unsigned(5 downto 0);
             
             
             
@@ -75,9 +69,6 @@ architecture synth of display is
     
     signal valid : std_logic;
 
-    -- snake testing
-    signal snake_loc : std_logic_vector(99 downto 0);
-    
     begin
         pll_init: mypll port map(ref_clk_i => pll_in_clock, rst_n_i => '1', outcore_o => pll_outcore_o, outglobal_o => clk);
         -- vga_initial vga port map(clk <= clk);
@@ -87,6 +78,6 @@ architecture synth of display is
         -- 9B"1_1000_0111" represents the random apple. "1" means that it exists, "1000" means that the column number is 8, "0111" means that the row number is 7
         --snake_loc <= ("0000000000000000001000000000100000000010111111111010000000000000000000000000000000000000000000000000"); 
         --pattern_gen_init: pattern_gen port map(valid, row_cnt, column_cnt, 9B"1_1000_0111", snake_loc, rgb);
-        pattern_gen_initial: pattern_gen port map(valid, row_cnt, column_cnt, apple, snake, rgb, snake_head, scores, game_state);
+        pattern_gen_initial: pattern_gen port map(valid, row_cnt, column_cnt, apple, snake, "000010", rgb);
 
     end;

@@ -14,18 +14,23 @@ entity pattern_gen is
 		-- SPECIFIC SNAKE GAME VARIABLES
 		-- INPUT PORTS
 
-		-- apple(8) = '1' if there is an apple, '0' if there is no apple
-		-- apple(7 downto 4) gives the column_num {col 0, 1, 2, ..., 8, 9} in binary
-		-- apple(3 downto 0) gives the row_num {row 0, 1, 2, ..., 8, 9} in binary
-		apple : in unsigned(8 downto 0);
+		-- rand_apple(8) = '1' if there is an apple, '0' if there is no apple
+		-- rand_apple(7 downto 4) gives the column_num {col 0, 1, 2, ..., 8, 9} in binary
+		-- rand_apple(3 downto 0) gives the row_num {row 0, 1, 2, ..., 8, 9} in binary
+		rand_apple : in unsigned(8 downto 0);
 		snake_location : in std_logic_vector(99 downto 0);
 		
 		
+        -- Score 
+        score : in unsigned(5 downto 0);
+
+
 		-- To be implemented
 		-- display score with rom, start/end game screen, snake head
 		
 		
 		
+
 		rgb : out unsigned(5 downto 0);
 
         snake_head: in unsigned(6 downto 0);
@@ -41,6 +46,13 @@ architecture synth of pattern_gen is
 signal intermed_rgb : unsigned(5 downto 0);
 signal head_x : unsigned(4 downto 0);
 signal head_y : unsigned(4 downto 0);
+
+signal score_tens_place : unsigned(5 downto 0);
+signal score_ones_place : unsigned(5 downto 0);
+signal segments_tens : std_logic_vector(6 downto 0);
+signal segments_ones : std_logic_vector(6 downto 0);
+
+
 begin
 	--intermed_rgb <= "001100" when (x_pos mod 10d"5" = 10d"0") else "110000";
 	--rgb <= 6d"0" when valid='0' else intermed_rgb;
@@ -63,9 +75,9 @@ begin
 			
 
 			-- Fill in apple cell
-			if apple(8) = '1' then
-				if (x_pos > 10d"102" + 10d"44" * apple(7 downto 4)) and (x_pos < 10d"99" + 10d"44" + 10d"44" * apple(7 downto 4)) and (y_pos > 10d"21" + 10d"44" * apple(3 downto 0)) and (y_pos < 10d"19" + 10d"44" + 10d"44" * apple(3 downto 0)) then
-					if(x_pos > 10d"115" + 10d"44" * apple(7 downto 4)) and (x_pos < 10d"130" + 10d"44" * apple(7 downto 4)) and (y_pos > 10d"21" + 10d"44" * apple(3 downto 0)) and (y_pos < 10d"30" + 10d"44" * apple(3 downto 0)) then
+			if rand_apple(8) = '1' then
+				if (x_pos > 10d"102" + 10d"44" * rand_apple(7 downto 4)) and (x_pos < 10d"99" + 10d"44" + 10d"44" * rand_apple(7 downto 4)) and (y_pos > 10d"21" + 10d"44" * rand_apple(3 downto 0)) and (y_pos < 10d"19" + 10d"44" + 10d"44" * rand_apple(3 downto 0)) then
+					if(x_pos > 10d"115" + 10d"44" * rand_apple(7 downto 4)) and (x_pos < 10d"130" + 10d"44" * rand_apple(7 downto 4)) and (y_pos > 10d"21" + 10d"44" * rand_apple(3 downto 0)) and (y_pos < 10d"30" + 10d"44" * rand_apple(3 downto 0)) then
 						rgb <= "001100"; -- Green leaf
 					else
 						rgb <= "110000"; -- red apple
@@ -85,14 +97,133 @@ begin
 					end if;
 				end if;
 			end loop;
-			
-			--Fill in snake head
-			if (x_pos > 10d"102" + 10d"44" * head_x) and (x_pos < 10d"99" + 10d"44" + 10d"44" * head_x) and (y_pos > 10d"21" + 10d"44" * head_y) and (y_pos < 10d"19" + 10d"44" + 10d"44" * head_y) then
-				if(x_pos > 10d"106" + 10d"44" * head_x) and (x_pos < 10d"139" + 10d"44" * head_x) and (y_pos > 10d"25" + 10d"44" * head_y) and (y_pos < 10d"59" + 10d"44" * head_y) then
-					rgb <= "010011";
-				end if;
-			end if;
 
+        score_tens_place <= score / 6d"10";
+        score_ones_place <= score mod 6d"10";
+
+/*    
+        -- Draw Score
+        if (score_tens_place = 6d"0") then 
+            segments_tens<="0000001";
+        elsif (score_tens_place = 6d"1") then 
+            segments_tens<="1001111";
+        elsif (score_tens_place = 6d"2") then 
+            segments_tens<="0010010";
+        elsif (score_tens_place = 6d"3") then
+            segments_tens<="0000110"; 
+        elsif (score_tens_place = 6d"4") then
+            segments_tens<="1001100"; 
+        elsif (score_tens_place = 6d"5") then
+            segments_tens<="0100100"; 
+        elsif (score_tens_place = 6d"6") then
+            segments_tens<="0100000"; 
+        elsif (score_tens_place = 6d"7") then
+            segments_tens<="0001111"; 
+        elsif (score_tens_place = 6d"8") then
+            segments_tens<="0000000"; 
+        else -- score_tens_place is 6d"9"
+            segments_tens<="0001100"; 
+        end if;
+*/
+
+
+/*
+        segments_tens<="0000001" when score_tens_place = 6d"0" else
+        "1001111" when score_tens_place = 6d"1" else
+        "0010010" when score_tens_place = 6d"2" else
+        "0000110" when score_tens_place = 6d"3" else
+        "1001100" when score_tens_place = 6d"4" else
+        "0100100" when score_tens_place = 6d"5" else
+        "0100000" when score_tens_place = 6d"6" else
+        "0001111" when score_tens_place = 6d"7" else
+        "0000000" when score_tens_place = 6d"8" else
+        "0001100" when score_tens_place = 6d"9" else
+        "0111000";
+*/
+
+        if (segments_tens(6) = '0') then
+            if (x_pos > 10d"0" + 10d"10" and x_pos < 10d"35" + 10d"10") and (y_pos = 10d"50") then
+                rgb <= "000011";
+            end if;
+        end if;
+        if (segments_tens(5) = '0') then
+            if (x_pos = 10d"35" + 10d"10") and (y_pos > 10d"50" and y_pos < 10d"50" + 10d"35") then
+                rgb <= "000011"; 
+            end if;
+        end if;
+        if (segments_tens(4) = '0') then 
+            if (x_pos = 10d"35" + 10d"10") and (y_pos > 10d"50" + 10d"35" and y_pos < 10d"50" + 10d"70") then
+                rgb <= "000011";
+            end if;
+        end if;
+        if (segments_tens(3) = '0') then 
+            if (x_pos > 10d"0" + 10d"10" and x_pos < 10d"35" + 10d"10") and (y_pos = 10d"50" + 10d"70") then
+                rgb <= "000011";
+            end if;
+        end if;
+        if (segments_tens(2) = '0') then 
+            if (x_pos = 10d"10") and (y_pos > 10d"50" + 10d"35" and y_pos < 10d"50" + 10d"70") then
+                rgb <= "000011";
+            end if;
+        end if;
+        if (segments_tens(1) = '0') then
+            if (x_pos = 10d"10") and (y_pos > 10d"50" and y_pos < 10d"50" + 10d"35") then
+                rgb <= "000011"; 
+            end if; 
+        end if;
+        if (segments_tens(0) = '0') then -- segments_tens(0) = '0'
+            if (x_pos > 10d"0" + 10d"10" and x_pos < 10d"35" + 10d"10") and (y_pos = 10d"50" + 10d"35") then
+                rgb <= "000011";
+            end if;
+        end if;
+
+
+/*
+        segments_ones<="0000001" when score_ones_place = 6d"0" else
+        "1001111" when score_ones_place = 6d"1" else
+        "0010010" when score_ones_place = 6d"2" else
+        "0000110" when score_ones_place = 6d"3" else
+        "1001100" when score_ones_place = 6d"4" else
+        "0100100" when score_ones_place = 6d"5" else
+        "0100000" when score_ones_place = 6d"6" else
+        "0001111" when score_ones_place = 6d"7" else
+        "0000000" when score_ones_place = 6d"8" else
+        "0001100" when score_ones_place = 6d"9" else
+        "0111000";
+        end;
+
+        if (segments_ones(6) = '0') then
+            if (x_pos > 10d"0" + 10d"10" and x_pos < 10d"35" + 10d"10") and (y_pos = 10d"50") then
+                rgb <= "000011";
+            end if;
+        elsif (segments_ones(5) = '0') then
+            if (x_pos = 10d"35" + 10d"10") and (y_pos > 10d"50" and y_pos < 10d"50" + 10d"35") then
+                rgb <= "000011"; 
+            end if; 
+        elsif (segments_ones(4) = '0') then 
+            if (x_pos = 10d"35" + 10d"10") and (y_pos > 10d"50" + 10d"35" and y_pos < 10d"50" + 10d"70") then
+                rgb <= "000011";
+            end if;
+        elsif (segments_ones(3) = '0') then 
+            if (x_pos > 10d"0" + 10d"10" and x_pos < 10d"35" + 10d"10") and (y_pos = 10d"50" + 10d"70") then
+                rgb <= "000011";
+            end if;
+        elsif (segments_ones(2) = '0') then 
+            if (x_pos = 10d"10") and (y_pos > 10d"50" + 10d"35" and y_pos < 10d"50" + 10d"70") then
+                rgb <= "000011";
+            end if;
+        elsif (segments_ones(1) = '0') then
+            if (x_pos = 10d"10") and (y_pos > 10d"50" and y_pos < 10d"50" + 10d"35") then
+                rgb <= "000011"; 
+            end if; 
+        else -- segments_ones(0) = '0'
+            if (x_pos > 10d"0" + 10d"10" and x_pos < 10d"35" + 10d"10") and (y_pos = 10d"50" + 10d"35") then
+                rgb <= "000011";
+            end if;
+        end if;
+*/
+			
+		
 		else -- if valid is 0, then set rgb to low
 			rgb <= 6d"0";
 		end if;
