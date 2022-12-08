@@ -93,6 +93,7 @@ begin
                 snake_dead <= '0';
                 -- snake_arr_len </= 6d"6";
                 snake_head <= 7d"44";
+                
                 snake_dir_arr <= (others => LEFT);
             elsif game_state_in = "01" then
                 -- if prev_dir(1) /= dir_signal(1) then
