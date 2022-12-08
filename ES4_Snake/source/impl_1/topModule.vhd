@@ -84,7 +84,6 @@ architecture synth of top is
     signal snake_head: unsigned(6 downto 0);
     signal apple: unsigned(8 downto 0);
     signal snake_arr: std_logic_vector(99 downto 0);
-    signal scores: unsigned(6 downto 0) := 7d"0";
 begin
     HSOSC_inst : HSOSC port map
                             (CLKHFPU => '1', CLKHFEN => '1', CLKHF => CLK);
@@ -96,10 +95,9 @@ begin
                                 game_state_out => game_state,
                                 snake_head_out => snake_head,
                                 apple_out => apple,
-                                snake_arr_out => snake_arr,
-                                scores_out => scores);
+                                snake_arr_out => snake_arr);
 
-    display_inst: display port map (pll_in_clock, pll_outcore_o, HSYNC, VSYNC, rgb, apple, snake_head, snake_arr, scores, game_state);
+    display_inst: display port map (pll_in_clock, pll_outcore_o, HSYNC, VSYNC, rgb, apple, snake_head, snake_arr);
 
 	delete_me <= digital(7 downto 5);
 end;

@@ -48,13 +48,11 @@ architecture synth of board is
     --signal game_state: unsigned(1 downto 0);
     signal apple_x: unsigned(3 downto 0);
     signal apple_y: unsigned(3 downto 0); 
-    signal apple_y_inter: unsigned (12 downto 0);
 begin
     process(clk) is
     begin
         if rising_edge(clk) then
             if game_state = "00" then
-               -- apple_id <= 9b"1_0111_0100";
                apple_coord <= 48;
                snake_len <= 7d"1";
                 if digital_in(4) = '0' then
@@ -77,15 +75,10 @@ begin
                     game_state <= "00";
                 end if;
             end if;
-        --    apple_y <= (apple_coord mod 4d"10");
-        --    apple_x <= (apple_coord / 4d"10");
-
-        --     apple_id <= '1' & apple_x & apple_y;
         end if;
     end process;
 
     apple_x <= (apple_coord mod 4d"10");
-    apple_y_inter <= (apple_coord * 7d"52");
     apple_y <= apple_coord / 4d"10"; --apple_y_inter(12 downto 9);
     -- apple_coord / 4d"10";--apple_y_inter(12 downto 9);
     apple_id <= '1' & apple_x & apple_y;

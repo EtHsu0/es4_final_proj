@@ -20,69 +20,26 @@ entity pattern_gen is
 		rand_apple : in unsigned(6 downto 0);
 		snake_location : in std_logic_vector(99 downto 0);
 		
-		
-        -- Score 
-        score : in unsigned(5 downto 0);
-
-
 		-- To be implemented
 		-- display score with rom, start/end game screen, snake head
-		
-		
-		
 
 		rgb : out unsigned(5 downto 0);
 
-        snake_head: in unsigned(6 downto 0) := "0010000";
-        scores: in unsigned(6 downto 0);
-		pll_in_clock : in std_logic;
-        game_state: in unsigned(1 downto 0)
-		
-
+        snake_head: in unsigned(6 downto 0) := "0010000"
 	);
 end pattern_gen;
 
 architecture synth of pattern_gen is
 
-component gapple is
-    port (
-        row : in unsigned (6 downto 0);
-        col : in unsigned (6 downto 0);
-        clk : in std_logic;
-        rgb : out unsigned(5 downto 0)
-    );
-end component;
-
-signal intermed_rgb : unsigned(5 downto 0);
-signal head_x : unsigned(4 downto 0);
-signal head_y : unsigned(4 downto 0);
-
-signal score_tens_place : unsigned(5 downto 0);
-signal score_ones_place : unsigned(5 downto 0);
-signal segments_tens : std_logic_vector(6 downto 0);
-signal segments_ones : std_logic_vector(6 downto 0);
 
 signal apple_y: unsigned(3 downto 0);
 signal apple_x:  unsigned(3 downto 0);
-signal apple_coy: unsigned(6 downto 0);
-signal apple_cox: unsigned(6 downto 0);
-signal apple_addr: unsigned(13 downto 0);
-
-signal appleRGB : unsigned(5 downto 0);
 
 begin
     apple_x <= rand_apple(7 downto 4);
     apple_y <= rand_apple(3 downto 0);
-    apple_cox <= x_pos - 10d"102" + 10d"44" * apple_x;
-    apple_coy <= y_pos - 10d"21" + 10d"44" * apple_y;
-    apple_addr <= apple_coy & apple_cox;
-	gapple_init: gapple port map(
-        row => apple_coy, 
-        col => apple_cox, 
-        clk => pll_in_clock, 
-        rgb => appleRGB);
 
-	--intermed_rgb <= "001100" when (x_pos mod 10d"5" = 10d"0") else "110000";
+    --intermed_rgb <= "001100" when (x_pos mod 10d"5" = 10d"0") else "110000";
 	--rgb <= 6d"0" when valid='0' else intermed_rgb;
 	--head_x <= snake_head mod 4d"10";
 	--head_y <= snake_head * 10d"52" / 10d"512";
@@ -142,45 +99,7 @@ begin
 
 
 
-        score_tens_place <= score / 6d"10";
-        score_ones_place <= score mod 6d"10";
 
-
-        if (segments_tens(6) = '0') then
-            if (x_pos > 10d"0" + 10d"10" and x_pos < 10d"35" + 10d"10") and (y_pos = 10d"50") then
-                rgb <= "000011";
-            end if;
-        end if;
-        if (segments_tens(5) = '0') then
-            if (x_pos = 10d"35" + 10d"10") and (y_pos > 10d"50" and y_pos < 10d"50" + 10d"35") then
-                rgb <= "000011"; 
-            end if;
-        end if;
-        if (segments_tens(4) = '0') then 
-            if (x_pos = 10d"35" + 10d"10") and (y_pos > 10d"50" + 10d"35" and y_pos < 10d"50" + 10d"70") then
-                rgb <= "000011";
-            end if;
-        end if;
-        if (segments_tens(3) = '0') then 
-            if (x_pos > 10d"0" + 10d"10" and x_pos < 10d"35" + 10d"10") and (y_pos = 10d"50" + 10d"70") then
-                rgb <= "000011";
-            end if;
-        end if;
-        if (segments_tens(2) = '0') then 
-            if (x_pos = 10d"10") and (y_pos > 10d"50" + 10d"35" and y_pos < 10d"50" + 10d"70") then
-                rgb <= "000011";
-            end if;
-        end if;
-        if (segments_tens(1) = '0') then
-            if (x_pos = 10d"10") and (y_pos > 10d"50" and y_pos < 10d"50" + 10d"35") then
-                rgb <= "000011"; 
-            end if; 
-        end if;
-        if (segments_tens(0) = '0') then -- segments_tens(0) = '0'
-            if (x_pos > 10d"0" + 10d"10" and x_pos < 10d"35" + 10d"10") and (y_pos = 10d"50" + 10d"35") then
-                rgb <= "000011";
-            end if;
-        end if;
 		
 		else -- if valid is 0, then set rgb to low
 			rgb <= 6d"0";
