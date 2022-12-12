@@ -10,7 +10,8 @@ entity board is
         -- 00 is RESET/BEGIN
         game_state_out: out unsigned(1 downto 0) := "00";
         snake_head_out: out unsigned(6 downto 0);
-        apple_out: out unsigned(8 downto 0);
+		apple_out : out unsigned(6 downto 0);
+        -- apple_out: out unsigned(8 downto 0);
         -- Return whether snake is in each cell (0-99)
         snake_arr_out: out std_logic_vector(99 downto 0);
         scores_out: out unsigned(6 downto 0)
@@ -34,8 +35,9 @@ architecture synth of board is
         );
     end component;
 
-    signal apple_id: unsigned (8 downto 0) := 9d"0";
-    signal apple_coord: integer range 0 to 99:= 48;
+    --signal apple_id: unsigned (8 downto 0) := 9d"0";
+    --signal apple_coord: integer range 0 to 99:= 48;
+	signal apple_intermed: unsigned (6 downto 0);
     signal snake_head: unsigned (6 downto 0) := 7d"44";
     signal snake_tail: unsigned (6 downto 0) := 7d"0";
     signal snake_arr: std_logic_vector(99 downto 0) := 100d"0"; -- := (40 => '1', 41 => '1', 42 => '1'),(others => '0'); -- TODO: Fix Syntax Error!
@@ -46,22 +48,26 @@ architecture synth of board is
 
     signal game_State : unsigned(1 downto 0) := "00";
     --signal game_state: unsigned(1 downto 0);
-    signal apple_x: unsigned(3 downto 0);
-    signal apple_y: unsigned(3 downto 0); 
+    --signal apple_x: unsigned(3 downto 0);
+    --signal apple_y: unsigned(3 downto 0); 
+    --signal apple_y_inter: unsigned (12 downto 0);
 begin
     process(clk) is
     begin
         if rising_edge(clk) then
             if game_state = "00" then
-               apple_coord <= 48;
+               -- apple_id <= 9b"1_0111_0100";
+               --apple_coord <= 48;
+			   apple_intermed <= 7d"51";
                snake_len <= 7d"1";
                 if digital_in(4) = '0' then
                     game_state <= "01";
                 end if;
             elsif game_state = "01" then
-                if snake_head = to_unsigned(apple_coord, 7) then
+                if snake_head = apple_intermed then
                     snake_len <= snake_len + 1;
-                    apple_coord <= to_integer(snake_tail);
+                    --apple_coord <= to_integer(snake_tail);
+					apple_intermed <= snake_tail;
                 end if;
                 if digital_in(7) = '0' then
                     game_state <= "10";
@@ -70,18 +76,15 @@ begin
                     game_state <= "10";
                 end if;
             elsif game_state = "10" then
-                apple_coord <= 99;
+                --apple_coord <= 99;
+				apple_intermed <= 7d"99";
                 if digital_in(5) = '0' then
                     game_state <= "00";
                 end if;
             end if;
+
         end if;
     end process;
-
-    apple_x <= (apple_coord mod 4d"10");
-    apple_y <= apple_coord / 4d"10"; --apple_y_inter(12 downto 9);
-    -- apple_coord / 4d"10";--apple_y_inter(12 downto 9);
-    apple_id <= '1' & apple_x & apple_y;
 
     snakePos_inst: snakePos port map
         (
@@ -95,11 +98,11 @@ begin
             snake_dead_out => snake_dead
 		);
    
+				apple_out <= apple_intermed;
+				    game_state_out <= game_state;
+				scores_out <= 7d"0";
+				snake_head_out <= snake_head;
+				snake_arr_out <= snake_arr;
 
-    game_state_out <= game_state;
-    scores_out <= 6d"0";
-    snake_head_out <= snake_head;
-    snake_arr_out <= snake_arr;
-    apple_out <= apple_id;
 
 end;
