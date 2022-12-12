@@ -16,6 +16,7 @@ entity top is
         HSYNC : out std_logic; -- pin 46
         VSYNC : out std_logic; -- pin 2
         
+		delete_me: out unsigned(2 downto 0);
         rgb : out unsigned(5 downto 0) -- pins 47, 45, 48, 3, 4, 44
 
         --pll_outcore_o : out std_logic -- for testing purposes (pin 2)
@@ -54,7 +55,7 @@ architecture synth of top is
             rgb : out unsigned(5 downto 0); -- pins 47, 45, 48, 3, 4, 44
     
             -- Game logic
-            apple: in unsigned(8 downto 0);
+            apple: in unsigned(6 downto 0);
             snake_head: in unsigned(6 downto 0);
             snake: in std_logic_vector(99 downto 0);
             scores: in unsigned(6 downto 0);
@@ -68,7 +69,7 @@ architecture synth of top is
             digital_in: in unsigned(7 downto 0);
             game_state_out: out unsigned(1 downto 0) := "00";    
             snake_head_out: out unsigned(6 downto 0);
-            apple_out: out unsigned(8 downto 0);
+            apple_out: out unsigned(6 downto 0);
             snake_arr_out: out std_logic_vector(99 downto 0);
             scores_out: out unsigned(6 downto 0)
             );
@@ -81,8 +82,10 @@ architecture synth of top is
     signal game_state: unsigned(1 downto 0) := "00";
 
     signal snake_head: unsigned(6 downto 0);
-    signal apple: unsigned(8 downto 0);
+    signal apple_sig: unsigned(6 downto 0);
     signal snake_arr: std_logic_vector(99 downto 0);
+    signal scores: unsigned(6 downto 0) := 7d"0";
+	
 begin
     HSOSC_inst : HSOSC port map
                             (CLKHFPU => '1', CLKHFEN => '1', CLKHF => CLK);
@@ -93,19 +96,22 @@ begin
                                 digital_in => digital,
                                 game_state_out => game_state,
                                 snake_head_out => snake_head,
-                                apple_out => apple,
-                                snake_arr_out => snake_arr);
+                                apple_out => apple_sig,
+                                snake_arr_out => snake_arr,
+                                scores_out => scores);
 
-    display_inst: display port map 
-        (pll_in_clock => pll_in_clock, 
-        pll_outcore_o => pll_outcore_o, 
-        HSYNC => HSYNC, 
-        VSYNC => VSYNC, 
-        rgb => rgb,
-        apple => apple, 
-        snake_head => snake_head,
-        snake => snake_arr);
+    display_inst: display port map (pll_in_clock => pll_in_clock, 
+									pll_outcore_o => pll_outcore_o, 
+									HSYNC => HSYNC, 
+									VSYNC => VSYNC, 
+									rgb => rgb, 
+									apple => apple_sig, --, --apple_sig, --,--apple, 
+									snake_head => snake_head, 
+									snake => snake_arr, 
+									scores => scores, 
+									game_state => game_state);
 
 end;
+
 
 
