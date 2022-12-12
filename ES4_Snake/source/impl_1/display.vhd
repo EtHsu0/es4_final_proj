@@ -13,10 +13,12 @@ entity display is
         rgb : out unsigned(5 downto 0); -- pins 47, 45, 48, 3, 4, 44
 
         -- Game logic
-        apple: in unsigned(8 downto 0);
+        apple: in unsigned(6 downto 0);
         snake_head: in unsigned(6 downto 0);
-        snake: in std_logic_vector(99 downto 0)
-    );
+        snake: in std_logic_vector(99 downto 0);
+        scores: in unsigned(6 downto 0);
+        game_state: in unsigned(1 downto 0)
+    ); 
 end display;
 
 architecture synth of display is
@@ -43,29 +45,18 @@ end component;
 component pattern_gen is
 	port(
 		valid : in std_logic; -- when valid is 0, all RGB output must be low
-		
 		y_pos : in unsigned(9 downto 0); -- current y position (row) of the pixel that the VGA is drawing
 		x_pos : in unsigned(9 downto 0); -- current x position (column) of the pixel that the VGA is drawing
-		
-		
-		-- SPECIFIC SNAKE GAME VARIABLES
-		-- INPUT PORTS
-
-		-- rand_apple(8) = '1' if there is an apple, '0' if there is no apple
-		-- rand_apple(7 downto 4) gives the column_num {col 0, 1, 2, ..., 8, 9} in binary
-		-- rand_apple(3 downto 0) gives the row_num {row 0, 1, 2, ..., 8, 9} in binary
-		rand_apple : in unsigned(8 downto 0);
+		apple : in unsigned(6 downto 0);
 		snake_location : in std_logic_vector(99 downto 0);
-		
-		-- To be implemented
-		-- display score with rom, start/end game screen, snake head
-
+        score : in unsigned(5 downto 0);
 		rgb : out unsigned(5 downto 0);
-
-        snake_head: in unsigned(6 downto 0) := "0010000");
+        snake_head: in unsigned(6 downto 0);
+        scores: in unsigned(6 downto 0);
+        pll_in_clock : in std_logic;
+        game_state: in unsigned(1 downto 0)
+	);
 end component;
-
-
 -- internal variables
 signal clk : std_logic; -- 25.1 MHz clock
 -- rows need to go up to 525 (visible area is 480)
@@ -83,18 +74,23 @@ begin
     pll_init: mypll port map(ref_clk_i => pll_in_clock, rst_n_i => '1', outcore_o => pll_outcore_o, outglobal_o => clk);
     -- vga_initial vga port map(clk <= clk);
     vga_init: vga port map(clk, valid, row_cnt, column_cnt, HSYNC, VSYNC);
-    -- 9B"1_1000_0111" represents the random apple. "1" means that it exists, "1000" means that the column number is 8, "0111" means that the row number is 7
+
+	
     pattern_gen_initial: pattern_gen port map(
         valid => valid, 
         y_pos => row_cnt, 
         x_pos => column_cnt, 
-        rand_apple => apple, 
+        apple => apple, 
         snake_location => snake, 
+        score => scores, 
         rgb => intermed_rgb,
-        snake_head => snake_head);
+        snake_head => snake_head,
+        pll_in_clock => pll_in_clock,
+        game_state => game_state);
+    
 
-    rgb <= intermed_rgb when (column_cnt > 50 and valid = '1') else "000000";
-    --score_rgb when (column_cnt < 50 and valid = '1') else 
+    rgb <= intermed_rgb when (column_cnt > 0 and valid = '1') else 
+    "000000";
 
 
 
