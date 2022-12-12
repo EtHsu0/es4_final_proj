@@ -17,32 +17,55 @@ entity pattern_gen is
 		-- rand_apple(8) = '1' if there is an apple, '0' if there is no apple
 		-- rand_apple(7 downto 4) gives the column_num {col 0, 1, 2, ..., 8, 9} in binary
 		-- rand_apple(3 downto 0) gives the row_num {row 0, 1, 2, ..., 8, 9} in binary
-		rand_apple : in unsigned(6 downto 0);
+		--rand_apple : in unsigned(8 downto 0);
+		
+		apple : in unsigned(6 downto 0);
 		snake_location : in std_logic_vector(99 downto 0);
 		
+		
+        -- Score 
+        score : in unsigned(5 downto 0);
+
+
 		-- To be implemented
 		-- display score with rom, start/end game screen, snake head
+		
+		
+		
 
 		rgb : out unsigned(5 downto 0);
 
-        snake_head: in unsigned(6 downto 0) := "0010000"
+        snake_head: in unsigned(6 downto 0);
+
+        scores: in unsigned(6 downto 0);
+		pll_in_clock : in std_logic;
+        game_state: in unsigned(1 downto 0)
+		
+
 	);
 end pattern_gen;
 
 architecture synth of pattern_gen is
 
+component gapple is
+    port (
+        row : in unsigned (6 downto 0);
+        col : in unsigned (6 downto 0);
+        clk : in std_logic;
+        rgb : out unsigned(5 downto 0)
+    );
+end component;
 
-signal apple_y: unsigned(3 downto 0);
-signal apple_x:  unsigned(3 downto 0);
+signal intermed_rgb : unsigned(5 downto 0);
+signal head_x : unsigned(4 downto 0);
+signal head_y : unsigned(4 downto 0);
+
+signal score_tens_place : unsigned(5 downto 0);
+signal score_ones_place : unsigned(5 downto 0);
+signal segments_tens : std_logic_vector(6 downto 0);
+signal segments_ones : std_logic_vector(6 downto 0);
 
 begin
-    apple_x <= rand_apple(7 downto 4);
-    apple_y <= rand_apple(3 downto 0);
-
-    --intermed_rgb <= "001100" when (x_pos mod 10d"5" = 10d"0") else "110000";
-	--rgb <= 6d"0" when valid='0' else intermed_rgb;
-	--head_x <= snake_head mod 4d"10";
-	--head_y <= snake_head * 10d"52" / 10d"512";
 	process(valid) begin
 		if valid = '1' then
 			-- Snake grid 
@@ -57,24 +80,6 @@ begin
 			else
 				rgb <= 6d"0";
 			end if; 
-			
-
-			-- Fill in apple cell
-			--if rand_apple(8) = '1' then
-			--	if (x_pos > 10d"102" + 10d"44" * apple_x and x_pos < 10d"99" + 10d"44" + 10d"44" * apple_x  and y_pos > 10d"21" + 10d"44" * apple_y and y_pos < 10d"19" + 10d"44" + 10d"44" * apple_y) then
-			--		rgb <= appleRGB;
-			--	end if;
-            --end if;
-            
-			if rand_apple(8) = '1' then
-				if (x_pos > 10d"102" + 10d"44" * rand_apple(7 downto 4) and x_pos < 10d"99" + 10d"44" + 10d"44" * rand_apple(7 downto 4)  and y_pos > 10d"21" + 10d"44" * rand_apple(3 downto 0) and y_pos < 10d"19" + 10d"44" + 10d"44" * rand_apple(3 downto 0)) then
-					if (x_pos > 10d"115" + 10d"44" * rand_apple(7 downto 4) and x_pos < 10d"130" + 10d"44" * rand_apple(7 downto 4)  and y_pos > 10d"21" + 10d"44" * rand_apple(3 downto 0) and y_pos < 10d"30" + 10d"44" * rand_apple(3 downto 0)) then
-                        rgb <= "001100";
-                    else
-                        rgb <= "110000";
-                    end if;
-				end if;
-            end if;
 
 			
 			-- Fill in snake cells
@@ -95,11 +100,13 @@ begin
             if (x_pos > 10d"99" + 10d"44" * (snake_head mod 10d"10")) and (x_pos < 10d"101" + 10d"44" + 10d"44" * (snake_head mod 10d"10")) and (y_pos > 10d"19" + 10d"44" * (snake_head / 10d"10")) and (y_pos < 10d"21" + 10d"44" + 10d"44" * (snake_head / 10d"10")) then
                 rgb <= "110011"; -- snake head
             end if;
-
-
-
-
-
+			
+				
+									-- x_pos = (box i) mod 10
+					-- y_pos = (box i) / 10
+            if (x_pos > 10d"99" + 10d"44" * (apple mod 10d"10")) and (x_pos < 10d"101" + 10d"44" + 10d"44" * (apple mod 10d"10")) and (y_pos > 10d"19" + 10d"44" * (apple / 10d"10")) and (y_pos < 10d"21" + 10d"44" + 10d"44" * (apple / 10d"10")) then
+                rgb <= "110000"; -- snake head
+            end if;
 		
 		else -- if valid is 0, then set rgb to low
 			rgb <= 6d"0";
