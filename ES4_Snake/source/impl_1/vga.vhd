@@ -41,8 +41,3 @@ begin
 	end process;
 	
 end;
-
-
-
-
-
