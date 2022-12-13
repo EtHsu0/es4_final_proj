@@ -68,7 +68,7 @@ begin
             snake_coord := snake_head;
             --snake_arr(to_integer(snake_coord)) <= '1';
 
-            for i in 0 to 20 loop
+            for i in 0 to 6 loop
             --   exit when i = to_integer(snake_len_in);
                 case snake_dir_arr(i) is
                     when UP => snake_coord := snake_coord - 10;
@@ -100,15 +100,17 @@ begin
                 prev_dir <= snake_dir;
 
                 -- Update snake head coordinate
+                for i in 0 to 6 loop
+                        snake_dir_arr(i + 1) <= snake_dir_arr(i);
+                end loop;
+
                 if snake_dir = "00" then
                     if snake_head < 10 then
                         snake_dead <= '1';
                         reset <= '1';
                     end if;
                     snake_head <= snake_head - 10;
-                    for i in 0 to 6 loop
-                        snake_dir_arr(i + 1) <= snake_dir_arr(i);
-                    end loop;
+
                     snake_dir_arr(0) <= DOWN;
                 elsif snake_dir = "01" then
                     if snake_head > 89 then
@@ -116,9 +118,7 @@ begin
                         reset <= '1';
                     end if;
                     snake_head <= snake_head + 10;
-                    for i in 0 to 6 loop
-                        snake_dir_arr(i + 1) <= snake_dir_arr(i);
-                    end loop;
+
                     snake_dir_arr(0) <= UP;
                 elsif snake_dir = "10" then
                     if snake_head mod 10 = 0 then
@@ -126,9 +126,7 @@ begin
                         reset <= '1';
                     end if;
                     snake_head <= snake_head - 1;
-                    for i in 0 to 6 loop
-                        snake_dir_arr(i + 1) <= snake_dir_arr(i);
-                    end loop;
+
                     snake_dir_arr(0) <= RIGHT;
                 elsif snake_dir = "11" then
                     if snake_head mod 10 = 9 then
@@ -136,11 +134,10 @@ begin
                         reset <= '1';
                     end if;
                     snake_head <= snake_head + 1;
-                    for i in 0 to 6 loop
-                        snake_dir_arr(i + 1) <= snake_dir_arr(i);
-                    end loop;
+
                     snake_dir_arr(0) <= LEFT;
                 end if;
+                
                 snake_dir_arr(to_integer(snake_len_in)) <= NONE;
                 if snake_arr(to_integer(snake_head)) = '1' then
                     snake_dead <= '1';
