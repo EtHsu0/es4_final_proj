@@ -42,8 +42,8 @@ if (a)
 <DIV id="content" onclick="hideTocList()"><PRE>
 |************************************************************************
 | IBIS Models Generator: Lattice Radiant Software (64-bit) 3.2.1.217.3
-| Report Generate Date: Dec  05:55:10 2022
-| Report Generate Time: 8
+| Report Generate Date: Dec 13 2022
+| Report Generate Time: 14:52:28
 |************************************************************************
 |IBIS file ice40up.ibs   
 |Lattice Semiconductor Corporation   
@@ -178,8 +178,12 @@ L_pkg          2.652nH         1.989nH         3.504nH
 C_pkg          0.2807pF        0.2236pF        0.3481pF
 |
 [Pin]  signal_name          model_name           R_pin     L_pin     C_pin
+46            HSYNC                lvc330a080aaaaaaaaou
+21            pll_outcore_o        lvc330a080aaaaaaaaou
+20            pll_in_clock         lvc330axxxbaaaaaaain
+43            data                 lvc330axxxbaaaaaaain
 42            continCLK            lvc330a080aaaaaaaaou
-36            latch                lvc330a080aaaaaaaaou
+47            rgb[0]               lvc330a080aaaaaaaaou
 45            rgb[1]               lvc330a080aaaaaaaaou
 48            rgb[2]               lvc330a080aaaaaaaaou
 3             rgb[3]               lvc330a080aaaaaaaaou
@@ -189,11 +193,7 @@ C_pkg          0.2807pF        0.2236pF        0.3481pF
 11            delete_me[1]         lvc330a080aaaaaaaaou
 18            delete_me[2]         lvc330a080aaaaaaaaou
 2             VSYNC                lvc330a080aaaaaaaaou
-46            HSYNC                lvc330a080aaaaaaaaou
-21            pll_outcore_o        lvc330a080aaaaaaaaou
-20            pll_in_clock         lvc330axxxbaaaaaaain
-43            data                 lvc330axxxbaaaaaaain
-47            rgb[0]               lvc330a080aaaaaaaaou
+36            latch                lvc330a080aaaaaaaaou
 |************************************************************************
 [Model] lvc330a080aaaaaaaaou
 Model_type Output
