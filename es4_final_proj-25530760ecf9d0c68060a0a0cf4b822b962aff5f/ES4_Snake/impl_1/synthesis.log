@@ -5,7 +5,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Thu Dec  8 13:35:34 2022
+Tue Dec 13 14:39:53 2022
 
 
 Command Line:  C:\lscc\radiant\3.2\ispfpga\bin\nt64\synthesis.exe -f es4finalproj_impl_1_lattice.synproj -gui -msgset C:/Users/gsess/OneDrive/Documents/es4_final_proj/es4_final_proj-25530760ecf9d0c68060a0a0cf4b822b962aff5f/ES4_Snake/promote.xml 
@@ -477,13 +477,13 @@ WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_final_
 Mapped 4 multiplier(s)
 
 
-######## Missing driver on net n4480. Patching with GND.
-######## Missing driver on net n4489. Patching with GND.
-######## Missing driver on net n4486. Patching with GND.
-######## Missing driver on net n4483. Patching with GND.
-######## Missing driver on net n4477. Patching with GND.
-######## Missing driver on net n4492. Patching with GND.
-######## Missing driver on net n4495. Patching with GND.
+######## Missing driver on net n7756. Patching with GND.
+######## Missing driver on net n7753. Patching with GND.
+######## Missing driver on net n7750. Patching with GND.
+######## Missing driver on net n7747. Patching with GND.
+######## Missing driver on net n7744. Patching with GND.
+######## Missing driver on net n7759. Patching with GND.
+######## Missing driver on net n7741. Patching with GND.
 Combinational loop found : 1
 
 	Net digital[4] 
@@ -635,18 +635,18 @@ WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/s
 INFO - synthesis: Special Primitives IFD1P3AZ and OFD1P3AZ for ThunderPlus are synthesized using IOL_B.
 
 ################### Begin Area Report (top)######################
-Number of register bits => 231 of 5280 (4 % )
-CCU2 => 165
-FD1P3XZ => 231
+Number of register bits => 255 of 5280 (4 % )
+CCU2 => 197
+FD1P3XZ => 255
 HSOSC_CORE => 1
 IB => 2
 IOL_B => 1
-LUT4 => 1361
+LUT4 => 2174
 MAC16 => 4
 OB => 14
 PLL_B => 1
 ################### End Area Report ##################
-Number of odd-length carry chains : 17
+Number of odd-length carry chains : 25
 Number of even-length carry chains : 16
 
 ################### Begin Clock Report ######################
@@ -660,21 +660,21 @@ Clock Enable Nets
 Number of Clock Enables: 0
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : board_inst/snakePos_inst/snake_arr_99__N_1467[0], loads : 95
-  Net : board_inst/snakePos_inst/snake_arr_99__N_1467[5], loads : 68
-  Net : board_inst/snakePos_inst/snake_arr_99__N_1467[6], loads : 68
-  Net : board_inst/snakePos_inst/snake_head[0], loads : 47
-  Net : board_inst/snakePos_inst/snake_head[2], loads : 35
-  Net : board_inst/snakePos_inst/snake_head[1], loads : 33
-  Net : board_inst/snakePos_inst/snakeCLK, loads : 32
-  Net : board_inst/game_state[0], loads : 29
-  Net : board_inst/game_state[1], loads : 24
-  Net : display_inst/vga_init/row_cnt[4], loads : 24
+  Net : board_inst/snakePos_inst/snake_arr_99__N_3070[6], loads : 86
+  Net : board_inst/snakePos_inst/snake_arr_99__N_3070[5], loads : 86
+  Net : board_inst/snakePos_inst/snake_arr_99__N_3070[0], loads : 86
+  Net : board_inst/snakePos_inst/snakeCLK, loads : 56
+  Net : board_inst/snakePos_inst/snake_head_6__N_3204, loads : 48
+  Net : n14844, loads : 46
+  Net : board_inst/snakePos_inst/snake_head[0], loads : 45
+  Net : board_inst/game_state[0], loads : 40
+  Net : board_inst/snakePos_inst/snake_head[1], loads : 35
+  Net : board_inst/game_state[1], loads : 32
 ################### End Clock Report ##################
 
 Peak Memory Usage: 360 MB
 
 --------------------------------------------------------------
-Total CPU Time: 15 secs 
-Total REAL Time: 17 secs 
+Total CPU Time: 31 secs 
+Total REAL Time: 33 secs 
 --------------------------------------------------------------
