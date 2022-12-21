@@ -16,6 +16,7 @@ entity top is
         HSYNC : out std_logic; -- pin 46
         VSYNC : out std_logic; -- pin 2
         
+		delete_me: out unsigned(2 downto 0);
         rgb : out unsigned(5 downto 0) -- pins 47, 45, 48, 3, 4, 44
 
         --pll_outcore_o : out std_logic -- for testing purposes (pin 2)
@@ -83,7 +84,7 @@ architecture synth of top is
     signal snake_head: unsigned(6 downto 0);
     signal apple_sig: unsigned(6 downto 0);
     signal snake_arr: std_logic_vector(99 downto 0);
-    signal scores: unsigned(6 downto 0) := 7d"0";
+    signal scores_intermed: unsigned(6 downto 0); --:= 7d"0";
 	
 begin
     HSOSC_inst : HSOSC port map
@@ -97,7 +98,7 @@ begin
                                 snake_head_out => snake_head,
                                 apple_out => apple_sig,
                                 snake_arr_out => snake_arr,
-                                scores_out => scores);
+                                scores_out => scores_intermed);
 
     display_inst: display port map (pll_in_clock => pll_in_clock, 
 									pll_outcore_o => pll_outcore_o, 
@@ -107,7 +108,7 @@ begin
 									apple => apple_sig, --, --apple_sig, --,--apple, 
 									snake_head => snake_head, 
 									snake => snake_arr, 
-									scores => scores, 
+									scores => scores_intermed, --7d"0", --scores_intermed, --7d"0", --scores, 
 									game_state => game_state);
 
 end;
