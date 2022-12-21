@@ -51,6 +51,8 @@ architecture synth of board is
     --signal apple_x: unsigned(3 downto 0);
     --signal apple_y: unsigned(3 downto 0); 
     --signal apple_y_inter: unsigned (12 downto 0);
+	
+	--signal score_intermed : unsigned(6 downto 0) := "0000000";
 begin
     process(clk) is
     begin
@@ -68,6 +70,7 @@ begin
                     snake_len <= snake_len + 1;
                     --apple_coord <= to_integer(snake_tail);
 					apple_intermed <= snake_tail;
+					--score_intermed <= score_intermed + 1;
                 end if;
                 if digital_in(7) = '0' then
                     game_state <= "10";
@@ -82,6 +85,7 @@ begin
                     game_state <= "00";
                 end if;
             end if;
+			--scores_out <= snake_len;
 
         end if;
     end process;
@@ -100,7 +104,7 @@ begin
    
 				apple_out <= apple_intermed;
 				    game_state_out <= game_state;
-				scores_out <= 7d"0";
+				scores_out <= snake_len - 1; --7d"0";
 				snake_head_out <= snake_head;
 				snake_arr_out <= snake_arr;
 
