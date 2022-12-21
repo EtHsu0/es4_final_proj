@@ -24,7 +24,7 @@ entity pattern_gen is
 		
 		
         -- Score 
-        score : in unsigned(5 downto 0);
+        --score : in unsigned(5 downto 0);
 
 
 		-- To be implemented
@@ -37,7 +37,6 @@ entity pattern_gen is
 
         snake_head: in unsigned(6 downto 0);
 
-        scores: in unsigned(6 downto 0);
 		pll_in_clock : in std_logic;
         game_state: in unsigned(1 downto 0)
 		
@@ -47,21 +46,10 @@ end pattern_gen;
 
 architecture synth of pattern_gen is
 
-component gapple is
-    port (
-        row : in unsigned (6 downto 0);
-        col : in unsigned (6 downto 0);
-        clk : in std_logic;
-        rgb : out unsigned(5 downto 0)
-    );
-end component;
-
 signal intermed_rgb : unsigned(5 downto 0);
 signal head_x : unsigned(4 downto 0);
 signal head_y : unsigned(4 downto 0);
 
-signal score_tens_place : unsigned(5 downto 0);
-signal score_ones_place : unsigned(5 downto 0);
 signal segments_tens : std_logic_vector(6 downto 0);
 signal segments_ones : std_logic_vector(6 downto 0);
 
@@ -104,9 +92,18 @@ begin
 				
 									-- x_pos = (box i) mod 10
 					-- y_pos = (box i) / 10
-            if (x_pos > 10d"99" + 10d"44" * (apple mod 10d"10")) and (x_pos < 10d"101" + 10d"44" + 10d"44" * (apple mod 10d"10")) and (y_pos > 10d"19" + 10d"44" * (apple / 10d"10")) and (y_pos < 10d"21" + 10d"44" + 10d"44" * (apple / 10d"10")) then
-                rgb <= "110000"; -- snake head
-            end if;
+            --if (x_pos > 10d"99" + 10d"44" * (apple mod 10d"10")) and (x_pos < 10d"101" + 10d"44" + 10d"44" * (apple mod 10d"10")) and (y_pos > 10d"19" + 10d"44" * (apple / 10d"10")) and (y_pos < 10d"21" + 10d"44" + 10d"44" * (apple / 10d"10")) then
+                --rgb <= "110000"; -- snake head
+            --end if;
+			
+			-- generate apple
+			/*if (x_pos > 10d"102" + 10d"44" * (apple mod 10d"10")) and (x_pos < 10d"99" + 10d"44" + 10d"44" * (apple mod 10d"10")) and (y_pos > 10d"21" + 10d"44" * (apple / 10d"10")) and (y_pos < 10d"19" + 10d"44" + 10d"44" * (apple / 10d"10")) then
+					if(x_pos > 10d"115" + 10d"44" *(apple mod 10d"10")) and (x_pos < 10d"130" + 10d"44" * (apple mod 10d"10")) and (y_pos > 10d"21" + 10d"44" * (apple / 10d"10")) and (y_pos < 10d"30" + 10d"44" * (apple / 10d"10")) then
+						rgb <= "001100"; -- Green leaf
+					else
+						rgb <= "110000"; -- red apple
+					end if;
+				end if;*/
 		
 		else -- if valid is 0, then set rgb to low
 			rgb <= 6d"0";
