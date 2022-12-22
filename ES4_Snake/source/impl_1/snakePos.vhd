@@ -1,7 +1,6 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
--- use IEEE.std_logic_arith.all;
 
 
 
@@ -35,18 +34,16 @@ signal prev_dir: unsigned(1 downto 0) := "11";
 signal snake_dir: unsigned(1 downto 0);
 
 -- From left to right, direction from head to tails
-signal snake_dir_arr: DirArray := (99 downto 1 => NONE, 0 downto 0 => LEFT); -- Errors! Fix Type Declarations
+signal snake_dir_arr: DirArray := (99 downto 1 => NONE, 0 downto 0 => LEFT); 
 signal snake_arr: std_logic_vector(99 downto 0) := 100d"0";
 
 signal snake_dead: std_logic := '0';
--- signal snake_coord: unsigned(7 downto 0);
 signal counter: unsigned(29 downto 0) := 30d"0";
 signal snakeCLK: std_logic;
 
 signal reset: std_logic := '0';
 signal dir_signal: unsigned(1 downto 0);
 begin
-    --arr_length <= snake_arr_len;
     process(clk) is
         variable snake_coord: unsigned(6 downto 0);
     begin
@@ -66,7 +63,6 @@ begin
 
             snake_arr <= (others => '0');
             snake_coord := snake_head;
-            --snake_arr(to_integer(snake_coord)) <= '1';
 
             for i in 0 to 23 loop
             --   exit when i = to_integer(snake_len_in);

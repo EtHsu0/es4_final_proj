@@ -271,7 +271,6 @@ begin
 			end if;
 		else
 			rgb <= "000000";
-			--rgb <= rgb_gapple;
 			
 			-- display scores
 			score_tensplace <= scores * 7d"52";
@@ -297,12 +296,9 @@ begin
 					rgb <= rgb_two_tenth;
 				elsif score_highBCD = 7d"1" then
 					rgb <= rgb_one_tenth;
-				--elsif score_highBCD = 7d"0" then
-					--rgb <= rgb_zero_tenth;
 				else
 					rgb <= "000000";
 				end if;
-				--rgb <= rgb_six_tenth;
 			end if;
 			
 			-- ones digit
@@ -329,7 +325,6 @@ begin
 					rgb <= rgb_zero_ones;
 				
 				end if;
-				--rgb <= rgb_one_ones;
 			end if;
 		
 		end if;

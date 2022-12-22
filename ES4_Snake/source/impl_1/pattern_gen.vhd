@@ -24,13 +24,7 @@ entity pattern_gen is
 		
 		
         -- Score 
-        --score : in unsigned(5 downto 0);
-
-
-		-- To be implemented
-		-- display score with rom, start/end game screen, snake head
-		
-		
+        --score : in unsigned(5 downto 0);		
 		
 
 		rgb : out unsigned(5 downto 0);
@@ -47,11 +41,6 @@ end pattern_gen;
 architecture synth of pattern_gen is
 
 signal intermed_rgb : unsigned(5 downto 0);
-signal head_x : unsigned(4 downto 0);
-signal head_y : unsigned(4 downto 0);
-
-signal segments_tens : std_logic_vector(6 downto 0);
-signal segments_ones : std_logic_vector(6 downto 0);
 
 begin
 	process(valid) begin
@@ -61,10 +50,6 @@ begin
 			-- it goes from (x_pos, y_pos) of (100 px, 20 px) to (540 px, 460 px)
 			if ((((x_pos - 10d"100" )mod 10d"44" = 10d"0") or ((y_pos - 10d"20" )mod 10d"44" = 10d"0")) and x_pos > 10d"99" and x_pos < 10d"541" and y_pos > 10d"19" and y_pos < 10d"461") or ((x_pos = 10d"98" or x_pos = 10d"99" or x_pos = 10d"541" or x_pos = 10d"542") and (y_pos > 10d"19" and y_pos <10d"461")) or ((y_pos = 10d"18" or y_pos = 10d"19" or y_pos = 10d"461" or y_pos = 10d"462") and (x_pos > 10d"99" and x_pos <10d"541")) then
 				rgb <= "001100"; -- grass green grids
-			--elsif ((x_pos = 10d"98" or x_pos = 10d"99" or x_pos = 10d"541" or x_pos = 10d"542") and (y_pos > 10d"19" and y_pos <10d"461")) then
-				--rgb <= "001110";
-			--elsif ((y_pos = 10d"18" or y_pos = 10d"19" or y_pos = 10d"461" or y_pos = 10d"462") and (x_pos > 10d"99" and x_pos <10d"541")) then
-				--rgb <= "001110";
 			else
 				rgb <= 6d"0";
 			end if; 
@@ -74,27 +59,16 @@ begin
 			for i in 0 to 99 loop
 				-- iteration through the 100 bits of snake location
 				if snake_location(i) = '1' then
-					-- x_pos = (box i) mod 10
-					-- y_pos = (box i) / 10
 					if (x_pos > 10d"99" + 10d"44" * (i mod 10d"10")) and (x_pos < 10d"101" + 10d"44" + 10d"44" * (i mod 10d"10")) and (y_pos > 10d"19" + 10d"44" * (i / 10d"10")) and (y_pos < 10d"21" + 10d"44" + 10d"44" * (i / 10d"10")) then
 						rgb <= "100011"; -- purple snake
 					end if;
 				end if;
 			end loop;
 
-
-					-- x_pos = (box i) mod 10
-					-- y_pos = (box i) / 10
             if (x_pos > 10d"99" + 10d"44" * (snake_head mod 10d"10")) and (x_pos < 10d"101" + 10d"44" + 10d"44" * (snake_head mod 10d"10")) and (y_pos > 10d"19" + 10d"44" * (snake_head / 10d"10")) and (y_pos < 10d"21" + 10d"44" + 10d"44" * (snake_head / 10d"10")) then
                 rgb <= "110011"; -- snake head
             end if;
 			
-				
-									-- x_pos = (box i) mod 10
-					-- y_pos = (box i) / 10
-            --if (x_pos > 10d"99" + 10d"44" * (apple mod 10d"10")) and (x_pos < 10d"101" + 10d"44" + 10d"44" * (apple mod 10d"10")) and (y_pos > 10d"19" + 10d"44" * (apple / 10d"10")) and (y_pos < 10d"21" + 10d"44" + 10d"44" * (apple / 10d"10")) then
-                --rgb <= "110000"; -- snake head
-            --end if;
 			
 			-- generate apple
 			/*if (x_pos > 10d"102" + 10d"44" * (apple mod 10d"10")) and (x_pos < 10d"99" + 10d"44" + 10d"44" * (apple mod 10d"10")) and (y_pos > 10d"21" + 10d"44" * (apple / 10d"10")) and (y_pos < 10d"19" + 10d"44" + 10d"44" * (apple / 10d"10")) then

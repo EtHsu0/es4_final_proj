@@ -35,12 +35,10 @@ architecture synth of board is
         );
     end component;
 
-    --signal apple_id: unsigned (8 downto 0) := 9d"0";
-    --signal apple_coord: integer range 0 to 99:= 48;
     signal apple_intermed: unsigned (6 downto 0);
     signal snake_head: unsigned (6 downto 0) := 7d"44";
     signal snake_tail: unsigned (6 downto 0) := 7d"0";
-    signal snake_arr: std_logic_vector(99 downto 0) := 100d"0"; -- := (40 => '1', 41 => '1', 42 => '1'),(others => '0'); -- TODO: Fix Syntax Error!
+    signal snake_arr: std_logic_vector(99 downto 0) := 100d"0";
 
     signal snake_len: unsigned(6 downto 0) := 7d"1";
     
@@ -92,7 +90,7 @@ begin
    
     apple_out <= apple_intermed;
     game_state_out <= game_state;
-    scores_out <= snake_len - 1; --7d"0";
+    scores_out <= snake_len - 1;
     snake_head_out <= snake_head;
     snake_arr_out <= snake_arr;
 
