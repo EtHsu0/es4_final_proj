@@ -1,684 +1,161 @@
 
+postsyn -a iCE40UP -p iCE40UP5K -t SG48 -sp High-Performance_1.2V -oc Industrial -top -w -o es4finalproj_impl_1_syn.udb es4finalproj_impl_1.vm -ldc C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/impl_1/es4finalproj_impl_1.ldc
+POSTSYN: Post Synthesis Process Radiant Software (64-bit) 3.2.1.217.3
+Command Line: postsyn -a iCE40UP -p iCE40UP5K -t SG48 -sp High-Performance_1.2V -oc Industrial -top -w -o es4finalproj_impl_1_syn.udb -ldc C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/impl_1/es4finalproj_impl_1.ldc -gui -msgset C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/promote.xml es4finalproj_impl_1.vm 
+   Architecture:     iCE40UP
+   Device:           iCE40UP5K
+   Package:          SG48
+   Performance:      High-Performance_1.2V
+Reading input file 'es4finalproj_impl_1.vm' ...
+CPU Time to convert: 0.515625
+REAL Time to convert: 0
+convert PEAK Memory Usage: 58 MB
+convert CURRENT Memory Usage: 56 MB
+Reading constraint file 'C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/impl_1/es4finalproj_impl_1.ldc' ...
+Removing unused logic ...
+    <postMsg mid="35811103" type="Error" dynamic="2" navigation="0" arg0="gapple" arg1="iCE40UP5K"  />
+    <postMsg mid="35811103" type="Error" dynamic="2" navigation="0" arg0="zero_segments" arg1="iCE40UP5K"  />
+    <postMsg mid="35811103" type="Error" dynamic="2" navigation="0" arg0="one_segments" arg1="iCE40UP5K"  />
+    <postMsg mid="35811103" type="Error" dynamic="2" navigation="0" arg0="two_segments" arg1="iCE40UP5K"  />
+    <postMsg mid="35811103" type="Error" dynamic="2" navigation="0" arg0="three_segments" arg1="iCE40UP5K"  />
+    <postMsg mid="35811103" type="Error" dynamic="2" navigation="0" arg0="four_segments" arg1="iCE40UP5K"  />
+    <postMsg mid="35811103" type="Error" dynamic="2" navigation="0" arg0="five_segments" arg1="iCE40UP5K"  />
+    <postMsg mid="35811103" type="Error" dynamic="2" navigation="0" arg0="six_segments" arg1="iCE40UP5K"  />
+    <postMsg mid="35811103" type="Error" dynamic="2" navigation="0" arg0="seven_segments" arg1="iCE40UP5K"  />
+    <postMsg mid="35811103" type="Error" dynamic="2" navigation="0" arg0="eight_segments" arg1="iCE40UP5K"  />
+    <postMsg mid="35811103" type="Error" dynamic="2" navigation="0" arg0="nine_segments" arg1="iCE40UP5K"  />
+POSTSYN finished unsuccessfully.
+Total CPU Time: 0 secs 
+Total REAL Time: 0 secs 
+Peak Memory Usage: 58 MB
+child process exited abnormally
+Fail to run postsyn -a iCE40UP -p iCE40UP5K -t SG48 -sp High-Performance_1.2V -oc Industrial -top -w -o es4finalproj_impl_1_syn.udb es4finalproj_impl_1.vm -ldc C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/impl_1/es4finalproj_impl_1.ldc -gui -msgset C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/promote.xml 
+
 "C:/lscc/radiant/3.2/tcltk/windows/bin/tclsh" "es4finalproj_impl_1_synthesize.tcl"
 
 cpe -f es4finalproj_impl_1.cprj mypll.cprj -a iCE40UP -o es4finalproj_impl_1_cpe.ldc
-WARNING - No user LDC/SDC file specified in the project.
+    <postMsg mid="35831026" type="Warning" dynamic="0" navigation="0"  />
 Analyzing Verilog file C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v. VERI-1482
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(1): analyzing included file C:/lscc/radiant/3.2/ip/pmi/pmi_addsub.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_addsub.v(40): analyzing included file C:/lscc/radiant/3.2/ip/pmi/../common/adder_subtractor/rtl/lscc_add_sub.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(2): analyzing included file C:/lscc/radiant/3.2/ip/pmi/pmi_add.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_add.v(50): analyzing included file C:/lscc/radiant/3.2/ip/pmi/../common/adder/rtl/lscc_adder.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(3): analyzing included file C:/lscc/radiant/3.2/ip/pmi/pmi_complex_mult.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_complex_mult.v(52): analyzing included file C:/lscc/radiant/3.2/ip/pmi/../common/complex_mult/rtl/lscc_complex_mult.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(4): analyzing included file C:/lscc/radiant/3.2/ip/pmi/pmi_counter.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_counter.v(39): analyzing included file C:/lscc/radiant/3.2/ip/pmi/../common/counter/rtl/lscc_cntr.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(5): analyzing included file C:/lscc/radiant/3.2/ip/pmi/pmi_fifo.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_fifo.v(44): analyzing included file C:/lscc/radiant/3.2/ip/pmi/../avant/fifo/rtl/lscc_fifo.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(6): analyzing included file C:/lscc/radiant/3.2/ip/pmi/pmi_fifo_dc.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_fifo_dc.v(47): analyzing included file C:/lscc/radiant/3.2/ip/pmi/../avant/fifo_dc/rtl/lscc_fifo_dc.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(7): analyzing included file C:/lscc/radiant/3.2/ip/pmi/pmi_mac.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_mac.v(52): analyzing included file C:/lscc/radiant/3.2/ip/pmi/../common/mult_accumulate/rtl/lscc_mult_accumulate.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(8): analyzing included file C:/lscc/radiant/3.2/ip/pmi/pmi_multaddsubsum.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_multaddsubsum.v(53): analyzing included file C:/lscc/radiant/3.2/ip/pmi/../common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(9): analyzing included file C:/lscc/radiant/3.2/ip/pmi/pmi_multaddsub.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_multaddsub.v(52): analyzing included file C:/lscc/radiant/3.2/ip/pmi/../common/mult_add_sub/rtl/lscc_mult_add_sub.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(10): analyzing included file C:/lscc/radiant/3.2/ip/pmi/pmi_mult.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_mult.v(51): analyzing included file C:/lscc/radiant/3.2/ip/pmi/../common/multiplier/rtl/lscc_multiplier.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(11): analyzing included file C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp.v(48): analyzing included file C:/lscc/radiant/3.2/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(12): analyzing included file C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq.v(45): analyzing included file C:/lscc/radiant/3.2/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(13): analyzing included file C:/lscc/radiant/3.2/ip/pmi/pmi_rom.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_rom.v(45): analyzing included file C:/lscc/radiant/3.2/ip/pmi/../avant/rom/rtl/lscc_rom.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(14): analyzing included file C:/lscc/radiant/3.2/ip/pmi/pmi_sub.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_sub.v(50): analyzing included file C:/lscc/radiant/3.2/ip/pmi/../common/subtractor/rtl/lscc_subtractor.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(15): analyzing included file C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp_be.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp_be.v(49): analyzing included file C:/lscc/radiant/3.2/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(16): analyzing included file C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq_be.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq_be.v(45): analyzing included file C:/lscc/radiant/3.2/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v. VERI-1328
-INFO - C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(17): analyzing included file C:/lscc/radiant/3.2/ip/pmi/pmi_dsp.v. VERI-1328
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(1): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_addsub.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="1"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_addsub.v(40): " arg1="C:/lscc/radiant/3.2/ip/pmi/../common/adder_subtractor/rtl/lscc_add_sub.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_addsub.v" arg3="40"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(2): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_add.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="2"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_add.v(50): " arg1="C:/lscc/radiant/3.2/ip/pmi/../common/adder/rtl/lscc_adder.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_add.v" arg3="50"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(3): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_complex_mult.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="3"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_complex_mult.v(52): " arg1="C:/lscc/radiant/3.2/ip/pmi/../common/complex_mult/rtl/lscc_complex_mult.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_complex_mult.v" arg3="52"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(4): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_counter.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="4"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_counter.v(39): " arg1="C:/lscc/radiant/3.2/ip/pmi/../common/counter/rtl/lscc_cntr.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_counter.v" arg3="39"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(5): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_fifo.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="5"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_fifo.v(44): " arg1="C:/lscc/radiant/3.2/ip/pmi/../avant/fifo/rtl/lscc_fifo.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_fifo.v" arg3="44"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(6): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_fifo_dc.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="6"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_fifo_dc.v(47): " arg1="C:/lscc/radiant/3.2/ip/pmi/../avant/fifo_dc/rtl/lscc_fifo_dc.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_fifo_dc.v" arg3="47"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(7): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_mac.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="7"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_mac.v(52): " arg1="C:/lscc/radiant/3.2/ip/pmi/../common/mult_accumulate/rtl/lscc_mult_accumulate.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_mac.v" arg3="52"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(8): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_multaddsubsum.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="8"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_multaddsubsum.v(53): " arg1="C:/lscc/radiant/3.2/ip/pmi/../common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_multaddsubsum.v" arg3="53"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(9): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_multaddsub.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="9"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_multaddsub.v(52): " arg1="C:/lscc/radiant/3.2/ip/pmi/../common/mult_add_sub/rtl/lscc_mult_add_sub.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_multaddsub.v" arg3="52"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(10): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_mult.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="10"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_mult.v(51): " arg1="C:/lscc/radiant/3.2/ip/pmi/../common/multiplier/rtl/lscc_multiplier.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_mult.v" arg3="51"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(11): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="11"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp.v(48): " arg1="C:/lscc/radiant/3.2/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp.v" arg3="48"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(12): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="12"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq.v(45): " arg1="C:/lscc/radiant/3.2/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq.v" arg3="45"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(13): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_rom.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="13"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_rom.v(45): " arg1="C:/lscc/radiant/3.2/ip/pmi/../avant/rom/rtl/lscc_rom.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_rom.v" arg3="45"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(14): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_sub.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="14"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_sub.v(50): " arg1="C:/lscc/radiant/3.2/ip/pmi/../common/subtractor/rtl/lscc_subtractor.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_sub.v" arg3="50"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(15): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp_be.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="15"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp_be.v(49): " arg1="C:/lscc/radiant/3.2/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp_be.v" arg3="49"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(16): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq_be.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="16"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq_be.v(45): " arg1="C:/lscc/radiant/3.2/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq_be.v" arg3="45"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v(17): " arg1="C:/lscc/radiant/3.2/ip/pmi/pmi_dsp.v" arg2="C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v" arg3="17"  />
 Analyzing Verilog file C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/mypll/rtl/mypll.v. VERI-1482
 Analyzing Verilog file C:/lscc/radiant/3.2/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v. VERI-1482
 Top module name (Verilog): mypll
-INFO - C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/mypll/rtl/mypll.v(11): compiling module mypll. VERI-1018
-INFO - C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/mypll/rtl/mypll.v(105): compiling module mypll_ipgen_lscc_pll(DIVR=&quot;0&quot;,DIVF=&quot;66&quot;,DIVQ=&quot;5&quot;,FILTER_RANGE=&quot;1&quot;,PLLOUT_SELECT_PORTA=&quot;GENCLK&quot;,PLLOUT_SELECT_PORTB=&quot;GENCLK&quot;,FREQUENCY_PIN_REFERENCECLK=&quot;12.000000&quot;). VERI-1018
-INFO - C:/lscc/radiant/3.2/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v(428): compiling module PLL_B(PLLOUT_SELECT_PORTA=&quot;GENCLK&quot;,PLLOUT_SELECT_PORTB=&quot;GENCLK&quot;,DIVF=&quot;66&quot;,DIVQ=&quot;5&quot;,FILTER_RANGE=&quot;1&quot;,FREQUENCY_PIN_REFERENCECLK=&quot;12.000000&quot;). VERI-1018
+    <postMsg mid="35901018" type="Info" dynamic="2" navigation="2" arg0="C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/mypll/rtl/mypll.v(11): " arg1="mypll" arg2="C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/mypll/rtl/mypll.v" arg3="11"  />
+    <postMsg mid="35901018" type="Info" dynamic="2" navigation="2" arg0="C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/mypll/rtl/mypll.v(105): " arg1="mypll_ipgen_lscc_pll(DIVR=&quot;0&quot;,DIVF=&quot;66&quot;,DIVQ=&quot;5&quot;,FILTER_RANGE=&quot;1&quot;,PLLOUT_SELECT_PORTA=&quot;GENCLK&quot;,PLLOUT_SELECT_PORTB=&quot;GENCLK&quot;,FREQUENCY_PIN_REFERENCECLK=&quot;12.000000&quot;)" arg2="C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/mypll/rtl/mypll.v" arg3="105"  />
+    <postMsg mid="35901018" type="Info" dynamic="2" navigation="2" arg0="C:/lscc/radiant/3.2/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v(428): " arg1="PLL_B(PLLOUT_SELECT_PORTA=&quot;GENCLK&quot;,PLLOUT_SELECT_PORTB=&quot;GENCLK&quot;,DIVF=&quot;66&quot;,DIVQ=&quot;5&quot;,FILTER_RANGE=&quot;1&quot;,FREQUENCY_PIN_REFERENCECLK=&quot;12.000000&quot;)" arg2="C:/lscc/radiant/3.2/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v" arg3="428"  />
 Last elaborated design is mypll()
 Source compile complete.
-INFO - Setting top as top module.
-WARNING - No user LDC/SDC file specified in the project.
+    <postMsg mid="35831038" type="Info" dynamic="1" navigation="0" arg0="top"  />
+    <postMsg mid="35831026" type="Warning" dynamic="0" navigation="0"  />
 Analyzing Verilog file c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v. VERI-1482
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(1): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_addsub.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_addsub.v(40): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../common/adder_subtractor/rtl/lscc_add_sub.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(2): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_add.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_add.v(50): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../common/adder/rtl/lscc_adder.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(3): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_complex_mult.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_complex_mult.v(52): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../common/complex_mult/rtl/lscc_complex_mult.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(4): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_counter.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_counter.v(39): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../common/counter/rtl/lscc_cntr.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(5): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_fifo.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_fifo.v(44): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../avant/fifo/rtl/lscc_fifo.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(6): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_fifo_dc.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_fifo_dc.v(47): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../avant/fifo_dc/rtl/lscc_fifo_dc.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(7): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_mac.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_mac.v(52): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../common/mult_accumulate/rtl/lscc_mult_accumulate.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(8): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsubsum.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsubsum.v(53): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(9): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsub.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsub.v(52): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../common/mult_add_sub/rtl/lscc_mult_add_sub.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(10): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_mult.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_mult.v(51): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../common/multiplier/rtl/lscc_multiplier.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(11): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp.v(48): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(12): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq.v(45): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(13): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_rom.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_rom.v(45): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../avant/rom/rtl/lscc_rom.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(14): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_sub.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_sub.v(50): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../common/subtractor/rtl/lscc_subtractor.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(15): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp_be.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp_be.v(49): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(16): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq_be.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq_be.v(45): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(17): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_dsp.v. VERI-1328
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(1): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_addsub.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="1"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_addsub.v(40): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/adder_subtractor/rtl/lscc_add_sub.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_addsub.v" arg3="40"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(2): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_add.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="2"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_add.v(50): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/adder/rtl/lscc_adder.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_add.v" arg3="50"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(3): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_complex_mult.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="3"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_complex_mult.v(52): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/complex_mult/rtl/lscc_complex_mult.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_complex_mult.v" arg3="52"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(4): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_counter.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="4"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_counter.v(39): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/counter/rtl/lscc_cntr.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_counter.v" arg3="39"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(5): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_fifo.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="5"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_fifo.v(44): " arg1="c:/lscc/radiant/3.2/ip/pmi/../avant/fifo/rtl/lscc_fifo.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_fifo.v" arg3="44"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(6): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_fifo_dc.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="6"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_fifo_dc.v(47): " arg1="c:/lscc/radiant/3.2/ip/pmi/../avant/fifo_dc/rtl/lscc_fifo_dc.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_fifo_dc.v" arg3="47"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(7): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_mac.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="7"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_mac.v(52): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/mult_accumulate/rtl/lscc_mult_accumulate.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_mac.v" arg3="52"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(8): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsubsum.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="8"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsubsum.v(53): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsubsum.v" arg3="53"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(9): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsub.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="9"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsub.v(52): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/mult_add_sub/rtl/lscc_mult_add_sub.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsub.v" arg3="52"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(10): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_mult.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="10"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_mult.v(51): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/multiplier/rtl/lscc_multiplier.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_mult.v" arg3="51"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(11): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="11"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp.v(48): " arg1="c:/lscc/radiant/3.2/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp.v" arg3="48"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(12): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="12"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq.v(45): " arg1="c:/lscc/radiant/3.2/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq.v" arg3="45"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(13): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_rom.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="13"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_rom.v(45): " arg1="c:/lscc/radiant/3.2/ip/pmi/../avant/rom/rtl/lscc_rom.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_rom.v" arg3="45"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(14): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_sub.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="14"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_sub.v(50): " arg1="c:/lscc/radiant/3.2/ip/pmi/../common/subtractor/rtl/lscc_subtractor.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_sub.v" arg3="50"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(15): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp_be.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="15"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp_be.v(49): " arg1="c:/lscc/radiant/3.2/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp_be.v" arg3="49"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(16): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq_be.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="16"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq_be.v(45): " arg1="c:/lscc/radiant/3.2/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq_be.v" arg3="45"  />
+    <postMsg mid="35901328" type="Info" dynamic="2" navigation="2" arg0="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(17): " arg1="c:/lscc/radiant/3.2/ip/pmi/pmi_dsp.v" arg2="c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v" arg3="17"  />
 Analyzing Verilog file mypll.v. VERI-1482
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd. VHDL-1481
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd
 
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(5): analyzing entity display. VHDL-1012
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(24): analyzing architecture synth. VHDL-1010
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(89): input pin scores has no actual or default value. VHDL-9000
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(55): scores is declared here. VHDL-1259
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(5): " arg1="display" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd" arg3="5"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(24): " arg1="synth" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd" arg3="24"  />
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd. VHDL-1481
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd
 
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd(7): analyzing entity nes. VHDL-1012
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd(20): analyzing architecture synth. VHDL-1010
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd(7): " arg1="nes" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd" arg3="7"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd(20): " arg1="synth" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd" arg3="20"  />
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd. VHDL-1481
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd
 
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd(6): analyzing entity pattern_gen. VHDL-1012
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd(48): analyzing architecture synth. VHDL-1010
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd(6): " arg1="pattern_gen" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd" arg3="6"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd(41): " arg1="synth" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd" arg3="41"  />
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd. VHDL-1481
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd
 
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(5): analyzing entity top. VHDL-1012
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(26): analyzing architecture synth. VHDL-1010
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(5): " arg1="top" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd" arg3="5"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(26): " arg1="synth" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd" arg3="26"  />
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd. VHDL-1481
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd
 
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd(5): analyzing entity vga. VHDL-1012
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd(19): analyzing architecture synth. VHDL-1010
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd(5): " arg1="vga" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd" arg3="5"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd(19): " arg1="synth" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd" arg3="19"  />
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd. VHDL-1481
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd
 
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(8): analyzing entity snakepos. VHDL-1012
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(26): analyzing architecture synth. VHDL-1010
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(7): " arg1="snakepos" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd" arg3="7"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(25): " arg1="synth" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd" arg3="25"  />
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd. VHDL-1481
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd
 
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(6): analyzing entity board. VHDL-1012
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(21): analyzing architecture synth. VHDL-1010
-INFO - The default VHDL library search path is now "C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/impl_1". VHDL-1504
+    <postMsg mid="35921012" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(6): " arg1="board" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd" arg3="6"  />
+    <postMsg mid="35921010" type="Info" dynamic="2" navigation="2" arg0="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(21): " arg1="synth" arg2="c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd" arg3="21"  />
+    <postMsg mid="35921504" type="Info" dynamic="2" navigation="0" arg0="" arg1="C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/impl_1"  />
 Top module language type = VHDL.
 Top module name (VHDL, mixed language): top
 Source compile complete.
 Starting IP constraint check for mypll.
 Writing output files.
 CPE Completed. es4finalproj_impl_1_cpe.ldc and CPEReport.txt produced.
-
-
-synthesis -f es4finalproj_impl_1_lattice.synproj
-synthesis:  version Radiant Software (64-bit) 3.2.1.217.3
-
-Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
-Copyright (c) 1995 AT&T Corp.   All rights reserved.
-Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
-Copyright (c) 2001 Agere Systems   All rights reserved.
-Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Tue Dec 13 15:01:49 2022
-
-
-Command Line:  C:\lscc\radiant\3.2\ispfpga\bin\nt64\synthesis.exe -f es4finalproj_impl_1_lattice.synproj -gui -msgset C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/promote.xml 
-
-INFO - synthesis: Lattice Synthesis Engine Launched.
-Synthesis options:
-The -a option is iCE40UP.
-The -t option is SG48.
-The -sp option is High-Performance_1.2V.
-The -p option is iCE40UP5K.
-                                                          
-
-
-##########################################################
-
-
-### Lattice Family     : iCE40UP
-
-
-### Device             : iCE40UP5K
-
-
-### Package            : SG48
-
-
-### Performance Grade  : High-Performance_1.2V
-
-
-                                                         
-
-
-INFO - User-Selected Strategy Settings
-Optimization goal = Area
-Top-level module name = top.
-Target frequency = 200.000000 MHz.
-Maximum fanout = 1000.
-Timing path count = 3
-RWCheckOnRam = 0
-
-BRAM utilization = 100.000000 %
-DSP usage = true
-DSP utilization = 100.000000 %
-fsm_encoding_style = auto
-resolve_mixed_drivers = 0
-fix_gated_clocks = 1
-
-
-Mux style = auto (Default)
-Use Carry Chain = true
-carry_chain_length = 0
-Loop Limit = 1950.
-Use IO Insertion = TRUE
-Use IO Reg = AUTO
-
-Resource Sharing = TRUE
-Propagate Constants = TRUE
-Remove Duplicate Registers = TRUE
-Output HDL file name = es4finalproj_impl_1.vm.
-ROM style = auto
-RAM style = auto
-The -comp option is FALSE.
-The -syn option is FALSE.
--sdc option: SDC file input is es4finalproj_impl_1_cpe.ldc.
--vh2008
-
--path C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake (searchpath added)
--path C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/impl_1 (searchpath added)
--path C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/mypll (searchpath added)
--path C:/lscc/radiant/3.2/ispfpga/ice40tp/data (searchpath added)
-Mixed language design
-Verilog design file = C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.v
-Verilog design file = C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/mypll/rtl/mypll.v
-VHDL library = pmi
-VHDL design file = C:/lscc/radiant/3.2/ip/pmi/pmi_iCE40UP.vhd
-VHDL library = work
-VHDL design file = C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/source/impl_1/display.vhd
-VHDL library = work
-VHDL design file = C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/source/impl_1/nes.vhd
-VHDL library = work
-VHDL design file = C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/source/impl_1/pattern_gen.vhd
-VHDL library = work
-VHDL design file = C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/source/impl_1/topModule.vhd
-VHDL library = work
-VHDL design file = C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/source/impl_1/vga.vhd
-VHDL library = work
-VHDL design file = C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/source/impl_1/snakePos.vhd
-VHDL library = work
-VHDL design file = C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/source/impl_1/board.vhd
-The -r option is OFF. [ Remove LOC Properties is OFF. ]
-Compile design.
-Compile Design Begin
-Analyzing Verilog file c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v. VERI-1482
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(1): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_addsub.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_addsub.v(40): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../common/adder_subtractor/rtl/lscc_add_sub.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(2): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_add.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_add.v(50): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../common/adder/rtl/lscc_adder.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(3): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_complex_mult.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_complex_mult.v(52): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../common/complex_mult/rtl/lscc_complex_mult.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(4): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_counter.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_counter.v(39): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../common/counter/rtl/lscc_cntr.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(5): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_fifo.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_fifo.v(44): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../avant/fifo/rtl/lscc_fifo.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(6): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_fifo_dc.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_fifo_dc.v(47): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../avant/fifo_dc/rtl/lscc_fifo_dc.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(7): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_mac.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_mac.v(52): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../common/mult_accumulate/rtl/lscc_mult_accumulate.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(8): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsubsum.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsubsum.v(53): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(9): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsub.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_multaddsub.v(52): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../common/mult_add_sub/rtl/lscc_mult_add_sub.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(10): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_mult.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_mult.v(51): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../common/multiplier/rtl/lscc_multiplier.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(11): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp.v(48): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(12): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq.v(45): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(13): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_rom.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_rom.v(45): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../avant/rom/rtl/lscc_rom.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(14): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_sub.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_sub.v(50): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../common/subtractor/rtl/lscc_subtractor.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(15): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp_be.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dp_be.v(49): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(16): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq_be.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ram_dq_be.v(45): analyzing included file c:/lscc/radiant/3.2/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v. VERI-1328
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.v(17): analyzing included file c:/lscc/radiant/3.2/ip/pmi/pmi_dsp.v. VERI-1328
-Analyzing Verilog file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/mypll/rtl/mypll.v. VERI-1482
-Analyzing VHDL file c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.vhd. VHDL-1481
-Analyzing VHDL file c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.vhd
-
-INFO - c:/lscc/radiant/3.2/ip/pmi/pmi_ice40up.vhd(4): analyzing package components. VHDL-1014
-Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd. VHDL-1481
-Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd
-
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(5): analyzing entity display. VHDL-1012
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(24): analyzing architecture synth. VHDL-1010
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(89): input pin scores has no actual or default value. VHDL-9000
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(55): scores is declared here. VHDL-1259
-Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd. VHDL-1481
-Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd
-
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd(7): analyzing entity nes. VHDL-1012
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd(20): analyzing architecture synth. VHDL-1010
-Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd. VHDL-1481
-Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd
-
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd(6): analyzing entity pattern_gen. VHDL-1012
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd(48): analyzing architecture synth. VHDL-1010
-Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd. VHDL-1481
-Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd
-
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(5): analyzing entity top. VHDL-1012
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(26): analyzing architecture synth. VHDL-1010
-Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd. VHDL-1481
-Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd
-
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd(5): analyzing entity vga. VHDL-1012
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/vga.vhd(19): analyzing architecture synth. VHDL-1010
-Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd. VHDL-1481
-Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd
-
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(8): analyzing entity snakepos. VHDL-1012
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(26): analyzing architecture synth. VHDL-1010
-Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd. VHDL-1481
-Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd
-
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(6): analyzing entity board. VHDL-1012
-INFO - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd(21): analyzing architecture synth. VHDL-1010
-INFO - The default VHDL library search path is now "C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/impl_1". VHDL-1504
-Top module language type = VHDL.
-Top module name (VHDL, mixed language): top
-                                                         
-
-
-### Number of Logic Cells: 5280
-
-
-### Number of RAM Blocks: 30
-
-
-### Number of DSP Blocks: 8
-
-
-### Number of PLLs: 1
-
-
-### Number of IO Pins: 56
-
-
-##########################################################
-
-
-                                                         
-
-
-WARNING - Initial value found on net game_state[1] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net game_state[0] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net scores[6] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net scores[5] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net scores[4] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net scores[3] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net scores[2] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net scores[1] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net scores[0] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_head[6] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_head[5] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_head[4] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_head[3] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_head[2] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_head[1] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_head[0] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_tail[6] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_tail[5] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_tail[4] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_tail[3] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_tail[2] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_tail[1] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_tail[0] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[99] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[98] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[97] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[96] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[95] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[94] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[93] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[92] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[91] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[90] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[89] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[88] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[87] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[86] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[85] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[84] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[83] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[82] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[81] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[80] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[79] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[78] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[77] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[76] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[75] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[74] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[73] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[72] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[71] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[70] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[69] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[68] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[67] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[66] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[65] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[64] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[63] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[62] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[61] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[60] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[59] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[58] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[57] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[56] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[55] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[54] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[53] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[52] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[51] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[50] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[49] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[48] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[47] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[46] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[45] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[44] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[43] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[42] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[41] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[40] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[39] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[38] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[37] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[36] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[35] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[34] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[33] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[32] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[31] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[30] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[29] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[28] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[27] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[26] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[25] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[24] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[23] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[22] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[21] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[20] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[19] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[18] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[17] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[16] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[15] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[14] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[13] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[12] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[11] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[10] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[9] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[8] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[7] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[6] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[5] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[4] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[3] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[2] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[1] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_arr[0] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_dead will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_len_in[6] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_len_in[5] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_len_in[4] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_len_in[3] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_len_in[2] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_len_in[1] will be ignored due to unrecognized driver type
-WARNING - Initial value found on net snake_len_in[0] will be ignored due to unrecognized driver type
-WARNING - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port &apos;score[5]&apos; is not connected on this instance&#xA;
-WARNING - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port &apos;score[4]&apos; is not connected on this instance&#xA;
-WARNING - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port &apos;score[3]&apos; is not connected on this instance&#xA;
-WARNING - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port &apos;score[2]&apos; is not connected on this instance&#xA;
-WARNING - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port &apos;score[1]&apos; is not connected on this instance&#xA;
-WARNING - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port &apos;score[0]&apos; is not connected on this instance&#xA;
-WARNING - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port &apos;scores[6]&apos; is not connected on this instance&#xA;
-WARNING - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port &apos;scores[5]&apos; is not connected on this instance&#xA;
-WARNING - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port &apos;scores[4]&apos; is not connected on this instance&#xA;
-WARNING - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port &apos;scores[3]&apos; is not connected on this instance&#xA;
-WARNING - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port &apos;scores[2]&apos; is not connected on this instance&#xA;
-WARNING - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port &apos;scores[1]&apos; is not connected on this instance&#xA;
-WARNING - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port &apos;scores[0]&apos; is not connected on this instance&#xA;
-WARNING - I/O Port delete_me[2] 's net has no driver and is unused.
-WARNING - I/O Port delete_me[1] 's net has no driver and is unused.
-WARNING - I/O Port delete_me[0] 's net has no driver and is unused.
-WARNING - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/mypll/rtl/mypll.v(139): net \display_inst/pll_init/lscc_pll_inst/sclk_i does not have a driver. VDB-1002
-WARNING - c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/mypll/rtl/mypll.v(140): net \display_inst/pll_init/lscc_pll_inst/sdi_i does not have a driver. VDB-1002
-######## Missing driver on net delete_me[2]. Patching with GND.
-######## Missing driver on net delete_me[1]. Patching with GND.
-######## Missing driver on net delete_me[0]. Patching with GND.
-######## Missing driver on net \display_inst/pll_init/lscc_pll_inst/sclk_i. Patching with GND.
-######## Missing driver on net \display_inst/pll_init/lscc_pll_inst/sdi_i. Patching with GND.
-
-
-
-Mapped 4 multiplier(s)
-
-
-Combinational loop found : 1
-
-	Net digital[4] 
-
-	Instance \NES_inst/digital_7__I_0_i5 
-
-Combinational loop found : 2
-
-	Net digital[7] 
-
-	Instance \NES_inst/digital_7__I_0_i8 
-
-Combinational loop found : 3
-
-	Net digital[5] 
-
-	Instance \NES_inst/digital_7__I_0_i6 
-
-Combinational loop found : 4
-
-	Net digital[0] 
-
-	Instance \NES_inst/digital_7__I_0_i1 
-
-Combinational loop found : 5
-
-	Net digital[1] 
-
-	Instance \NES_inst/digital_7__I_0_i2 
-
-Combinational loop found : 6
-
-	Net digital[2] 
-
-	Instance \NES_inst/digital_7__I_0_i3 
-
-Combinational loop found : 7
-
-	Net digital[3] 
-
-	Instance \NES_inst/digital_7__I_0_i4 
-
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i0 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i99 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i98 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i97 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i96 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i95 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i94 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i93 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i92 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i91 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i90 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i89 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i88 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i87 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i86 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i85 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i84 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i83 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i82 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i81 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i80 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i79 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i78 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i77 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i76 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i75 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i74 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i73 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i72 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i71 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i70 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i69 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i68 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i67 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i66 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i65 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i64 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i63 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i62 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i61 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i60 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i59 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i58 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i57 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i56 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i55 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i54 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i53 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i52 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i51 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i50 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i49 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i48 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i47 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i46 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i45 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i44 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i43 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i42 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i41 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i40 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i39 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i38 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i37 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i36 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i35 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i34 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i33 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i32 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i31 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i30 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i29 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i28 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i27 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i26 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i25 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i24 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i23 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i22 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i21 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i20 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i19 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i18 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i17 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i16 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i15 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i14 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i13 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i12 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i11 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i10 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i9 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i8 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i7 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i6 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i5 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i4 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i3 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i2 will be ignored.
-WARNING - Initial value found on instance \board_inst/snakePos_inst/snake_arr_i1 will be ignored.
-INFO - Special Primitives IFD1P3AZ and OFD1P3AZ for ThunderPlus are synthesized using IOL_B.
-
-################### Begin Area Report (top)######################
-Number of register bits => 321 of 5280 (6 % )
-CCU2 => 283
-FD1P3XZ => 321
-HSOSC_CORE => 1
-IB => 2
-IOL_B => 1
-LUT4 => 4440
-MAC16 => 4
-OB => 14
-PLL_B => 1
-################### End Area Report ##################
-Number of odd-length carry chains : 50
-Number of even-length carry chains : 12
-
-################### Begin Clock Report ######################
-Clock Nets
-Number of Clocks: 4
-  Net : CLK, loads : 0
-  Net : pll_in_clock_c, loads : 1
-  Net : display_inst/pll_init/lscc_pll_inst/pll_outcore_o_c, loads : 1
-  Net : display_inst/pll_init/lscc_pll_inst/clk, loads : 0
-Clock Enable Nets
-Number of Clock Enables: 0
-Highest fanout non-clock nets
-Top 10 highest fanout non-clock nets:
-  Net : n39540, loads : 135
-  Net : board_inst/snakePos_inst/snakeCLK, loads : 122
-  Net : board_inst/snakePos_inst/snake_head_6__N_7824, loads : 97
-  Net : board_inst/game_state[0], loads : 52
-  Net : board_inst/snake_len[3], loads : 48
-  Net : board_inst/snakePos_inst/snake_head[0], loads : 47
-  Net : board_inst/snakePos_inst/n34757, loads : 44
-  Net : board_inst/snakePos_inst/reset, loads : 38
-  Net : board_inst/snakePos_inst/snake_head[2], loads : 33
-  Net : board_inst/snakePos_inst/snake_head[1], loads : 32
-################### End Clock Report ##################
-
-Peak Memory Usage: 211 MB
-
---------------------------------------------------------------
-Total CPU Time: 48 secs 
-Total REAL Time: 51 secs 
---------------------------------------------------------------
 
 
 postsyn -a iCE40UP -p iCE40UP5K -t SG48 -sp High-Performance_1.2V -oc Industrial -top -w -o es4finalproj_impl_1_syn.udb es4finalproj_impl_1.vm -ldc C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/impl_1/es4finalproj_impl_1.ldc
@@ -689,296 +166,26 @@ Command Line: postsyn -a iCE40UP -p iCE40UP5K -t SG48 -sp High-Performance_1.2V 
    Package:          SG48
    Performance:      High-Performance_1.2V
 Reading input file 'es4finalproj_impl_1.vm' ...
-CPU Time to convert: 1.28125
-REAL Time to convert: 1
-convert PEAK Memory Usage: 64 MB
-convert CURRENT Memory Usage: 61 MB
+CPU Time to convert: 0.5625
+REAL Time to convert: 0
+convert PEAK Memory Usage: 58 MB
+convert CURRENT Memory Usage: 55 MB
 Reading constraint file 'C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/impl_1/es4finalproj_impl_1.ldc' ...
 Removing unused logic ...
-Starting design annotation....
-WARNING - No master clock for
-	generated clock	create_generated_clock -name {display_inst/clk} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTGLOBAL }] .
-WARNING - No master clock for
-	generated clock	create_generated_clock -name {pll_outcore_o_c} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTCORE }] .
-Writing output file 'es4finalproj_impl_1_syn.udb'.
-POSTSYN finished successfully.
-Total CPU Time: 2 secs 
-Total REAL Time: 3 secs 
-Peak Memory Usage: 64 MB
-
-
-map -i "es4finalproj_impl_1_syn.udb" -pdc "C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/ports.pdc" -o "es4finalproj_impl_1_map.udb" -mp "es4finalproj_impl_1.mrp" -hierrpt     
-map:  version Radiant Software (64-bit) 3.2.1.217.3
-
-Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
-Copyright (c) 1995 AT&T Corp.   All rights reserved.
-Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
-Copyright (c) 2001 Agere Systems   All rights reserved.
-Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-
-Command line:   map -i es4finalproj_impl_1_syn.udb -pdc C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/ports.pdc -o es4finalproj_impl_1_map.udb -mp es4finalproj_impl_1.mrp -hierrpt -gui 
-
-Loading device for application GENERIC from file 'itpa08.nph' in environment: C:/lscc/radiant/3.2/ispfpga.
-Package Status:                     Preliminary    Version 1.5.
-
-
-
-WARNING - C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/ports.pdc (10) : No port matched &apos;delete_me&apos;.
-WARNING - No port matched 'delete_me'.
-WARNING - Can't resolve object 'delete_me' in constraint 'ldc_set_location -site {37} [get_ports delete_me]'.
-WARNING - Remove invalid constraint 'ldc_set_location -site {37} [get_ports delete_me]'.
-   Remove unused logic
-
-   Do not produce over sized UDBs.
-
-Running general design DRC...
-
-Removing unused logic...
-
-Optimizing...
-
-
-
-
-Design Summary:
-   Number of slice registers: 321 out of  5280 (6%)
-   Number of I/O registers:      1 out of   117 (1%)
-   Number of LUT4s:           5029 out of  5280 (95%)
-      Number of logic LUT4s:             4442
-      Number of inserted feedthru LUT4s:  20
-      Number of replicated LUT4s:          1
-      Number of ripple logic:            283 (566 LUT4s)
-   Number of IO sites used:   16 out of 39 (41%)
-      Number of IO sites used for general PIO: 16
-      Number of IO sites used for I3C: 0 out of 2 (0%)
-      (note: If I3C is not used, its site can be used as general PIO)
-      Number of IO sites used for PIO+I3C: 16 out of 36 (44%)
-      Number of IO sites used for OD+RGB IO buffers: 0 out of 3 (0%)
-      (note: If RGB LED drivers are not used, sites can be used as OD outputs,
-       see TN1288 iCE40 LED Driver Usage Guide)
-      Number of IO sites used for PIO+I3C+OD+RGB: 16 out of 39 (41%)
-   Number of DSPs:             4 out of 8 (50%)
-   Number of I2Cs:             0 out of 2 (0%)
-   Number of High Speed OSCs:  1 out of 1 (100%)
-   Number of Low Speed OSCs:   0 out of 1 (0%)
-   Number of RGB PWM:          0 out of 1 (0%)
-   Number of RGB Drivers:      0 out of 1 (0%)
-   Number of SCL FILTERs:      0 out of 2 (0%)
-   Number of SRAMs:            0 out of 4 (0%)
-   Number of WARMBOOTs:        0 out of 1 (0%)
-   Number of SPIs:             0 out of 2 (0%)
-   Number of EBRs:             0 out of 30 (0%)
-   Number of PLLs:             1 out of 1 (100%)
-   Number of Clocks:  5
-      Net CLK: 147 loads, 147 rising, 0 falling (Driver: Pin HSOSC_inst/CLKHF)
-      Net NES_inst.NESclk: 8 loads, 8 rising, 0 falling (Driver: Pin NES_inst.count_10687_10813__i8/Q)
-      Net board_inst.snakePos_inst.snakeCLK: 121 loads, 121 rising, 0 falling (Driver: Pin board_inst.snakePos_inst.counter_10688_10808__i23/Q)
-      Net display_inst.clk: 15 loads, 15 rising, 0 falling (Driver: Pin display_inst.pll_init.lscc_pll_inst.u_PLL_B/OUTGLOBAL)
-      Net pll_in_clock_c: 1 loads, 1 rising, 0 falling (Driver: Port pll_in_clock)
-   Number of Clock Enables:  11
-      Net n39540: 112 loads, 112 SLICEs
-      Net VCC_net: 1 loads, 0 SLICEs
-      Net NES_inst.output_7__N_34: 8 loads, 7 SLICEs
-      Net board_inst.n97204: 1 loads, 1 SLICEs
-      Net board_inst.n39101: 7 loads, 7 SLICEs
-      Net board_inst.n97246: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n97338: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39019: 6 loads, 6 SLICEs
-      Net board_inst.snakePos_inst.snake_dir_1__N_7816: 2 loads, 2 SLICEs
-      Net board_inst.snakePos_inst.n103517: 1 loads, 1 SLICEs
-      Net display_inst.vga_init.n39095: 6 loads, 6 SLICEs
-   Number of LSRs:  144
-      Net n39002: 1 loads, 1 SLICEs
-      Net board_inst.apple_intermed_6__N_59: 8 loads, 8 SLICEs
-      Net board_inst.n1: 3 loads, 3 SLICEs
-      Net board_inst.snake_head_6__N_7824: 77 loads, 77 SLICEs
-      Net board_inst.snakePos_inst.n111444: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111427: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39423: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111426: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111425: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111443: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111424: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111423: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111442: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111422: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111421: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111441: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111420: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111419: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39413: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111440: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111418: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111417: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111416: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111439: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111415: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111414: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111413: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111438: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39411: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111412: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111411: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n92779: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111410: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n92783: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111437: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111436: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111477: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111409: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111435: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111476: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39409: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39407: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39405: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39403: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39401: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39399: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39397: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39395: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39393: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39391: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39389: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39387: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39385: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39383: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39381: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39379: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39377: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39375: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39373: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39371: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39431: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111434: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111475: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n92733: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111433: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n92784: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111474: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111473: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111472: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111471: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111408: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111432: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111470: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111469: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111468: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111407: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111467: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n92824: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111466: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111431: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111465: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111430: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111406: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111429: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n92792: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111405: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111464: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n92822: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111404: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n92743: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111463: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n92719: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111403: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111402: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n92813: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111462: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111401: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n92738: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n92745: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111400: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111399: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n92938: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111428: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111461: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111398: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111460: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111397: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111459: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111458: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111457: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111396: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111456: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111395: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111394: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111393: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111455: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111454: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111453: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111372: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111452: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111451: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n92734: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111450: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111449: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39415: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39425: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39417: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39427: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39419: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39433: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39435: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39437: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39439: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39441: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39429: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n39421: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111448: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111447: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111446: 1 loads, 1 SLICEs
-      Net board_inst.snakePos_inst.n111445: 1 loads, 1 SLICEs
-      Net display_inst.vga_init.HSYNC_N_8026: 1 loads, 1 SLICEs
-      Net display_inst.vga_init.VSYNC_N_8029: 1 loads, 1 SLICEs
-      Net display_inst.vga_init.n39095: 6 loads, 6 SLICEs
-      Net display_inst.vga_init.n88434: 6 loads, 6 SLICEs
-   Top 10 highest fanout non-clock nets:
-      Net n39540: 112 loads
-      Net board_inst.snake_head_6__N_7824: 98 loads
-      Net board_inst.snakePos_inst.snake_arr_99__N_7536[0]: 89 loads
-      Net board_inst.snakePos_inst.snake_arr_99__N_7536[1]: 89 loads
-      Net board_inst.snakePos_inst.snake_arr_99__N_7536[2]: 89 loads
-      Net VCC_net: 89 loads
-      Net game_state[0]: 79 loads
-      Net reset: 64 loads
-      Net game_state[1]: 55 loads
-      Net board_inst.snake_len[3]: 52 loads
-Running physical design DRC...
-
- 
-
-   Number of warnings:  4
-   Number of errors:    0
-
-
-
-Total CPU Time: 6 secs  
-Total REAL Time: 7 secs  
-Peak Memory Usage: 125 MB
-
-
-par -f "es4finalproj_impl_1.p2t" "es4finalproj_impl_1_map.udb" "es4finalproj_impl_1.udb"
-
-Lattice Place and Route Report for Design "es4finalproj_impl_1_map.udb"
-Tue Dec 13 15:02:52 2022
-
-PAR: Place And Route Radiant Software (64-bit) 3.2.1.217.3.
-Command Line: par -w -t 1 -cores 1 -exp parPathBased=ON \
-	es4finalproj_impl_1_map.udb es4finalproj_impl_1_par.dir/5_1.udb 
-
-Loading es4finalproj_impl_1_map.udb ...
-Loading device for application GENERIC from file 'itpa08.nph' in environment: C:/lscc/radiant/3.2/ispfpga.
-Package Status:                     Preliminary    Version 1.5.
-Performance Hardware Data Status:   Advanced       Version 1.0.
-
-
-
-Design:  top
-Family:  iCE40UP
-Device:  iCE40UP5K
-Package: SG48
-Performance Grade:   High-Performance_1.2V
-WARNING - No master clock for
-	generated clock	create_generated_clock -name {display_inst/clk} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTGLOBAL }] .
-WARNING - No master clock for
-	generated clock	create_generated_clock -name {pll_outcore_o_c} -source [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/REFERENCECLK}] -multiply_by 67 -divide_by 32 [get_pins {display_inst/pll_init/lscc_pll_inst/u_PLL_B/OUTCORE }] .
+    <postMsg mid="35811103" type="Error" dynamic="2" navigation="0" arg0="gapple" arg1="iCE40UP5K"  />
+    <postMsg mid="35811103" type="Error" dynamic="2" navigation="0" arg0="zero_segments" arg1="iCE40UP5K"  />
+    <postMsg mid="35811103" type="Error" dynamic="2" navigation="0" arg0="one_segments" arg1="iCE40UP5K"  />
+    <postMsg mid="35811103" type="Error" dynamic="2" navigation="0" arg0="two_segments" arg1="iCE40UP5K"  />
+    <postMsg mid="35811103" type="Error" dynamic="2" navigation="0" arg0="three_segments" arg1="iCE40UP5K"  />
+    <postMsg mid="35811103" type="Error" dynamic="2" navigation="0" arg0="four_segments" arg1="iCE40UP5K"  />
+    <postMsg mid="35811103" type="Error" dynamic="2" navigation="0" arg0="five_segments" arg1="iCE40UP5K"  />
+    <postMsg mid="35811103" type="Error" dynamic="2" navigation="0" arg0="six_segments" arg1="iCE40UP5K"  />
+    <postMsg mid="35811103" type="Error" dynamic="2" navigation="0" arg0="seven_segments" arg1="iCE40UP5K"  />
+    <postMsg mid="35811103" type="Error" dynamic="2" navigation="0" arg0="eight_segments" arg1="iCE40UP5K"  />
+    <postMsg mid="35811103" type="Error" dynamic="2" navigation="0" arg0="nine_segments" arg1="iCE40UP5K"  />
+POSTSYN finished unsuccessfully.
+Total CPU Time: 0 secs 
+Total REAL Time: 0 secs 
+Peak Memory Usage: 58 MB
+child process exited abnormally
+Fail to run postsyn -a iCE40UP -p iCE40UP5K -t SG48 -sp High-Performance_1.2V -oc Industrial -top -w -o es4finalproj_impl_1_syn.udb es4finalproj_impl_1.vm -ldc C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/impl_1/es4finalproj_impl_1.ldc -gui -msgset C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/promote.xml 

@@ -48,7 +48,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Tue Dec 13 15:01:49 2022
+Thu Dec 22 21:48:50 2022
 
 
 Command Line:  C:\lscc\radiant\3.2\ispfpga\bin\nt64\synthesis.exe -f es4finalproj_impl_1_lattice.synproj -gui -msgset C:/Users/gsess/OneDrive/Documents/es4_final_proj/ES4_Snake/promote.xml 
@@ -183,8 +183,6 @@ Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/s
 
 INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(5): analyzing entity display. VHDL-1012
 INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(24): analyzing architecture synth. VHDL-1010
-INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(89): input pin scores has no actual or default value. VHDL-9000
-INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(55): scores is declared here. VHDL-1259
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd. VHDL-1481
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/nes.vhd
 
@@ -194,7 +192,7 @@ Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/s
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd
 
 INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd(6): analyzing entity pattern_gen. VHDL-1012
-INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd(48): analyzing architecture synth. VHDL-1010
+INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/pattern_gen.vhd(41): analyzing architecture synth. VHDL-1010
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd. VHDL-1481
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd
 
@@ -208,8 +206,8 @@ INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/sou
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd. VHDL-1481
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd
 
-INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(8): analyzing entity snakepos. VHDL-1012
-INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(26): analyzing architecture synth. VHDL-1010
+INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(7): analyzing entity snakepos. VHDL-1012
+INFO - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/snakepos.vhd(25): analyzing architecture synth. VHDL-1010
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd. VHDL-1481
 Analyzing VHDL file c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/board.vhd
 
@@ -244,13 +242,6 @@ Top module name (VHDL, mixed language): top
 
 WARNING - synthesis: Initial value found on net game_state[1] will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net game_state[0] will be ignored due to unrecognized driver type
-WARNING - synthesis: Initial value found on net scores[6] will be ignored due to unrecognized driver type
-WARNING - synthesis: Initial value found on net scores[5] will be ignored due to unrecognized driver type
-WARNING - synthesis: Initial value found on net scores[4] will be ignored due to unrecognized driver type
-WARNING - synthesis: Initial value found on net scores[3] will be ignored due to unrecognized driver type
-WARNING - synthesis: Initial value found on net scores[2] will be ignored due to unrecognized driver type
-WARNING - synthesis: Initial value found on net scores[1] will be ignored due to unrecognized driver type
-WARNING - synthesis: Initial value found on net scores[0] will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net snake_head[6] will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net snake_head[5] will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net snake_head[4] will be ignored due to unrecognized driver type
@@ -373,90 +364,45 @@ WARNING - synthesis: Initial value found on net snake_len_in[3] will be ignored 
 WARNING - synthesis: Initial value found on net snake_len_in[2] will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net snake_len_in[1] will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net snake_len_in[0] will be ignored due to unrecognized driver type
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port 'score[5]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port 'score[4]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port 'score[3]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port 'score[2]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port 'score[1]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port 'score[0]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port 'scores[6]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port 'scores[5]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port 'scores[4]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port 'scores[3]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port 'scores[2]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port 'scores[1]' is not connected on this instance
-
-WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/display.vhd(79): input port 'scores[0]' is not connected on this instance
-
+WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/source/impl_1/topmodule.vhd(80): net digital[7] does not have a driver. VDB-1002
+WARNING - synthesis: I/O Port continCLK 's net has no driver and is unused.
 WARNING - synthesis: I/O Port delete_me[2] 's net has no driver and is unused.
 WARNING - synthesis: I/O Port delete_me[1] 's net has no driver and is unused.
 WARNING - synthesis: I/O Port delete_me[0] 's net has no driver and is unused.
 WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/mypll/rtl/mypll.v(139): net \display_inst/pll_init/lscc_pll_inst/sclk_i does not have a driver. VDB-1002
 WARNING - synthesis: c:/users/gsess/onedrive/documents/es4_final_proj/es4_snake/mypll/rtl/mypll.v(140): net \display_inst/pll_init/lscc_pll_inst/sdi_i does not have a driver. VDB-1002
+######## Missing driver on net continCLK. Patching with GND.
 ######## Missing driver on net delete_me[2]. Patching with GND.
 ######## Missing driver on net delete_me[1]. Patching with GND.
 ######## Missing driver on net delete_me[0]. Patching with GND.
+######## Missing driver on net digital[7]. Patching with GND.
+######## Missing driver on net digital[5]. Patching with GND.
+######## Missing driver on net digital[4]. Patching with GND.
+######## Missing driver on net digital[3]. Patching with GND.
+######## Missing driver on net digital[2]. Patching with GND.
+######## Missing driver on net digital[1]. Patching with GND.
+######## Missing driver on net digital[0]. Patching with GND.
 ######## Missing driver on net \display_inst/pll_init/lscc_pll_inst/sclk_i. Patching with GND.
 ######## Missing driver on net \display_inst/pll_init/lscc_pll_inst/sdi_i. Patching with GND.
 
 
 
-Mapped 4 multiplier(s)
+WARNING - synthesis: Bit 1 of Register \board_inst/snakePos_inst/dir_signal is stuck at Zero
+WARNING - synthesis: Bit 0 of Register \board_inst/snakePos_inst/dir_signal is stuck at Zero
+WARNING - synthesis: Bit 1 of Register \board_inst/snakePos_inst/snake_dir is stuck at Zero
+WARNING - synthesis: Bit 0 of Register \board_inst/snakePos_inst/snake_dir is stuck at Zero
+WARNING - synthesis: Bit 13 of Register \display_inst/score_tensplace is stuck at Zero
+WARNING - synthesis: Bit 4 of Register \display_inst/score_highBCD is stuck at Zero
+Mapped 6 multiplier(s)
 
 
-Combinational loop found : 1
-
-	Net digital[4] 
-
-	Instance \NES_inst/digital_7__I_0_i5 
-
-Combinational loop found : 2
-
-	Net digital[7] 
-
-	Instance \NES_inst/digital_7__I_0_i8 
-
-Combinational loop found : 3
-
-	Net digital[5] 
-
-	Instance \NES_inst/digital_7__I_0_i6 
-
-Combinational loop found : 4
-
-	Net digital[0] 
-
-	Instance \NES_inst/digital_7__I_0_i1 
-
-Combinational loop found : 5
-
-	Net digital[1] 
-
-	Instance \NES_inst/digital_7__I_0_i2 
-
-Combinational loop found : 6
-
-	Net digital[2] 
-
-	Instance \NES_inst/digital_7__I_0_i3 
-
-Combinational loop found : 7
-
-	Net digital[3] 
-
-	Instance \NES_inst/digital_7__I_0_i4 
-
+WARNING - synthesis: I/O Port data 's net has no driver and is unused.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i5 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i4 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i3 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i2 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i6 will be ignored.
+WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i1 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i0 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i99 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i98 will be ignored.
@@ -551,31 +497,42 @@ WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/s
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i9 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i8 will be ignored.
 WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i7 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i6 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i5 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i4 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i3 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i2 will be ignored.
-WARNING - synthesis: Initial value found on instance \board_inst/snakePos_inst/snake_arr_i1 will be ignored.
 INFO - synthesis: Special Primitives IFD1P3AZ and OFD1P3AZ for ThunderPlus are synthesized using IOL_B.
 
 
 <A name="lse_area"></A><B><U><big>Area Report</big></U></B>
 
 ################### Begin Area Report (top)######################
-Number of register bits => 321 of 5280 (6 % )
-CCU2 => 283
-FD1P3XZ => 321
+Number of register bits => 277 of 5280 (5 % )
+CCU2 => 271
+FD1P3XZ => 277
 HSOSC_CORE => 1
-IB => 2
-IOL_B => 1
-LUT4 => 4440
-MAC16 => 4
+IB => 1
+IOL_B => 6
+LUT4 => 3222
+MAC16 => 6
 OB => 14
 PLL_B => 1
 ################### End Area Report ##################
-Number of odd-length carry chains : 50
-Number of even-length carry chains : 12
+Number of odd-length carry chains : 41
+Number of even-length carry chains : 15
+
+
+<A name="lse_bbox"></A><B><U><big>BlackBox Report</big></U></B>
+
+################### Begin BlackBox Report ######################
+eight_segments => 2
+five_segments => 2
+four_segments => 2
+gapple => 1
+nine_segments => 2
+one_segments => 2
+seven_segments => 2
+six_segments => 2
+three_segments => 2
+two_segments => 2
+zero_segments => 1
+################### End BlackBox Report ##################
 
 
 <A name="lse_clock"></A><B><U><big>Clock Report</big></U></B>
@@ -591,23 +548,23 @@ Clock Enable Nets
 Number of Clock Enables: 0
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : n39540, loads : 135
-  Net : board_inst/snakePos_inst/snakeCLK, loads : 122
-  Net : board_inst/snakePos_inst/snake_head_6__N_7824, loads : 97
-  Net : board_inst/game_state[0], loads : 52
-  Net : board_inst/snake_len[3], loads : 48
-  Net : board_inst/snakePos_inst/snake_head[0], loads : 47
-  Net : board_inst/snakePos_inst/n34757, loads : 44
-  Net : board_inst/snakePos_inst/reset, loads : 38
-  Net : board_inst/snakePos_inst/snake_head[2], loads : 33
-  Net : board_inst/snakePos_inst/snake_head[1], loads : 32
+  Net : board_inst/snakePos_inst/snakeCLK, loads : 81
+  Net : board_inst/snake_head_6__N_5094, loads : 80
+  Net : board_inst/snakePos_inst/n28272, loads : 69
+  Net : board_inst/snake_len[4], loads : 64
+  Net : board_inst/snakePos_inst/snake_arr_99__N_5044[2], loads : 57
+  Net : board_inst/snakePos_inst/snake_arr_99__N_5044[0], loads : 57
+  Net : board_inst/snakePos_inst/snake_arr_99__N_5044[1], loads : 57
+  Net : board_inst/snakePos_inst/snake_arr_99__N_5009[0], loads : 49
+  Net : board_inst/snakePos_inst/snake_head[0], loads : 44
+  Net : display_inst/vga_init/rgb_nine_tenth_5__N_5214[4], loads : 42
 ################### End Clock Report ##################
 
-Peak Memory Usage: 211 MB
+Peak Memory Usage: 189 MB
 
 --------------------------------------------------------------
-Total CPU Time: 48 secs 
-Total REAL Time: 51 secs 
+Total CPU Time: 23 secs 
+Total REAL Time: 24 secs 
 --------------------------------------------------------------
 
 
@@ -668,6 +625,7 @@ Total REAL Time: 51 secs
 <UL id="toc_list">
 <LI><A href=#Syn>Top</A></LI>
 <LI><A href=#lse_area>Area Report</A></LI>
+<LI><A href=#lse_bbox>BlackBox Report</A></LI>
 <LI><A href=#lse_clock>Clock Report</A></LI>
 </UL>
 </DIV>

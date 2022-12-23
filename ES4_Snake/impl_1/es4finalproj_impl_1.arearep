@@ -1,83 +1,149 @@
 ----------------------------------------------------------------------
 Report for cell top.TECH
-Register bits:  321 of 5280 (6.080%)
-I/O cells:      16
+Register bits:  277 of 5280 (5.246%)
+I/O cells:      15
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               CCU2       283          100.0
-                            FD1P3XZ       321          100.0
+                               CCU2       271          100.0
+                            FD1P3XZ       277          100.0
                          HSOSC_CORE         1          100.0
-                                 IB         2          100.0
-                              IOL_B         1          100.0
-                               LUT4      4440          100.0
-                              MAC16         4          100.0
+                                 IB         1          100.0
+                              IOL_B         6          100.0
+                               LUT4      3222          100.0
+                              MAC16         6          100.0
                                  OB        14          100.0
                               PLL_B         1          100.0
 SUB MODULES
                                 NES         1
                               board         1
                             display         1
+                     eight_segments         1
+                      five_segments         1
+                      four_segments         1
+                             gapple         1
                               mypll         1
 mypll_ipgen_lscc_pll(DIVR="0",DIVF="66",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",FREQUENCY_PIN_REFERENCECLK="12.000000")         1
+                      nine_segments         1
+                       one_segments         1
                         pattern_gen         1
+                     seven_segments         1
+                       six_segments         1
                            snakepos         1
+                     three_segments         1
+                       two_segments         1
                                 vga         1
-                              TOTAL      5075
-----------------------------------------------------------------------
-Report for cell NES.v1
-Instance Path : NES_inst
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                                FA2        11            3.9
-                            FD1P3XZ        27            8.4
-                              IOL_B         1          100.0
-                               LUT4        17            0.4
-                              TOTAL        56
+                      zero_segments         1
+                              TOTAL      3818
 ----------------------------------------------------------------------
 Report for cell board.v1
 Instance Path : board_inst
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2       172           60.8
-                            FD1P3XZ       271           84.4
-                               LUT4      4004           90.2
+                                FA2       124           45.8
+                            FD1P3XZ       226           81.6
+                               LUT4      2650           82.2
 SUB MODULES
                            snakepos         1
-                              TOTAL      4448
+                              TOTAL      3001
 ----------------------------------------------------------------------
 Report for cell snakepos.v1
 Instance Path : board_inst.snakePos_inst
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2       168           59.4
-                            FD1P3XZ       255           79.4
-                               LUT4      3963           89.3
-                              TOTAL      4386
+                                FA2       116           42.8
+                            FD1P3XZ       210           75.8
+                               LUT4      2573           79.9
+                              TOTAL      2899
+----------------------------------------------------------------------
+Report for cell NES.v1
+Instance Path : NES_inst
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        11            4.1
+                            FD1P3XZ        20            7.2
+                               LUT4         4            0.1
+                              TOTAL        35
 ----------------------------------------------------------------------
 Report for cell display.v1
 Instance Path : display_inst
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2       100           35.3
-                            FD1P3XZ        23            7.2
-                               LUT4       340            7.7
-                              MAC16         4          100.0
+                                FA2       136           50.2
+                            FD1P3XZ        31           11.2
+                              IOL_B         6          100.0
+                               LUT4       489           15.2
+                              MAC16         6          100.0
                               PLL_B         1          100.0
 SUB MODULES
+                     eight_segments         1
+                      five_segments         1
+                      four_segments         1
+                             gapple         1
                               mypll         1
 mypll_ipgen_lscc_pll(DIVR="0",DIVF="66",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",FREQUENCY_PIN_REFERENCECLK="12.000000")         1
+                      nine_segments         1
+                       one_segments         1
                         pattern_gen         1
+                     seven_segments         1
+                       six_segments         1
+                     three_segments         1
+                       two_segments         1
                                 vga         1
-                              TOTAL       472
+                      zero_segments         1
+                              TOTAL       684
+----------------------------------------------------------------------
+Report for cell secured_cell.secured_netlist
+Instance Path : secured_path
+                              TOTAL         0
+----------------------------------------------------------------------
+Report for cell secured_cell.secured_netlist
+Instance Path : secured_path
+                              TOTAL         0
+----------------------------------------------------------------------
+Report for cell secured_cell.secured_netlist
+Instance Path : secured_path
+                              TOTAL         0
+----------------------------------------------------------------------
+Report for cell secured_cell.secured_netlist
+Instance Path : secured_path
+                              TOTAL         0
+----------------------------------------------------------------------
+Report for cell secured_cell.secured_netlist
+Instance Path : secured_path
+                              TOTAL         0
+----------------------------------------------------------------------
+Report for cell secured_cell.secured_netlist
+Instance Path : secured_path
+                              TOTAL         0
+----------------------------------------------------------------------
+Report for cell secured_cell.secured_netlist
+Instance Path : secured_path
+                              TOTAL         0
+----------------------------------------------------------------------
+Report for cell secured_cell.secured_netlist
+Instance Path : secured_path
+                              TOTAL         0
+----------------------------------------------------------------------
+Report for cell secured_cell.secured_netlist
+Instance Path : secured_path
+                              TOTAL         0
+----------------------------------------------------------------------
+Report for cell secured_cell.secured_netlist
+Instance Path : secured_path
+                              TOTAL         0
+----------------------------------------------------------------------
+Report for cell secured_cell.secured_netlist
+Instance Path : secured_path
+                              TOTAL         0
 ----------------------------------------------------------------------
 Report for cell vga.v1
 Instance Path : display_inst.vga_init
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2        12            4.2
-                            FD1P3XZ        23            7.2
-                               LUT4        75            1.7
-                              TOTAL       110
+                                FA2        12            4.4
+                            FD1P3XZ        23            8.3
+                               LUT4        20            0.6
+                              TOTAL        55
 ----------------------------------------------------------------------
 Report for cell mypll.v1
 Instance Path : display_inst.pll_init
@@ -99,7 +165,7 @@ Report for cell pattern_gen.v1
 Instance Path : display_inst.pattern_gen_initial
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2        88           31.1
-                               LUT4       260            5.9
-                              MAC16         4          100.0
-                              TOTAL       352
+                                FA2        62           22.9
+                               LUT4       280            8.7
+                              MAC16         2           33.3
+                              TOTAL       344
