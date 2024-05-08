@@ -1,17 +1,16 @@
-# es4_final_proj
+# Tufts ES4 - Intro to Digital Logic Final Project
+## Snake Game using FPGA and VHDL
+![Game Preview](media/snakegame_screen.png)
 
-Read me!
+This is a final project between Chris Bann, Ethan Hsu, Gabriel Sessions, and Ivan Qin. In this project, the classic Snake arcade game is implemented using a FPGA. The FPGA is programmed with VHDL and connected to a external display using VGA. The repository contains all the code written to achieve this final result. Below, you can find a short demo, and the full demo video can be found [here](https://www.youtube.com/watch?v=86ho9ddVpio).
 
-
-What setting options do we want? (Also is this our lowest priority to implement)
-
-How do we want to store the location of snakes? Mark each coordinates, store
-corners, 
+![Game Video](media/Snake_Game_using_a_FPGA_VGA_display_and_NES_Controller.gif)
 
 
-Modules Hierachy:
+### Modules Hierachy
+Below are the modules hierachy written by Ethan during the development stage to clarify the logic of each module. Note that this project is by no mean production quality, and there are many rooms for improvements, but it was our best work at the time.
 
-Top:
+Top (topModule.vhd):
     - Take inputs through NES module
     - Use display module to produce the inputs VGA need, 
         the board will take NES module input.
@@ -28,12 +27,6 @@ Display:
     - Concat board and menu together and handle paddings, to produce an output
         for VGA module.
 
-Menu: (Optional)
-    - Before the game start, provide list and instructions.
-    - The output of this menu will need to satisfy the followings
-        - Enough information for Display module to populate the display.
-        - Enough information for our module to know what game settings we are on.
-
 Board:
     - Here we stores constants using generic.
     - If the game starts, we take the inputs and start doing works.
@@ -41,9 +34,6 @@ Board:
         - Whether the game is over
         - Enough information to populate the display such as position of snakes
           and apples.
-
-randomPos:
-    - This module will randomly generate a x and y coordinate.
 
 snakePos:
     - This module will take inputs and decide the next location of the snake
@@ -62,4 +52,3 @@ Ex: "01111110" = LEFT and A pressed
 - output(5) = SELECT button
 - output(6) = B button
 - output(7) = A button
-
